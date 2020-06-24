@@ -65,6 +65,7 @@ This documentation is aimed at modders. It displays a template for weapon defini
 <tr><td>LaunchAngle</td><td>0</td><td>Collection of 1D World Angle</td><td>Arc in WAngles, two values indicate variable arc. </td></tr>
 <tr><td>BounceCount</td><td>0</td><td>Integer</td><td>Up to how many times does this bullet bounce when touching ground without hitting a target. 0 implies exploding on contact with the originally targeted position. </td></tr>
 <tr><td>BounceRangeModifier</td><td>60</td><td>Integer</td><td>Modify distance of each bounce by this percentage of previous distance. </td></tr>
+<tr><td>BounceSound</td><td></td><td>String</td><td>Sound to play when the projectile hits the ground, but not the target. </td></tr>
 <tr><td>ValidBounceBlockerStances</td><td>Enemy, Neutral</td><td>Stance</td><td>If projectile touches an actor with one of these stances during or after the first bounce, trigger explosion. </td></tr>
 <tr><td>AirburstAltitude</td><td>0c0</td><td>1D World Distance</td><td>Altitude above terrain below which to explode. Zero effectively deactivates airburst. </td></tr>
 <tr><td>ContrailLength</td><td>0</td><td>Integer</td><td></td></tr>
@@ -216,6 +217,7 @@ Interacts with the TemporaryOwnerManager trait.
 <tr><td>InvalidTargets</td><td></td><td>Collection of TargetableType</td><td>What types of targets are unaffected. Overrules ValidTargets. </td></tr>
 <tr><td>ValidStances</td><td>Enemy, Neutral, Ally</td><td>Stance</td><td>What diplomatic stances are affected. </td></tr>
 <tr><td>AffectsParent</td><td>False</td><td>Boolean</td><td>Can this warhead affect the actor that fired it. </td></tr>
+<tr><td>AirThreshold</td><td>0c128</td><td>1D World Distance</td><td>If impact is above this altitude, warheads that would affect terrain ignore terrain target types (and either do nothing or perform their own checks). </td></tr>
 <tr><td>Delay</td><td>0</td><td>Integer</td><td>Delay in ticks before applying the warhead effect. 0 = instant (old model). </td></tr>
 <tr><td>DebugOverlayColor</td><td>FF0000</td><td>Color (RRGGBB[AA] notation)</td><td>The color used for this warhead's visualization in the world's `WarheadDebugOverlay` trait. </td></tr>
 </table>
@@ -230,12 +232,12 @@ Interacts with the TemporaryOwnerManager trait.
 <tr><td>ForceDisplayAtGroundLevel</td><td>False</td><td>Boolean</td><td>Display explosion effect at ground level, regardless of explosion altitude. </td></tr>
 <tr><td>ImpactSounds</td><td></td><td>Collection of String</td><td>List of sounds that can be played on impact. </td></tr>
 <tr><td>ImpactSoundChance</td><td>100</td><td>Integer</td><td>Chance of impact sound to play. </td></tr>
-<tr><td>AirThreshold</td><td>0c128</td><td>1D World Distance</td><td>Consider explosion above this altitude an air explosion. If that's the case, this warhead will consider the explosion position to have the 'Air' TargetType (in addition to any nearby actor's TargetTypes). </td></tr>
 <tr><td>ImpactActors</td><td>True</td><td>Boolean</td><td>Whether to consider actors in determining whether the explosion should happen. If false, only terrain will be considered. </td></tr>
 <tr><td>ValidTargets</td><td>Ground, Water</td><td>Collection of TargetableType</td><td>What types of targets are affected. </td></tr>
 <tr><td>InvalidTargets</td><td></td><td>Collection of TargetableType</td><td>What types of targets are unaffected. Overrules ValidTargets. </td></tr>
 <tr><td>ValidStances</td><td>Enemy, Neutral, Ally</td><td>Stance</td><td>What diplomatic stances are affected. </td></tr>
 <tr><td>AffectsParent</td><td>False</td><td>Boolean</td><td>Can this warhead affect the actor that fired it. </td></tr>
+<tr><td>AirThreshold</td><td>0c128</td><td>1D World Distance</td><td>If impact is above this altitude, warheads that would affect terrain ignore terrain target types (and either do nothing or perform their own checks). </td></tr>
 <tr><td>Delay</td><td>0</td><td>Integer</td><td>Delay in ticks before applying the warhead effect. 0 = instant (old model). </td></tr>
 <tr><td>DebugOverlayColor</td><td>FF0000</td><td>Color (RRGGBB[AA] notation)</td><td>The color used for this warhead's visualization in the world's `WarheadDebugOverlay` trait. </td></tr>
 </table>
@@ -249,6 +251,7 @@ Interacts with the TemporaryOwnerManager trait.
 <tr><td>InvalidTargets</td><td></td><td>Collection of TargetableType</td><td>What types of targets are unaffected. Overrules ValidTargets. </td></tr>
 <tr><td>ValidStances</td><td>Enemy, Neutral, Ally</td><td>Stance</td><td>What diplomatic stances are affected. </td></tr>
 <tr><td>AffectsParent</td><td>False</td><td>Boolean</td><td>Can this warhead affect the actor that fired it. </td></tr>
+<tr><td>AirThreshold</td><td>0c128</td><td>1D World Distance</td><td>If impact is above this altitude, warheads that would affect terrain ignore terrain target types (and either do nothing or perform their own checks). </td></tr>
 <tr><td>Delay</td><td>0</td><td>Integer</td><td>Delay in ticks before applying the warhead effect. 0 = instant (old model). </td></tr>
 <tr><td>DebugOverlayColor</td><td>FF0000</td><td>Color (RRGGBB[AA] notation)</td><td>The color used for this warhead's visualization in the world's `WarheadDebugOverlay` trait. </td></tr>
 </table>
@@ -261,6 +264,7 @@ Interacts with the TemporaryOwnerManager trait.
 <tr><td>InvalidTargets</td><td></td><td>Collection of TargetableType</td><td>What types of targets are unaffected. Overrules ValidTargets. </td></tr>
 <tr><td>ValidStances</td><td>Enemy, Neutral, Ally</td><td>Stance</td><td>What diplomatic stances are affected. </td></tr>
 <tr><td>AffectsParent</td><td>False</td><td>Boolean</td><td>Can this warhead affect the actor that fired it. </td></tr>
+<tr><td>AirThreshold</td><td>0c128</td><td>1D World Distance</td><td>If impact is above this altitude, warheads that would affect terrain ignore terrain target types (and either do nothing or perform their own checks). </td></tr>
 <tr><td>Delay</td><td>0</td><td>Integer</td><td>Delay in ticks before applying the warhead effect. 0 = instant (old model). </td></tr>
 <tr><td>DebugOverlayColor</td><td>FF0000</td><td>Color (RRGGBB[AA] notation)</td><td>The color used for this warhead's visualization in the world's `WarheadDebugOverlay` trait. </td></tr>
 </table>
@@ -276,6 +280,7 @@ Interacts with the TemporaryOwnerManager trait.
 <tr><td>InvalidTargets</td><td></td><td>Collection of TargetableType</td><td>What types of targets are unaffected. Overrules ValidTargets. </td></tr>
 <tr><td>ValidStances</td><td>Enemy, Neutral, Ally</td><td>Stance</td><td>What diplomatic stances are affected. </td></tr>
 <tr><td>AffectsParent</td><td>False</td><td>Boolean</td><td>Can this warhead affect the actor that fired it. </td></tr>
+<tr><td>AirThreshold</td><td>0c128</td><td>1D World Distance</td><td>If impact is above this altitude, warheads that would affect terrain ignore terrain target types (and either do nothing or perform their own checks). </td></tr>
 <tr><td>Delay</td><td>0</td><td>Integer</td><td>Delay in ticks before applying the warhead effect. 0 = instant (old model). </td></tr>
 <tr><td>DebugOverlayColor</td><td>FF0000</td><td>Color (RRGGBB[AA] notation)</td><td>The color used for this warhead's visualization in the world's `WarheadDebugOverlay` trait. </td></tr>
 </table>
@@ -290,6 +295,7 @@ Interacts with the TemporaryOwnerManager trait.
 <tr><td>InvalidTargets</td><td></td><td>Collection of TargetableType</td><td>What types of targets are unaffected. Overrules ValidTargets. </td></tr>
 <tr><td>ValidStances</td><td>Enemy, Neutral, Ally</td><td>Stance</td><td>What diplomatic stances are affected. </td></tr>
 <tr><td>AffectsParent</td><td>False</td><td>Boolean</td><td>Can this warhead affect the actor that fired it. </td></tr>
+<tr><td>AirThreshold</td><td>0c128</td><td>1D World Distance</td><td>If impact is above this altitude, warheads that would affect terrain ignore terrain target types (and either do nothing or perform their own checks). </td></tr>
 <tr><td>Delay</td><td>0</td><td>Integer</td><td>Delay in ticks before applying the warhead effect. 0 = instant (old model). </td></tr>
 <tr><td>DebugOverlayColor</td><td>FF0000</td><td>Color (RRGGBB[AA] notation)</td><td>The color used for this warhead's visualization in the world's `WarheadDebugOverlay` trait. </td></tr>
 </table>
@@ -305,6 +311,7 @@ Interacts with the TemporaryOwnerManager trait.
 <tr><td>InvalidTargets</td><td></td><td>Collection of TargetableType</td><td>What types of targets are unaffected. Overrules ValidTargets. </td></tr>
 <tr><td>ValidStances</td><td>Enemy, Neutral, Ally</td><td>Stance</td><td>What diplomatic stances are affected. </td></tr>
 <tr><td>AffectsParent</td><td>False</td><td>Boolean</td><td>Can this warhead affect the actor that fired it. </td></tr>
+<tr><td>AirThreshold</td><td>0c128</td><td>1D World Distance</td><td>If impact is above this altitude, warheads that would affect terrain ignore terrain target types (and either do nothing or perform their own checks). </td></tr>
 <tr><td>Delay</td><td>0</td><td>Integer</td><td>Delay in ticks before applying the warhead effect. 0 = instant (old model). </td></tr>
 <tr><td>DebugOverlayColor</td><td>FF0000</td><td>Color (RRGGBB[AA] notation)</td><td>The color used for this warhead's visualization in the world's `WarheadDebugOverlay` trait. </td></tr>
 </table>
@@ -314,12 +321,12 @@ Interacts with the TemporaryOwnerManager trait.
 <tr><th>Property</th><th>Default Value</th><th>Type</th><th>Description</th></tr>
 <tr><td>Size</td><td>0, 0</td><td>Collection of Integer</td><td>Size of the area. A smudge will be created in each tile. Provide 2 values for a ring effect (outer/inner). </td></tr>
 <tr><td>SmudgeType</td><td></td><td>Set of String</td><td>Type of smudge to apply to terrain. </td></tr>
-<tr><td>AirThreshold</td><td>0c128</td><td>1D World Distance</td><td>How close to ground must the impact happen to spawn smudges. </td></tr>
 <tr><td>Chance</td><td>100</td><td>Integer</td><td>Percentual chance the smudge is created. </td></tr>
 <tr><td>ValidTargets</td><td>Ground, Water</td><td>Collection of TargetableType</td><td>What types of targets are affected. </td></tr>
 <tr><td>InvalidTargets</td><td></td><td>Collection of TargetableType</td><td>What types of targets are unaffected. Overrules ValidTargets. </td></tr>
 <tr><td>ValidStances</td><td>Enemy, Neutral, Ally</td><td>Stance</td><td>What diplomatic stances are affected. </td></tr>
 <tr><td>AffectsParent</td><td>False</td><td>Boolean</td><td>Can this warhead affect the actor that fired it. </td></tr>
+<tr><td>AirThreshold</td><td>0c128</td><td>1D World Distance</td><td>If impact is above this altitude, warheads that would affect terrain ignore terrain target types (and either do nothing or perform their own checks). </td></tr>
 <tr><td>Delay</td><td>0</td><td>Integer</td><td>Delay in ticks before applying the warhead effect. 0 = instant (old model). </td></tr>
 <tr><td>DebugOverlayColor</td><td>FF0000</td><td>Color (RRGGBB[AA] notation)</td><td>The color used for this warhead's visualization in the world's `WarheadDebugOverlay` trait. </td></tr>
 </table>
@@ -335,6 +342,7 @@ Makes the screen shake.
 <tr><td>InvalidTargets</td><td></td><td>Collection of TargetableType</td><td>What types of targets are unaffected. Overrules ValidTargets. </td></tr>
 <tr><td>ValidStances</td><td>Enemy, Neutral, Ally</td><td>Stance</td><td>What diplomatic stances are affected. </td></tr>
 <tr><td>AffectsParent</td><td>False</td><td>Boolean</td><td>Can this warhead affect the actor that fired it. </td></tr>
+<tr><td>AirThreshold</td><td>0c128</td><td>1D World Distance</td><td>If impact is above this altitude, warheads that would affect terrain ignore terrain target types (and either do nothing or perform their own checks). </td></tr>
 <tr><td>Delay</td><td>0</td><td>Integer</td><td>Delay in ticks before applying the warhead effect. 0 = instant (old model). </td></tr>
 <tr><td>DebugOverlayColor</td><td>FF0000</td><td>Color (RRGGBB[AA] notation)</td><td>The color used for this warhead's visualization in the world's `WarheadDebugOverlay` trait. </td></tr>
 </table>
@@ -345,6 +353,7 @@ Makes the screen shake.
 <tr><td>Spread</td><td>0c43</td><td>1D World Distance</td><td>Range between falloff steps. </td></tr>
 <tr><td>Falloff</td><td>100, 37, 14, 5, 0</td><td>Collection of Integer</td><td>Damage percentage at each range step </td></tr>
 <tr><td>Range</td><td></td><td>Collection of 1D World Distance</td><td>Ranges at which each Falloff step is defined. Overrides Spread. </td></tr>
+<tr><td>DamageCalculationType</td><td>HitShape</td><td>DamageCalculationType</td><td>Controls the way damage is calculated. Possible values are 'HitShape', 'ClosestTargetablePosition' and 'CenterPosition'. </td></tr>
 <tr><td>Damage</td><td>0</td><td>Integer</td><td>How much (raw) damage to deal. </td></tr>
 <tr><td>DamageTypes</td><td></td><td>Collection of DamageType</td><td>Types of damage that this warhead causes. Leave empty for no damage types. </td></tr>
 <tr><td>Versus</td><td></td><td>Mapping of String to Integer</td><td>Damage percentage versus each armortype. </td></tr>
@@ -352,6 +361,7 @@ Makes the screen shake.
 <tr><td>InvalidTargets</td><td></td><td>Collection of TargetableType</td><td>What types of targets are unaffected. Overrules ValidTargets. </td></tr>
 <tr><td>ValidStances</td><td>Enemy, Neutral, Ally</td><td>Stance</td><td>What diplomatic stances are affected. </td></tr>
 <tr><td>AffectsParent</td><td>False</td><td>Boolean</td><td>Can this warhead affect the actor that fired it. </td></tr>
+<tr><td>AirThreshold</td><td>0c128</td><td>1D World Distance</td><td>If impact is above this altitude, warheads that would affect terrain ignore terrain target types (and either do nothing or perform their own checks). </td></tr>
 <tr><td>Delay</td><td>0</td><td>Integer</td><td>Delay in ticks before applying the warhead effect. 0 = instant (old model). </td></tr>
 <tr><td>DebugOverlayColor</td><td>FF0000</td><td>Color (RRGGBB[AA] notation)</td><td>The color used for this warhead's visualization in the world's `WarheadDebugOverlay` trait. </td></tr>
 </table>
@@ -367,6 +377,7 @@ Makes the screen shake.
 <tr><td>InvalidTargets</td><td></td><td>Collection of TargetableType</td><td>What types of targets are unaffected. Overrules ValidTargets. </td></tr>
 <tr><td>ValidStances</td><td>Enemy, Neutral, Ally</td><td>Stance</td><td>What diplomatic stances are affected. </td></tr>
 <tr><td>AffectsParent</td><td>False</td><td>Boolean</td><td>Can this warhead affect the actor that fired it. </td></tr>
+<tr><td>AirThreshold</td><td>0c128</td><td>1D World Distance</td><td>If impact is above this altitude, warheads that would affect terrain ignore terrain target types (and either do nothing or perform their own checks). </td></tr>
 <tr><td>Delay</td><td>0</td><td>Integer</td><td>Delay in ticks before applying the warhead effect. 0 = instant (old model). </td></tr>
 <tr><td>DebugOverlayColor</td><td>FF0000</td><td>Color (RRGGBB[AA] notation)</td><td>The color used for this warhead's visualization in the world's `WarheadDebugOverlay` trait. </td></tr>
 </table>

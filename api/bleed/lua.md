@@ -30,6 +30,17 @@ An optional second value can be used to exactly specify the producing queue type
 <tr><td align="right" width="50%"><strong>Actor Create(string type, bool addToWorld, LuaTable initTable)</strong></td><td>Create a new actor. initTable specifies a list of key-value pairs that defines the initial parameters for the actor's traits.</td></tr>
 <tr><td align="right" width="50%"><strong>int CruiseAltitude(string type)</strong></td><td>Returns the cruise altitude of the requested unit type (zero if it is ground-based).</td></tr>
 </table>
+<table align="center" width="1024"><tr><th colspan="2" width="1024">Angle</th></tr>
+<tr><td align="right" width="50%"><strong>WAngle East { get; }</strong></td><td></td></tr>
+<tr><td align="right" width="50%"><strong>WAngle New(int a)</strong></td><td>Create an arbitrary angle.</td></tr>
+<tr><td align="right" width="50%"><strong>WAngle North { get; }</strong></td><td></td></tr>
+<tr><td align="right" width="50%"><strong>WAngle NorthEast { get; }</strong></td><td></td></tr>
+<tr><td align="right" width="50%"><strong>WAngle NorthWest { get; }</strong></td><td></td></tr>
+<tr><td align="right" width="50%"><strong>WAngle South { get; }</strong></td><td></td></tr>
+<tr><td align="right" width="50%"><strong>WAngle SouthEast { get; }</strong></td><td></td></tr>
+<tr><td align="right" width="50%"><strong>WAngle SouthWest { get; }</strong></td><td></td></tr>
+<tr><td align="right" width="50%"><strong>WAngle West { get; }</strong></td><td></td></tr>
+</table>
 <table align="center" width="1024"><tr><th colspan="2" width="1024">Beacon</th></tr>
 <tr><td align="right" width="50%"><strong>void New(Player owner, WPos position, int duration = 750, bool showRadarPings = True)</strong></td><td>Creates a new beacon that stays for the specified time at the specified WPos. Does not remove player set beacons, nor gets removed by placing them. Requires the 'PlaceBeacon' trait on the player actor.</td></tr>
 </table>
@@ -166,7 +177,7 @@ matching the filter function called as function(CPos cell).</td></tr>
 <tr><td align="right" width="50%"><strong>void OnAnyKilled(Actor[] actors, LuaFunction func)</strong></td><td>Call a function when one of the actors in a group is killed. The callback function will be called as func(Actor killed).</td></tr>
 <tr><td align="right" width="50%"><strong>void OnAnyProduction(LuaFunction func)</strong></td><td>Call a function when any actor produces another actor. The callback function will be called as func(Actor producer, Actor produced, string productionType).</td></tr>
 <tr><td align="right" width="50%"><strong>void OnCapture(Actor a, LuaFunction func)</strong></td><td>Call a function when this actor is captured. The callback function will be called as func(Actor self, Actor captor, Player oldOwner, Player newOwner).</td></tr>
-<tr><td align="right" width="50%"><strong>void OnDamaged(Actor a, LuaFunction func)</strong></td><td>Call a function when the actor is damaged. The callback function will be called as func(Actor self, Actor attacker).</td></tr>
+<tr><td align="right" width="50%"><strong>void OnDamaged(Actor a, LuaFunction func)</strong></td><td>Call a function when the actor is damaged. The callback function will be called as func(Actor self, Actor attacker, int damage).</td></tr>
 <tr><td align="right" width="50%"><strong>void OnDiscovered(Actor a, LuaFunction func)</strong></td><td>Call a function when this actor is discovered by an enemy or a player with a Neutral stance. The callback function will be called as func(Actor discovered, Player discoverer). The player actor needs the 'EnemyWatcher' trait. The actors to discover need the 'AnnounceOnSeen' trait.</td></tr>
 <tr><td align="right" width="50%"><strong>int OnEnteredFootprint(CPos[] cells, LuaFunction func)</strong></td><td>Call a function when a ground-based actor enters this cell footprint. Returns the trigger id for later removal using RemoveFootprintTrigger(int id). The callback function will be called as func(Actor a, int id).</td></tr>
 <tr><td align="right" width="50%"><strong>int OnEnteredProximityTrigger(WPos pos, WDist range, LuaFunction func)</strong></td><td>Call a function when an actor enters this range. Returns the trigger id for later removal using RemoveProximityTrigger(int id). The callback function will be called as func(Actor a, int id).</td></tr>
@@ -355,7 +366,7 @@ Remove the actor from the game, without triggering any death notification.
 </td><td>
 The effective owner of the actor.
 </td></tr>
-<tr><td width="50%" align="right"><strong>int Facing { get; }</strong>
+<tr><td width="50%" align="right"><strong>WAngle Facing { get; }</strong>
 </td><td>
 The direction that the actor is facing.
 </td></tr>
@@ -368,7 +379,7 @@ defines which player palette to use. Duration is in ticks.
 </td><td>
 Grant an external condition on this actor and return the revocation token.
 Conditions must be defined on an ExternalConditions trait on the actor.
-If duration > 0 the condition will be automatically revoked after the defined number of ticks
+If duration > 0 the condition will be automatically revoked after the defined number of ticks.
 <br />
 <b>Requires Trait:</b> ExternalCondition
 </td></tr>
@@ -526,6 +537,13 @@ Moves from outside the world into the cell grid.
 <br />
 <b>Requires Trait:</b> Mobile
 </td></tr>
+<tr><td width="50%" align="right"><strong>void Panic()</strong>
+<br /><em>Queued Activity</em>
+</td><td>
+Makes the unit automatically run around and become faster.
+<br />
+<b>Requires Trait:</b> ScaredyCat
+</td></tr>
 <tr><td width="50%" align="right"><strong>void Resupply()</strong>
 <br /><em>Queued Activity</em>
 </td><td>
@@ -607,31 +625,31 @@ Activate the actor's NukePower.
 </td></tr>
 <tr><td width="50%" align="right"><strong>Actor[] ActivateParatroopers(WPos target, int facing = -1)</strong>
 </td><td>
-Activate the actor's Paratroopers Power. Returns the aircraft that will drop the reinforcements.
+Activate the actor's Paratroopers Power. Returns the aircraft that will drop the reinforcements. DEPRECATED! Will be removed.
 <br />
 <b>Requires Trait:</b> ParatroopersPower
 </td></tr>
 <tr><td width="50%" align="right"><strong>void SendAirstrike(WPos target, bool randomize = True, int facing = 0)</strong>
 </td><td>
-Activate the actor's Airstrike Power.
+Activate the actor's Airstrike Power. DEPRECATED! Will be removed.
 <br />
 <b>Requires Trait:</b> AirstrikePower
 </td></tr>
 <tr><td width="50%" align="right"><strong>void SendAirstrikeFrom(CPos from, CPos to)</strong>
 </td><td>
-Activate the actor's Airstrike Power.
+Activate the actor's Airstrike Power. DEPRECATED! Will be removed.
 <br />
 <b>Requires Trait:</b> AirstrikePower
 </td></tr>
-<tr><td width="50%" align="right"><strong>Actor[] SendParatroopers(WPos target, bool randomize = True, int facing = 0)</strong>
+<tr><td width="50%" align="right"><strong>Actor[] TargetAirstrike(WPos target, Nullable`1 facing = nil)</strong>
 </td><td>
-Activate the actor's Paratroopers Power. Returns the dropped units. DEPRECATED! Will be removed.
+Activate the actor's Airstrike Power. Returns the aircraft that will attack.
 <br />
-<b>Requires Trait:</b> ParatroopersPower
+<b>Requires Trait:</b> AirstrikePower
 </td></tr>
-<tr><td width="50%" align="right"><strong>Actor[] SendParatroopersFrom(CPos from, CPos to)</strong>
+<tr><td width="50%" align="right"><strong>Actor[] TargetParatroopers(WPos target, Nullable`1 facing = nil)</strong>
 </td><td>
-Activate the actor's Paratroopers Power. Returns the dropped units. DEPRECATED! Will be removed.
+Activate the actor's Paratroopers Power. Returns the aircraft that will drop the reinforcements.
 <br />
 <b>Requires Trait:</b> ParatroopersPower
 </td></tr>
@@ -756,6 +774,10 @@ Mark an objective as failed.  This needs the objective ID returned by AddObjecti
 </td></tr>
 </table>
 <table align="center" width="1024"><tr><th colspan="2" width="1024">Player</th></tr>
+<tr><td width="50%" align="right"><strong>bool AcceptsCondition(string condition)</strong>
+</td><td>
+Check whether this player actor accepts a specific external condition.
+</td></tr>
 <tr><td width="50%" align="right"><strong>int BuildingsKilled { get; }</strong>
 </td><td>
 The total number of buildings killed by this player.
@@ -802,6 +824,12 @@ Returns all living actors of the specified types of this player.
 </td><td>
 Returns an array of actors representing all ground attack units of this player.
 </td></tr>
+<tr><td width="50%" align="right"><strong>int GrantCondition(string condition, int duration = 0)</strong>
+</td><td>
+Grant an external condition on the player actor and return the revocation token.
+Conditions must be defined on an ExternalConditions trait on the player actor.
+If duration > 0 the condition will be automatically revoked after the defined number of ticks.
+</td></tr>
 <tr><td width="50%" align="right"><strong>bool HasPrerequisites(String[] type)</strong>
 </td><td>
 Check if the player has these prerequisites available.
@@ -831,6 +859,10 @@ The combined value of units killed by this player.
 <tr><td width="50%" align="right"><strong>string Name { get; }</strong>
 </td><td>
 The player's name.
+</td></tr>
+<tr><td width="50%" align="right"><strong>void RevokeCondition(int token)</strong>
+</td><td>
+Revoke a condition using the token returned by GrantCondition.
 </td></tr>
 <tr><td width="50%" align="right"><strong>int Spawn { get; }</strong>
 </td><td>
