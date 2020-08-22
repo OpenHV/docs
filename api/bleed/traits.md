@@ -9,6 +9,8 @@ This documentation is aimed at modders. It displays all traits with default valu
   * [DevCommands](#devcommands)
   * [HelpCommand](#helpcommand)
   * [PlayerCommands](#playercommands)
+* [OpenRA.Mods.Common.HV.Render](#openramodscommonhvrender)
+  * [WithDamagedOverlay](#withdamagedoverlay)
 * [OpenRA.Mods.Common.Scripting](#openramodscommonscripting)
   * [LuaScript](#luascript)
   * [ScriptTriggers](#scripttriggers)
@@ -80,7 +82,6 @@ This documentation is aimed at modders. It displays all traits with default valu
   * [TransformsIntoPassenger](#transformsintopassenger)
   * [TransformsIntoRepairable](#transformsintorepairable)
   * [TransformsIntoTransforms](#transformsintotransforms)
-  * [Burns](#burns)
   * [Capturable](#capturable)
   * [CapturableProgressBar](#capturableprogressbar)
   * [CapturableProgressBlink](#capturableprogressblink)
@@ -92,6 +93,7 @@ This documentation is aimed at modders. It displays all traits with default valu
   * [CarryableHarvester](#carryableharvester)
   * [Carryall](#carryall)
   * [CashTrickler](#cashtrickler)
+  * [ChangesHealth](#changeshealth)
   * [ChangesTerrain](#changesterrain)
   * [Cloak](#cloak)
   * [CombatDebugOverlay](#combatdebugoverlay)
@@ -272,7 +274,6 @@ This documentation is aimed at modders. It displays all traits with default valu
   * [ScriptTags](#scripttags)
   * [SeedsResource](#seedsresource)
   * [Selectable](#selectable)
-  * [SelfHealing](#selfhealing)
   * [Sellable](#sellable)
   * [ShakeOnDeath](#shakeondeath)
   * [SmokeTrailWhenDamaged](#smoketrailwhendamaged)
@@ -288,6 +289,8 @@ This documentation is aimed at modders. It displays all traits with default valu
   * [SupportPowerManager](#supportpowermanager)
   * [Targetable](#targetable)
   * [TemporaryOwnerManager](#temporaryownermanager)
+  * [TerrainLighting](#terrainlighting)
+  * [TerrainLightSource](#terrainlightsource)
   * [ThrowsParticle](#throwsparticle)
   * [ThrowsShrapnel](#throwsshrapnel)
   * [EditorOnlyTooltip](#editoronlytooltip)
@@ -361,6 +364,7 @@ This documentation is aimed at modders. It displays all traits with default valu
   * [ValidateOrder](#validateorder)
   * [WarheadDebugOverlay](#warheaddebugoverlay)
   * [WeatherOverlay](#weatheroverlay)
+  * [AcceptsDeliveredResources](#acceptsdeliveredresources)
   * [TerrainDebugOverlay](#terraindebugoverlay)
 * [OpenRA.Mods.Common.Traits.Conditions](#openramodscommontraitsconditions)
   * [GrantRandomCondition](#grantrandomcondition)
@@ -442,7 +446,7 @@ This documentation is aimed at modders. It displays all traits with default valu
   * [WithVoxelTurret](#withvoxelturret)
   * [WithWallSpriteBody](#withwallspritebody)
   * [EmptySelectionDecorations](#emptyselectiondecorations)
-  * [WithProductionDoorAnimation](#withproductiondooranimation)
+  * [OutlinedSelectionDecorations](#outlinedselectiondecorations)
 * [OpenRA.Mods.Common.Traits.Sound](#openramodscommontraitssound)
   * [ActorLostNotification](#actorlostnotification)
   * [AmbientSound](#ambientsound)
@@ -461,11 +465,15 @@ This documentation is aimed at modders. It displays all traits with default valu
   * [MineImmune](#mineimmune)
   * [Minelayer](#minelayer)
   * [MinerDeployManagerBotModule](#minerdeploymanagerbotmodule)
+  * [PeriodicDischarge](#periodicdischarge)
   * [TeleportNetworkManager](#teleportnetworkmanager)
+  * [ResourceCollector](#resourcecollector)
+  * [ResourceTransporter](#resourcetransporter)
   * [ScrapOptions](#scrapoptions)
   * [ScrapValue](#scrapvalue)
   * [SeaMonster](#seamonster)
   * [SpawnScrapOnDeath](#spawnscrapondeath)
+  * [SpawnsShrapnel](#spawnsshrapnel)
   * [TeleportNetwork](#teleportnetwork)
   * [TeleportNetworkPrimaryExit](#teleportnetworkprimaryexit)
   * [TeleportNetworkTransportable](#teleportnetworktransportable)
@@ -474,18 +482,19 @@ This documentation is aimed at modders. It displays all traits with default valu
   * [CustomTerrainLayer](#customterrainlayer)
   * [DebugOffsetOverlayManager](#debugoffsetoverlaymanager)
   * [ForestLayer](#forestlayer)
-  * [LiquidTerrainLayerEditorLayer](#liquidterrainlayereditorlayer)
   * [LiquidTerrainRenderer](#liquidterrainrenderer)
+  * [TerrainTileAnimation](#terraintileanimation)
   * [UndergroundEditorResourceLayer](#undergroundeditorresourcelayer)
   * [UndergroundResourceLayer](#undergroundresourcelayer)
   * [UndergroundResourceRenderer](#undergroundresourcerenderer)
 * [OpenRA.Mods.HV.Traits.Render](#openramodshvtraitsrender)
   * [WithConstructionBeamOverlay](#withconstructionbeamoverlay)
   * [WithConstructionOverlay](#withconstructionoverlay)
+  * [WithIdleOverlayOnGround](#withidleoverlayonground)
+  * [WithProductionDoorAnimation](#withproductiondooranimation)
   * [WithRandomFacingSpriteBody](#withrandomfacingspritebody)
+  * [WithResourceCollectorOverlay](#withresourcecollectoroverlay)
   * [WithSeaMonsterBody](#withseamonsterbody)
-  * [WithShadowOverlay](#withshadowoverlay)
-  * [WithSpriteSelectionDecorations](#withspriteselectiondecorations)
   * [WithTeleportChargeAnimation](#withteleportchargeanimation)
   * [WithTeleportEnergyOverlay](#withteleportenergyoverlay)
 * [OpenRA.Traits](#openratraits)
@@ -563,6 +572,24 @@ Allows the player to pause or surrender the game via the chatbox. Attach this to
 <tr><td>InstanceName</td><td></td><td>String</td><td></td></tr>
 </table>
 
+## OpenRA.Mods.Common.HV.Render
+
+### WithDamagedOverlay
+Renders an overlay when the actor is taking heavy damage.
+
+Requires trait: [`RenderSprites`](#rendersprites).
+<table>
+<tr><th>Property</th><th>Default Value</th><th>Type</th><th>Description</th></tr>
+<tr><td>Image</td><td></td><td>String</td><td>Defaults to the actor name. </td></tr>
+<tr><td>Sequence</td><td></td><td>String</td><td></td></tr>
+<tr><td>Palette</td><td></td><td>String</td><td>Custom palette name. </td></tr>
+<tr><td>IsPlayerPalette</td><td>False</td><td>Boolean</td><td>Custom palette is a player palette BaseName. </td></tr>
+<tr><td>DamageTypes</td><td></td><td>Collection of DamageType</td><td>Damage types that this should be used for (defined on the warheads). Leave empty to disable all filtering. </td></tr>
+<tr><td>MinimumDamageState</td><td>Heavy</td><td>DamageState</td><td>Trigger when Undamaged, Light, Medium, Heavy, Critical or Dead. </td></tr>
+<tr><td>MaximumDamageState</td><td>Dead</td><td>DamageState</td><td></td></tr>
+<tr><td>InstanceName</td><td></td><td>String</td><td></td></tr>
+</table>
+
 ## OpenRA.Mods.Common.Scripting
 
 ### LuaScript
@@ -622,9 +649,9 @@ An actor with this trait indicates a valid spawn point for actors of ActorSpawnM
 <tr><td>Repulsable</td><td>True</td><td>Boolean</td><td>Whether the aircraft can be repulsed. </td></tr>
 <tr><td>IdealSeparation</td><td>1c682</td><td>1D World Distance</td><td>The distance it tries to maintain from other aircraft if repulsable. </td></tr>
 <tr><td>RepulsionSpeed</td><td>-1</td><td>Integer</td><td>The speed at which the aircraft is repulsed from other aircraft. Specify -1 for normal movement speed. </td></tr>
-<tr><td>InitialFacing</td><td>0</td><td>Integer</td><td></td></tr>
-<tr><td>TurnSpeed</td><td>255</td><td>Integer</td><td></td></tr>
-<tr><td>IdleTurnSpeed</td><td>-1</td><td>Integer</td><td>Turn speed to apply when aircraft flies in circles while idle. Defaults to TurnSpeed if negative. </td></tr>
+<tr><td>InitialFacing</td><td>0</td><td>1D World Angle</td><td></td></tr>
+<tr><td>TurnSpeed</td><td>512</td><td>1D World Angle</td><td>Speed at which the actor turns. </td></tr>
+<tr><td>IdleTurnSpeed</td><td></td><td>Nullable`1</td><td>Turn speed to apply when aircraft flies in circles while idle. Defaults to TurnSpeed if undefined. </td></tr>
 <tr><td>Speed</td><td>1</td><td>Integer</td><td></td></tr>
 <tr><td>Pitch</td><td>0</td><td>1D World Angle</td><td>Body pitch when flying forwards. Only relevant for voxel aircraft. </td></tr>
 <tr><td>PitchSpeed</td><td>0</td><td>1D World Angle</td><td>Pitch steps to apply each tick when starting/stopping. </td></tr>
@@ -655,7 +682,7 @@ An actor with this trait indicates a valid spawn point for actors of ActorSpawnM
 <tr><td>LandingSounds</td><td></td><td>Collection of String</td><td>Sounds to play when the actor is landing. </td></tr>
 <tr><td>WaitDistanceFromResupplyBase</td><td>3c0</td><td>1D World Distance</td><td>The distance of the resupply base that the aircraft will wait for its turn. </td></tr>
 <tr><td>NumberOfTicksToVerifyAvailableAirport</td><td>150</td><td>Integer</td><td>The number of ticks that a airplane will wait to make a new search for an available airport. </td></tr>
-<tr><td>PreviewFacing</td><td>96</td><td>Integer</td><td>Facing to use for actor previews (map editor, color picker, etc) </td></tr>
+<tr><td>PreviewFacing</td><td>384</td><td>1D World Angle</td><td>Facing to use for actor previews (map editor, color picker, etc) </td></tr>
 <tr><td>EditorFacingDisplayOrder</td><td>3</td><td>Integer</td><td>Display order for the facing slider in the map editor </td></tr>
 <tr><td>RequireForceMoveCondition</td><td></td><td>BooleanExpression</td><td>Boolean expression defining the condition under which the regular (non-force) move cursor is disabled. </td></tr>
 <tr><td>EnterCursor</td><td>enter</td><td>String</td><td>Cursor to display when able to land at target building. </td></tr>
@@ -716,7 +743,7 @@ Requires trait: [`Aircraft`](#aircraft).
 <table>
 <tr><th>Property</th><th>Default Value</th><th>Type</th><th>Description</th></tr>
 <tr><td>Explosion</td><td>UnitExplode</td><td>String</td><td>Explosion weapon that triggers when hitting ground. </td></tr>
-<tr><td>MaximumSpinSpeed</td><td>-1</td><td>Integer</td><td>Limit the maximum spin (in facing units per tick) that can be achieved while crashing. 0 disables spinning. Negative values imply no limit. </td></tr>
+<tr><td>MaximumSpinSpeed</td><td></td><td>Nullable`1</td><td>Limit the maximum spin (in angle units per tick) that can be achieved while crashing. 0 disables spinning. Leave undefined for no limit. </td></tr>
 <tr><td>Moves</td><td>False</td><td>Boolean</td><td>Does the aircraft (husk) move forward at aircraft speed? </td></tr>
 <tr><td>Velocity</td><td>0c43</td><td>1D World Distance</td><td>Velocity (per tick) at which aircraft falls to ground. </td></tr>
 <tr><td>InstanceName</td><td></td><td>String</td><td></td></tr>
@@ -970,6 +997,7 @@ Requires traits: [`Aircraft`](#aircraft), [`BodyOrientation`](#bodyorientation).
 <tr><td>DropOffCursor</td><td>ability</td><td>String</td><td>Cursor to display when able to drop off the passengers at location. </td></tr>
 <tr><td>DropOffBlockedCursor</td><td>move-blocked</td><td>String</td><td>Cursor to display when unable to drop off the passengers at location. </td></tr>
 <tr><td>PickUpCursor</td><td>ability</td><td>String</td><td>Cursor to display when picking up the passengers. </td></tr>
+<tr><td>CarryCondition</td><td></td><td>String</td><td>Condition to grant to the Carryall while it is carrying something. </td></tr>
 <tr><td>Voice</td><td>Action</td><td>String</td><td></td></tr>
 <tr><td>InstanceName</td><td></td><td>String</td><td></td></tr>
 </table>
@@ -1050,6 +1078,8 @@ Manages AI base construction.
 <tr><td>MaximumExcessPower</td><td>0</td><td>Integer</td><td>The targeted excess power the AI tries to maintain cannot rise above this. </td></tr>
 <tr><td>ExcessPowerIncrement</td><td>0</td><td>Integer</td><td>Increase maintained excess power by this amount for every ExcessPowerIncreaseThreshold of base buildings. </td></tr>
 <tr><td>ExcessPowerIncreaseThreshold</td><td>1</td><td>Integer</td><td>Increase maintained excess power by ExcessPowerIncrement for every N base buildings. </td></tr>
+<tr><td>InititalMinimumRefineryCount</td><td>1</td><td>Integer</td><td>Number of refineries to build before building a barracks. </td></tr>
+<tr><td>AdditionalMinimumRefineryCount</td><td>1</td><td>Integer</td><td>Number of refineries to build additionally after building a barracks. </td></tr>
 <tr><td>StructureProductionInactiveDelay</td><td>125</td><td>Integer</td><td>Additional delay (in ticks) between structure production checks when there is no active production. StructureProductionRandomBonusDelay is added to this. </td></tr>
 <tr><td>StructureProductionActiveDelay</td><td>0</td><td>Integer</td><td>Additional delay (in ticks) added between structure production checks when actively building things. Note: The total delay is gamespeed OrderLatency x 4 + this + StructureProductionRandomBonusDelay. </td></tr>
 <tr><td>StructureProductionRandomBonusDelay</td><td>10</td><td>Integer</td><td>A random delay (in ticks) of up to this is added to active/inactive production delays. </td></tr>
@@ -1296,7 +1326,7 @@ Where the unit should leave the building. Multiples are allowed if IDs are added
 <tr><th>Property</th><th>Default Value</th><th>Type</th><th>Description</th></tr>
 <tr><td>SpawnOffset</td><td>0,0,0</td><td>3D World Vector</td><td>Offset at which that the exiting actor is spawned relative to the center of the producing actor. </td></tr>
 <tr><td>ExitCell</td><td>0,0</td><td>2D Cell Vector</td><td>Cell offset where the exiting actor enters the ActorMap relative to the topleft cell of the producing actor. </td></tr>
-<tr><td>Facing</td><td>-1</td><td>Integer</td><td></td></tr>
+<tr><td>Facing</td><td></td><td>Nullable`1</td><td></td></tr>
 <tr><td>ProductionTypes</td><td></td><td>Set of String</td><td>Type tags on this exit. </td></tr>
 <tr><td>ExitDelay</td><td>0</td><td>Integer</td><td>Number of ticks to wait before moving into the world. </td></tr>
 <tr><td>Priority</td><td>1</td><td>Integer</td><td>Exits with larger priorities will be used before lower priorities. </td></tr>
@@ -1320,7 +1350,7 @@ If you want more than one unit to appear copy this section and assign IDs like F
 <tr><th>Property</th><th>Default Value</th><th>Type</th><th>Description</th></tr>
 <tr><td>Actor</td><td><em>(required)</em></td><td>String</td><td>Name of the actor. </td></tr>
 <tr><td>SpawnOffset</td><td>0,0</td><td>2D Cell Vector</td><td>Offset relative to the top-left cell of the building. </td></tr>
-<tr><td>Facing</td><td>0</td><td>Integer</td><td>Which direction the unit should face. </td></tr>
+<tr><td>Facing</td><td>0</td><td>1D World Angle</td><td>Which direction the unit should face. </td></tr>
 <tr><td>AllowRespawn</td><td>False</td><td>Boolean</td><td>Whether another actor should spawn upon re-enabling the trait. </td></tr>
 <tr><td>EditorFreeActorDisplayOrder</td><td>4</td><td>Integer</td><td>Display order for the free actor checkbox in the map editor </td></tr>
 <tr><td>RequiresCondition</td><td></td><td>BooleanExpression</td><td>Boolean expression defining the condition to enable this trait. </td></tr>
@@ -1338,7 +1368,7 @@ If you want more than one unit to be delivered, copy this section and assign IDs
 <tr><td>DeliveryRange</td><td>0c0</td><td>1D World Distance</td><td>Range to search for an alternative delivery location if the DeliveryOffset cell is blocked. </td></tr>
 <tr><td>Actor</td><td><em>(required)</em></td><td>String</td><td>Name of the actor. </td></tr>
 <tr><td>SpawnOffset</td><td>0,0</td><td>2D Cell Vector</td><td>Offset relative to the top-left cell of the building. </td></tr>
-<tr><td>Facing</td><td>0</td><td>Integer</td><td>Which direction the unit should face. </td></tr>
+<tr><td>Facing</td><td>0</td><td>1D World Angle</td><td>Which direction the unit should face. </td></tr>
 <tr><td>AllowRespawn</td><td>False</td><td>Boolean</td><td>Whether another actor should spawn upon re-enabling the trait. </td></tr>
 <tr><td>EditorFreeActorDisplayOrder</td><td>4</td><td>Integer</td><td>Display order for the free actor checkbox in the map editor </td></tr>
 <tr><td>RequiresCondition</td><td></td><td>BooleanExpression</td><td>Boolean expression defining the condition to enable this trait. </td></tr>
@@ -1439,7 +1469,7 @@ Deliver the unit in production via skylift.
 <tr><td>ReadyAudio</td><td>Reinforce</td><td>String</td><td></td></tr>
 <tr><td>ActorType</td><td><em>(required)</em></td><td>String</td><td>Cargo aircraft used for delivery. Must have the `Aircraft` trait. </td></tr>
 <tr><td>BaselineSpawn</td><td>False</td><td>Boolean</td><td>The cargo aircraft will spawn at the player baseline (map edge closest to the player spawn) </td></tr>
-<tr><td>Facing</td><td>64</td><td>Integer</td><td>Direction the aircraft should face to land. </td></tr>
+<tr><td>Facing</td><td>256</td><td>1D World Angle</td><td>Direction the aircraft should face to land. </td></tr>
 <tr><td>Produces</td><td><em>(required)</em></td><td>Collection of String</td><td>e.g. Infantry, Vehicles, Aircraft, Buildings </td></tr>
 <tr><td>PauseOnCondition</td><td></td><td>BooleanExpression</td><td>Boolean expression defining the condition to pause this trait. </td></tr>
 <tr><td>RequiresCondition</td><td></td><td>BooleanExpression</td><td>Boolean expression defining the condition to enable this trait. </td></tr>
@@ -1466,7 +1496,7 @@ Used to waypoint units after production or repair is finished.
 Requires trait: [`WithSpriteBody`](#withspritebody).
 <table>
 <tr><th>Property</th><th>Default Value</th><th>Type</th><th>Description</th></tr>
-<tr><td>DockAngle</td><td>0</td><td>Integer</td><td>Actual harvester facing when docking, 0-255 counter-clock-wise. </td></tr>
+<tr><td>DockAngle</td><td>0</td><td>1D World Angle</td><td>Actual harvester facing when docking. </td></tr>
 <tr><td>DockOffset</td><td>0,0</td><td>2D Cell Vector</td><td>Docking cell relative to top-left cell. </td></tr>
 <tr><td>IsDragRequired</td><td>False</td><td>Boolean</td><td>Does the refinery require the harvester to be dragged in? </td></tr>
 <tr><td>DragOffset</td><td>0,0,0</td><td>3D World Vector</td><td>Vector by which the harvester will be dragged when docking. </td></tr>
@@ -1618,18 +1648,6 @@ Requires trait: [`Transforms`](#transforms).
 <tr><td>InstanceName</td><td></td><td>String</td><td></td></tr>
 </table>
 
-### Burns
-This actor will play a fire animation over its body and take damage over time.
-
-Requires trait: [`RenderSprites`](#rendersprites).
-<table>
-<tr><th>Property</th><th>Default Value</th><th>Type</th><th>Description</th></tr>
-<tr><td>Anim</td><td>1</td><td>String</td><td></td></tr>
-<tr><td>Damage</td><td>1</td><td>Integer</td><td></td></tr>
-<tr><td>Interval</td><td>8</td><td>Integer</td><td></td></tr>
-<tr><td>InstanceName</td><td></td><td>String</td><td></td></tr>
-</table>
-
 ### Capturable
 This actor can be captured by a unit with Captures: trait.
 This trait should not be disabled if the actor also uses FrozenUnderFog.
@@ -1721,7 +1739,7 @@ This actor can transport Passenger actors.
 <tr><td>UnloadTerrainTypes</td><td></td><td>Set of String</td><td>Terrain types that this actor is allowed to eject actors onto. Leave empty for all terrain types. </td></tr>
 <tr><td>UnloadVoice</td><td>Action</td><td>String</td><td>Voice to play when ordered to unload the passengers. </td></tr>
 <tr><td>LoadRange</td><td>5c0</td><td>1D World Distance</td><td>Radius to search for a load/unload location if the ordered cell is blocked. </td></tr>
-<tr><td>PassengerFacing</td><td>128</td><td>Integer</td><td>Which direction the passenger will face (relative to the transport) when unloading. </td></tr>
+<tr><td>PassengerFacing</td><td>512</td><td>1D World Angle</td><td>Which direction the passenger will face (relative to the transport) when unloading. </td></tr>
 <tr><td>AfterLoadDelay</td><td>8</td><td>Integer</td><td>Delay (in ticks) before continuing after loading a passenger. </td></tr>
 <tr><td>BeforeUnloadDelay</td><td>8</td><td>Integer</td><td>Delay (in ticks) before unloading the first passenger. </td></tr>
 <tr><td>AfterUnloadDelay</td><td>25</td><td>Integer</td><td>Delay (in ticks) before continuing after unloading a passenger. </td></tr>
@@ -1767,6 +1785,7 @@ Requires traits: [`Aircraft`](#aircraft), [`BodyOrientation`](#bodyorientation).
 <tr><td>DropOffCursor</td><td>ability</td><td>String</td><td>Cursor to display when able to drop off the passengers at location. </td></tr>
 <tr><td>DropOffBlockedCursor</td><td>move-blocked</td><td>String</td><td>Cursor to display when unable to drop off the passengers at location. </td></tr>
 <tr><td>PickUpCursor</td><td>ability</td><td>String</td><td>Cursor to display when picking up the passengers. </td></tr>
+<tr><td>CarryCondition</td><td></td><td>String</td><td>Condition to grant to the Carryall while it is carrying something. </td></tr>
 <tr><td>Voice</td><td>Action</td><td>String</td><td></td></tr>
 <tr><td>InstanceName</td><td></td><td>String</td><td></td></tr>
 </table>
@@ -1782,6 +1801,20 @@ Lets the actor generate cash in a set periodic time.
 <tr><td>DisplayDuration</td><td>30</td><td>Integer</td><td>How long to show the cash tick indicator when enabled. </td></tr>
 <tr><td>UseResourceStorage</td><td>False</td><td>Boolean</td><td>Use resource storage for cash granted. </td></tr>
 <tr><td>PauseOnCondition</td><td></td><td>BooleanExpression</td><td>Boolean expression defining the condition to pause this trait. </td></tr>
+<tr><td>RequiresCondition</td><td></td><td>BooleanExpression</td><td>Boolean expression defining the condition to enable this trait. </td></tr>
+<tr><td>InstanceName</td><td></td><td>String</td><td></td></tr>
+</table>
+
+### ChangesHealth
+Attach this to actors which should regenerate or lose health points over time.
+<table>
+<tr><th>Property</th><th>Default Value</th><th>Type</th><th>Description</th></tr>
+<tr><td>Step</td><td>5</td><td>Integer</td><td>Absolute amount of health points added in each step. Use negative values to apply damage. </td></tr>
+<tr><td>PercentageStep</td><td>0</td><td>Integer</td><td>Relative percentages of health added in each step. Use negative values to apply damage. When both values are defined, their summary will be applied. </td></tr>
+<tr><td>Delay</td><td>5</td><td>Integer</td><td>Time in ticks to wait between each health modification. </td></tr>
+<tr><td>StartIfBelow</td><td>50</td><td>Integer</td><td>Heal if current health is below this percentage of full health. </td></tr>
+<tr><td>DamageCooldown</td><td>0</td><td>Integer</td><td>Time in ticks to wait after taking damage. </td></tr>
+<tr><td>DamageTypes</td><td></td><td>Collection of DamageType</td><td>Apply the health change when encountering these damage types. </td></tr>
 <tr><td>RequiresCondition</td><td></td><td>BooleanExpression</td><td>Boolean expression defining the condition to enable this trait. </td></tr>
 <tr><td>InstanceName</td><td></td><td>String</td><td></td></tr>
 </table>
@@ -1897,7 +1930,7 @@ Grants a condition when a deploy order is issued.Can be paused with the granted 
 <tr><td>CanDeployOnRamps</td><td>False</td><td>Boolean</td><td>Can this actor deploy on slopes? </td></tr>
 <tr><td>DeployCursor</td><td>deploy</td><td>String</td><td>Cursor to display when able to (un)deploy the actor. </td></tr>
 <tr><td>DeployBlockedCursor</td><td>deploy-blocked</td><td>String</td><td>Cursor to display when unable to (un)deploy the actor. </td></tr>
-<tr><td>Facing</td><td>-1</td><td>Integer</td><td>Facing that the actor must face before deploying. Set to -1 to deploy regardless of facing. </td></tr>
+<tr><td>Facing</td><td></td><td>Nullable`1</td><td>Facing that the actor must face before deploying. Leave undefined to deploy regardless of facing. </td></tr>
 <tr><td>DeploySounds</td><td></td><td>Collection of String</td><td>Play a randomly selected sound from this list when deploying. </td></tr>
 <tr><td>UndeploySounds</td><td></td><td>Collection of String</td><td>Play a randomly selected sound from this list when undeploying. </td></tr>
 <tr><td>SkipMakeAnimation</td><td>False</td><td>Boolean</td><td>Skip make/deploy animation? </td></tr>
@@ -2678,7 +2711,7 @@ Requires trait: [`BodyOrientation`](#bodyorientation).
 <tr><td>TargetableOffsets</td><td>0,0,0</td><td>Collection of 3D World Vector</td><td>Create a targetable position for each offset listed here (relative to CenterPosition). </td></tr>
 <tr><td>UseTargetableCellsOffsets</td><td>False</td><td>Boolean</td><td>Create a targetable position at the center of each occupied cell. Stacks with TargetableOffsets. </td></tr>
 <tr><td>ArmorTypes</td><td></td><td>Collection of ArmorType</td><td>Defines which Armor types apply when the actor receives damage to this HitShape. If none specified, all armor types the actor has are valid. </td></tr>
-<tr><td>Type</td><td></td><td>IHitShape</td><td></td></tr>
+<tr><td>Type</td><td></td><td>IHitShape</td><td>Engine comes with support for `Circle`, `Capsule`, `Polygon` and `Rectangle`. Defaults to `Circle` when left empty. </td></tr>
 <tr><td>RequiresCondition</td><td></td><td>BooleanExpression</td><td>Boolean expression defining the condition to enable this trait. </td></tr>
 <tr><td>InstanceName</td><td></td><td>String</td><td></td></tr>
 </table>
@@ -2695,7 +2728,7 @@ Spawns remains of a husk actor with the correct facing.
 <table>
 <tr><th>Property</th><th>Default Value</th><th>Type</th><th>Description</th></tr>
 <tr><td>AllowedTerrain</td><td></td><td>Set of String</td><td></td></tr>
-<tr><td>PreviewFacing</td><td>96</td><td>Integer</td><td>Facing to use for actor previews (map editor, color picker, etc) </td></tr>
+<tr><td>PreviewFacing</td><td>384</td><td>1D World Angle</td><td>Facing to use for actor previews (map editor, color picker, etc) </td></tr>
 <tr><td>InstanceName</td><td></td><td>String</td><td></td></tr>
 </table>
 
@@ -2747,11 +2780,10 @@ Requires trait: [`BodyOrientation`](#bodyorientation).
 <tr><td>ProneOffset</td><td>500,0,0</td><td>3D World Vector</td><td>Muzzle offset modifier to apply while prone. </td></tr>
 <tr><td>ProneSequencePrefix</td><td>prone-</td><td>String</td><td>Sequence prefix to apply while prone. </td></tr>
 <tr><td>Turret</td><td>primary</td><td>String</td><td></td></tr>
-<tr><td>TurnSpeed</td><td>255</td><td>Integer</td><td>Speed at which the turret turns. </td></tr>
-<tr><td>InitialFacing</td><td>0</td><td>Integer</td><td></td></tr>
+<tr><td>TurnSpeed</td><td>512</td><td>1D World Angle</td><td>Speed at which the turret turns. </td></tr>
+<tr><td>InitialFacing</td><td>0</td><td>1D World Angle</td><td></td></tr>
 <tr><td>RealignDelay</td><td>40</td><td>Integer</td><td>Number of ticks before turret is realigned. (-1 turns off realignment) </td></tr>
 <tr><td>Offset</td><td>0,0,0</td><td>3D World Vector</td><td>Muzzle position relative to turret or body. (forward, right, up) triples </td></tr>
-<tr><td>PreviewFacing</td><td>96</td><td>Integer</td><td>Facing to use for actor previews (map editor, color picker, etc) </td></tr>
 <tr><td>EditorTurretFacingDisplayOrder</td><td>4</td><td>Integer</td><td>Display order for the turret facing slider in the map editor </td></tr>
 <tr><td>PauseOnCondition</td><td></td><td>BooleanExpression</td><td>Boolean expression defining the condition to pause this trait. </td></tr>
 <tr><td>RequiresCondition</td><td></td><td>BooleanExpression</td><td>Boolean expression defining the condition to enable this trait. </td></tr>
@@ -2828,13 +2860,14 @@ Unit is able to move.
 <table>
 <tr><th>Property</th><th>Default Value</th><th>Type</th><th>Description</th></tr>
 <tr><td>Locomotor</td><td><em>(required)</em></td><td>String</td><td>Which Locomotor does this trait use. Must be defined on the World actor. </td></tr>
-<tr><td>InitialFacing</td><td>0</td><td>Integer</td><td></td></tr>
-<tr><td>TurnSpeed</td><td>255</td><td>Integer</td><td>Speed at which the actor turns. </td></tr>
+<tr><td>InitialFacing</td><td>0</td><td>1D World Angle</td><td></td></tr>
+<tr><td>TurnSpeed</td><td>512</td><td>1D World Angle</td><td>Speed at which the actor turns. </td></tr>
 <tr><td>Speed</td><td>1</td><td>Integer</td><td></td></tr>
+<tr><td>AlwaysTurnInPlace</td><td>False</td><td>Boolean</td><td>If set to true, this unit will always turn in place instead of following a curved trajectory (like infantry). </td></tr>
 <tr><td>Cursor</td><td>move</td><td>String</td><td>Cursor to display when a move order can be issued at target location. </td></tr>
 <tr><td>BlockedCursor</td><td>move-blocked</td><td>String</td><td>Cursor to display when a move order cannot be issued at target location. </td></tr>
 <tr><td>Voice</td><td>Action</td><td>String</td><td></td></tr>
-<tr><td>PreviewFacing</td><td>96</td><td>Integer</td><td>Facing to use for actor previews (map editor, color picker, etc) </td></tr>
+<tr><td>PreviewFacing</td><td>384</td><td>1D World Angle</td><td>Facing to use for actor previews (map editor, color picker, etc) </td></tr>
 <tr><td>EditorFacingDisplayOrder</td><td>3</td><td>Integer</td><td>Display order for the facing slider in the map editor </td></tr>
 <tr><td>RequireForceMoveCondition</td><td></td><td>BooleanExpression</td><td>Boolean expression defining the condition under which the regular (non-force) move cursor is disabled. </td></tr>
 <tr><td>ImmovableCondition</td><td></td><td>BooleanExpression</td><td>Boolean expression defining the condition under which this actor cannot be nudged by other actors. </td></tr>
@@ -3769,7 +3802,7 @@ Displays custom terrain types.
 Renders target lines between order waypoints.
 <table>
 <tr><th>Property</th><th>Default Value</th><th>Type</th><th>Description</th></tr>
-<tr><td>Delay</td><td>60</td><td>Integer</td><td>Delay (in ticks) before the target lines disappear. </td></tr>
+<tr><td>Delay</td><td>2400</td><td>Integer</td><td>Delay (in milliseconds) before the target lines disappear. </td></tr>
 <tr><td>LineWidth</td><td>1</td><td>Integer</td><td>Width (in pixels) of the target lines. </td></tr>
 <tr><td>QueuedLineWidth</td><td>1</td><td>Integer</td><td>Width (in pixels) of the queued target lines. </td></tr>
 <tr><td>MarkerWidth</td><td>2</td><td>Integer</td><td>Width (in pixels) of the end node markers. </td></tr>
@@ -3944,20 +3977,6 @@ This actor is selectable. Defines bounds of selectable area, selection class, se
 <tr><td>Voice</td><td>Select</td><td>String</td><td></td></tr>
 <tr><td>Bounds</td><td></td><td>Collection of Integer</td><td>Defines a custom rectangle for mouse interaction with the actor. If null, the engine will guess an appropriate size based on the With*Body trait. The first two numbers define the width and height of the rectangle. The (optional) second two numbers define an x and y offset from the actor center. </td></tr>
 <tr><td>DecorationBounds</td><td></td><td>Collection of Integer</td><td>Defines a custom rectangle for Decorations (e.g. the selection box). If null, Bounds will be used instead </td></tr>
-<tr><td>InstanceName</td><td></td><td>String</td><td></td></tr>
-</table>
-
-### SelfHealing
-Attach this to actors which should be able to regenerate their health points.
-<table>
-<tr><th>Property</th><th>Default Value</th><th>Type</th><th>Description</th></tr>
-<tr><td>Step</td><td>5</td><td>Integer</td><td>Absolute amount of health points added in each step. </td></tr>
-<tr><td>PercentageStep</td><td>0</td><td>Integer</td><td>Relative percentages of health added in each step. When both values are defined, their summary will be applied. </td></tr>
-<tr><td>Delay</td><td>5</td><td>Integer</td><td></td></tr>
-<tr><td>HealIfBelow</td><td>50</td><td>Integer</td><td>Heal if current health is below this percentage of full health. </td></tr>
-<tr><td>DamageCooldown</td><td>0</td><td>Integer</td><td></td></tr>
-<tr><td>DamageTypes</td><td></td><td>Collection of DamageType</td><td>Apply the selfhealing using these damagetypes. </td></tr>
-<tr><td>RequiresCondition</td><td></td><td>BooleanExpression</td><td>Boolean expression defining the condition to enable this trait. </td></tr>
 <tr><td>InstanceName</td><td></td><td>String</td><td></td></tr>
 </table>
 
@@ -4174,7 +4193,6 @@ Adds capacity to a player's harvested resource limit.
 <tr><td>CameraStances</td><td>Ally</td><td>Stance</td><td>Reveal cells to players with these stances only. </td></tr>
 <tr><td>CameraSpawnAdvance</td><td>25</td><td>Integer</td><td>Amount of time before detonation to spawn the camera. </td></tr>
 <tr><td>CameraRemoveDelay</td><td>25</td><td>Integer</td><td>Amount of time after detonation to remove the camera. </td></tr>
-<tr><td>FlashType</td><td></td><td>String</td><td>Corresponds to `Type` from `FlashPaletteEffect` on the world actor. </td></tr>
 <tr><td>ChargeInterval</td><td>0</td><td>Integer</td><td>Measured in ticks. </td></tr>
 <tr><td>IconImage</td><td>icon</td><td>String</td><td></td></tr>
 <tr><td>Icon</td><td></td><td>String</td><td>Icon sprite displayed in the support power palette. </td></tr>
@@ -4414,6 +4432,31 @@ Displays a bar how long this actor is affected and reverts back to the old owner
 <tr><td>InstanceName</td><td></td><td>String</td><td></td></tr>
 </table>
 
+### TerrainLighting
+Add to the world actor to apply a global lighting tint and allow actors using the TerrainLightSource to add localised lighting.
+<table>
+<tr><th>Property</th><th>Default Value</th><th>Type</th><th>Description</th></tr>
+<tr><td>Intensity</td><td>1</td><td>Real Number</td><td></td></tr>
+<tr><td>HeightStep</td><td>0</td><td>Real Number</td><td></td></tr>
+<tr><td>RedTint</td><td>1</td><td>Real Number</td><td></td></tr>
+<tr><td>GreenTint</td><td>1</td><td>Real Number</td><td></td></tr>
+<tr><td>BlueTint</td><td>1</td><td>Real Number</td><td></td></tr>
+<tr><td>BinSize</td><td>10</td><td>Integer</td><td>Size of light source partition bins (cells) </td></tr>
+<tr><td>InstanceName</td><td></td><td>String</td><td></td></tr>
+</table>
+
+### TerrainLightSource
+Adds a localized circular light centered on the actor to the world's TerrainLightSource trait.
+<table>
+<tr><th>Property</th><th>Default Value</th><th>Type</th><th>Description</th></tr>
+<tr><td>Range</td><td>10c0</td><td>1D World Distance</td><td></td></tr>
+<tr><td>Intensity</td><td>0</td><td>Real Number</td><td></td></tr>
+<tr><td>RedTint</td><td>0</td><td>Real Number</td><td></td></tr>
+<tr><td>GreenTint</td><td>0</td><td>Real Number</td><td></td></tr>
+<tr><td>BlueTint</td><td>0</td><td>Real Number</td><td></td></tr>
+<tr><td>InstanceName</td><td></td><td>String</td><td></td></tr>
+</table>
+
 ### ThrowsParticle
 Requires traits: [`BodyOrientation`](#bodyorientation), [`WithSpriteBody`](#withspritebody).
 <table>
@@ -4425,7 +4468,7 @@ Requires traits: [`BodyOrientation`](#bodyorientation), [`WithSpriteBody`](#with
 <tr><td>MinThrowAngle</td><td>85</td><td>1D World Angle</td><td>Minimum angle to throw the particle </td></tr>
 <tr><td>MaxThrowAngle</td><td>170</td><td>1D World Angle</td><td>Maximum angle to throw the particle </td></tr>
 <tr><td>Velocity</td><td>75</td><td>Integer</td><td>Speed to throw the particle (horizontal WPos/tick) </td></tr>
-<tr><td>TurnSpeed</td><td>15</td><td>Integer</td><td>Speed at which the particle turns. </td></tr>
+<tr><td>TurnSpeed</td><td>60</td><td>1D World Angle</td><td>Speed at which the particle turns. </td></tr>
 <tr><td>InstanceName</td><td></td><td>String</td><td></td></tr>
 </table>
 
@@ -4502,7 +4545,7 @@ Actor becomes a specified actor type when this trait is triggered.
 <tr><th>Property</th><th>Default Value</th><th>Type</th><th>Description</th></tr>
 <tr><td>IntoActor</td><td><em>(required)</em></td><td>String</td><td>Actor to transform into. </td></tr>
 <tr><td>Offset</td><td>0,0</td><td>2D Cell Vector</td><td>Offset to spawn the transformed actor relative to the current cell. </td></tr>
-<tr><td>Facing</td><td>96</td><td>Integer</td><td>Facing that the actor must face before transforming. </td></tr>
+<tr><td>Facing</td><td>384</td><td>1D World Angle</td><td>Facing that the actor must face before transforming. </td></tr>
 <tr><td>TransformSounds</td><td></td><td>Collection of String</td><td>Sounds to play when transforming. </td></tr>
 <tr><td>NoTransformSounds</td><td></td><td>Collection of String</td><td>Sounds to play when the transformation is blocked. </td></tr>
 <tr><td>TransformNotification</td><td></td><td>String</td><td>Notification to play when transforming. </td></tr>
@@ -4543,11 +4586,10 @@ Requires trait: [`BodyOrientation`](#bodyorientation).
 <table>
 <tr><th>Property</th><th>Default Value</th><th>Type</th><th>Description</th></tr>
 <tr><td>Turret</td><td>primary</td><td>String</td><td></td></tr>
-<tr><td>TurnSpeed</td><td>255</td><td>Integer</td><td>Speed at which the turret turns. </td></tr>
-<tr><td>InitialFacing</td><td>0</td><td>Integer</td><td></td></tr>
+<tr><td>TurnSpeed</td><td>512</td><td>1D World Angle</td><td>Speed at which the turret turns. </td></tr>
+<tr><td>InitialFacing</td><td>0</td><td>1D World Angle</td><td></td></tr>
 <tr><td>RealignDelay</td><td>40</td><td>Integer</td><td>Number of ticks before turret is realigned. (-1 turns off realignment) </td></tr>
 <tr><td>Offset</td><td>0,0,0</td><td>3D World Vector</td><td>Muzzle position relative to turret or body. (forward, right, up) triples </td></tr>
-<tr><td>PreviewFacing</td><td>96</td><td>Integer</td><td>Facing to use for actor previews (map editor, color picker, etc) </td></tr>
 <tr><td>EditorTurretFacingDisplayOrder</td><td>4</td><td>Integer</td><td>Display order for the turret facing slider in the map editor </td></tr>
 <tr><td>PauseOnCondition</td><td></td><td>BooleanExpression</td><td>Boolean expression defining the condition to pause this trait. </td></tr>
 <tr><td>RequiresCondition</td><td></td><td>BooleanExpression</td><td>Boolean expression defining the condition to enable this trait. </td></tr>
@@ -4687,7 +4729,7 @@ Required for the map editor to work. Attach this to the world actor.
 Requires trait: [`EditorActorLayer`](#editoractorlayer).
 <table>
 <tr><th>Property</th><th>Default Value</th><th>Type</th><th>Description</th></tr>
-<tr><td>PreviewFacing</td><td>96</td><td>Integer</td><td></td></tr>
+<tr><td>PreviewFacing</td><td>384</td><td>1D World Angle</td><td></td></tr>
 <tr><td>InstanceName</td><td></td><td>String</td><td></td></tr>
 </table>
 
@@ -4922,8 +4964,8 @@ Used by SpawnMPUnits. Attach these to the world actor. You can have multiple var
 <tr><td>SupportActors</td><td></td><td>Collection of String</td><td>A group of units ready to defend or scout. </td></tr>
 <tr><td>InnerSupportRadius</td><td>2</td><td>Integer</td><td>Inner radius for spawning support actors </td></tr>
 <tr><td>OuterSupportRadius</td><td>4</td><td>Integer</td><td>Outer radius for spawning support actors </td></tr>
-<tr><td>BaseActorFacing</td><td>128</td><td>Integer</td><td>Initial facing of BaseActor. -1 means random. </td></tr>
-<tr><td>SupportActorsFacing</td><td>-1</td><td>Integer</td><td>Initial facing of SupportActors. -1 means random. </td></tr>
+<tr><td>BaseActorFacing</td><td>512</td><td>Nullable`1</td><td>Initial facing of BaseActor. Leave undefined for random facings. </td></tr>
+<tr><td>SupportActorsFacing</td><td></td><td>Nullable`1</td><td>Initial facing of SupportActors. Leave undefined for random facings. </td></tr>
 <tr><td>InstanceName</td><td></td><td>String</td><td></td></tr>
 </table>
 
@@ -5280,6 +5322,13 @@ Adds a particle-based overlay.
 <tr><td>SwingAmplitude</td><td>1, 1.5</td><td>Collection of Real Number</td><td>The value range that can be swung to the left or right. SwingAmplitude min. and max. value in px/tick. </td></tr>
 <tr><td>ParticleColors</td><td>ECECEC, E4E4E4, D0D0D0, BCBCBC</td><td>Collection of Color (RRGGBB[AA] notation)</td><td>The randomly selected rgb(a) hex colors for the particles. Use this order: rrggbb[aa], rrggbb[aa], ... </td></tr>
 <tr><td>LineTailAlphaValue</td><td>200</td><td>Byte</td><td>Works only with line enabled and can be used to fade out the tail of the line like a contrail. </td></tr>
+<tr><td>InstanceName</td><td></td><td>String</td><td></td></tr>
+</table>
+
+### AcceptsDeliveredResources
+Tag trait for actors with `ResourceCollector`.
+<table>
+<tr><th>Property</th><th>Default Value</th><th>Type</th><th>Description</th></tr>
 <tr><td>InstanceName</td><td></td><td>String</td><td></td></tr>
 </table>
 
@@ -5644,7 +5693,7 @@ Displays a custom UI overlay relative to the actor's mouseover bounds.
 Requires trait: [`RepairableBuilding`](#repairablebuilding).
 <table>
 <tr><th>Property</th><th>Default Value</th><th>Type</th><th>Description</th></tr>
-<tr><td>Image</td><td><em>(required)</em></td><td>String</td><td>Image used for this decoration. Defaults to the actor's type. </td></tr>
+<tr><td>Image</td><td></td><td>String</td><td>Image used for this decoration. Defaults to the actor's type. </td></tr>
 <tr><td>Sequence</td><td><em>(required)</em></td><td>String</td><td>Sequence used for this decoration (can be animated). </td></tr>
 <tr><td>Palette</td><td>chrome</td><td>String</td><td>Palette to render the sprite in. Reference the world actor's PaletteFrom* traits. </td></tr>
 <tr><td>IsPlayerPalette</td><td>False</td><td>Boolean</td><td>Custom palette is a player palette BaseName </td></tr>
@@ -5790,7 +5839,7 @@ Requires trait: [`RenderSprites`](#rendersprites).
 Displays a custom UI overlay relative to the actor's mouseover bounds.
 <table>
 <tr><th>Property</th><th>Default Value</th><th>Type</th><th>Description</th></tr>
-<tr><td>Image</td><td><em>(required)</em></td><td>String</td><td>Image used for this decoration. Defaults to the actor's type. </td></tr>
+<tr><td>Image</td><td></td><td>String</td><td>Image used for this decoration. Defaults to the actor's type. </td></tr>
 <tr><td>Sequence</td><td><em>(required)</em></td><td>String</td><td>Sequence used for this decoration (can be animated). </td></tr>
 <tr><td>Palette</td><td>chrome</td><td>String</td><td>Palette to render the sprite in. Reference the world actor's PaletteFrom* traits. </td></tr>
 <tr><td>IsPlayerPalette</td><td>False</td><td>Boolean</td><td>Custom palette is a player palette BaseName </td></tr>
@@ -5924,7 +5973,7 @@ Requires trait: [`WithSpriteBody`](#withspritebody).
 <table>
 <tr><th>Property</th><th>Default Value</th><th>Type</th><th>Description</th></tr>
 <tr><td>Sequences</td><td>active</td><td>Collection of String</td><td>Sequence names to use. </td></tr>
-<tr><td>Interval</td><td>750</td><td>Integer</td><td></td></tr>
+<tr><td>Interval</td><td>750</td><td>Collection of Integer</td><td>The amount of time (in ticks) between animations. Two values indicate a range between which a random value is chosen. </td></tr>
 <tr><td>Body</td><td>body</td><td>String</td><td>Which sprite body to play the animation on. </td></tr>
 <tr><td>RequiresCondition</td><td></td><td>BooleanExpression</td><td>Boolean expression defining the condition to enable this trait. </td></tr>
 <tr><td>InstanceName</td><td></td><td>String</td><td></td></tr>
@@ -5936,11 +5985,13 @@ Renders a decorative animation on units and buildings.
 Requires traits: [`BodyOrientation`](#bodyorientation), [`RenderSprites`](#rendersprites).
 <table>
 <tr><th>Property</th><th>Default Value</th><th>Type</th><th>Description</th></tr>
+<tr><td>Image</td><td></td><td>String</td><td>Image used for this decoration. Defaults to the actor's type. </td></tr>
 <tr><td>StartSequence</td><td></td><td>String</td><td>Animation to play when the actor is created. </td></tr>
 <tr><td>Sequence</td><td>idle-overlay</td><td>String</td><td>Sequence name to use </td></tr>
 <tr><td>Offset</td><td>0,0,0</td><td>3D World Vector</td><td>Position relative to body </td></tr>
 <tr><td>Palette</td><td></td><td>String</td><td>Custom palette name </td></tr>
 <tr><td>IsPlayerPalette</td><td>False</td><td>Boolean</td><td>Custom palette is a player palette BaseName </td></tr>
+<tr><td>IsDecoration</td><td>False</td><td>Boolean</td><td></td></tr>
 <tr><td>PauseOnCondition</td><td></td><td>BooleanExpression</td><td>Boolean expression defining the condition to pause this trait. </td></tr>
 <tr><td>RequiresCondition</td><td></td><td>BooleanExpression</td><td>Boolean expression defining the condition to enable this trait. </td></tr>
 <tr><td>InstanceName</td><td></td><td>String</td><td></td></tr>
@@ -6369,15 +6420,21 @@ Requires trait: [`Interactable`](#interactable).
 <tr><td>InstanceName</td><td></td><td>String</td><td></td></tr>
 </table>
 
-### WithProductionDoorAnimation
-Play an animation when a unit exits after production finished.
+### OutlinedSelectionDecorations
+Displays thick and outlined healthbars as well as sprite based selection boxes.
 
-Requires trait: [`WithSpriteBody`](#withspritebody).
+Requires trait: [`Interactable`](#interactable).
 <table>
 <tr><th>Property</th><th>Default Value</th><th>Type</th><th>Description</th></tr>
-<tr><td>Sequence</td><td>door</td><td>String</td><td></td></tr>
-<tr><td>Body</td><td>body</td><td>String</td><td>Which sprite body to play the animation on. </td></tr>
-<tr><td>RequiresCondition</td><td></td><td>BooleanExpression</td><td>Boolean expression defining the condition to enable this trait. </td></tr>
+<tr><td>Image</td><td>outline</td><td>String</td><td>Image used for the undamaged decoration. </td></tr>
+<tr><td>DamagedImage</td><td>outline-yellow</td><td>String</td><td></td></tr>
+<tr><td>CriticallyDamagedImage</td><td>outline-red</td><td>String</td><td></td></tr>
+<tr><td>TopLeftSequence</td><td>top-left</td><td>String</td><td></td></tr>
+<tr><td>TopRightSequence</td><td>top-right</td><td>String</td><td></td></tr>
+<tr><td>BottomLeftSequence</td><td>bottom-left</td><td>String</td><td></td></tr>
+<tr><td>BottomRightSequence</td><td>bottom-right</td><td>String</td><td></td></tr>
+<tr><td>Palette</td><td>cursor</td><td>String</td><td>Palette to render the sprite in. Reference the world actor's PaletteFrom* traits. </td></tr>
+<tr><td>SelectionBoxColor</td><td>FFFFFF</td><td>Color (RRGGBB[AA] notation)</td><td></td></tr>
 <tr><td>InstanceName</td><td></td><td>String</td><td></td></tr>
 </table>
 
@@ -6517,7 +6574,7 @@ Requires trait: [`Building`](#building).
 <table>
 <tr><th>Property</th><th>Default Value</th><th>Type</th><th>Description</th></tr>
 <tr><td>Template</td><td>0</td><td>UInt16</td><td>The terrain template to place. If the template is PickAny, then the actor footprint will be filled with this tile. </td></tr>
-<tr><td>TerrainTypes</td><td><em>(required)</em></td><td>Set of String</td><td>The terrain types that this template will be placed on. </td></tr>
+<tr><td>TerrainTypes</td><td></td><td>Set of String</td><td>The terrain types that this template will be placed on. </td></tr>
 <tr><td>Offset</td><td>0,0</td><td>2D Cell Vector</td><td>Offset relative to the actor TopLeft. Not used if the template is PickAny. Tiles being offset out of the actor's footprint will not be placed. </td></tr>
 <tr><td>InstanceName</td><td></td><td>String</td><td></td></tr>
 </table>
@@ -6563,8 +6620,21 @@ Manages AI miner deployment logic.
 <tr><td>DeployableTerrainTypes</td><td><em>(required)</em></td><td>Set of String</td><td>Terrain types that can be targeted for deployment. </td></tr>
 <tr><td>DeployedActorTypes</td><td><em>(required)</em></td><td>Set of String</td><td>Actor types that have been deployed onto resources. </td></tr>
 <tr><td>MinimumDeployedActors</td><td>1</td><td>Integer</td><td>Prioritize this many resource towers before building other units. </td></tr>
-<tr><td>MinimumScanDelay</td><td>375</td><td>Integer</td><td>Minimum delay (in ticks) between trying to deploy with DeployableActorTypes. </td></tr>
+<tr><td>MinimumScanDelay</td><td>20</td><td>Integer</td><td>Minimum delay (in ticks) between trying to deploy with DeployableActorTypes. </td></tr>
+<tr><td>LastSearchFailedDelay</td><td>500</td><td>Integer</td><td>Minimum delay (in ticks) after the last search for resources failed. </td></tr>
 <tr><td>EnemyAvoidanceRadius</td><td>8c0</td><td>1D World Distance</td><td>Avoid enemy actors nearby when searching for a new resource patch. Should be somewhere near the max weapon range. </td></tr>
+<tr><td>RequiresCondition</td><td></td><td>BooleanExpression</td><td>Boolean expression defining the condition to enable this trait. </td></tr>
+<tr><td>InstanceName</td><td></td><td>String</td><td></td></tr>
+</table>
+
+### PeriodicDischarge
+Dispenses a weapon at the actor's position when enabled.Reload/BurstDelays are used as release intervals.
+<table>
+<tr><th>Property</th><th>Default Value</th><th>Type</th><th>Description</th></tr>
+<tr><td>Weapon</td><td><em>(required)</em></td><td>String</td><td>Has to be defined in weapons.yaml as well. </td></tr>
+<tr><td>ResetReloadWhenEnabled</td><td>True</td><td>Boolean</td><td></td></tr>
+<tr><td>AmmoPoolName</td><td></td><td>String</td><td>Which limited ammo pool (if present) should this weapon be assigned to. </td></tr>
+<tr><td>LocalOffset</td><td>0,0,0</td><td>3D World Vector</td><td>Explosion offset relative to actor's position. </td></tr>
 <tr><td>RequiresCondition</td><td></td><td>BooleanExpression</td><td>Boolean expression defining the condition to enable this trait. </td></tr>
 <tr><td>InstanceName</td><td></td><td>String</td><td></td></tr>
 </table>
@@ -6574,6 +6644,36 @@ This must be attached to player in order for TeleportNetwork to work.
 <table>
 <tr><th>Property</th><th>Default Value</th><th>Type</th><th>Description</th></tr>
 <tr><td>Type</td><td><em>(required)</em></td><td>String</td><td>Type of TeleportNetwork that pairs up, in order for it to work. </td></tr>
+<tr><td>InstanceName</td><td></td><td>String</td><td></td></tr>
+</table>
+
+### ResourceCollector
+Lets the actor generate resources in a set periodic time.
+
+Requires trait: [`Building`](#building).
+<table>
+<tr><th>Property</th><th>Default Value</th><th>Type</th><th>Description</th></tr>
+<tr><td>Interval</td><td>50</td><td>Integer</td><td>Number of ticks to wait between gathering resources. </td></tr>
+<tr><td>InitialDelay</td><td>50</td><td>Integer</td><td>Number of ticks to wait before gathering first resources. </td></tr>
+<tr><td>Amount</td><td>100</td><td>Integer</td><td>Amount of resource to collect each time. </td></tr>
+<tr><td>Capacity</td><td>1000</td><td>Integer</td><td>How much can be temporarily stored. </td></tr>
+<tr><td>DeliveryVehicleType</td><td></td><td>Collection of String</td><td></td></tr>
+<tr><td>PauseOnCondition</td><td></td><td>BooleanExpression</td><td>Boolean expression defining the condition to pause this trait. </td></tr>
+<tr><td>RequiresCondition</td><td></td><td>BooleanExpression</td><td>Boolean expression defining the condition to enable this trait. </td></tr>
+<tr><td>InstanceName</td><td></td><td>String</td><td></td></tr>
+</table>
+
+### ResourceTransporter
+Requires trait: [`Mobile`](#mobile).
+<table>
+<tr><th>Property</th><th>Default Value</th><th>Type</th><th>Description</th></tr>
+<tr><td>DeliveryBuildings</td><td></td><td>Set of String</td><td></td></tr>
+<tr><td>Capacity</td><td>10</td><td>Integer</td><td>How much resources it can carry. </td></tr>
+<tr><td>SearchOnCreation</td><td>True</td><td>Boolean</td><td>Automatically scan for delivery buildings when created. </td></tr>
+<tr><td>DeliverVoice</td><td>Action</td><td>String</td><td></td></tr>
+<tr><td>EnterCursor</td><td>enter</td><td>String</td><td>Cursor to display when able to unload at target actor. </td></tr>
+<tr><td>EnterBlockedCursor</td><td>enter-blocked</td><td>String</td><td>Cursor to display when unable to unload at target actor. </td></tr>
+<tr><td>EnemyAvoidanceRadius</td><td>8c0</td><td>1D World Distance</td><td>Avoid enemy actors nearby when searching for a new delivery route. Should be somewhere near the max weapon range. </td></tr>
 <tr><td>InstanceName</td><td></td><td>String</td><td></td></tr>
 </table>
 
@@ -6617,6 +6717,23 @@ Spawn an actor of the same value immediately upon death when the 'Scrap' trait i
 <tr><td>InternalOwner</td><td>Neutral</td><td>String</td><td>Map player to use when 'InternalName' is defined on 'OwnerType'. </td></tr>
 <tr><td>DeathType</td><td></td><td>String</td><td>DeathType that triggers the actor spawn. Leave empty to spawn an actor ignoring the DeathTypes. </td></tr>
 <tr><td>Offset</td><td>0,0</td><td>2D Cell Vector</td><td>Offset of the spawned actor relative to the dying actor's position. Warning: Spawning an actor outside the parent actor's footprint/influence might lead to unexpected behaviour. </td></tr>
+<tr><td>RequiresCondition</td><td></td><td>BooleanExpression</td><td>Boolean expression defining the condition to enable this trait. </td></tr>
+<tr><td>InstanceName</td><td></td><td>String</td><td></td></tr>
+</table>
+
+### SpawnsShrapnel
+Spawns shrapnel weapons after a periodic interval.
+<table>
+<tr><th>Property</th><th>Default Value</th><th>Type</th><th>Description</th></tr>
+<tr><td>Weapon</td><td><em>(required)</em></td><td>String</td><td>Has to be defined in weapons.yaml as well. </td></tr>
+<tr><td>Amount</td><td><em>(required)</em></td><td>Collection of Integer</td><td>Amount of shrapnels thrown. Two values indicate a range. </td></tr>
+<tr><td>Delay</td><td>50</td><td>Collection of Integer</td><td>Delay between two spawns. Two values indicate a range. </td></tr>
+<tr><td>AimChance</td><td>0</td><td>Integer</td><td>The percentage of aiming this shrapnel to a suitable target actor. </td></tr>
+<tr><td>AimTargetStances</td><td>Enemy, Neutral, Ally</td><td>Stance</td><td>What diplomatic stances can be targeted by the shrapnel. </td></tr>
+<tr><td>ThrowWithoutTarget</td><td>True</td><td>Boolean</td><td>Allow this shrapnel to be thrown randomly when no targets found. </td></tr>
+<tr><td>AllowSelfHit</td><td>False</td><td>Boolean</td><td>Should the shrapnel hit the spawner actor? </td></tr>
+<tr><td>LocalOffset</td><td>0,0,0</td><td>3D World Vector</td><td>Shrapnel spawn offset relative to actor's position. </td></tr>
+<tr><td>PauseOnCondition</td><td></td><td>BooleanExpression</td><td>Boolean expression defining the condition to pause this trait. </td></tr>
 <tr><td>RequiresCondition</td><td></td><td>BooleanExpression</td><td>Boolean expression defining the condition to enable this trait. </td></tr>
 <tr><td>InstanceName</td><td></td><td>String</td><td></td></tr>
 </table>
@@ -6665,9 +6782,14 @@ For use with the ForestLayer.
 <tr><th>Property</th><th>Default Value</th><th>Type</th><th>Description</th></tr>
 <tr><td>SpawnInterval</td><td>250</td><td>Integer</td><td>Average time (ticks) between cloud spawn. </td></tr>
 <tr><td>InitialSpawnDelay</td><td>0</td><td>Integer</td><td>Delay (in ticks) before the first cloud spawns. </td></tr>
-<tr><td>ActorTypes</td><td><em>(required)</em></td><td>Collection of String</td><td>The actors to spawn. </td></tr>
+<tr><td>Image</td><td><em>(required)</em></td><td>String</td><td>Which image to use. </td></tr>
+<tr><td>Sequences</td><td><em>(required)</em></td><td>Collection of String</td><td>Which sequence to use. </td></tr>
+<tr><td>Palette</td><td><em>(required)</em></td><td>String</td><td>Which palette to use. </td></tr>
 <tr><td>WindDirection</td><td>8</td><td>Integer</td><td>Facing that the cloud may approach from. </td></tr>
 <tr><td>Cordon</td><td>7c512</td><td>1D World Distance</td><td>Spawn and remove the cloud this far outside the map. </td></tr>
+<tr><td>Speed</td><td><em>(required)</em></td><td>Collection of 1D World Distance</td><td>Cloud forward movement. Two values mean the cloud speed randomizes between them. </td></tr>
+<tr><td>CruiseAltitude</td><td>2c512</td><td>1D World Distance</td><td>The altitude of the cloud. </td></tr>
+<tr><td>CloseEnough</td><td>0c128</td><td>1D World Distance</td><td>Distance margin where the cloud can be removed. </td></tr>
 <tr><td>InstanceName</td><td></td><td>String</td><td></td></tr>
 </table>
 
@@ -6692,16 +6814,6 @@ Attach this to the world actor. Required for LaysTerrain to work.
 <tr><td>InstanceName</td><td></td><td>String</td><td></td></tr>
 </table>
 
-### LiquidTerrainLayerEditorLayer
-Used to render spice with round borders.
-
-Requires trait: [`ResourceType`](#resourcetype).
-<table>
-<tr><th>Property</th><th>Default Value</th><th>Type</th><th>Description</th></tr>
-<tr><td>Types</td><td><em>(required)</em></td><td>Collection of String</td><td>Only care for these ResourceType names. </td></tr>
-<tr><td>InstanceName</td><td></td><td>String</td><td></td></tr>
-</table>
-
 ### LiquidTerrainRenderer
 Used to render liquids.
 Attach this to the world actor
@@ -6710,6 +6822,18 @@ Requires trait: [`ResourceLayer`](#resourcelayer).
 <table>
 <tr><th>Property</th><th>Default Value</th><th>Type</th><th>Description</th></tr>
 <tr><td>RenderTypes</td><td><em>(required)</em></td><td>Collection of String</td><td>Only render these ResourceType names. </td></tr>
+<tr><td>InstanceName</td><td></td><td>String</td><td></td></tr>
+</table>
+
+### TerrainTileAnimation
+<table>
+<tr><th>Property</th><th>Default Value</th><th>Type</th><th>Description</th></tr>
+<tr><td>Tiles</td><td><em>(required)</em></td><td>Collection of UInt16</td><td></td></tr>
+<tr><td>Interval</td><td>175, 325</td><td>Collection of Integer</td><td>Average time (ticks) between animations. </td></tr>
+<tr><td>InitialDelay</td><td>0</td><td>Integer</td><td>Delay (in ticks) before the first animation happens. </td></tr>
+<tr><td>Image</td><td><em>(required)</em></td><td>String</td><td>Which image to use. </td></tr>
+<tr><td>Sequence</td><td><em>(required)</em></td><td>String</td><td>Which sequence to use. </td></tr>
+<tr><td>Palette</td><td><em>(required)</em></td><td>String</td><td>Which palette to use. </td></tr>
 <tr><td>InstanceName</td><td></td><td>String</td><td></td></tr>
 </table>
 
@@ -6734,7 +6858,7 @@ Requires traits: [`BuildingInfluence`](#buildinginfluence), [`ResourceType`](#re
 </table>
 
 ### UndergroundResourceRenderer
-Visualizes the state of the `ResourceLayer`.
+Visualizes the state of the `UndergroundResourceLayer`.
  Attach this to the world actor.
 
 Requires trait: [`UndergroundResourceLayer`](#undergroundresourcelayer).
@@ -6752,6 +6876,7 @@ Rendered after the "make" animation.
 Requires trait: [`RenderSprites`](#rendersprites).
 <table>
 <tr><th>Property</th><th>Default Value</th><th>Type</th><th>Description</th></tr>
+<tr><td>Condition</td><td></td><td>String</td><td>The condition to grant to self while the overlay is playing. </td></tr>
 <tr><td>Sequence</td><td>make-overlay</td><td>String</td><td>Sequence name to use </td></tr>
 <tr><td>Palette</td><td></td><td>String</td><td>Custom palette name </td></tr>
 <tr><td>IsPlayerPalette</td><td>False</td><td>Boolean</td><td>Custom palette is a player palette BaseName </td></tr>
@@ -6772,6 +6897,38 @@ Requires traits: [`BodyOrientation`](#bodyorientation), [`RenderSprites`](#rende
 <tr><td>InstanceName</td><td></td><td>String</td><td></td></tr>
 </table>
 
+### WithIdleOverlayOnGround
+Plays an idle overlay on the ground position under the actor (regardless of it's actual height).
+
+Requires traits: [`BodyOrientation`](#bodyorientation), [`RenderSprites`](#rendersprites).
+<table>
+<tr><th>Property</th><th>Default Value</th><th>Type</th><th>Description</th></tr>
+<tr><td>Image</td><td></td><td>String</td><td>Image used for this decoration. Defaults to the actor's type. </td></tr>
+<tr><td>StartSequence</td><td></td><td>String</td><td>Animation to play when the actor is created. </td></tr>
+<tr><td>Sequence</td><td>idle-overlay</td><td>String</td><td>Sequence name to use </td></tr>
+<tr><td>Offset</td><td>0,0,0</td><td>3D World Vector</td><td>Position relative to body </td></tr>
+<tr><td>Palette</td><td></td><td>String</td><td>Custom palette name </td></tr>
+<tr><td>IsPlayerPalette</td><td>False</td><td>Boolean</td><td>Custom palette is a player palette BaseName </td></tr>
+<tr><td>IsDecoration</td><td>False</td><td>Boolean</td><td></td></tr>
+<tr><td>PauseOnCondition</td><td></td><td>BooleanExpression</td><td>Boolean expression defining the condition to pause this trait. </td></tr>
+<tr><td>RequiresCondition</td><td></td><td>BooleanExpression</td><td>Boolean expression defining the condition to enable this trait. </td></tr>
+<tr><td>InstanceName</td><td></td><td>String</td><td></td></tr>
+</table>
+
+### WithProductionDoorAnimation
+Play an animation when a unit exits after production finished.
+
+Requires trait: [`WithSpriteBody`](#withspritebody).
+<table>
+<tr><th>Property</th><th>Default Value</th><th>Type</th><th>Description</th></tr>
+<tr><td>ExitCells</td><td><em>(required)</em></td><td>Collection of 2D Cell Vector</td><td>Exit offset associated with the animation. </td></tr>
+<tr><td>Sequence</td><td>door</td><td>String</td><td></td></tr>
+<tr><td>Body</td><td>body</td><td>String</td><td>Which sprite body to play the animation on. </td></tr>
+<tr><td>ReplayBackwards</td><td>False</td><td>Boolean</td><td>Replay the animation backwards after it was played once? </td></tr>
+<tr><td>RequiresCondition</td><td></td><td>BooleanExpression</td><td>Boolean expression defining the condition to enable this trait. </td></tr>
+<tr><td>InstanceName</td><td></td><td>String</td><td></td></tr>
+</table>
+
 ### WithRandomFacingSpriteBody
 Picks sprites from a random actor.
 
@@ -6783,6 +6940,21 @@ Requires traits: [`BodyOrientation`](#bodyorientation), [`RenderSprites`](#rende
 <tr><td>Sequence</td><td>idle</td><td>String</td><td>Animation to play when the actor is idle. </td></tr>
 <tr><td>Name</td><td>body</td><td>String</td><td>Identifier used to assign modifying traits to this sprite body. </td></tr>
 <tr><td>ForceToGround</td><td>False</td><td>Boolean</td><td>Forces sprite body to be rendered on ground regardless of actor altitude (for example for custom shadow sprites). </td></tr>
+<tr><td>PauseOnCondition</td><td></td><td>BooleanExpression</td><td>Boolean expression defining the condition to pause this trait. </td></tr>
+<tr><td>RequiresCondition</td><td></td><td>BooleanExpression</td><td>Boolean expression defining the condition to enable this trait. </td></tr>
+<tr><td>InstanceName</td><td></td><td>String</td><td></td></tr>
+</table>
+
+### WithResourceCollectorOverlay
+Renders the fillness state.
+
+Requires traits: [`RenderSprites`](#rendersprites), [`ResourceCollector`](#resourcecollector).
+<table>
+<tr><th>Property</th><th>Default Value</th><th>Type</th><th>Description</th></tr>
+<tr><td>Sequence</td><td>silo</td><td>String</td><td>Sequence name to use </td></tr>
+<tr><td>Offset</td><td>0,0,0</td><td>3D World Vector</td><td>Position relative to body </td></tr>
+<tr><td>Palette</td><td></td><td>String</td><td>Custom palette name </td></tr>
+<tr><td>IsPlayerPalette</td><td>False</td><td>Boolean</td><td>Custom palette is a player palette BaseName </td></tr>
 <tr><td>PauseOnCondition</td><td></td><td>BooleanExpression</td><td>Boolean expression defining the condition to pause this trait. </td></tr>
 <tr><td>RequiresCondition</td><td></td><td>BooleanExpression</td><td>Boolean expression defining the condition to enable this trait. </td></tr>
 <tr><td>InstanceName</td><td></td><td>String</td><td></td></tr>
@@ -6804,40 +6976,6 @@ Requires traits: [`BodyOrientation`](#bodyorientation), [`RenderSprites`](#rende
 <tr><td>InstanceName</td><td></td><td>String</td><td></td></tr>
 </table>
 
-### WithShadowOverlay
-Renders a decorational shadow on units and buildings.
-
-Requires traits: [`BodyOrientation`](#bodyorientation), [`RenderSprites`](#rendersprites).
-<table>
-<tr><th>Property</th><th>Default Value</th><th>Type</th><th>Description</th></tr>
-<tr><td>Sequence</td><td>shadow-overlay</td><td>String</td><td>Sequence name to use </td></tr>
-<tr><td>Offset</td><td>0,0,0</td><td>3D World Vector</td><td>Position relative to body </td></tr>
-<tr><td>Palette</td><td>shadow</td><td>String</td><td>Custom palette name </td></tr>
-<tr><td>PauseOnCondition</td><td></td><td>BooleanExpression</td><td>Boolean expression defining the condition to pause this trait. </td></tr>
-<tr><td>RequiresCondition</td><td></td><td>BooleanExpression</td><td>Boolean expression defining the condition to enable this trait. </td></tr>
-<tr><td>InstanceName</td><td></td><td>String</td><td></td></tr>
-</table>
-
-### WithSpriteSelectionDecorations
-Displays a custom UI overlay relative to the actor's mouseover bounds.
-<table>
-<tr><th>Property</th><th>Default Value</th><th>Type</th><th>Description</th></tr>
-<tr><td>Image</td><td>outline</td><td>String</td><td>Image used for this decoration. Defaults to the actor's type. </td></tr>
-<tr><td>Sequence</td><td>top-left</td><td>String</td><td>Sequence used for this decoration (can be animated). </td></tr>
-<tr><td>Palette</td><td>cursor</td><td>String</td><td>Palette to render the sprite in. Reference the world actor's PaletteFrom* traits. </td></tr>
-<tr><td>IsPlayerPalette</td><td>False</td><td>Boolean</td><td>Custom palette is a player palette BaseName </td></tr>
-<tr><td>Position</td><td>TopLeft</td><td>DecorationPosition</td><td>Position in the actor's selection box to draw the decoration. </td></tr>
-<tr><td>ValidStances</td><td>Ally</td><td>Stance</td><td>Player stances who can view the decoration. </td></tr>
-<tr><td>RequiresSelection</td><td>False</td><td>Boolean</td><td>Should this be visible only when selected? </td></tr>
-<tr><td>Margin</td><td>0,0</td><td>2D Integer</td><td>Offset sprite center position from the selection box edge. </td></tr>
-<tr><td>Offsets</td><td></td><td>Mapping of BooleanExpression to 2D Integer</td><td>Screen-space offsets to apply when defined conditions are enabled. A dictionary of [condition string]: [x, y offset]. </td></tr>
-<tr><td>BlinkInterval</td><td>5</td><td>Integer</td><td>The number of ticks that each step in the blink pattern in active. </td></tr>
-<tr><td>BlinkPattern</td><td></td><td>Collection of BlinkState</td><td>A pattern of ticks (BlinkInterval long) where the decoration is visible or hidden. </td></tr>
-<tr><td>BlinkPatterns</td><td></td><td>Mapping of BooleanExpression to Collection of BlinkState</td><td>Override blink conditions to use when defined conditions are enabled. A dictionary of [condition string]: [pattern]. </td></tr>
-<tr><td>RequiresCondition</td><td></td><td>BooleanExpression</td><td>Boolean expression defining the condition to enable this trait. </td></tr>
-<tr><td>InstanceName</td><td></td><td>String</td><td></td></tr>
-</table>
-
 ### WithTeleportChargeAnimation
 This actor displays a charge-up animation when it receives a teleported unit.
 
@@ -6855,7 +6993,8 @@ This actor display an overlay upon arrival.
 Requires traits: [`BodyOrientation`](#bodyorientation), [`RenderSprites`](#rendersprites).
 <table>
 <tr><th>Property</th><th>Default Value</th><th>Type</th><th>Description</th></tr>
-<tr><td>Sequence</td><td>energyball</td><td>String</td><td>Sequence to use for charge animation. </td></tr>
+<tr><td>Image</td><td></td><td>String</td><td>Defaults to the actor name. </td></tr>
+<tr><td>Sequence</td><td></td><td>String</td><td>Sequence to use for charge animation. </td></tr>
 <tr><td>Body</td><td>body</td><td>String</td><td>Which sprite body to play the animation on. </td></tr>
 <tr><td>Offset</td><td>0,0,0</td><td>3D World Vector</td><td>Position relative to body </td></tr>
 <tr><td>Palette</td><td></td><td>String</td><td>Custom palette name </td></tr>

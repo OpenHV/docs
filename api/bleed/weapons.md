@@ -8,18 +8,24 @@ This documentation is aimed at modders. It displays a template for weapon defini
   * [LaserZap](#laserzap)
   * [Missile](#missile)
   * [Railgun](#railgun)
+* [OpenRA.Mods.HV.Projectiles](#openramodshvprojectiles)
+  * [EnergyBolt](#energybolt)
 * [OpenRA.Mods.Common.Warheads](#openramodscommonwarheads)
   * [ChangeOwnerWarhead](#changeownerwarhead)
   * [CreateEffectWarhead](#createeffectwarhead)
   * [CreateResourceWarhead](#createresourcewarhead)
   * [DestroyResourceWarhead](#destroyresourcewarhead)
   * [FireClusterWarhead](#fireclusterwarhead)
+  * [FlashPaletteEffectWarhead](#flashpaletteeffectwarhead)
   * [GrantExternalConditionWarhead](#grantexternalconditionwarhead)
   * [HealthPercentageDamageWarhead](#healthpercentagedamagewarhead)
   * [LeaveSmudgeWarhead](#leavesmudgewarhead)
   * [ShakeScreenWarhead](#shakescreenwarhead)
   * [SpreadDamageWarhead](#spreaddamagewarhead)
   * [TargetDamageWarhead](#targetdamagewarhead)
+* [OpenRA.Mods.HV.Warheads](#openramodshvwarheads)
+  * [FireRadiusWarhead](#fireradiuswarhead)
+  * [FireShrapnelWarhead](#fireshrapnelwarhead)
 
 ## OpenRA.Mods.Common.Projectiles
 
@@ -34,7 +40,8 @@ This documentation is aimed at modders. It displays a template for weapon defini
 <tr><td>BeyondTargetRange</td><td>0c0</td><td>1D World Distance</td><td>How far beyond the target the projectile keeps on travelling. </td></tr>
 <tr><td>Falloff</td><td>100, 100</td><td>Collection of Integer</td><td>Damage modifier applied at each range step. </td></tr>
 <tr><td>Range</td><td>0c0, 2097151c1023</td><td>Collection of 1D World Distance</td><td>Ranges at which each Falloff step is defined. </td></tr>
-<tr><td>Inaccuracy</td><td>0c0</td><td>1D World Distance</td><td>Maximum offset at the maximum range. </td></tr>
+<tr><td>Inaccuracy</td><td>0c0</td><td>1D World Distance</td><td>The maximum/constant/incremental inaccuracy used in conjunction with the InaccuracyType property. </td></tr>
+<tr><td>InaccuracyType</td><td>Maximum</td><td>InaccuracyType</td><td>Controls the way inaccuracy is calculated. Possible values are 'Maximum' - scale from 0 to max with range, 'PerCellIncrement' - scale from 0 with range and 'Absolute' - use set value regardless of range. </td></tr>
 <tr><td>Blockable</td><td>False</td><td>Boolean</td><td>Can this projectile be blocked when hitting actors with an IBlocksProjectiles trait. </td></tr>
 <tr><td>TrackTarget</td><td>False</td><td>Boolean</td><td>Does the beam follow the target. </td></tr>
 <tr><td>RenderBeam</td><td>True</td><td>Boolean</td><td>Should the beam be visually rendered? False = Beam is invisible. </td></tr>
@@ -47,7 +54,8 @@ This documentation is aimed at modders. It displays a template for weapon defini
 <table>
 <tr><th>Property</th><th>Default Value</th><th>Type</th><th>Description</th></tr>
 <tr><td>Speed</td><td>0c17</td><td>Collection of 1D World Distance</td><td>Projectile speed in WDist / tick, two values indicate variable velocity. </td></tr>
-<tr><td>Inaccuracy</td><td>0c0</td><td>1D World Distance</td><td>Maximum offset at the maximum range. </td></tr>
+<tr><td>Inaccuracy</td><td>0c0</td><td>1D World Distance</td><td>The maximum/constant/incremental inaccuracy used in conjunction with the InaccuracyType property. </td></tr>
+<tr><td>InaccuracyType</td><td>Maximum</td><td>InaccuracyType</td><td>Controls the way inaccuracy is calculated. Possible values are 'Maximum' - scale from 0 to max with range, 'PerCellIncrement' - scale from 0 with range and 'Absolute' - use set value regardless of range. </td></tr>
 <tr><td>Image</td><td></td><td>String</td><td>Image to display. </td></tr>
 <tr><td>Sequences</td><td>idle</td><td>Collection of String</td><td>Loop a randomly chosen sequence of Image from this list while this projectile is moving. </td></tr>
 <tr><td>Palette</td><td>effect</td><td>String</td><td>The palette used to draw this projectile. </td></tr>
@@ -94,7 +102,8 @@ This documentation is aimed at modders. It displays a template for weapon defini
 Simple, invisible, usually direct-on-target projectile.
 <table>
 <tr><th>Property</th><th>Default Value</th><th>Type</th><th>Description</th></tr>
-<tr><td>Inaccuracy</td><td>0c0</td><td>1D World Distance</td><td>Maximum offset at the maximum range. </td></tr>
+<tr><td>Inaccuracy</td><td>0c0</td><td>1D World Distance</td><td>The maximum/constant/incremental inaccuracy used in conjunction with the InaccuracyType property. </td></tr>
+<tr><td>InaccuracyType</td><td>Maximum</td><td>InaccuracyType</td><td>Controls the way inaccuracy is calculated. Possible values are 'Maximum' - scale from 0 to max with range, 'PerCellIncrement' - scale from 0 with range and 'Absolute' - use set value regardless of range. </td></tr>
 <tr><td>Blockable</td><td>False</td><td>Boolean</td><td>Projectile can be blocked. </td></tr>
 <tr><td>Width</td><td>0c1</td><td>1D World Distance</td><td>The width of the projectile. </td></tr>
 <tr><td>BlockerScanRadius</td><td>-0c1</td><td>1D World Distance</td><td>Scan radius for actors with projectile-blocking trait. If set to a negative value (default), it will automatically scale to the blocker with the largest health shape. Only set custom values if you know what you're doing. </td></tr>
@@ -113,7 +122,8 @@ Not a sprite, but an engine effect.
 <tr><td>UsePlayerColor</td><td>False</td><td>Boolean</td><td></td></tr>
 <tr><td>Color</td><td>FF0000</td><td>Color (RRGGBB[AA] notation)</td><td>Color of the beam. </td></tr>
 <tr><td>TrackTarget</td><td>True</td><td>Boolean</td><td>Beam follows the target. </td></tr>
-<tr><td>Inaccuracy</td><td>0c0</td><td>1D World Distance</td><td>Maximum offset at the maximum range. </td></tr>
+<tr><td>Inaccuracy</td><td>0c0</td><td>1D World Distance</td><td>The maximum/constant/incremental inaccuracy used in conjunction with the InaccuracyType property. </td></tr>
+<tr><td>InaccuracyType</td><td>Maximum</td><td>InaccuracyType</td><td>Controls the way inaccuracy is calculated. Possible values are 'Maximum' - scale from 0 to max with range, 'PerCellIncrement' - scale from 0 with range and 'Absolute' - use set value regardless of range. </td></tr>
 <tr><td>Blockable</td><td>False</td><td>Boolean</td><td>Beam can be blocked. </td></tr>
 <tr><td>SecondaryBeam</td><td>False</td><td>Boolean</td><td>Draw a second beam (for 'glow' effect). </td></tr>
 <tr><td>SecondaryBeamWidth</td><td>0c86</td><td>1D World Distance</td><td>The width of the zap. </td></tr>
@@ -147,11 +157,12 @@ Not a sprite, but an engine effect.
 <tr><td>Blockable</td><td>True</td><td>Boolean</td><td>Is the missile blocked by actors with BlocksProjectiles: trait. </td></tr>
 <tr><td>TerrainHeightAware</td><td>False</td><td>Boolean</td><td>Is the missile aware of terrain height levels. Only needed for mods with real, non-visual height levels. </td></tr>
 <tr><td>Width</td><td>0c1</td><td>1D World Distance</td><td>Width of projectile (used for finding blocking actors). </td></tr>
-<tr><td>Inaccuracy</td><td>0c0</td><td>1D World Distance</td><td>Maximum inaccuracy offset at the maximum range </td></tr>
+<tr><td>Inaccuracy</td><td>0c0</td><td>1D World Distance</td><td>The maximum/constant/incremental inaccuracy used in conjunction with the InaccuracyType property. </td></tr>
+<tr><td>InaccuracyType</td><td>Absolute</td><td>InaccuracyType</td><td>Controls the way inaccuracy is calculated. Possible values are 'Maximum' - scale from 0 to max with range, 'PerCellIncrement' - scale from 0 with range and 'Absolute' - use set value regardless of range. </td></tr>
 <tr><td>LockOnInaccuracy</td><td>-0c1</td><td>1D World Distance</td><td>Inaccuracy override when sucessfully locked onto target. Defaults to Inaccuracy if negative. </td></tr>
 <tr><td>LockOnProbability</td><td>100</td><td>Integer</td><td>Probability of locking onto and following target. </td></tr>
-<tr><td>HorizontalRateOfTurn</td><td>5</td><td>Integer</td><td>Horizontal rate of turn. </td></tr>
-<tr><td>VerticalRateOfTurn</td><td>6</td><td>Integer</td><td>Vertical rate of turn. </td></tr>
+<tr><td>HorizontalRateOfTurn</td><td>20</td><td>1D World Angle</td><td>Horizontal rate of turn. </td></tr>
+<tr><td>VerticalRateOfTurn</td><td>24</td><td>1D World Angle</td><td>Vertical rate of turn. </td></tr>
 <tr><td>Gravity</td><td>10</td><td>Integer</td><td>Gravity applied while in free fall. </td></tr>
 <tr><td>RangeLimit</td><td>0c0</td><td>1D World Distance</td><td>Run out of fuel after covering this distance. Zero for defaulting to weapon range. Negative for unlimited fuel. </td></tr>
 <tr><td>ExplodeWhenEmpty</td><td>True</td><td>Boolean</td><td>Explode when running out of fuel. </td></tr>
@@ -182,7 +193,8 @@ Laser effect with helix coiling around.
 <table>
 <tr><th>Property</th><th>Default Value</th><th>Type</th><th>Description</th></tr>
 <tr><td>DamageActorsInLine</td><td>False</td><td>Boolean</td><td>Damage all units hit by the beam instead of just the target? </td></tr>
-<tr><td>Inaccuracy</td><td>0c0</td><td>1D World Distance</td><td>Maximum offset at the maximum range. </td></tr>
+<tr><td>Inaccuracy</td><td>0c0</td><td>1D World Distance</td><td>The maximum/constant/incremental inaccuracy used in conjunction with the InaccuracyType property. </td></tr>
+<tr><td>InaccuracyType</td><td>Maximum</td><td>InaccuracyType</td><td>Controls the way inaccuracy is calculated. Possible values are 'Maximum' - scale from 0 to max with range, 'PerCellIncrement' - scale from 0 with range and 'Absolute' - use set value regardless of range. </td></tr>
 <tr><td>Blockable</td><td>False</td><td>Boolean</td><td>Can this projectile be blocked when hitting actors with an IBlocksProjectiles trait. </td></tr>
 <tr><td>Duration</td><td>15</td><td>Integer</td><td>Duration of the beam and helix </td></tr>
 <tr><td>ZOffset</td><td>0</td><td>Integer</td><td>Equivalent to sequence ZOffset. Controls Z sorting. </td></tr>
@@ -203,6 +215,23 @@ Laser effect with helix coiling around.
 <tr><td>HitAnim</td><td></td><td>String</td><td>Impact animation. </td></tr>
 <tr><td>HitAnimSequence</td><td>idle</td><td>String</td><td>Sequence of impact animation to use. </td></tr>
 <tr><td>HitAnimPalette</td><td>effect</td><td>String</td><td></td></tr>
+</table>
+
+## OpenRA.Mods.HV.Projectiles
+
+### EnergyBolt
+Renders an energy discharge.
+<table>
+<tr><th>Property</th><th>Default Value</th><th>Type</th><th>Description</th></tr>
+<tr><td>Duration</td><td>10</td><td>Integer</td><td>The maximum duration (in ticks) of the beam's existence. </td></tr>
+<tr><td>Color</td><td>FFFFFF00</td><td>Color (RRGGBB[AA] notation)</td><td>Color of the beam. Default falls back to player color. </td></tr>
+<tr><td>InnerLightness</td><td>255</td><td>Byte</td><td>Inner lightness of the beam. </td></tr>
+<tr><td>OuterLightness</td><td>128</td><td>Byte</td><td>Outer lightness of the beam. </td></tr>
+<tr><td>Radius</td><td>3</td><td>Integer</td><td>The radius of the beam. </td></tr>
+<tr><td>Distortion</td><td>0</td><td>Integer</td><td>Distortion offset. </td></tr>
+<tr><td>DistortionAnimation</td><td>0</td><td>Integer</td><td>Distortion animation offset. </td></tr>
+<tr><td>SegmentLength</td><td>0c0</td><td>1D World Distance</td><td>Maximum length per segment. </td></tr>
+<tr><td>ZOffset</td><td>0</td><td>Integer</td><td>Equivalent to sequence ZOffset. Controls Z sorting. </td></tr>
 </table>
 
 ## OpenRA.Mods.Common.Warheads
@@ -276,6 +305,21 @@ Interacts with the TemporaryOwnerManager trait.
 <tr><td>RandomClusterCount</td><td>-1</td><td>Integer</td><td>Number of weapons fired at random 'x' cells. Negative values will result in a number equal to 'x' footprint cells fired. </td></tr>
 <tr><td>Dimensions</td><td>0,0</td><td>2D Cell Vector</td><td>Size of the cluster footprint </td></tr>
 <tr><td>Footprint</td><td></td><td>String</td><td>Cluster footprint. Cells marked as X will be attacked. Cells marked as x will be attacked randomly until RandomClusterCount is reached. </td></tr>
+<tr><td>ValidTargets</td><td>Ground, Water</td><td>Collection of TargetableType</td><td>What types of targets are affected. </td></tr>
+<tr><td>InvalidTargets</td><td></td><td>Collection of TargetableType</td><td>What types of targets are unaffected. Overrules ValidTargets. </td></tr>
+<tr><td>ValidStances</td><td>Enemy, Neutral, Ally</td><td>Stance</td><td>What diplomatic stances are affected. </td></tr>
+<tr><td>AffectsParent</td><td>False</td><td>Boolean</td><td>Can this warhead affect the actor that fired it. </td></tr>
+<tr><td>AirThreshold</td><td>0c128</td><td>1D World Distance</td><td>If impact is above this altitude, warheads that would affect terrain ignore terrain target types (and either do nothing or perform their own checks). </td></tr>
+<tr><td>Delay</td><td>0</td><td>Integer</td><td>Delay in ticks before applying the warhead effect. 0 = instant (old model). </td></tr>
+<tr><td>DebugOverlayColor</td><td>FF0000</td><td>Color (RRGGBB[AA] notation)</td><td>The color used for this warhead's visualization in the world's `WarheadDebugOverlay` trait. </td></tr>
+</table>
+
+### FlashPaletteEffectWarhead
+Used to trigger a FlashPaletteEffect trait on the world actor.
+<table>
+<tr><th>Property</th><th>Default Value</th><th>Type</th><th>Description</th></tr>
+<tr><td>FlashType</td><td></td><td>String</td><td>Corresponds to `Type` from `FlashPaletteEffect` on the world actor. </td></tr>
+<tr><td>Duration</td><td>0</td><td>Integer</td><td>Duration of the flashing, measured in ticks. Set to -1 to default to the `Length` of the `FlashPaletteEffect`. </td></tr>
 <tr><td>ValidTargets</td><td>Ground, Water</td><td>Collection of TargetableType</td><td>What types of targets are affected. </td></tr>
 <tr><td>InvalidTargets</td><td></td><td>Collection of TargetableType</td><td>What types of targets are unaffected. Overrules ValidTargets. </td></tr>
 <tr><td>ValidStances</td><td>Enemy, Neutral, Ally</td><td>Stance</td><td>What diplomatic stances are affected. </td></tr>
@@ -373,6 +417,45 @@ Makes the screen shake.
 <tr><td>Damage</td><td>0</td><td>Integer</td><td>How much (raw) damage to deal. </td></tr>
 <tr><td>DamageTypes</td><td></td><td>Collection of DamageType</td><td>Types of damage that this warhead causes. Leave empty for no damage types. </td></tr>
 <tr><td>Versus</td><td></td><td>Mapping of String to Integer</td><td>Damage percentage versus each armortype. </td></tr>
+<tr><td>ValidTargets</td><td>Ground, Water</td><td>Collection of TargetableType</td><td>What types of targets are affected. </td></tr>
+<tr><td>InvalidTargets</td><td></td><td>Collection of TargetableType</td><td>What types of targets are unaffected. Overrules ValidTargets. </td></tr>
+<tr><td>ValidStances</td><td>Enemy, Neutral, Ally</td><td>Stance</td><td>What diplomatic stances are affected. </td></tr>
+<tr><td>AffectsParent</td><td>False</td><td>Boolean</td><td>Can this warhead affect the actor that fired it. </td></tr>
+<tr><td>AirThreshold</td><td>0c128</td><td>1D World Distance</td><td>If impact is above this altitude, warheads that would affect terrain ignore terrain target types (and either do nothing or perform their own checks). </td></tr>
+<tr><td>Delay</td><td>0</td><td>Integer</td><td>Delay in ticks before applying the warhead effect. 0 = instant (old model). </td></tr>
+<tr><td>DebugOverlayColor</td><td>FF0000</td><td>Color (RRGGBB[AA] notation)</td><td>The color used for this warhead's visualization in the world's `WarheadDebugOverlay` trait. </td></tr>
+</table>
+
+## OpenRA.Mods.HV.Warheads
+
+### FireRadiusWarhead
+Fires a defined amount of weapons with their maximum range in a wave pattern.
+<table>
+<tr><th>Property</th><th>Default Value</th><th>Type</th><th>Description</th></tr>
+<tr><td>Weapon</td><td></td><td>String</td><td>Has to be defined in weapons.yaml as well. </td></tr>
+<tr><td>Amount</td><td>1</td><td>Collection of Integer</td><td>Amount of weapons fired. </td></tr>
+<tr><td>AroundTarget</td><td>False</td><td>Boolean</td><td>Should the weapons be fired around the intended target or at the explosion's epicenter. </td></tr>
+<tr><td>ImpactActors</td><td>True</td><td>Boolean</td><td>Whether to consider actors in determining whether the explosion should happen. If false, only terrain will be considered. </td></tr>
+<tr><td>ValidTargets</td><td>Ground, Water</td><td>Collection of TargetableType</td><td>What types of targets are affected. </td></tr>
+<tr><td>InvalidTargets</td><td></td><td>Collection of TargetableType</td><td>What types of targets are unaffected. Overrules ValidTargets. </td></tr>
+<tr><td>ValidStances</td><td>Enemy, Neutral, Ally</td><td>Stance</td><td>What diplomatic stances are affected. </td></tr>
+<tr><td>AffectsParent</td><td>False</td><td>Boolean</td><td>Can this warhead affect the actor that fired it. </td></tr>
+<tr><td>AirThreshold</td><td>0c128</td><td>1D World Distance</td><td>If impact is above this altitude, warheads that would affect terrain ignore terrain target types (and either do nothing or perform their own checks). </td></tr>
+<tr><td>Delay</td><td>0</td><td>Integer</td><td>Delay in ticks before applying the warhead effect. 0 = instant (old model). </td></tr>
+<tr><td>DebugOverlayColor</td><td>FF0000</td><td>Color (RRGGBB[AA] notation)</td><td>The color used for this warhead's visualization in the world's `WarheadDebugOverlay` trait. </td></tr>
+</table>
+
+### FireShrapnelWarhead
+<table>
+<tr><th>Property</th><th>Default Value</th><th>Type</th><th>Description</th></tr>
+<tr><td>Weapon</td><td></td><td>String</td><td>Has to be defined in weapons.yaml as well. </td></tr>
+<tr><td>Amount</td><td>1</td><td>Collection of Integer</td><td>Amount of shrapnels thrown. </td></tr>
+<tr><td>AimChance</td><td>0</td><td>Integer</td><td>The percentage of aiming this shrapnel to a suitable target actor. </td></tr>
+<tr><td>AimTargetStances</td><td>Enemy, Neutral, Ally</td><td>Stance</td><td>What diplomatic stances can be targeted by the shrapnel. </td></tr>
+<tr><td>ThrowWithoutTarget</td><td>True</td><td>Boolean</td><td>Allow this shrapnel to be thrown randomly when no targets found. </td></tr>
+<tr><td>AllowDirectHit</td><td>False</td><td>Boolean</td><td>Should the shrapnel hit the direct target? </td></tr>
+<tr><td>AroundTarget</td><td>False</td><td>Boolean</td><td>Should the weapons be fired around the intended target or at the explosion's epicenter. </td></tr>
+<tr><td>ImpactActors</td><td>True</td><td>Boolean</td><td>Whether to consider actors in determining whether the explosion should happen. If false, only terrain will be considered. </td></tr>
 <tr><td>ValidTargets</td><td>Ground, Water</td><td>Collection of TargetableType</td><td>What types of targets are affected. </td></tr>
 <tr><td>InvalidTargets</td><td></td><td>Collection of TargetableType</td><td>What types of targets are unaffected. Overrules ValidTargets. </td></tr>
 <tr><td>ValidStances</td><td>Enemy, Neutral, Ally</td><td>Stance</td><td>What diplomatic stances are affected. </td></tr>

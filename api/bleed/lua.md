@@ -274,6 +274,14 @@ Adds the specified amount of ammo to the specified ammopool.
 <b>Requires Trait:</b> AmmoPool
 </td></tr>
 </table>
+<table align="center" width="1024"><tr><th colspan="2" width="1024">Cloak</th></tr>
+<tr><td width="50%" align="right"><strong>bool IsCloaked { get; }</strong>
+</td><td>
+Returns true if the actor is cloaked.
+<br />
+<b>Requires Trait:</b> Cloak
+</td></tr>
+</table>
 <table align="center" width="1024"><tr><th colspan="2" width="1024">Combat</th></tr>
 <tr><td width="50%" align="right"><strong>void Attack(Actor targetActor, bool allowMove = True, bool forceAttack = False)</strong>
 </td><td>
@@ -328,6 +336,44 @@ Patrol along a set of given waypoints. The action is repeated by default, and th
 Patrol along a set of given waypoints until a condition becomes true. The actor will wait for `wait` ticks at each waypoint.
 <br />
 <b>Requires Traits:</b> IMove, AttackBase
+</td></tr>
+</table>
+<table align="center" width="1024"><tr><th colspan="2" width="1024">Experience</th></tr>
+<tr><td width="50%" align="right"><strong>bool CanGainLevel { get; }</strong>
+</td><td>
+Returns true if the actor can gain a level.
+<br />
+<b>Requires Trait:</b> GainsExperience
+</td></tr>
+<tr><td width="50%" align="right"><strong>int Experience { get; }</strong>
+</td><td>
+The actor's amount of experience.
+<br />
+<b>Requires Trait:</b> GainsExperience
+</td></tr>
+<tr><td width="50%" align="right"><strong>void GiveExperience(int amount, bool silent = False)</strong>
+</td><td>
+Gives the actor experience. If 'silent' is true, no animation or sound will be played if the actor levels up.
+<br />
+<b>Requires Trait:</b> GainsExperience
+</td></tr>
+<tr><td width="50%" align="right"><strong>void GiveLevels(int numLevels, bool silent = False)</strong>
+</td><td>
+Gives the actor level(s). If 'silent' is true, no animation or sound will be played.
+<br />
+<b>Requires Trait:</b> GainsExperience
+</td></tr>
+<tr><td width="50%" align="right"><strong>int Level { get; }</strong>
+</td><td>
+The actor's level.
+<br />
+<b>Requires Trait:</b> GainsExperience
+</td></tr>
+<tr><td width="50%" align="right"><strong>int MaxLevel { get; }</strong>
+</td><td>
+The actor's maximum possible level.
+<br />
+<b>Requires Trait:</b> GainsExperience
 </td></tr>
 </table>
 <table align="center" width="1024"><tr><th colspan="2" width="1024">General</th></tr>
@@ -680,9 +726,9 @@ Specifies the amount of passengers.
 <br />
 <b>Requires Trait:</b> Cargo
 </td></tr>
-<tr><td width="50%" align="right"><strong>Actor UnloadPassenger()</strong>
+<tr><td width="50%" align="right"><strong>Actor UnloadPassenger(Actor a = nil)</strong>
 </td><td>
-Remove the first actor from the transport.  This actor is not added to the world.
+Remove an existing actor (or first actor if none specified) from the transport.  This actor is not added to the world.
 <br />
 <b>Requires Trait:</b> Cargo
 </td></tr>
