@@ -1,31 +1,5 @@
-This documentation is aimed at modders. It displays a template for weapon definitions as well as its contained types (warheads and projectiles) with default values and developer commentary. Please do not edit it directly, but add new `[Desc("String")]` tags to the source code. This file has been automatically generated for version {DEV_VERSION} of OpenHV.
+This documentation is aimed at modders. It displays a template for weapon definitions as well as its contained types (warheads and projectiles) with default values and developer commentary. Please do not edit it directly, but add new `[Desc("String")]` tags to the source code. This file has been automatically generated for version 20200907 of OpenHV.
 
-* [OpenRA.Mods.Common.Projectiles](#openramodscommonprojectiles)
-  * [AreaBeam](#areabeam)
-  * [Bullet](#bullet)
-  * [GravityBomb](#gravitybomb)
-  * [InstantHit](#instanthit)
-  * [LaserZap](#laserzap)
-  * [Missile](#missile)
-  * [Railgun](#railgun)
-* [OpenRA.Mods.HV.Projectiles](#openramodshvprojectiles)
-  * [EnergyBolt](#energybolt)
-* [OpenRA.Mods.Common.Warheads](#openramodscommonwarheads)
-  * [ChangeOwnerWarhead](#changeownerwarhead)
-  * [CreateEffectWarhead](#createeffectwarhead)
-  * [CreateResourceWarhead](#createresourcewarhead)
-  * [DestroyResourceWarhead](#destroyresourcewarhead)
-  * [FireClusterWarhead](#fireclusterwarhead)
-  * [FlashPaletteEffectWarhead](#flashpaletteeffectwarhead)
-  * [GrantExternalConditionWarhead](#grantexternalconditionwarhead)
-  * [HealthPercentageDamageWarhead](#healthpercentagedamagewarhead)
-  * [LeaveSmudgeWarhead](#leavesmudgewarhead)
-  * [ShakeScreenWarhead](#shakescreenwarhead)
-  * [SpreadDamageWarhead](#spreaddamagewarhead)
-  * [TargetDamageWarhead](#targetdamagewarhead)
-* [OpenRA.Mods.HV.Warheads](#openramodshvwarheads)
-  * [FireRadiusWarhead](#fireradiuswarhead)
-  * [FireShrapnelWarhead](#fireshrapnelwarhead)
 
 ## OpenRA.Mods.Common.Projectiles
 
