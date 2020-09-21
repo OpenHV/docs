@@ -1,4 +1,4 @@
-This documentation is aimed at modders. It displays all traits with default values and developer commentary. Please do not edit it directly, but add new `[Desc("String")]` tags to the source code. This file has been automatically generated for version 20200907 of OpenHV.
+This documentation is aimed at modders. It displays all traits with default values and developer commentary. Please do not edit it directly, but add new `[Desc("String")]` tags to the source code. This file has been automatically generated for version 20200920 of OpenRA.
 
 
 ## OpenRA.Mods.Common
@@ -41,23 +41,6 @@ Shows a list of available commands in the chatbox. Attach this to the world acto
 
 ### PlayerCommands
 Allows the player to pause or surrender the game via the chatbox. Attach this to the world actor.
-
-## OpenRA.Mods.Common.HV.Render
-
-### WithDamagedOverlay
-Renders an overlay when the actor is taking heavy damage.
-
-Requires trait: [`RenderSprites`](#rendersprites).
-<table>
-<tr><th>Property</th><th>Default Value</th><th>Type</th><th>Description</th></tr>
-<tr><td>Image</td><td></td><td>String</td><td>Defaults to the actor name. </td></tr>
-<tr><td>Sequence</td><td></td><td>String</td><td></td></tr>
-<tr><td>Palette</td><td></td><td>String</td><td>Custom palette name. </td></tr>
-<tr><td>IsPlayerPalette</td><td>False</td><td>Boolean</td><td>Custom palette is a player palette BaseName. </td></tr>
-<tr><td>DamageTypes</td><td></td><td>Collection of DamageType</td><td>Damage types that this should be used for (defined on the warheads). Leave empty to disable all filtering. </td></tr>
-<tr><td>MinimumDamageState</td><td>Heavy</td><td>DamageState</td><td>Trigger when Undamaged, Light, Medium, Heavy, Critical or Dead. </td></tr>
-<tr><td>MaximumDamageState</td><td>Dead</td><td>DamageState</td><td></td></tr>
-</table>
 
 ## OpenRA.Mods.Common.Scripting
 
@@ -4573,7 +4556,7 @@ Requires trait: [`AmmoPool`](#ammopool).
 <tr><td>EmptySequence</td><td>pip-empty</td><td>String</td><td>Sequence used for empty pips. </td></tr>
 <tr><td>FullSequence</td><td>pip-green</td><td>String</td><td>Sequence used for full pips. </td></tr>
 <tr><td>Palette</td><td>chrome</td><td>String</td><td></td></tr>
-<tr><td>Position</td><td>TopLeft</td><td>DecorationPosition</td><td>Position in the actor's selection box to draw the decoration. </td></tr>
+<tr><td>Position</td><td>TopLeft</td><td>String</td><td>Position in the actor's selection box to draw the decoration. </td></tr>
 <tr><td>ValidStances</td><td>Ally</td><td>Stance</td><td>Player stances who can view the decoration. </td></tr>
 <tr><td>RequiresSelection</td><td>False</td><td>Boolean</td><td>Should this be visible only when selected? </td></tr>
 <tr><td>Margin</td><td>0,0</td><td>2D Integer</td><td>Offset sprite center position from the selection box edge. </td></tr>
@@ -4663,7 +4646,7 @@ Requires trait: [`RepairableBuilding`](#repairablebuilding).
 <tr><td>Sequence</td><td><em>(required)</em></td><td>String</td><td>Sequence used for this decoration (can be animated). </td></tr>
 <tr><td>Palette</td><td>chrome</td><td>String</td><td>Palette to render the sprite in. Reference the world actor's PaletteFrom* traits. </td></tr>
 <tr><td>IsPlayerPalette</td><td>False</td><td>Boolean</td><td>Custom palette is a player palette BaseName </td></tr>
-<tr><td>Position</td><td>TopLeft</td><td>DecorationPosition</td><td>Position in the actor's selection box to draw the decoration. </td></tr>
+<tr><td>Position</td><td>TopLeft</td><td>String</td><td>Position in the actor's selection box to draw the decoration. </td></tr>
 <tr><td>ValidStances</td><td>Ally</td><td>Stance</td><td>Player stances who can view the decoration. </td></tr>
 <tr><td>RequiresSelection</td><td>False</td><td>Boolean</td><td>Should this be visible only when selected? </td></tr>
 <tr><td>Margin</td><td>0,0</td><td>2D Integer</td><td>Offset sprite center position from the selection box edge. </td></tr>
@@ -4685,7 +4668,7 @@ Requires trait: [`Cargo`](#cargo).
 <tr><td>FullSequence</td><td>pip-green</td><td>String</td><td>Sequence used for full pips that aren't defined in CustomPipSequences. </td></tr>
 <tr><td>CustomPipSequences</td><td></td><td>Mapping of String to String</td><td>Pip sequence to use for specific passenger actors. </td></tr>
 <tr><td>Palette</td><td>chrome</td><td>String</td><td></td></tr>
-<tr><td>Position</td><td>TopLeft</td><td>DecorationPosition</td><td>Position in the actor's selection box to draw the decoration. </td></tr>
+<tr><td>Position</td><td>TopLeft</td><td>String</td><td>Position in the actor's selection box to draw the decoration. </td></tr>
 <tr><td>ValidStances</td><td>Ally</td><td>Stance</td><td>Player stances who can view the decoration. </td></tr>
 <tr><td>RequiresSelection</td><td>False</td><td>Boolean</td><td>Should this be visible only when selected? </td></tr>
 <tr><td>Margin</td><td>0,0</td><td>2D Integer</td><td>Offset sprite center position from the selection box edge. </td></tr>
@@ -4801,7 +4784,7 @@ Displays a custom UI overlay relative to the actor's mouseover bounds.
 <tr><td>Sequence</td><td><em>(required)</em></td><td>String</td><td>Sequence used for this decoration (can be animated). </td></tr>
 <tr><td>Palette</td><td>chrome</td><td>String</td><td>Palette to render the sprite in. Reference the world actor's PaletteFrom* traits. </td></tr>
 <tr><td>IsPlayerPalette</td><td>False</td><td>Boolean</td><td>Custom palette is a player palette BaseName </td></tr>
-<tr><td>Position</td><td>TopLeft</td><td>DecorationPosition</td><td>Position in the actor's selection box to draw the decoration. </td></tr>
+<tr><td>Position</td><td>TopLeft</td><td>String</td><td>Position in the actor's selection box to draw the decoration. </td></tr>
 <tr><td>ValidStances</td><td>Ally</td><td>Stance</td><td>Player stances who can view the decoration. </td></tr>
 <tr><td>RequiresSelection</td><td>False</td><td>Boolean</td><td>Should this be visible only when selected? </td></tr>
 <tr><td>Margin</td><td>0,0</td><td>2D Integer</td><td>Offset sprite center position from the selection box edge. </td></tr>
@@ -4893,7 +4876,7 @@ Requires trait: [`Harvester`](#harvester).
 <tr><td>FullSequence</td><td>pip-green</td><td>String</td><td>Sequence used for full pips that aren't defined in ResourceSequences. </td></tr>
 <tr><td>ResourceSequences</td><td></td><td>Mapping of String to String</td><td>Pip sequence to use for specific resource types. </td></tr>
 <tr><td>Palette</td><td>chrome</td><td>String</td><td></td></tr>
-<tr><td>Position</td><td>TopLeft</td><td>DecorationPosition</td><td>Position in the actor's selection box to draw the decoration. </td></tr>
+<tr><td>Position</td><td>TopLeft</td><td>String</td><td>Position in the actor's selection box to draw the decoration. </td></tr>
 <tr><td>ValidStances</td><td>Ally</td><td>Stance</td><td>Player stances who can view the decoration. </td></tr>
 <tr><td>RequiresSelection</td><td>False</td><td>Boolean</td><td>Should this be visible only when selected? </td></tr>
 <tr><td>Margin</td><td>0,0</td><td>2D Integer</td><td>Offset sprite center position from the selection box edge. </td></tr>
@@ -4999,7 +4982,7 @@ Displays the player name above the unit
 <tr><td>Font</td><td>TinyBold</td><td>String</td><td></td></tr>
 <tr><td>Color</td><td>FFFFFF</td><td>Color (RRGGBB[AA] notation)</td><td>Display in this color when not using the player color. </td></tr>
 <tr><td>UsePlayerColor</td><td>False</td><td>Boolean</td><td>Use the player color of the current owner. </td></tr>
-<tr><td>Position</td><td>TopLeft</td><td>DecorationPosition</td><td>Position in the actor's selection box to draw the decoration. </td></tr>
+<tr><td>Position</td><td>TopLeft</td><td>String</td><td>Position in the actor's selection box to draw the decoration. </td></tr>
 <tr><td>ValidStances</td><td>Ally</td><td>Stance</td><td>Player stances who can view the decoration. </td></tr>
 <tr><td>RequiresSelection</td><td>False</td><td>Boolean</td><td>Should this be visible only when selected? </td></tr>
 <tr><td>Margin</td><td>0,0</td><td>2D Integer</td><td>Offset sprite center position from the selection box edge. </td></tr>
@@ -5122,7 +5105,7 @@ Requires trait: [`RenderSprites`](#rendersprites).
 <tr><td>EmptySequence</td><td>pip-empty</td><td>String</td><td>Sequence used for empty pips. </td></tr>
 <tr><td>FullSequence</td><td>pip-green</td><td>String</td><td>Sequence used for full pips. </td></tr>
 <tr><td>Palette</td><td>chrome</td><td>String</td><td></td></tr>
-<tr><td>Position</td><td>TopLeft</td><td>DecorationPosition</td><td>Position in the actor's selection box to draw the decoration. </td></tr>
+<tr><td>Position</td><td>TopLeft</td><td>String</td><td>Position in the actor's selection box to draw the decoration. </td></tr>
 <tr><td>ValidStances</td><td>Ally</td><td>Stance</td><td>Player stances who can view the decoration. </td></tr>
 <tr><td>RequiresSelection</td><td>False</td><td>Boolean</td><td>Should this be visible only when selected? </td></tr>
 <tr><td>Margin</td><td>0,0</td><td>2D Integer</td><td>Offset sprite center position from the selection box edge. </td></tr>
@@ -5188,7 +5171,7 @@ Renders Ctrl groups using pixel art.
 <tr><td>Palette</td><td>chrome</td><td>String</td><td></td></tr>
 <tr><td>Image</td><td>pips</td><td>String</td><td></td></tr>
 <tr><td>GroupSequence</td><td>groups</td><td>String</td><td>Sprite sequence used to render the control group 0-9 numbers. </td></tr>
-<tr><td>Position</td><td>TopLeft</td><td>DecorationPosition</td><td>Position in the actor's selection box to draw the decoration. </td></tr>
+<tr><td>Position</td><td>TopLeft</td><td>String</td><td>Position in the actor's selection box to draw the decoration. </td></tr>
 <tr><td>Margin</td><td>0,0</td><td>2D Integer</td><td>Offset sprite center position from the selection box edge. </td></tr>
 </table>
 
@@ -5237,7 +5220,7 @@ Renders Ctrl groups using typeface.
 <tr><td>Font</td><td>TinyBold</td><td>String</td><td></td></tr>
 <tr><td>Color</td><td>FFFFFF</td><td>Color (RRGGBB[AA] notation)</td><td>Display in this color when not using the player color. </td></tr>
 <tr><td>UsePlayerColor</td><td>False</td><td>Boolean</td><td>Use the player color of the current owner. </td></tr>
-<tr><td>Position</td><td>TopLeft</td><td>DecorationPosition</td><td>Position in the actor's selection box to draw the decoration. </td></tr>
+<tr><td>Position</td><td>TopLeft</td><td>String</td><td>Position in the actor's selection box to draw the decoration. </td></tr>
 <tr><td>Margin</td><td>0,0</td><td>2D Integer</td><td>Offset text center position from the selection box edge. </td></tr>
 </table>
 
@@ -5249,7 +5232,7 @@ Displays a text overlay relative to the selection box.
 <tr><td>Font</td><td>TinyBold</td><td>String</td><td></td></tr>
 <tr><td>Color</td><td>FFFFFF</td><td>Color (RRGGBB[AA] notation)</td><td>Display in this color when not using the player color. </td></tr>
 <tr><td>UsePlayerColor</td><td>False</td><td>Boolean</td><td>Use the player color of the current owner. </td></tr>
-<tr><td>Position</td><td>TopLeft</td><td>DecorationPosition</td><td>Position in the actor's selection box to draw the decoration. </td></tr>
+<tr><td>Position</td><td>TopLeft</td><td>String</td><td>Position in the actor's selection box to draw the decoration. </td></tr>
 <tr><td>ValidStances</td><td>Ally</td><td>Stance</td><td>Player stances who can view the decoration. </td></tr>
 <tr><td>RequiresSelection</td><td>False</td><td>Boolean</td><td>Should this be visible only when selected? </td></tr>
 <tr><td>Margin</td><td>0,0</td><td>2D Integer</td><td>Offset sprite center position from the selection box edge. </td></tr>
@@ -5350,6 +5333,11 @@ Requires trait: [`Interactable`](#interactable).
 <tr><td>TopRightSequence</td><td>top-right</td><td>String</td><td></td></tr>
 <tr><td>BottomLeftSequence</td><td>bottom-left</td><td>String</td><td></td></tr>
 <tr><td>BottomRightSequence</td><td>bottom-right</td><td>String</td><td></td></tr>
+<tr><td>Spacers</td><td>False</td><td>Boolean</td><td>Render left, bottom, right and top as well. </td></tr>
+<tr><td>LeftSequence</td><td>left</td><td>String</td><td></td></tr>
+<tr><td>BottomSequence</td><td>bottom</td><td>String</td><td></td></tr>
+<tr><td>RightSequence</td><td>right</td><td>String</td><td></td></tr>
+<tr><td>TopSequence</td><td>top</td><td>String</td><td></td></tr>
 <tr><td>Palette</td><td>cursor</td><td>String</td><td>Palette to render the sprite in. Reference the world actor's PaletteFrom* traits. </td></tr>
 <tr><td>SelectionBoxColor</td><td>FFFFFF</td><td>Color (RRGGBB[AA] notation)</td><td></td></tr>
 </table>
@@ -5440,6 +5428,36 @@ Plays a voice clip when the trait is enabled.
 
 ## OpenRA.Mods.HV.Traits
 
+### MinerDeployManagerBotModule
+Manages AI miner deployment logic.
+<table>
+<tr><th>Property</th><th>Default Value</th><th>Type</th><th>Description</th></tr>
+<tr><td>DeployableActorTypes</td><td><em>(required)</em></td><td>Set of String</td><td>Actor types that can deploy onto resources. </td></tr>
+<tr><td>DeployableTerrainTypes</td><td><em>(required)</em></td><td>Set of String</td><td>Terrain types that can be targeted for deployment. </td></tr>
+<tr><td>DeployedActorTypes</td><td><em>(required)</em></td><td>Set of String</td><td>Actor types that have been deployed onto resources. </td></tr>
+<tr><td>MinimumDeployedActors</td><td>1</td><td>Integer</td><td>Prioritize this many resource towers before building other units. </td></tr>
+<tr><td>MinimumScanDelay</td><td>20</td><td>Integer</td><td>Minimum delay (in ticks) between trying to deploy with DeployableActorTypes. </td></tr>
+<tr><td>LastSearchFailedDelay</td><td>500</td><td>Integer</td><td>Minimum delay (in ticks) after the last search for resources failed. </td></tr>
+<tr><td>EnemyAvoidanceRadius</td><td>8c0</td><td>1D World Distance</td><td>Avoid enemy actors nearby when searching for a new resource patch. Should be somewhere near the max weapon range. </td></tr>
+<tr><td>RequiresCondition</td><td></td><td>BooleanExpression</td><td>Boolean expression defining the condition to enable this trait. </td></tr>
+</table>
+
+### PriorityCaptureManagerBotModule
+Manages AI capturing logic.
+<table>
+<tr><th>Property</th><th>Default Value</th><th>Type</th><th>Description</th></tr>
+<tr><td>CapturingActorTypes</td><td><em>(required)</em></td><td>Set of String</td><td>Actor types that can capture other actors (via `Captures`). </td></tr>
+<tr><td>PriorityCaptureChance</td><td>75</td><td>Integer</td><td>Percentage chance of trying a priority capture. </td></tr>
+<tr><td>PriorityCapturableActorTypes</td><td></td><td>Set of String</td><td>Actor types that should be priorizited to be captured. Leave this empty to include all actors. </td></tr>
+<tr><td>CapturableActorTypes</td><td></td><td>Set of String</td><td>Actor types that can be targeted for capturing. Leave this empty to include all actors. </td></tr>
+<tr><td>EnemyAvoidanceRadius</td><td>8c0</td><td>1D World Distance</td><td>Avoid enemy actors nearby when searching for capture opportunities. Should be somewhere near the max weapon range. </td></tr>
+<tr><td>MinimumCaptureDelay</td><td>375</td><td>Integer</td><td>Minimum delay (in ticks) between trying to capture with CapturingActorTypes. </td></tr>
+<tr><td>MaximumCaptureTargetOptions</td><td>10</td><td>Integer</td><td>Maximum number of options to consider for capturing. If a value less than 1 is given 1 will be used instead. </td></tr>
+<tr><td>CheckCaptureTargetsForVisibility</td><td>True</td><td>Boolean</td><td>Should visibility (Shroud, Fog, Cloak, etc) be considered when searching for capturable targets? </td></tr>
+<tr><td>CapturableStances</td><td>Enemy, Neutral</td><td>Stance</td><td>Player stances that capturers should attempt to target. </td></tr>
+<tr><td>RequiresCondition</td><td></td><td>BooleanExpression</td><td>Boolean expression defining the condition to enable this trait. </td></tr>
+</table>
+
 ### BotRepairOrSellCaptures
 Helper trait to set up AI to sell heavily damaged newly controlled actors and repairing them otherwise.
 
@@ -5459,6 +5477,21 @@ Requires trait: [`ScrapValue`](#scrapvalue).
 <tr><td>TimeDelay</td><td>0</td><td>Integer</td><td>The earliest time (in ticks) that this crate action can occur on. </td></tr>
 <tr><td>Prerequisites</td><td></td><td>Collection of String</td><td>Only allow this crate action when the collector has these prerequisites </td></tr>
 <tr><td>ExcludedActorTypes</td><td></td><td>Collection of String</td><td>Actor types that this crate action will not occur for. </td></tr>
+<tr><td>RequiresCondition</td><td></td><td>BooleanExpression</td><td>Boolean expression defining the condition to enable this trait. </td></tr>
+</table>
+
+### GrantConditionOnNeutralOwner
+Grants a condition if the owner is the Neutral player.
+<table>
+<tr><th>Property</th><th>Default Value</th><th>Type</th><th>Description</th></tr>
+<tr><td>Condition</td><td></td><td>String</td><td>The condition to grant. </td></tr>
+</table>
+
+### GrantExternalConditionToOwner
+Grants an external condition to the owner player's actor.
+<table>
+<tr><th>Property</th><th>Default Value</th><th>Type</th><th>Description</th></tr>
+<tr><td>Condition</td><td><em>(required)</em></td><td>String</td><td></td></tr>
 <tr><td>RequiresCondition</td><td></td><td>BooleanExpression</td><td>Boolean expression defining the condition to enable this trait. </td></tr>
 </table>
 
@@ -5508,20 +5541,6 @@ Requires trait: [`Rearmable`](#rearmable).
 <tr><td>TileInvalidName</td><td>target-invalid</td><td>String</td><td>Sprite overlay to use for invalid minefield cells. </td></tr>
 <tr><td>TileUnknownName</td><td>target-unknown</td><td>String</td><td>Sprite overlay to use for minefield cells hidden behind fog or shroud. </td></tr>
 <tr><td>Cursor</td><td>ability</td><td>String</td><td>Cursor to display when able to (un)deploy the actor. </td></tr>
-</table>
-
-### MinerDeployManagerBotModule
-Manages AI miner deployment logic.
-<table>
-<tr><th>Property</th><th>Default Value</th><th>Type</th><th>Description</th></tr>
-<tr><td>DeployableActorTypes</td><td><em>(required)</em></td><td>Set of String</td><td>Actor types that can deploy onto resources. </td></tr>
-<tr><td>DeployableTerrainTypes</td><td><em>(required)</em></td><td>Set of String</td><td>Terrain types that can be targeted for deployment. </td></tr>
-<tr><td>DeployedActorTypes</td><td><em>(required)</em></td><td>Set of String</td><td>Actor types that have been deployed onto resources. </td></tr>
-<tr><td>MinimumDeployedActors</td><td>1</td><td>Integer</td><td>Prioritize this many resource towers before building other units. </td></tr>
-<tr><td>MinimumScanDelay</td><td>20</td><td>Integer</td><td>Minimum delay (in ticks) between trying to deploy with DeployableActorTypes. </td></tr>
-<tr><td>LastSearchFailedDelay</td><td>500</td><td>Integer</td><td>Minimum delay (in ticks) after the last search for resources failed. </td></tr>
-<tr><td>EnemyAvoidanceRadius</td><td>8c0</td><td>1D World Distance</td><td>Avoid enemy actors nearby when searching for a new resource patch. Should be somewhere near the max weapon range. </td></tr>
-<tr><td>RequiresCondition</td><td></td><td>BooleanExpression</td><td>Boolean expression defining the condition to enable this trait. </td></tr>
 </table>
 
 ### PeriodicDischarge
@@ -5692,6 +5711,14 @@ Attach this to the world actor. Required for LaysTerrain to work.
 <tr><td>Trees</td><td><em>(required)</em></td><td>Collection of String</td><td></td></tr>
 </table>
 
+### LiquidTerrainRenderer
+Used to render liquids.
+Attach this to the world actor
+<table>
+<tr><th>Property</th><th>Default Value</th><th>Type</th><th>Description</th></tr>
+<tr><td>RenderTypes</td><td><em>(required)</em></td><td>Collection of String</td><td>Only render these ResourceType names. </td></tr>
+</table>
+
 ### TerrainTileAnimation
 <table>
 <tr><th>Property</th><th>Default Value</th><th>Type</th><th>Description</th></tr>
@@ -5741,6 +5768,21 @@ Requires traits: [`BodyOrientation`](#bodyorientation), [`RenderSprites`](#rende
 <tr><td>Offset</td><td>0,0,0</td><td>3D World Vector</td><td>Position relative to body </td></tr>
 <tr><td>Palette</td><td></td><td>String</td><td>Custom palette name </td></tr>
 <tr><td>RequiresCondition</td><td></td><td>BooleanExpression</td><td>Boolean expression defining the condition to enable this trait. </td></tr>
+</table>
+
+### WithDamagedOverlay
+Renders an overlay when the actor is taking heavy damage.
+
+Requires trait: [`RenderSprites`](#rendersprites).
+<table>
+<tr><th>Property</th><th>Default Value</th><th>Type</th><th>Description</th></tr>
+<tr><td>Image</td><td></td><td>String</td><td>Defaults to the actor name. </td></tr>
+<tr><td>Sequence</td><td></td><td>String</td><td></td></tr>
+<tr><td>Palette</td><td></td><td>String</td><td>Custom palette name. </td></tr>
+<tr><td>IsPlayerPalette</td><td>False</td><td>Boolean</td><td>Custom palette is a player palette BaseName. </td></tr>
+<tr><td>DamageTypes</td><td></td><td>Collection of DamageType</td><td>Damage types that this should be used for (defined on the warheads). Leave empty to disable all filtering. </td></tr>
+<tr><td>MinimumDamageState</td><td>Heavy</td><td>DamageState</td><td>Trigger when Undamaged, Light, Medium, Heavy, Critical or Dead. </td></tr>
+<tr><td>MaximumDamageState</td><td>Dead</td><td>DamageState</td><td></td></tr>
 </table>
 
 ### WithIdleOverlayOnGround
