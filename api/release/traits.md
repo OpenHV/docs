@@ -1,4 +1,4 @@
-This documentation is aimed at modders. It displays all traits with default values and developer commentary. Please do not edit it directly, but add new `[Desc("String")]` tags to the source code. This file has been automatically generated for version 20200920 of OpenRA.
+This documentation is aimed at modders. It displays all traits with default values and developer commentary. Please do not edit it directly, but add new `[Desc("String")]` tags to the source code. This file has been automatically generated for version 20201004 of OpenHV.
 
 
 ## OpenRA.Mods.Common
@@ -115,7 +115,6 @@ An actor with this trait indicates a valid spawn point for actors of ActorSpawnM
 <tr><td>CanSlide</td><td>False</td><td>Boolean</td><td>Can the actor immediately change direction without turning first (doesn't need to fly in a curve)? </td></tr>
 <tr><td>VTOL</td><td>False</td><td>Boolean</td><td>Does the actor land and take off vertically? </td></tr>
 <tr><td>TurnToLand</td><td>False</td><td>Boolean</td><td>Does this VTOL actor need to turn before landing (on terrain)? </td></tr>
-<tr><td>TurnToDock</td><td>True</td><td>Boolean</td><td>Does this VTOL actor need to turn before landing on a resupplier? </td></tr>
 <tr><td>TakeOffOnResupply</td><td>False</td><td>Boolean</td><td>Does this actor automatically take off after resupplying? </td></tr>
 <tr><td>TakeOffOnCreation</td><td>True</td><td>Boolean</td><td>Does this actor automatically take off after creation? </td></tr>
 <tr><td>CanForceLand</td><td>True</td><td>Boolean</td><td>Can this actor be given an explicit land order using the force-move modifier? </td></tr>
@@ -146,6 +145,7 @@ Requires trait: [`Aircraft`](#aircraft).
 <tr><td>AbortOnResupply</td><td>True</td><td>Boolean</td><td>Does this actor cancel its attack activity when it needs to resupply? Setting this to 'false' will make the actor resume attack after reloading. </td></tr>
 <tr><td>OpportunityFire</td><td>True</td><td>Boolean</td><td>Automatically acquire and fire on targets of opportunity when not actively attacking. </td></tr>
 <tr><td>PersistentTargeting</td><td>True</td><td>Boolean</td><td>Keep firing on targets even after attack order is cancelled </td></tr>
+<tr><td>RangeMargin</td><td>1c0</td><td>1D World Distance</td><td>Range to stay away from min and max ranges to give some leeway if the target starts moving. </td></tr>
 <tr><td>Armaments</td><td>primary, secondary</td><td>Collection of String</td><td>Armament names </td></tr>
 <tr><td>Cursor</td><td></td><td>String</td><td>Cursor to display when hovering over a valid target. </td></tr>
 <tr><td>OutsideRangeCursor</td><td></td><td>String</td><td>Cursor to display when hovering over a valid target that is outside of range. </td></tr>
@@ -273,6 +273,7 @@ Actor will follow units until in range to attack them.
 <tr><th>Property</th><th>Default Value</th><th>Type</th><th>Description</th></tr>
 <tr><td>OpportunityFire</td><td>True</td><td>Boolean</td><td>Automatically acquire and fire on targets of opportunity when not actively attacking. </td></tr>
 <tr><td>PersistentTargeting</td><td>True</td><td>Boolean</td><td>Keep firing on targets even after attack order is cancelled </td></tr>
+<tr><td>RangeMargin</td><td>1c0</td><td>1D World Distance</td><td>Range to stay away from min and max ranges to give some leeway if the target starts moving. </td></tr>
 <tr><td>Armaments</td><td>primary, secondary</td><td>Collection of String</td><td>Armament names </td></tr>
 <tr><td>Cursor</td><td></td><td>String</td><td>Cursor to display when hovering over a valid target. </td></tr>
 <tr><td>OutsideRangeCursor</td><td></td><td>String</td><td>Cursor to display when hovering over a valid target that is outside of range. </td></tr>
@@ -318,6 +319,7 @@ Requires trait: [`Cargo`](#cargo).
 <tr><td>MuzzlePalette</td><td>effect</td><td>String</td><td></td></tr>
 <tr><td>OpportunityFire</td><td>True</td><td>Boolean</td><td>Automatically acquire and fire on targets of opportunity when not actively attacking. </td></tr>
 <tr><td>PersistentTargeting</td><td>True</td><td>Boolean</td><td>Keep firing on targets even after attack order is cancelled </td></tr>
+<tr><td>RangeMargin</td><td>1c0</td><td>1D World Distance</td><td>Range to stay away from min and max ranges to give some leeway if the target starts moving. </td></tr>
 <tr><td>Armaments</td><td>primary, secondary</td><td>Collection of String</td><td>Armament names </td></tr>
 <tr><td>Cursor</td><td></td><td>String</td><td>Cursor to display when hovering over a valid target. </td></tr>
 <tr><td>OutsideRangeCursor</td><td></td><td>String</td><td>Cursor to display when hovering over a valid target that is outside of range. </td></tr>
@@ -358,6 +360,7 @@ Requires trait: [`Turreted`](#turreted).
 <tr><td>Turrets</td><td>primary</td><td>Collection of String</td><td>Turret names </td></tr>
 <tr><td>OpportunityFire</td><td>True</td><td>Boolean</td><td>Automatically acquire and fire on targets of opportunity when not actively attacking. </td></tr>
 <tr><td>PersistentTargeting</td><td>True</td><td>Boolean</td><td>Keep firing on targets even after attack order is cancelled </td></tr>
+<tr><td>RangeMargin</td><td>1c0</td><td>1D World Distance</td><td>Range to stay away from min and max ranges to give some leeway if the target starts moving. </td></tr>
 <tr><td>Armaments</td><td>primary, secondary</td><td>Collection of String</td><td>Armament names </td></tr>
 <tr><td>Cursor</td><td></td><td>String</td><td>Cursor to display when hovering over a valid target. </td></tr>
 <tr><td>OutsideRangeCursor</td><td></td><td>String</td><td>Cursor to display when hovering over a valid target that is outside of range. </td></tr>
@@ -1025,7 +1028,7 @@ Requires trait: [`CaptureManager`](#capturemanager).
 <tr><th>Property</th><th>Default Value</th><th>Type</th><th>Description</th></tr>
 <tr><td>Types</td><td><em>(required)</em></td><td>Collection of CaptureType</td><td>CaptureTypes (from the Captures trait) that are able to capture this. </td></tr>
 <tr><td>ValidStances</td><td>Enemy, Neutral</td><td>Stance</td><td>What diplomatic stances can be captured by this actor. </td></tr>
-<tr><td>CancelActivity</td><td>False</td><td>Boolean</td><td></td></tr>
+<tr><td>CancelActivity</td><td>False</td><td>Boolean</td><td>Cancel the actor's current activity when getting captured. </td></tr>
 <tr><td>RequiresCondition</td><td></td><td>BooleanExpression</td><td>Boolean expression defining the condition to enable this trait. </td></tr>
 </table>
 
@@ -1894,7 +1897,7 @@ This actor's experience increases when it has killed a GivesExperience actor.
 <tr><th>Property</th><th>Default Value</th><th>Type</th><th>Description</th></tr>
 <tr><td>Conditions</td><td><em>(required)</em></td><td>Mapping of Integer to String</td><td>Condition to grant at each level. Key is the XP requirements for each level as a percentage of our own value. Value is the condition to grant. </td></tr>
 <tr><td>LevelUpImage</td><td></td><td>String</td><td>Image for the level up sprite. </td></tr>
-<tr><td>LevelUpSequence</td><td>levelup</td><td>String</td><td>Sequence for the level up sprite. Needs to be present on Image. </td></tr>
+<tr><td>LevelUpSequence</td><td>levelup</td><td>String</td><td>Sequence for the level up sprite. Needs to be present on LevelUpImage. </td></tr>
 <tr><td>LevelUpPalette</td><td>effect</td><td>String</td><td>Palette for the level up sprite. </td></tr>
 <tr><td>ExperienceModifier</td><td>-1</td><td>Integer</td><td>Multiplier to apply to the Conditions keys. Defaults to the actor's value. </td></tr>
 <tr><td>SuppressLevelupAnimation</td><td>True</td><td>Boolean</td><td>Should the level-up animation be suppressed when actor is created? </td></tr>
@@ -2674,6 +2677,7 @@ Attach this to a unit to update observer stats.
 <table>
 <tr><th>Property</th><th>Default Value</th><th>Type</th><th>Description</th></tr>
 <tr><td>AddToArmyValue</td><td>False</td><td>Boolean</td><td>Add to army value in statistics </td></tr>
+<tr><td>AddToAssetsValue</td><td>True</td><td>Boolean</td><td>Add to assets value in statistics </td></tr>
 <tr><td>OverrideActor</td><td></td><td>String</td><td>Count this actor as a different type in the spectator army display. </td></tr>
 </table>
 
@@ -3118,6 +3122,7 @@ Actor can be sold
 ### ShakeOnDeath
 <table>
 <tr><th>Property</th><th>Default Value</th><th>Type</th><th>Description</th></tr>
+<tr><td>DeathTypes</td><td></td><td>Collection of DamageType</td><td>DeathType(s) that trigger the shake. Leave empty to always trigger a shake. </td></tr>
 <tr><td>Duration</td><td>10</td><td>Integer</td><td></td></tr>
 <tr><td>Intensity</td><td>1</td><td>Integer</td><td></td></tr>
 </table>
@@ -4193,9 +4198,9 @@ Order of the layers defines the Z sorting.
 <tr><th>Property</th><th>Default Value</th><th>Type</th><th>Description</th></tr>
 <tr><td>Type</td><td>Scorch</td><td>String</td><td></td></tr>
 <tr><td>Sequence</td><td>scorch</td><td>String</td><td>Sprite sequence name </td></tr>
-<tr><td>SmokePercentage</td><td>25</td><td>Integer</td><td></td></tr>
-<tr><td>SmokeType</td><td>smoke_m</td><td>String</td><td>Sprite sequence name </td></tr>
-<tr><td>SmokeSequence</td><td>idle</td><td>String</td><td></td></tr>
+<tr><td>SmokeChance</td><td>0</td><td>Integer</td><td>Chance of smoke rising from the ground </td></tr>
+<tr><td>SmokeImage</td><td></td><td>String</td><td>Smoke sprite image name </td></tr>
+<tr><td>SmokeSequences</td><td></td><td>Collection of String</td><td>Smoke sprite sequences randomly chosen from </td></tr>
 <tr><td>SmokePalette</td><td>effect</td><td>String</td><td></td></tr>
 <tr><td>Palette</td><td>terrain</td><td>String</td><td></td></tr>
 <tr><td>InitialSmudges</td><td></td><td>Mapping of 2D Cell Position to MapSmudge</td><td></td></tr>
@@ -4385,7 +4390,7 @@ Requires trait: [`IsometricSelectable`](#isometricselectable).
 Renders a sprite effect when leaving a cell.
 <table>
 <tr><th>Property</th><th>Default Value</th><th>Type</th><th>Description</th></tr>
-<tr><td>Image</td><td></td><td>String</td><td></td></tr>
+<tr><td>Image</td><td><em>(required)</em></td><td>String</td><td></td></tr>
 <tr><td>Sequences</td><td>idle</td><td>Collection of String</td><td></td></tr>
 <tr><td>Palette</td><td>effect</td><td>String</td><td></td></tr>
 <tr><td>TerrainTypes</td><td></td><td>Set of String</td><td>Only leave trail on listed terrain types. Leave empty to leave trail on all terrain types. </td></tr>
@@ -5413,6 +5418,7 @@ Sounds to play when killed.
 <tr><th>Property</th><th>Default Value</th><th>Type</th><th>Description</th></tr>
 <tr><td>DamagedSounds</td><td></td><td>Collection of String</td><td>Play a random sound from this list when damaged. </td></tr>
 <tr><td>DestroyedSounds</td><td></td><td>Collection of String</td><td>Play a random sound from this list when destroyed. </td></tr>
+<tr><td>DamageTypes</td><td></td><td>Collection of DamageType</td><td>DamageType(s) that trigger the sounds. Leave empty to always trigger a sound. </td></tr>
 </table>
 
 ### VoiceAnnouncement

@@ -1,9 +1,9 @@
-This is an automatically generated listing of the Lua map scripting API for version 20200907 of OpenHV.
+This is an automatically generated listing of the Lua map scripting API for version 20201004 of OpenHV.
 
-OpenRA allows custom maps and missions to be scripted using Lua 5.1.
+OpenHV allows custom maps and missions to be scripted using Lua 5.1.
 These scripts run in a sandbox that prevents access to unsafe functions (e.g. OS or file access), and limits the memory and CPU usage of the scripts.
 
-You can access this interface by adding the `LuaScript` trait to the world actor in your map rules (note, you must replace the spaces in the snippet below with a single tab for each level of indentation):
+You can access this interface by adding the [LuaScript](../traits/#luascript) trait to the world actor in your map rules (note, you must replace the spaces in the snippet below with a single tab for each level of indentation):
 ```
 Rules:
 	World:
@@ -12,6 +12,7 @@ Rules:
 ```
 
 Map scripts can interact with the game engine in three ways:
+
 * Global tables provide functions for interacting with the global world state, or performing general helper tasks.
 They exist in the global namespace, and can be called directly using ```<table name>.<function name>```.
 * Individual actors expose a collection of properties and commands that query information or modify their state.
@@ -755,6 +756,12 @@ Command transport to paradrop passengers near the target cell.
 <tr><td width="50%" align="right"><strong>int PassengerCount { get; }</strong>
 </td><td>
 Specifies the amount of passengers.
+<br />
+<b>Requires Trait:</b> Cargo
+</td></tr>
+<tr><td width="50%" align="right"><strong>Actor[] Passengers { get; }</strong>
+</td><td>
+Returns references to passengers inside the transport.
 <br />
 <b>Requires Trait:</b> Cargo
 </td></tr>
