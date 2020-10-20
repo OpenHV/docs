@@ -1,2 +1,3 @@
 site_name: OpenHV
 docs_dir: api
+extra_css: [extra.css]
