@@ -1,4 +1,4 @@
-This documentation is aimed at modders. It displays a template for weapon definitions as well as its contained types (warheads and projectiles) with default values and developer commentary. Please do not edit it directly, but add new `[Desc("String")]` tags to the source code. This file has been automatically generated for version 20201004 of OpenHV.
+This documentation is aimed at modders. It displays a template for weapon definitions as well as its contained types (warheads and projectiles) with default values and developer commentary. Please do not edit it directly, but add new `[Desc("String")]` tags to the source code. This file has been automatically generated for version  of OpenHV.
 
 
 ## OpenRA.Mods.Common.Projectiles
@@ -48,6 +48,7 @@ This documentation is aimed at modders. It displays a template for weapon defini
 <tr><td>BounceCount</td><td>0</td><td>Integer</td><td>Up to how many times does this bullet bounce when touching ground without hitting a target. 0 implies exploding on contact with the originally targeted position. </td></tr>
 <tr><td>BounceRangeModifier</td><td>60</td><td>Integer</td><td>Modify distance of each bounce by this percentage of previous distance. </td></tr>
 <tr><td>BounceSound</td><td></td><td>String</td><td>Sound to play when the projectile hits the ground, but not the target. </td></tr>
+<tr><td>InvalidBounceTerrain</td><td></td><td>Set of String</td><td>Terrain where the projectile explodes instead of bouncing. </td></tr>
 <tr><td>ValidBounceBlockerStances</td><td>Enemy, Neutral</td><td>Stance</td><td>If projectile touches an actor with one of these stances during or after the first bounce, trigger explosion. </td></tr>
 <tr><td>AirburstAltitude</td><td>0c0</td><td>1D World Distance</td><td>Altitude above terrain below which to explode. Zero effectively deactivates airburst. </td></tr>
 <tr><td>ContrailLength</td><td>0</td><td>Integer</td><td></td></tr>

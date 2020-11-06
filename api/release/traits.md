@@ -1,4 +1,4 @@
-This documentation is aimed at modders. It displays all traits with default values and developer commentary. Please do not edit it directly, but add new `[Desc("String")]` tags to the source code. This file has been automatically generated for version 20201004 of OpenHV.
+This documentation is aimed at modders. It displays all traits with default values and developer commentary. Please do not edit it directly, but add new `[Desc("String")]` tags to the source code. This file has been automatically generated for version  of OpenHV.
 
 
 ## OpenRA.Mods.Common
@@ -602,7 +602,7 @@ Manages bot support power handling.
 Requires trait: [`SupportPowerManager`](#supportpowermanager).
 <table>
 <tr><th>Property</th><th>Default Value</th><th>Type</th><th>Description</th></tr>
-<tr><td>Decisions</td><td>(Collection)</td><td>Collection of SupportPowerDecision</td><td>Tells the AI how to use its support powers. </td></tr>
+<tr><td>Decisions</td><td></td><td>Collection of SupportPowerDecision</td><td>Tells the AI how to use its support powers. </td></tr>
 <tr><td>RequiresCondition</td><td></td><td>BooleanExpression</td><td>Boolean expression defining the condition to enable this trait. </td></tr>
 </table>
 
@@ -658,6 +658,11 @@ Limits the zone where buildings can be constructed to a radius around this actor
 <tr><td>Range</td><td>10c0</td><td>1D World Distance</td><td></td></tr>
 <tr><td>Cooldown</td><td>0</td><td>Integer</td><td></td></tr>
 <tr><td>InitialDelay</td><td>0</td><td>Integer</td><td></td></tr>
+<tr><td>CircleReadyColor</td><td>FFFFFF80</td><td>Color (RRGGBB[AA] notation)</td><td>Range circle color when operational. </td></tr>
+<tr><td>CircleBlockedColor</td><td>FF000080</td><td>Color (RRGGBB[AA] notation)</td><td>Range circle color when inactive. </td></tr>
+<tr><td>CircleWidth</td><td>1</td><td>Real Number</td><td>Range circle line width. </td></tr>
+<tr><td>CircleBorderColor</td><td>00000060</td><td>Color (RRGGBB[AA] notation)</td><td>Range circle border color. </td></tr>
+<tr><td>CircleBorderWidth</td><td>3</td><td>Real Number</td><td>Range circle border width. </td></tr>
 <tr><td>PauseOnCondition</td><td></td><td>BooleanExpression</td><td>Boolean expression defining the condition to pause this trait. </td></tr>
 <tr><td>RequiresCondition</td><td></td><td>BooleanExpression</td><td>Boolean expression defining the condition to enable this trait. </td></tr>
 </table>
@@ -718,9 +723,6 @@ Placeholder actor used for dead segments and bridge end ramps.
 <tr><td>BuildSounds</td><td></td><td>Collection of String</td><td></td></tr>
 <tr><td>UndeploySounds</td><td></td><td>Collection of String</td><td></td></tr>
 </table>
-
-### BuildingInfluence
-A dictionary of buildings placed on the map. Attach this to the world actor.
 
 ### Exit
 Where the unit should leave the building. Multiples are allowed if IDs are added: Exit@2, ...
@@ -1253,6 +1255,13 @@ Grants a condition to this actor when it is owned by an AI bot.
 <tr><td>Bots</td><td><em>(required)</em></td><td>Collection of String</td><td>Bot types that trigger the condition. </td></tr>
 </table>
 
+### GrantConditionOnCombatantOwner
+Grants a condition if the owner is a combatant.
+<table>
+<tr><th>Property</th><th>Default Value</th><th>Type</th><th>Description</th></tr>
+<tr><td>Condition</td><td><em>(required)</em></td><td>String</td><td>The condition to grant. </td></tr>
+</table>
+
 ### GrantConditionOnDamageState
 Applies a condition to the actor at specified damage states.
 <table>
@@ -1783,6 +1792,7 @@ Handle demolitions from C4 explosives.
 <tr><td>FlashesDelay</td><td>4</td><td>Integer</td><td>Delay before the flashing starts. </td></tr>
 <tr><td>FlashInterval</td><td>4</td><td>Integer</td><td>Interval between each flash. </td></tr>
 <tr><td>EnterBehaviour</td><td>Exit</td><td>EnterBehaviour</td><td>Behaviour when entering the structure. Possible values are Exit, Suicide, Dispose. </td></tr>
+<tr><td>DamageTypes</td><td></td><td>Collection of DamageType</td><td>Types of damage that this trait causes. Leave empty for no damage types. </td></tr>
 <tr><td>Voice</td><td>Action</td><td>String</td><td>Voice string when planting explosive charges. </td></tr>
 <tr><td>TargetStances</td><td>Enemy, Neutral</td><td>Stance</td><td></td></tr>
 <tr><td>ForceTargetStances</td><td>Enemy, Neutral, Ally</td><td>Stance</td><td></td></tr>
@@ -1879,6 +1889,7 @@ This actor explodes when killed.
 <tr><td>DeathTypes</td><td></td><td>Collection of DamageType</td><td>DeathType(s) that trigger the explosion. Leave empty to always trigger an explosion. </td></tr>
 <tr><td>DamageSource</td><td>Self</td><td>DamageSource</td><td>Who is counted as source of damage for explosion. Possible values are Self and Killer. </td></tr>
 <tr><td>Type</td><td>CenterPosition</td><td>ExplosionType</td><td>Possible values are CenterPosition (explosion at the actors' center) and  Footprint (explosion on each occupied cell). </td></tr>
+<tr><td>Offset</td><td>0,0,0</td><td>3D World Vector</td><td>Offset of the explosion from the center of the exploding actor (or cell). </td></tr>
 <tr><td>RequiresCondition</td><td></td><td>BooleanExpression</td><td>Boolean expression defining the condition to enable this trait. </td></tr>
 </table>
 
@@ -2959,12 +2970,21 @@ Renders target lines between order waypoints.
 </table>
 
 ### RenderJammerCircle
+<table>
+<tr><th>Property</th><th>Default Value</th><th>Type</th><th>Description</th></tr>
+<tr><td>Color</td><td>FF000080</td><td>Color (RRGGBB[AA] notation)</td><td>Range circle color. </td></tr>
+<tr><td>Width</td><td>1</td><td>Real Number</td><td>Range circle line width. </td></tr>
+<tr><td>BorderColor</td><td>00000060</td><td>Color (RRGGBB[AA] notation)</td><td>Range circle border color. </td></tr>
+<tr><td>BorderWidth</td><td>3</td><td>Real Number</td><td>Range circle border width. </td></tr>
+</table>
 
 ### RenderShroudCircle
 <table>
 <tr><th>Property</th><th>Default Value</th><th>Type</th><th>Description</th></tr>
 <tr><td>Color</td><td>00FFFF80</td><td>Color (RRGGBB[AA] notation)</td><td>Color of the circle. </td></tr>
-<tr><td>ContrastColor</td><td>00000060</td><td>Color (RRGGBB[AA] notation)</td><td>Contrast color of the circle. </td></tr>
+<tr><td>Width</td><td>1</td><td>Real Number</td><td>Range circle line width. </td></tr>
+<tr><td>BorderColor</td><td>00000060</td><td>Color (RRGGBB[AA] notation)</td><td>Border color of the circle. </td></tr>
+<tr><td>BorderWidth</td><td>3</td><td>Real Number</td><td>Range circle border width. </td></tr>
 </table>
 
 ### Repairable
@@ -3018,14 +3038,14 @@ Can enter a BridgeHut or LegacyBridgeHut to trigger a repair.
 ### Replaceable
 <table>
 <tr><th>Property</th><th>Default Value</th><th>Type</th><th>Description</th></tr>
-<tr><td>Types</td><td><em>(required)</em></td><td>Set of String</td><td>Replacement types this Relpaceable actor accepts. </td></tr>
+<tr><td>Types</td><td><em>(required)</em></td><td>Set of String</td><td>Replacement types this Replaceable actor accepts. </td></tr>
 <tr><td>RequiresCondition</td><td></td><td>BooleanExpression</td><td>Boolean expression defining the condition to enable this trait. </td></tr>
 </table>
 
 ### Replacement
 <table>
 <tr><th>Property</th><th>Default Value</th><th>Type</th><th>Description</th></tr>
-<tr><td>ReplaceableTypes</td><td><em>(required)</em></td><td>Set of String</td><td>Replacement type (matched against Conditions in Replaceable). </td></tr>
+<tr><td>ReplaceableTypes</td><td><em>(required)</em></td><td>Set of String</td><td>Replacement type (matched against Types in Replaceable). </td></tr>
 </table>
 
 ### RequiresSpecificOwners
@@ -3312,6 +3332,11 @@ Adds capacity to a player's harvested resource limit.
 <tr><td>CameraStances</td><td>Ally</td><td>Stance</td><td>Reveal cells to players with these stances only. </td></tr>
 <tr><td>CameraSpawnAdvance</td><td>25</td><td>Integer</td><td>Amount of time before detonation to spawn the camera. </td></tr>
 <tr><td>CameraRemoveDelay</td><td>25</td><td>Integer</td><td>Amount of time after detonation to remove the camera. </td></tr>
+<tr><td>CircleColor</td><td>FF000080</td><td>Color (RRGGBB[AA] notation)</td><td>Range circle color. </td></tr>
+<tr><td>CircleWidth</td><td>1</td><td>Real Number</td><td>Range circle width in pixel. </td></tr>
+<tr><td>CircleBorderColor</td><td>FF000040</td><td>Color (RRGGBB[AA] notation)</td><td>Range circle border color. </td></tr>
+<tr><td>CircleBorderWidth</td><td>3</td><td>Real Number</td><td>Range circle border width in pixel. </td></tr>
+<tr><td>CircleRanges</td><td></td><td>Collection of 1D World Distance</td><td>Render circles based on these distance ranges while targeting. </td></tr>
 <tr><td>ChargeInterval</td><td>0</td><td>Integer</td><td>Measured in ticks. </td></tr>
 <tr><td>IconImage</td><td>icon</td><td>String</td><td></td></tr>
 <tr><td>Icon</td><td></td><td>String</td><td>Icon sprite displayed in the support power palette. </td></tr>
@@ -3867,8 +3892,6 @@ Used by Mobile. Required for jumpjet actors. Attach these to the world actor. Yo
 <tr><td>Crushes</td><td></td><td>Collection of CrushClass</td><td>e.g. crate, wall, infantry </td></tr>
 <tr><td>CrushDamageTypes</td><td></td><td>Collection of DamageType</td><td>Types of damage that are caused while crushing. Leave empty for no damage types. </td></tr>
 <tr><td>TerrainSpeeds</td><td><em>(required)</em></td><td>Mapping of String to TerrainInfo</td><td>Lower the value on rough terrain. Leave out entries for impassable terrain. </td></tr>
-<tr><td>TilesetTerrainInfo</td><td></td><td>Collection of TileSet</td><td></td></tr>
-<tr><td>TilesetMovementClass</td><td></td><td>Collection of TileSet</td><td></td></tr>
 </table>
 
 ### LegacyBridgeLayer
@@ -3913,8 +3936,6 @@ Used by Mobile. Attach these to the world actor. You can have multiple variants 
 <tr><td>Crushes</td><td></td><td>Collection of CrushClass</td><td>e.g. crate, wall, infantry </td></tr>
 <tr><td>CrushDamageTypes</td><td></td><td>Collection of DamageType</td><td>Types of damage that are caused while crushing. Leave empty for no damage types. </td></tr>
 <tr><td>TerrainSpeeds</td><td><em>(required)</em></td><td>Mapping of String to TerrainInfo</td><td>Lower the value on rough terrain. Leave out entries for impassable terrain. </td></tr>
-<tr><td>TilesetTerrainInfo</td><td></td><td>Collection of TileSet</td><td></td></tr>
-<tr><td>TilesetMovementClass</td><td></td><td>Collection of TileSet</td><td></td></tr>
 </table>
 
 ### MapBuildRadius
@@ -4130,7 +4151,7 @@ Allows harvesters to coordinate their operations. Attach this to the world actor
 Attach this to the world actor.
 Order of the layers defines the Z sorting.
 
-Requires traits: [`BuildingInfluence`](#buildinginfluence), [`ResourceType`](#resourcetype).
+Requires trait: [`ResourceType`](#resourcetype).
 
 ### ResourceRenderer
 Visualizes the state of the `ResourceLayer`.
@@ -4212,7 +4233,7 @@ Spawns the initial units for each player upon game start.
 ### SpawnMPUnits
 Spawn base actor at the spawnpoint and support units in an annulus around the base actor. Both are defined at MPStartUnits. Attach this to the world actor.
 
-Requires traits: [`MPStartLocations`](#mpstartlocations), [`MPStartUnits`](#mpstartunits).
+Requires trait: [`MPStartUnits`](#mpstartunits).
 <table>
 <tr><th>Property</th><th>Default Value</th><th>Type</th><th>Description</th></tr>
 <tr><td>StartingUnitsClass</td><td>none</td><td>String</td><td></td></tr>
@@ -4255,8 +4276,6 @@ Used by Mobile. Required for subterranean actors. Attach these to the world acto
 <tr><td>Crushes</td><td></td><td>Collection of CrushClass</td><td>e.g. crate, wall, infantry </td></tr>
 <tr><td>CrushDamageTypes</td><td></td><td>Collection of DamageType</td><td>Types of damage that are caused while crushing. Leave empty for no damage types. </td></tr>
 <tr><td>TerrainSpeeds</td><td><em>(required)</em></td><td>Mapping of String to TerrainInfo</td><td>Lower the value on rough terrain. Leave out entries for impassable terrain. </td></tr>
-<tr><td>TilesetTerrainInfo</td><td></td><td>Collection of TileSet</td><td></td></tr>
-<tr><td>TilesetMovementClass</td><td></td><td>Collection of TileSet</td><td></td></tr>
 </table>
 
 ### TerrainGeometryOverlay
@@ -4439,7 +4458,9 @@ Requires trait: [`DetectCloaked`](#detectcloaked).
 <tr><td>UpdateLineTick</td><td>1023</td><td>1D World Angle</td><td>WAngle the Radar update line advances per tick. </td></tr>
 <tr><td>TrailCount</td><td>0</td><td>Integer</td><td>Number of trailing Radar update lines. </td></tr>
 <tr><td>Color</td><td>32CD3280</td><td>Color (RRGGBB[AA] notation)</td><td>Color of the circle and scanner update line. </td></tr>
-<tr><td>ContrastColor</td><td>00000060</td><td>Color (RRGGBB[AA] notation)</td><td>Contrast color of the circle and scanner update line. </td></tr>
+<tr><td>Width</td><td>1</td><td>Real Number</td><td>Range circle line width. </td></tr>
+<tr><td>BorderColor</td><td>00000060</td><td>Color (RRGGBB[AA] notation)</td><td>Border color of the circle and scanner update line. </td></tr>
+<tr><td>BorderWidth</td><td>3</td><td>Real Number</td><td>Range circle border width. </td></tr>
 </table>
 
 ### RenderRangeCircle
@@ -4452,7 +4473,9 @@ Requires trait: [`AttackBase`](#attackbase).
 <tr><td>FallbackRange</td><td>0c0</td><td>1D World Distance</td><td>Range to draw if no armaments are available. </td></tr>
 <tr><td>RangeCircleMode</td><td>Maximum</td><td>RangeCircleMode</td><td>Which circle to show. Valid values are `Maximum`, and `Minimum`. </td></tr>
 <tr><td>Color</td><td>FFFF0080</td><td>Color (RRGGBB[AA] notation)</td><td>Color of the circle. </td></tr>
-<tr><td>BorderColor</td><td>00000060</td><td>Color (RRGGBB[AA] notation)</td><td>Color of the border of the circle. </td></tr>
+<tr><td>Width</td><td>1</td><td>Real Number</td><td>Range circle line width. </td></tr>
+<tr><td>BorderColor</td><td>00000060</td><td>Color (RRGGBB[AA] notation)</td><td>Color of the border. </td></tr>
+<tr><td>BorderWidth</td><td>3</td><td>Real Number</td><td>Range circle border width. </td></tr>
 </table>
 
 ### RenderSprites
@@ -5051,6 +5074,9 @@ Renders an arbitrary circle when selected or placing a structure
 <tr><th>Property</th><th>Default Value</th><th>Type</th><th>Description</th></tr>
 <tr><td>Type</td><td></td><td>String</td><td>Type of range circle. used to decide which circles to draw on other structures during building placement. </td></tr>
 <tr><td>Color</td><td>FFFFFF80</td><td>Color (RRGGBB[AA] notation)</td><td>Color of the circle </td></tr>
+<tr><td>Width</td><td>1</td><td>Real Number</td><td>Border width. </td></tr>
+<tr><td>BorderColor</td><td>00000060</td><td>Color (RRGGBB[AA] notation)</td><td>Color of the border. </td></tr>
+<tr><td>BorderWidth</td><td>3</td><td>Real Number</td><td>Range circle border width. </td></tr>
 <tr><td>UsePlayerColor</td><td>False</td><td>Boolean</td><td>If set, the color of the owning player will be used instead of `Color`. </td></tr>
 <tr><td>ValidStances</td><td>Ally</td><td>Stance</td><td>Stances of players which will be able to see the circle. Valid values are combinations of `None`, `Ally`, `Enemy` and `Neutral`. </td></tr>
 <tr><td>Visible</td><td>WhenSelected</td><td>RangeCircleVisibility</td><td>When to show the range circle. Valid values are `Always`, and `WhenSelected` </td></tr>
@@ -5486,6 +5512,17 @@ Requires trait: [`ScrapValue`](#scrapvalue).
 <tr><td>RequiresCondition</td><td></td><td>BooleanExpression</td><td>Boolean expression defining the condition to enable this trait. </td></tr>
 </table>
 
+### GrantConditionOnBurstComplete
+Grants a condition when this actor finishes a burst.
+<table>
+<tr><th>Property</th><th>Default Value</th><th>Type</th><th>Description</th></tr>
+<tr><td>Condition</td><td><em>(required)</em></td><td>String</td><td>The condition to grant. </td></tr>
+<tr><td>ArmamentNames</td><td>primary</td><td>Set of String</td><td>Name of the armaments that grant this condition. </td></tr>
+<tr><td>RevokeDelay</td><td><em>(required)</em></td><td>Integer</td><td></td></tr>
+<tr><td>PauseOnCondition</td><td></td><td>BooleanExpression</td><td>Boolean expression defining the condition to pause this trait. </td></tr>
+<tr><td>RequiresCondition</td><td></td><td>BooleanExpression</td><td>Boolean expression defining the condition to enable this trait. </td></tr>
+</table>
+
 ### GrantConditionOnNeutralOwner
 Grants a condition if the owner is the Neutral player.
 <table>
@@ -5512,6 +5549,16 @@ Available commands:
 `add X,Y,Z`: Adds the value to the current offset. Negative values function to subtract. No spaces are supported between the values.
 `query`: Returns the current offset value in the chat.
 `disable`: Disables rendering of the offset.
+
+### Floods
+Lets the actor spread resources around it in straight lines.
+<table>
+<tr><th>Property</th><th>Default Value</th><th>Type</th><th>Description</th></tr>
+<tr><td>Interval</td><td>75</td><td>Integer</td><td></td></tr>
+<tr><td>ResourceType</td><td>water</td><td>String</td><td></td></tr>
+<tr><td>MaxRange</td><td>100</td><td>Integer</td><td></td></tr>
+<tr><td>RequiresCondition</td><td></td><td>BooleanExpression</td><td>Boolean expression defining the condition to enable this trait. </td></tr>
+</table>
 
 ### LaysTerrain
 Requires trait: [`Building`](#building).
@@ -5640,7 +5687,7 @@ Spawns shrapnel weapons after a periodic interval.
 <table>
 <tr><th>Property</th><th>Default Value</th><th>Type</th><th>Description</th></tr>
 <tr><td>Weapon</td><td><em>(required)</em></td><td>String</td><td>Has to be defined in weapons.yaml as well. </td></tr>
-<tr><td>Amount</td><td><em>(required)</em></td><td>Collection of Integer</td><td>Amount of shrapnels thrown. Two values indicate a range. </td></tr>
+<tr><td>Amount</td><td>1</td><td>Collection of Integer</td><td>Amount of shrapnels thrown. Two values indicate a range. </td></tr>
 <tr><td>Delay</td><td>50</td><td>Collection of Integer</td><td>Delay between two spawns. Two values indicate a range. </td></tr>
 <tr><td>AimChance</td><td>0</td><td>Integer</td><td>The percentage of aiming this shrapnel to a suitable target actor. </td></tr>
 <tr><td>AimTargetStances</td><td>Enemy, Neutral, Ally</td><td>Stance</td><td>What diplomatic stances can be targeted by the shrapnel. </td></tr>
@@ -5747,7 +5794,7 @@ Attach this to the world actor.
 Order of the layers defines the Z sorting.
 Resource density is based on the exact data stored in the map.
 
-Requires traits: [`BuildingInfluence`](#buildinginfluence), [`ResourceType`](#resourcetype).
+Requires trait: [`ResourceType`](#resourcetype).
 
 ## OpenRA.Mods.HV.Traits.Render
 
