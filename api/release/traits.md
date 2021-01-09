@@ -1,4 +1,4 @@
-This documentation is aimed at modders. It displays all traits with default values and developer commentary. Please do not edit it directly, but add new `[Desc("String")]` tags to the source code. This file has been automatically generated for version  of OpenHV.
+This documentation is aimed at modders. It displays all traits with default values and developer commentary. Please do not edit it directly, but add new `[Desc("String")]` tags to the source code. This file has been automatically generated for version 20210109 of OpenRA.
 
 
 ## OpenRA.Mods.Common
@@ -63,7 +63,7 @@ Tag trait for actors with `DeliversCash`.
 <table>
 <tr><th>Property</th><th>Default Value</th><th>Type</th><th>Description</th></tr>
 <tr><td>ValidTypes</td><td></td><td>Set of String</td><td>Accepted `DeliversCash` types. Leave empty to accept all types. </td></tr>
-<tr><td>ValidStances</td><td>Ally</td><td>Stance</td><td>Stance the delivering actor needs to enter. </td></tr>
+<tr><td>ValidRelationships</td><td>Ally</td><td>PlayerRelationship</td><td>Player relationships the owner of the delivering actor needs. </td></tr>
 <tr><td>Sounds</td><td></td><td>Collection of String</td><td>Play a randomly selected sound from this list when accepting cash. </td></tr>
 </table>
 
@@ -74,7 +74,7 @@ Requires trait: [`GainsExperience`](#gainsexperience).
 <table>
 <tr><th>Property</th><th>Default Value</th><th>Type</th><th>Description</th></tr>
 <tr><td>ValidTypes</td><td></td><td>Set of String</td><td>Accepted `DeliversExperience` types. Leave empty to accept all types. </td></tr>
-<tr><td>ValidStances</td><td>Ally</td><td>Stance</td><td>Stance the delivering actor needs to enter. </td></tr>
+<tr><td>ValidRelationships</td><td>Ally</td><td>PlayerRelationship</td><td>Player relationships the owner of the delivering actor needs. </td></tr>
 </table>
 
 ### ActorSpawner
@@ -109,6 +109,7 @@ An actor with this trait indicates a valid spawn point for actors of ActorSpawnM
 <tr><td>Crushes</td><td></td><td>Collection of CrushClass</td><td>e.g. crate, wall, infantry </td></tr>
 <tr><td>CrushDamageTypes</td><td></td><td>Collection of DamageType</td><td>Types of damage that are caused while crushing. Leave empty for no damage types. </td></tr>
 <tr><td>Voice</td><td>Action</td><td>String</td><td></td></tr>
+<tr><td>TargetLineColor</td><td>008000</td><td>Color (RRGGBB[AA] notation)</td><td>Color to use for the target line for regular move orders. </td></tr>
 <tr><td>AirborneCondition</td><td></td><td>String</td><td>The condition to grant to self while airborne. </td></tr>
 <tr><td>CruisingCondition</td><td></td><td>String</td><td>The condition to grant to self while at cruise altitude. </td></tr>
 <tr><td>CanHover</td><td>False</td><td>Boolean</td><td>Can the actor hover in place mid-air? If not, then the actor will have to remain in motion (circle around). </td></tr>
@@ -155,7 +156,7 @@ Requires trait: [`Aircraft`](#aircraft).
 <tr><td>ForceFireIgnoresActors</td><td>False</td><td>Boolean</td><td>Force-fire mode ignores actors and targets the ground instead. </td></tr>
 <tr><td>OutsideRangeRequiresForceFire</td><td>False</td><td>Boolean</td><td>Force-fire mode is required to enable targeting against targets outside of range. </td></tr>
 <tr><td>Voice</td><td>Action</td><td>String</td><td></td></tr>
-<tr><td>FacingTolerance</td><td>128</td><td>Integer</td><td>Tolerance for attack angle. Range [0, 128], 128 covers 360 degrees. </td></tr>
+<tr><td>FacingTolerance</td><td>512</td><td>1D World Angle</td><td>Tolerance for attack angle. Range [0, 128], 128 covers 360 degrees. </td></tr>
 <tr><td>PauseOnCondition</td><td></td><td>BooleanExpression</td><td>Boolean expression defining the condition to pause this trait. </td></tr>
 <tr><td>RequiresCondition</td><td></td><td>BooleanExpression</td><td>Boolean expression defining the condition to enable this trait. </td></tr>
 </table>
@@ -163,7 +164,7 @@ Requires trait: [`Aircraft`](#aircraft).
 ### AttackBomber
 <table>
 <tr><th>Property</th><th>Default Value</th><th>Type</th><th>Description</th></tr>
-<tr><td>FacingTolerance</td><td>2</td><td>Integer</td><td>Tolerance for attack angle. Range [0, 128], 128 covers 360 degrees. </td></tr>
+<tr><td>FacingTolerance</td><td>8</td><td>1D World Angle</td><td>Tolerance for attack angle. Range [0, 512], 512 covers 360 degrees. </td></tr>
 <tr><td>Armaments</td><td>primary, secondary</td><td>Collection of String</td><td>Armament names </td></tr>
 <tr><td>Cursor</td><td></td><td>String</td><td>Cursor to display when hovering over a valid target. </td></tr>
 <tr><td>OutsideRangeCursor</td><td></td><td>String</td><td>Cursor to display when hovering over a valid target that is outside of range. </td></tr>
@@ -173,7 +174,7 @@ Requires trait: [`Aircraft`](#aircraft).
 <tr><td>ForceFireIgnoresActors</td><td>False</td><td>Boolean</td><td>Force-fire mode ignores actors and targets the ground instead. </td></tr>
 <tr><td>OutsideRangeRequiresForceFire</td><td>False</td><td>Boolean</td><td>Force-fire mode is required to enable targeting against targets outside of range. </td></tr>
 <tr><td>Voice</td><td>Action</td><td>String</td><td></td></tr>
-<tr><td>FacingTolerance</td><td>2</td><td>Integer</td><td>Tolerance for attack angle. Range [0, 128], 128 covers 360 degrees. </td></tr>
+<tr><td>FacingTolerance</td><td>8</td><td>1D World Angle</td><td>Tolerance for attack angle. Range [0, 128], 128 covers 360 degrees. </td></tr>
 <tr><td>PauseOnCondition</td><td></td><td>BooleanExpression</td><td>Boolean expression defining the condition to pause this trait. </td></tr>
 <tr><td>RequiresCondition</td><td></td><td>BooleanExpression</td><td>Boolean expression defining the condition to enable this trait. </td></tr>
 </table>
@@ -229,8 +230,8 @@ Requires trait: [`AttackBase`](#attackbase).
 <tr><td>MuzzleSequence</td><td></td><td>String</td><td>Muzzle flash sequence to render </td></tr>
 <tr><td>MuzzlePalette</td><td>effect</td><td>String</td><td>Palette to render Muzzle flash sequence in </td></tr>
 <tr><td>ReloadingCondition</td><td></td><td>String</td><td>Condition to grant while reloading. </td></tr>
-<tr><td>TargetStances</td><td>Enemy</td><td>Stance</td><td></td></tr>
-<tr><td>ForceTargetStances</td><td>Enemy, Neutral, Ally</td><td>Stance</td><td></td></tr>
+<tr><td>TargetRelationships</td><td>Enemy</td><td>PlayerRelationship</td><td></td></tr>
+<tr><td>ForceTargetRelationships</td><td>Enemy, Neutral, Ally</td><td>PlayerRelationship</td><td></td></tr>
 <tr><td>Cursor</td><td>attack</td><td>String</td><td>Cursor to display when hovering over a valid target. </td></tr>
 <tr><td>OutsideRangeCursor</td><td>attackoutsiderange</td><td>String</td><td>Cursor to display when hovering over a valid target that is outside of range. </td></tr>
 <tr><td>PauseOnCondition</td><td></td><td>BooleanExpression</td><td>Boolean expression defining the condition to pause this trait. </td></tr>
@@ -262,7 +263,7 @@ Actor must charge up its armaments before firing.
 <tr><td>ForceFireIgnoresActors</td><td>False</td><td>Boolean</td><td>Force-fire mode ignores actors and targets the ground instead. </td></tr>
 <tr><td>OutsideRangeRequiresForceFire</td><td>False</td><td>Boolean</td><td>Force-fire mode is required to enable targeting against targets outside of range. </td></tr>
 <tr><td>Voice</td><td>Action</td><td>String</td><td></td></tr>
-<tr><td>FacingTolerance</td><td>128</td><td>Integer</td><td>Tolerance for attack angle. Range [0, 128], 128 covers 360 degrees. </td></tr>
+<tr><td>FacingTolerance</td><td>512</td><td>1D World Angle</td><td>Tolerance for attack angle. Range [0, 128], 128 covers 360 degrees. </td></tr>
 <tr><td>PauseOnCondition</td><td></td><td>BooleanExpression</td><td>Boolean expression defining the condition to pause this trait. </td></tr>
 <tr><td>RequiresCondition</td><td></td><td>BooleanExpression</td><td>Boolean expression defining the condition to enable this trait. </td></tr>
 </table>
@@ -283,7 +284,7 @@ Actor will follow units until in range to attack them.
 <tr><td>ForceFireIgnoresActors</td><td>False</td><td>Boolean</td><td>Force-fire mode ignores actors and targets the ground instead. </td></tr>
 <tr><td>OutsideRangeRequiresForceFire</td><td>False</td><td>Boolean</td><td>Force-fire mode is required to enable targeting against targets outside of range. </td></tr>
 <tr><td>Voice</td><td>Action</td><td>String</td><td></td></tr>
-<tr><td>FacingTolerance</td><td>128</td><td>Integer</td><td>Tolerance for attack angle. Range [0, 128], 128 covers 360 degrees. </td></tr>
+<tr><td>FacingTolerance</td><td>512</td><td>1D World Angle</td><td>Tolerance for attack angle. Range [0, 128], 128 covers 360 degrees. </td></tr>
 <tr><td>PauseOnCondition</td><td></td><td>BooleanExpression</td><td>Boolean expression defining the condition to pause this trait. </td></tr>
 <tr><td>RequiresCondition</td><td></td><td>BooleanExpression</td><td>Boolean expression defining the condition to enable this trait. </td></tr>
 </table>
@@ -292,7 +293,7 @@ Actor will follow units until in range to attack them.
 Unit got to face the target
 <table>
 <tr><th>Property</th><th>Default Value</th><th>Type</th><th>Description</th></tr>
-<tr><td>FacingTolerance</td><td>0</td><td>Integer</td><td>Tolerance for attack angle. Range [0, 128], 128 covers 360 degrees. </td></tr>
+<tr><td>FacingTolerance</td><td>0</td><td>1D World Angle</td><td>Tolerance for attack angle. Range [0, 512], 512 covers 360 degrees. </td></tr>
 <tr><td>Armaments</td><td>primary, secondary</td><td>Collection of String</td><td>Armament names </td></tr>
 <tr><td>Cursor</td><td></td><td>String</td><td>Cursor to display when hovering over a valid target. </td></tr>
 <tr><td>OutsideRangeCursor</td><td></td><td>String</td><td>Cursor to display when hovering over a valid target that is outside of range. </td></tr>
@@ -302,7 +303,7 @@ Unit got to face the target
 <tr><td>ForceFireIgnoresActors</td><td>False</td><td>Boolean</td><td>Force-fire mode ignores actors and targets the ground instead. </td></tr>
 <tr><td>OutsideRangeRequiresForceFire</td><td>False</td><td>Boolean</td><td>Force-fire mode is required to enable targeting against targets outside of range. </td></tr>
 <tr><td>Voice</td><td>Action</td><td>String</td><td></td></tr>
-<tr><td>FacingTolerance</td><td>0</td><td>Integer</td><td>Tolerance for attack angle. Range [0, 128], 128 covers 360 degrees. </td></tr>
+<tr><td>FacingTolerance</td><td>0</td><td>1D World Angle</td><td>Tolerance for attack angle. Range [0, 128], 128 covers 360 degrees. </td></tr>
 <tr><td>PauseOnCondition</td><td></td><td>BooleanExpression</td><td>Boolean expression defining the condition to pause this trait. </td></tr>
 <tr><td>RequiresCondition</td><td></td><td>BooleanExpression</td><td>Boolean expression defining the condition to enable this trait. </td></tr>
 </table>
@@ -329,7 +330,7 @@ Requires trait: [`Cargo`](#cargo).
 <tr><td>ForceFireIgnoresActors</td><td>False</td><td>Boolean</td><td>Force-fire mode ignores actors and targets the ground instead. </td></tr>
 <tr><td>OutsideRangeRequiresForceFire</td><td>False</td><td>Boolean</td><td>Force-fire mode is required to enable targeting against targets outside of range. </td></tr>
 <tr><td>Voice</td><td>Action</td><td>String</td><td></td></tr>
-<tr><td>FacingTolerance</td><td>128</td><td>Integer</td><td>Tolerance for attack angle. Range [0, 128], 128 covers 360 degrees. </td></tr>
+<tr><td>FacingTolerance</td><td>512</td><td>1D World Angle</td><td>Tolerance for attack angle. Range [0, 128], 128 covers 360 degrees. </td></tr>
 <tr><td>PauseOnCondition</td><td></td><td>BooleanExpression</td><td>Boolean expression defining the condition to pause this trait. </td></tr>
 <tr><td>RequiresCondition</td><td></td><td>BooleanExpression</td><td>Boolean expression defining the condition to enable this trait. </td></tr>
 </table>
@@ -346,7 +347,7 @@ Requires trait: [`Cargo`](#cargo).
 <tr><td>ForceFireIgnoresActors</td><td>False</td><td>Boolean</td><td>Force-fire mode ignores actors and targets the ground instead. </td></tr>
 <tr><td>OutsideRangeRequiresForceFire</td><td>False</td><td>Boolean</td><td>Force-fire mode is required to enable targeting against targets outside of range. </td></tr>
 <tr><td>Voice</td><td>Action</td><td>String</td><td></td></tr>
-<tr><td>FacingTolerance</td><td>128</td><td>Integer</td><td>Tolerance for attack angle. Range [0, 128], 128 covers 360 degrees. </td></tr>
+<tr><td>FacingTolerance</td><td>512</td><td>1D World Angle</td><td>Tolerance for attack angle. Range [0, 128], 128 covers 360 degrees. </td></tr>
 <tr><td>PauseOnCondition</td><td></td><td>BooleanExpression</td><td>Boolean expression defining the condition to pause this trait. </td></tr>
 <tr><td>RequiresCondition</td><td></td><td>BooleanExpression</td><td>Boolean expression defining the condition to enable this trait. </td></tr>
 </table>
@@ -370,7 +371,7 @@ Requires trait: [`Turreted`](#turreted).
 <tr><td>ForceFireIgnoresActors</td><td>False</td><td>Boolean</td><td>Force-fire mode ignores actors and targets the ground instead. </td></tr>
 <tr><td>OutsideRangeRequiresForceFire</td><td>False</td><td>Boolean</td><td>Force-fire mode is required to enable targeting against targets outside of range. </td></tr>
 <tr><td>Voice</td><td>Action</td><td>String</td><td></td></tr>
-<tr><td>FacingTolerance</td><td>128</td><td>Integer</td><td>Tolerance for attack angle. Range [0, 128], 128 covers 360 degrees. </td></tr>
+<tr><td>FacingTolerance</td><td>512</td><td>1D World Angle</td><td>Tolerance for attack angle. Range [0, 128], 128 covers 360 degrees. </td></tr>
 <tr><td>PauseOnCondition</td><td></td><td>BooleanExpression</td><td>Boolean expression defining the condition to pause this trait. </td></tr>
 <tr><td>RequiresCondition</td><td></td><td>BooleanExpression</td><td>Boolean expression defining the condition to enable this trait. </td></tr>
 </table>
@@ -380,6 +381,7 @@ Provides access to the attack-move command, which will make the actor automatica
 <table>
 <tr><th>Property</th><th>Default Value</th><th>Type</th><th>Description</th></tr>
 <tr><td>Voice</td><td>Action</td><td>String</td><td></td></tr>
+<tr><td>TargetLineColor</td><td>FF4500</td><td>Color (RRGGBB[AA] notation)</td><td>Color to use for the target line. </td></tr>
 <tr><td>AttackMoveCondition</td><td></td><td>String</td><td>The condition to grant to self while an attack-move is active. </td></tr>
 <tr><td>AssaultMoveCondition</td><td></td><td>String</td><td>The condition to grant to self while an assault-move is active. </td></tr>
 <tr><td>MoveIntoShroud</td><td>True</td><td>Boolean</td><td>Can the actor be ordered to move in to shroud? </td></tr>
@@ -396,6 +398,7 @@ Requires trait: [`AttackMove`](#attackmove).
 <tr><td>ReduceMoveRadiusDelay</td><td>5</td><td>Integer</td><td>Number of ticks to wait before decreasing the effective move radius. </td></tr>
 <tr><td>MinMoveDelay</td><td>0</td><td>Integer</td><td>Minimum amount of ticks the actor will sit idly before starting to wander. </td></tr>
 <tr><td>MaxMoveDelay</td><td>0</td><td>Integer</td><td>Maximum amount of ticks the actor will sit idly before starting to wander. </td></tr>
+<tr><td>AvoidTerrainTypes</td><td></td><td>Set of String</td><td>The terrain types that this actor should avoid wandering on to. </td></tr>
 <tr><td>RequiresCondition</td><td></td><td>BooleanExpression</td><td>Boolean expression defining the condition to enable this trait. </td></tr>
 </table>
 
@@ -429,6 +432,7 @@ Requires traits: [`Aircraft`](#aircraft), [`BodyOrientation`](#bodyorientation).
 <tr><td>PickUpCursor</td><td>ability</td><td>String</td><td>Cursor to display when picking up the passengers. </td></tr>
 <tr><td>CarryCondition</td><td></td><td>String</td><td>Condition to grant to the Carryall while it is carrying something. </td></tr>
 <tr><td>Voice</td><td>Action</td><td>String</td><td></td></tr>
+<tr><td>TargetLineColor</td><td>FFFF00</td><td>Color (RRGGBB[AA] notation)</td><td>Color to use for the target line. </td></tr>
 </table>
 
 ### AutoTarget
@@ -462,7 +466,7 @@ Requires trait: [`AutoTarget`](#autotarget).
 <tr><th>Property</th><th>Default Value</th><th>Type</th><th>Description</th></tr>
 <tr><td>ValidTargets</td><td>Ground, Water, Air</td><td>Collection of TargetableType</td><td>Target types that can be AutoTargeted. </td></tr>
 <tr><td>InvalidTargets</td><td></td><td>Collection of TargetableType</td><td>Target types that can't be AutoTargeted. Overrules ValidTargets. </td></tr>
-<tr><td>ValidStances</td><td>Enemy, Neutral, Ally</td><td>Stance</td><td>Stances between actor's and target's owner which can be AutoTargeted. </td></tr>
+<tr><td>ValidRelationships</td><td>Enemy, Neutral, Ally</td><td>PlayerRelationship</td><td>Relationships between actor's and target's owner needed for AutoTargeting. </td></tr>
 <tr><td>Priority</td><td>1</td><td>Integer</td><td>ValidTargets with larger priorities will be AutoTargeted before lower priorities. </td></tr>
 <tr><td>RequiresCondition</td><td></td><td>BooleanExpression</td><td>Boolean expression defining the condition to enable this trait. </td></tr>
 </table>
@@ -541,7 +545,7 @@ Manages AI capturing logic.
 <tr><td>MinimumCaptureDelay</td><td>375</td><td>Integer</td><td>Minimum delay (in ticks) between trying to capture with CapturingActorTypes. </td></tr>
 <tr><td>MaximumCaptureTargetOptions</td><td>10</td><td>Integer</td><td>Maximum number of options to consider for capturing. If a value less than 1 is given 1 will be used instead. </td></tr>
 <tr><td>CheckCaptureTargetsForVisibility</td><td>True</td><td>Boolean</td><td>Should visibility (Shroud, Fog, Cloak, etc) be considered when searching for capturable targets? </td></tr>
-<tr><td>CapturableStances</td><td>Enemy, Neutral</td><td>Stance</td><td>Player stances that capturers should attempt to target. </td></tr>
+<tr><td>CapturableRelationships</td><td>Enemy, Neutral</td><td>PlayerRelationship</td><td>Player relationships that capturers should attempt to target. </td></tr>
 <tr><td>RequiresCondition</td><td></td><td>BooleanExpression</td><td>Boolean expression defining the condition to enable this trait. </td></tr>
 </table>
 
@@ -723,6 +727,9 @@ Placeholder actor used for dead segments and bridge end ramps.
 <tr><td>BuildSounds</td><td></td><td>Collection of String</td><td></td></tr>
 <tr><td>UndeploySounds</td><td></td><td>Collection of String</td><td></td></tr>
 </table>
+
+### BuildingInfluence
+A dictionary of buildings placed on the map. Attach this to the world actor.
 
 ### Exit
 Where the unit should leave the building. Multiples are allowed if IDs are added: Exit@2, ...
@@ -952,6 +959,7 @@ Requires trait: [`Transforms`](#transforms).
 <tr><td>RequiresForceMove</td><td>False</td><td>Boolean</td><td>Require the force-move modifier to display the move cursor. </td></tr>
 <tr><td>EnterCursor</td><td>enter</td><td>String</td><td>Cursor to display when able to land at target building. </td></tr>
 <tr><td>EnterBlockedCursor</td><td>enter-blocked</td><td>String</td><td>Cursor to display when unable to land at target building. </td></tr>
+<tr><td>TargetLineColor</td><td>008000</td><td>Color (RRGGBB[AA] notation)</td><td>Color to use for the target line for regular move orders. </td></tr>
 <tr><td>RequiresCondition</td><td></td><td>BooleanExpression</td><td>Boolean expression defining the condition to enable this trait. </td></tr>
 </table>
 
@@ -963,6 +971,7 @@ Requires trait: [`Transforms`](#transforms).
 <tr><th>Property</th><th>Default Value</th><th>Type</th><th>Description</th></tr>
 <tr><td>EnterCursor</td><td>enter</td><td>String</td><td>Cursor to display when able to enter target tunnel. </td></tr>
 <tr><td>EnterBlockedCursor</td><td>enter-blocked</td><td>String</td><td>Cursor to display when unable to enter target tunnel. </td></tr>
+<tr><td>TargetLineColor</td><td>008000</td><td>Color (RRGGBB[AA] notation)</td><td>Color to use for the target line while in tunnels. </td></tr>
 <tr><td>Voice</td><td>Action</td><td>String</td><td></td></tr>
 <tr><td>RequiresForceMove</td><td>False</td><td>Boolean</td><td>Require the force-move modifier to display the enter cursor. </td></tr>
 <tr><td>RequiresCondition</td><td></td><td>BooleanExpression</td><td>Boolean expression defining the condition to enable this trait. </td></tr>
@@ -978,6 +987,7 @@ Requires trait: [`Transforms`](#transforms).
 <tr><td>Cursor</td><td>move</td><td>String</td><td>Cursor to display when a move order can be issued at target location. </td></tr>
 <tr><td>BlockedCursor</td><td>move-blocked</td><td>String</td><td>Cursor to display when a move order cannot be issued at target location. </td></tr>
 <tr><td>Voice</td><td>Action</td><td>String</td><td></td></tr>
+<tr><td>TargetLineColor</td><td>008000</td><td>Color (RRGGBB[AA] notation)</td><td>Color to use for the target line for regular move orders. </td></tr>
 <tr><td>RequiresForceMove</td><td>False</td><td>Boolean</td><td>Require the force-move modifier to display the move cursor. </td></tr>
 <tr><td>RequiresCondition</td><td></td><td>BooleanExpression</td><td>Boolean expression defining the condition to enable this trait. </td></tr>
 </table>
@@ -991,6 +1001,7 @@ Requires trait: [`Transforms`](#transforms).
 <tr><td>CargoType</td><td></td><td>String</td><td></td></tr>
 <tr><td>Weight</td><td>1</td><td>Integer</td><td></td></tr>
 <tr><td>Voice</td><td>Action</td><td>String</td><td></td></tr>
+<tr><td>TargetLineColor</td><td>008000</td><td>Color (RRGGBB[AA] notation)</td><td>Color to use for the target line. </td></tr>
 <tr><td>RequiresForceMove</td><td>False</td><td>Boolean</td><td>Require the force-move modifier to display the enter cursor. </td></tr>
 <tr><td>EnterCursor</td><td>enter</td><td>String</td><td>Cursor to display when able to enter target actor. </td></tr>
 <tr><td>EnterBlockedCursor</td><td>enter-blocked</td><td>String</td><td>Cursor to display when unable to enter target actor. </td></tr>
@@ -1005,6 +1016,7 @@ Requires trait: [`Transforms`](#transforms).
 <tr><th>Property</th><th>Default Value</th><th>Type</th><th>Description</th></tr>
 <tr><td>RepairActors</td><td><em>(required)</em></td><td>Set of String</td><td></td></tr>
 <tr><td>Voice</td><td>Action</td><td>String</td><td></td></tr>
+<tr><td>TargetLineColor</td><td>008000</td><td>Color (RRGGBB[AA] notation)</td><td>Color to use for the target line. </td></tr>
 <tr><td>RequiresForceMove</td><td>False</td><td>Boolean</td><td>Require the force-move modifier to display the enter cursor. </td></tr>
 <tr><td>EnterCursor</td><td>enter</td><td>String</td><td>Cursor to display when able to be repaired at target actor. </td></tr>
 <tr><td>EnterBlockedCursor</td><td>enter-blocked</td><td>String</td><td>Cursor to display when unable to be repaired at target actor. </td></tr>
@@ -1029,7 +1041,7 @@ Requires trait: [`CaptureManager`](#capturemanager).
 <table>
 <tr><th>Property</th><th>Default Value</th><th>Type</th><th>Description</th></tr>
 <tr><td>Types</td><td><em>(required)</em></td><td>Collection of CaptureType</td><td>CaptureTypes (from the Captures trait) that are able to capture this. </td></tr>
-<tr><td>ValidStances</td><td>Enemy, Neutral</td><td>Stance</td><td>What diplomatic stances can be captured by this actor. </td></tr>
+<tr><td>ValidRelationships</td><td>Enemy, Neutral</td><td>PlayerRelationship</td><td>What player relationships the target's owner needs to be captured by this actor. </td></tr>
 <tr><td>CancelActivity</td><td>False</td><td>Boolean</td><td>Cancel the actor's current activity when getting captured. </td></tr>
 <tr><td>RequiresCondition</td><td></td><td>BooleanExpression</td><td>Boolean expression defining the condition to enable this trait. </td></tr>
 </table>
@@ -1086,11 +1098,12 @@ Requires trait: [`CaptureManager`](#capturemanager).
 <tr><td>CaptureDelay</td><td>0</td><td>Integer</td><td>Delay (in ticks) that to wait next to the target before initiating the capture. </td></tr>
 <tr><td>ConsumedByCapture</td><td>True</td><td>Boolean</td><td>Enter the target actor and be consumed by the capture. </td></tr>
 <tr><td>PlayerExperience</td><td>0</td><td>Integer</td><td>Experience granted to the capturing player. </td></tr>
-<tr><td>PlayerExperienceStances</td><td>Enemy</td><td>Stance</td><td>Stance that the structure's previous owner needs to have for the capturing player to receive Experience. </td></tr>
+<tr><td>PlayerExperienceRelationships</td><td>Enemy</td><td>PlayerRelationship</td><td>Relationships that the structure's previous owner needs to have for the capturing player to receive Experience. </td></tr>
 <tr><td>SabotageCursor</td><td>capture</td><td>String</td><td>Cursor to display when the health of the target actor is above the sabotage threshold. </td></tr>
 <tr><td>EnterCursor</td><td>enter</td><td>String</td><td>Cursor to display when able to capture the target actor. </td></tr>
 <tr><td>EnterBlockedCursor</td><td>enter-blocked</td><td>String</td><td>Cursor to display when unable to capture the target actor. </td></tr>
 <tr><td>Voice</td><td>Action</td><td>String</td><td></td></tr>
+<tr><td>TargetLineColor</td><td>DC143C</td><td>Color (RRGGBB[AA] notation)</td><td>Color to use for the target line. </td></tr>
 <tr><td>RequiresCondition</td><td></td><td>BooleanExpression</td><td>Boolean expression defining the condition to enable this trait. </td></tr>
 </table>
 
@@ -1148,6 +1161,7 @@ Requires traits: [`Aircraft`](#aircraft), [`BodyOrientation`](#bodyorientation).
 <tr><td>PickUpCursor</td><td>ability</td><td>String</td><td>Cursor to display when picking up the passengers. </td></tr>
 <tr><td>CarryCondition</td><td></td><td>String</td><td>Condition to grant to the Carryall while it is carrying something. </td></tr>
 <tr><td>Voice</td><td>Action</td><td>String</td><td></td></tr>
+<tr><td>TargetLineColor</td><td>FFFF00</td><td>Color (RRGGBB[AA] notation)</td><td>Color to use for the target line. </td></tr>
 </table>
 
 ### CashTrickler
@@ -1444,7 +1458,7 @@ Applies a condition to actors within a specified range.
 <tr><td>Condition</td><td><em>(required)</em></td><td>String</td><td>The condition to apply. Must be included in the target actor's ExternalConditions list. </td></tr>
 <tr><td>Range</td><td>3c0</td><td>1D World Distance</td><td>The range to search for actors. </td></tr>
 <tr><td>MaximumVerticalOffset</td><td>0c0</td><td>1D World Distance</td><td>The maximum vertical range above terrain to search for actors. Ignored if 0 (actors are selected regardless of vertical distance). </td></tr>
-<tr><td>ValidStances</td><td>Ally</td><td>Stance</td><td>What diplomatic stances are affected. </td></tr>
+<tr><td>ValidRelationships</td><td>Ally</td><td>PlayerRelationship</td><td>What player relationships are affected. </td></tr>
 <tr><td>AffectsParent</td><td>False</td><td>Boolean</td><td>Condition is applied permanently to this actor. </td></tr>
 <tr><td>EnableSound</td><td></td><td>String</td><td></td></tr>
 <tr><td>DisableSound</td><td></td><td>String</td><td></td></tr>
@@ -1712,7 +1726,7 @@ Gives a supportpower to the collector.
 ### CreatesShroud
 <table>
 <tr><th>Property</th><th>Default Value</th><th>Type</th><th>Description</th></tr>
-<tr><td>ValidStances</td><td>Enemy, Neutral</td><td>Stance</td><td>Stance the watching player needs to see the generated shroud. </td></tr>
+<tr><td>ValidRelationships</td><td>Enemy, Neutral</td><td>PlayerRelationship</td><td>Relationship the watching player needs to see the generated shroud. </td></tr>
 <tr><td>MinRange</td><td>0c0</td><td>1D World Distance</td><td></td></tr>
 <tr><td>Range</td><td>0c0</td><td>1D World Distance</td><td></td></tr>
 <tr><td>MaxHeightDelta</td><td>-1</td><td>Integer</td><td>If >= 0, prevent cells that are this much higher than the actor from being revealed. </td></tr>
@@ -1747,8 +1761,6 @@ This actor receives damage from the given weapon when on the specified terrain t
 <tr><td>DamageInterval</td><td>0</td><td>Integer</td><td>Delay between receiving damage. </td></tr>
 <tr><td>DamageTypes</td><td></td><td>Collection of DamageType</td><td>Apply the damage using these damagetypes. </td></tr>
 <tr><td>Terrain</td><td><em>(required)</em></td><td>Collection of String</td><td>Terrain types where the actor will take damage. </td></tr>
-<tr><td>DamageThreshold</td><td>0</td><td>Integer</td><td>Percentage health below which the actor will not receive further damage. </td></tr>
-<tr><td>StartOnThreshold</td><td>False</td><td>Boolean</td><td>Inflict damage down to the DamageThreshold when the actor gets created on damaging terrain. </td></tr>
 <tr><td>RequiresCondition</td><td></td><td>BooleanExpression</td><td>Boolean expression defining the condition to enable this trait. </td></tr>
 </table>
 
@@ -1762,6 +1774,7 @@ Donate money to actors with the `AcceptsDeliveredCash` trait.
 <tr><td>Sounds</td><td></td><td>Collection of String</td><td>Sound to play when delivering cash </td></tr>
 <tr><td>Cursor</td><td>enter</td><td>String</td><td>Cursor to display when hovering over a valid actor to deliver cash to. </td></tr>
 <tr><td>Voice</td><td>Action</td><td>String</td><td></td></tr>
+<tr><td>TargetLineColor</td><td>FFFF00</td><td>Color (RRGGBB[AA] notation)</td><td>Color to use for the target line. </td></tr>
 </table>
 
 ### DeliversExperience
@@ -1774,6 +1787,7 @@ Requires trait: [`GainsExperience`](#gainsexperience).
 <tr><td>Type</td><td></td><td>String</td><td>Identifier checked against AcceptsDeliveredExperience.ValidTypes. Only needed if the latter is not empty. </td></tr>
 <tr><td>Cursor</td><td>enter</td><td>String</td><td>Cursor to display when hovering over a valid actor to deliver experience to. </td></tr>
 <tr><td>Voice</td><td>Action</td><td>String</td><td></td></tr>
+<tr><td>TargetLineColor</td><td>FFFF00</td><td>Color (RRGGBB[AA] notation)</td><td>Color to use for the target line. </td></tr>
 </table>
 
 ### Demolishable
@@ -1794,8 +1808,9 @@ Handle demolitions from C4 explosives.
 <tr><td>EnterBehaviour</td><td>Exit</td><td>EnterBehaviour</td><td>Behaviour when entering the structure. Possible values are Exit, Suicide, Dispose. </td></tr>
 <tr><td>DamageTypes</td><td></td><td>Collection of DamageType</td><td>Types of damage that this trait causes. Leave empty for no damage types. </td></tr>
 <tr><td>Voice</td><td>Action</td><td>String</td><td>Voice string when planting explosive charges. </td></tr>
-<tr><td>TargetStances</td><td>Enemy, Neutral</td><td>Stance</td><td></td></tr>
-<tr><td>ForceTargetStances</td><td>Enemy, Neutral, Ally</td><td>Stance</td><td></td></tr>
+<tr><td>TargetLineColor</td><td>DC143C</td><td>Color (RRGGBB[AA] notation)</td><td>Color to use for the target line. </td></tr>
+<tr><td>TargetRelationships</td><td>Enemy, Neutral</td><td>PlayerRelationship</td><td></td></tr>
+<tr><td>ForceTargetRelationships</td><td>Enemy, Neutral, Ally</td><td>PlayerRelationship</td><td></td></tr>
 <tr><td>Cursor</td><td>c4</td><td>String</td><td>Cursor to display when hovering over a demolishable target. </td></tr>
 </table>
 
@@ -1827,8 +1842,9 @@ Can instantly repair other actors, but gets consumed afterwards.
 <tr><th>Property</th><th>Default Value</th><th>Type</th><th>Description</th></tr>
 <tr><td>Types</td><td></td><td>Collection of EngineerRepairType</td><td>Uses the "EngineerRepairable" trait to determine repairability. </td></tr>
 <tr><td>Voice</td><td>Action</td><td>String</td><td></td></tr>
+<tr><td>TargetLineColor</td><td>FFFF00</td><td>Color (RRGGBB[AA] notation)</td><td>Color to use for the target line. </td></tr>
 <tr><td>EnterBehaviour</td><td>Dispose</td><td>EnterBehaviour</td><td>Behaviour when entering the structure. Possible values are Exit, Suicide, Dispose. </td></tr>
-<tr><td>ValidStances</td><td>Ally</td><td>Stance</td><td>What diplomatic stances allow target to be repaired by this actor. </td></tr>
+<tr><td>ValidRelationships</td><td>Ally</td><td>PlayerRelationship</td><td>What player relationship the target's owner needs to be repaired by this actor. </td></tr>
 <tr><td>RepairSound</td><td></td><td>String</td><td>Sound to play when repairing is done. </td></tr>
 <tr><td>Cursor</td><td>goldwrench</td><td>String</td><td>Cursor to display when hovering over a valid actor to repair. </td></tr>
 <tr><td>RepairBlockedCursor</td><td>goldwrench-blocked</td><td>String</td><td>Cursor to display when target actor has full health so it can't be repaired. </td></tr>
@@ -1850,6 +1866,7 @@ This actor can interact with TunnelEntrances to move through TerrainTunnels.
 <tr><td>EnterCursor</td><td>enter</td><td>String</td><td>Cursor to display when able to enter target tunnel. </td></tr>
 <tr><td>EnterBlockedCursor</td><td>enter-blocked</td><td>String</td><td>Cursor to display when unable to enter target tunnel. </td></tr>
 <tr><td>Voice</td><td>Action</td><td>String</td><td></td></tr>
+<tr><td>TargetLineColor</td><td>008000</td><td>Color (RRGGBB[AA] notation)</td><td>Color to use for the target line while in tunnels. </td></tr>
 <tr><td>RequireForceMoveCondition</td><td></td><td>BooleanExpression</td><td>Boolean expression defining the condition under which the regular (non-force) enter cursor is disabled. </td></tr>
 </table>
 
@@ -1920,7 +1937,7 @@ When killed, this actor causes the attacking player to receive money.
 <table>
 <tr><th>Property</th><th>Default Value</th><th>Type</th><th>Description</th></tr>
 <tr><td>Percentage</td><td>10</td><td>Integer</td><td>Percentage of the killed actor's Cost or CustomSellValue to be given. </td></tr>
-<tr><td>ValidStances</td><td>Enemy, Neutral</td><td>Stance</td><td>Stance the attacking player needs to receive the bounty. </td></tr>
+<tr><td>ValidRelationships</td><td>Enemy, Neutral</td><td>PlayerRelationship</td><td>Player relationships the attacking player needs to receive the bounty. </td></tr>
 <tr><td>ShowBounty</td><td>True</td><td>Boolean</td><td>Whether to show a floating text announcing the won bounty. </td></tr>
 <tr><td>DeathTypes</td><td></td><td>Collection of DamageType</td><td>DeathTypes for which a bounty should be granted. Use an empty list (the default) to allow all DeathTypes. </td></tr>
 <tr><td>RequiresCondition</td><td></td><td>BooleanExpression</td><td>Boolean expression defining the condition to enable this trait. </td></tr>
@@ -1942,7 +1959,7 @@ This actor gives experience to a GainsExperience actor when they are killed.
 <table>
 <tr><th>Property</th><th>Default Value</th><th>Type</th><th>Description</th></tr>
 <tr><td>Experience</td><td>-1</td><td>Integer</td><td>If -1, use the value of the unit cost. </td></tr>
-<tr><td>ValidStances</td><td>Enemy, Neutral</td><td>Stance</td><td>Stance the attacking player needs to receive the experience. </td></tr>
+<tr><td>ValidRelationships</td><td>Enemy, Neutral</td><td>PlayerRelationship</td><td>Player relationships the attacking player needs to receive the experience. </td></tr>
 <tr><td>ActorExperienceModifier</td><td>10000</td><td>Integer</td><td>Percentage of the `Experience` value that is being granted to the killing actor. </td></tr>
 <tr><td>PlayerExperienceModifier</td><td>0</td><td>Integer</td><td>Percentage of the `Experience` value that is being granted to the player owning the killing actor. </td></tr>
 </table>
@@ -1952,6 +1969,7 @@ The player can give this unit the order to follow and protect friendly units wit
 <table>
 <tr><th>Property</th><th>Default Value</th><th>Type</th><th>Description</th></tr>
 <tr><td>Voice</td><td>Action</td><td>String</td><td></td></tr>
+<tr><td>TargetLineColor</td><td>FF4500</td><td>Color (RRGGBB[AA] notation)</td><td>Color to use for the target line. </td></tr>
 </table>
 
 ### Guardable
@@ -1986,6 +2004,8 @@ Requires trait: [`Mobile`](#mobile).
 <tr><td>EmptyCondition</td><td></td><td>String</td><td>Condition to grant while empty. </td></tr>
 <tr><td>HarvestVoice</td><td>Action</td><td>String</td><td></td></tr>
 <tr><td>DeliverVoice</td><td>Action</td><td>String</td><td></td></tr>
+<tr><td>HarvestLineColor</td><td>DC143C</td><td>Color (RRGGBB[AA] notation)</td><td>Color to use for the target line of harvest orders. </td></tr>
+<tr><td>DeliverLineColor</td><td>008000</td><td>Color (RRGGBB[AA] notation)</td><td>Color to use for the target line of harvest orders. </td></tr>
 <tr><td>EnterCursor</td><td>enter</td><td>String</td><td>Cursor to display when able to unload at target actor. </td></tr>
 <tr><td>EnterBlockedCursor</td><td>enter-blocked</td><td>String</td><td>Cursor to display when unable to unload at target actor. </td></tr>
 </table>
@@ -2045,6 +2065,7 @@ Requires trait: [`Mobile`](#mobile).
 <tr><td>PanicLength</td><td>250</td><td>Integer</td><td>How long (in ticks) the actor should panic for. </td></tr>
 <tr><td>PanicSpeedModifier</td><td>200</td><td>Integer</td><td>Panic movement speed as a percentage of the normal speed. </td></tr>
 <tr><td>AttackPanicChance</td><td>20</td><td>Integer</td><td>Chance (out of 100) the unit has to enter panic mode when attacking. </td></tr>
+<tr><td>AvoidTerrainTypes</td><td></td><td>Set of String</td><td>The terrain types that this actor should avoid running on to while panicking. </td></tr>
 <tr><td>PanicSequencePrefix</td><td>panic-</td><td>String</td><td></td></tr>
 </table>
 
@@ -2106,7 +2127,7 @@ This actor deflects missiles.
 <table>
 <tr><th>Property</th><th>Default Value</th><th>Type</th><th>Description</th></tr>
 <tr><td>Range</td><td>0c0</td><td>1D World Distance</td><td>Range of the deflection. </td></tr>
-<tr><td>DeflectionStances</td><td>Enemy, Neutral, Ally</td><td>Stance</td><td>What diplomatic stances are affected. </td></tr>
+<tr><td>DeflectionRelationships</td><td>Enemy, Neutral, Ally</td><td>PlayerRelationship</td><td>What player relationships are affected. </td></tr>
 <tr><td>Chance</td><td>100</td><td>Integer</td><td>Chance of deflecting missiles. </td></tr>
 <tr><td>RequiresCondition</td><td></td><td>BooleanExpression</td><td>Boolean expression defining the condition to enable this trait. </td></tr>
 </table>
@@ -2141,6 +2162,7 @@ Unit is able to move.
 <tr><td>Cursor</td><td>move</td><td>String</td><td>Cursor to display when a move order can be issued at target location. </td></tr>
 <tr><td>BlockedCursor</td><td>move-blocked</td><td>String</td><td>Cursor to display when a move order cannot be issued at target location. </td></tr>
 <tr><td>Voice</td><td>Action</td><td>String</td><td></td></tr>
+<tr><td>TargetLineColor</td><td>008000</td><td>Color (RRGGBB[AA] notation)</td><td>Color to use for the target line for regular move orders. </td></tr>
 <tr><td>PreviewFacing</td><td>384</td><td>1D World Angle</td><td>Facing to use for actor previews (map editor, color picker, etc) </td></tr>
 <tr><td>EditorFacingDisplayOrder</td><td>3</td><td>Integer</td><td>Display order for the facing slider in the map editor </td></tr>
 <tr><td>RequireForceMoveCondition</td><td></td><td>BooleanExpression</td><td>Boolean expression defining the condition under which the regular (non-force) move cursor is disabled. </td></tr>
@@ -2158,14 +2180,14 @@ This actor will remain visible (but not updated visually) under fog, once discov
 Requires trait: [`Building`](#building).
 <table>
 <tr><th>Property</th><th>Default Value</th><th>Type</th><th>Description</th></tr>
-<tr><td>AlwaysVisibleStances</td><td>Ally</td><td>Stance</td><td>Players with these stances can always see the actor. </td></tr>
+<tr><td>AlwaysVisibleRelationships</td><td>Ally</td><td>PlayerRelationship</td><td>Players with these relationships can always see the actor. </td></tr>
 </table>
 
 ### HiddenUnderFog
 The actor stays invisible under fog of war.
 <table>
 <tr><th>Property</th><th>Default Value</th><th>Type</th><th>Description</th></tr>
-<tr><td>AlwaysVisibleStances</td><td>Ally</td><td>Stance</td><td>Players with these stances can always see the actor. </td></tr>
+<tr><td>AlwaysVisibleRelationships</td><td>Ally</td><td>PlayerRelationship</td><td>Players with these relationships can always see the actor. </td></tr>
 <tr><td>Type</td><td>Footprint</td><td>VisibilityType</td><td>Possible values are CenterPosition (reveal when the center is visible) and  Footprint (reveal when any footprint cell is visible). </td></tr>
 </table>
 
@@ -2173,7 +2195,7 @@ The actor stays invisible under fog of war.
 The actor stays invisible under the shroud.
 <table>
 <tr><th>Property</th><th>Default Value</th><th>Type</th><th>Description</th></tr>
-<tr><td>AlwaysVisibleStances</td><td>Ally</td><td>Stance</td><td>Players with these stances can always see the actor. </td></tr>
+<tr><td>AlwaysVisibleRelationships</td><td>Ally</td><td>PlayerRelationship</td><td>Players with these relationships can always see the actor. </td></tr>
 <tr><td>Type</td><td>Footprint</td><td>VisibilityType</td><td>Possible values are CenterPosition (reveal when the center is visible) and  Footprint (reveal when any footprint cell is visible). </td></tr>
 </table>
 
@@ -2436,6 +2458,7 @@ This actor can enter Cargo actors.
 <tr><td>CargoCondition</td><td></td><td>String</td><td>The condition to grant to when this actor is loaded inside any transport. </td></tr>
 <tr><td>CargoConditions</td><td></td><td>Mapping of String to String</td><td>Conditions to grant when this actor is loaded inside specified transport. A dictionary of [actor id]: [condition]. </td></tr>
 <tr><td>Voice</td><td>Action</td><td>String</td><td></td></tr>
+<tr><td>TargetLineColor</td><td>008000</td><td>Color (RRGGBB[AA] notation)</td><td>Color to use for the target line. </td></tr>
 <tr><td>RequireForceMoveCondition</td><td></td><td>BooleanExpression</td><td>Boolean expression defining the condition under which the regular (non-force) enter cursor is disabled. </td></tr>
 <tr><td>EnterCursor</td><td>enter</td><td>String</td><td>Cursor to display when able to enter target actor. </td></tr>
 <tr><td>EnterBlockedCursor</td><td>enter-blocked</td><td>String</td><td>Cursor to display when unable to enter target actor. </td></tr>
@@ -3015,6 +3038,7 @@ Can enter a BridgeHut or LegacyBridgeHut to trigger a repair.
 <table>
 <tr><th>Property</th><th>Default Value</th><th>Type</th><th>Description</th></tr>
 <tr><td>Voice</td><td>Action</td><td>String</td><td></td></tr>
+<tr><td>TargetLineColor</td><td>FFFF00</td><td>Color (RRGGBB[AA] notation)</td><td>Color to use for the target line. </td></tr>
 <tr><td>EnterBehaviour</td><td>Dispose</td><td>EnterBehaviour</td><td>Behaviour when entering the structure. Possible values are Exit, Suicide, Dispose. </td></tr>
 <tr><td>TargetCursor</td><td>goldwrench</td><td>String</td><td>Cursor to display when targeting an unrepaired bridge. </td></tr>
 <tr><td>TargetBlockedCursor</td><td>goldwrench-blocked</td><td>String</td><td>Cursor to display when repairing is denied. </td></tr>
@@ -3059,7 +3083,7 @@ Can be used to enforce specific owners (like 'Neutral' or 'Creeps') for this act
 Reveal this actor's last position when killed.
 <table>
 <tr><th>Property</th><th>Default Value</th><th>Type</th><th>Description</th></tr>
-<tr><td>RevealForStances</td><td>Ally</td><td>Stance</td><td>Stances relative to the actors' owner that shroud will be revealed for. </td></tr>
+<tr><td>RevealForRelationships</td><td>Ally</td><td>PlayerRelationship</td><td>Relationships relative to the actors' owner that shroud will be revealed for. </td></tr>
 <tr><td>Duration</td><td>25</td><td>Integer</td><td>Duration of the reveal. </td></tr>
 <tr><td>Radius</td><td>1c512</td><td>1D World Distance</td><td>Radius of the reveal around this actor. </td></tr>
 <tr><td>RevealGeneratedShroud</td><td>True</td><td>Boolean</td><td>Can this actor be revealed through shroud generated by the GeneratesShroud trait? </td></tr>
@@ -3072,7 +3096,7 @@ Reveal this actor to the target's owner when attacking.
 <table>
 <tr><th>Property</th><th>Default Value</th><th>Type</th><th>Description</th></tr>
 <tr><td>ArmamentNames</td><td>primary, secondary</td><td>Collection of String</td><td>The armament types which trigger revealing. </td></tr>
-<tr><td>RevealForStancesRelativeToTarget</td><td>Ally</td><td>Stance</td><td>Stances relative to the target player this actor will be revealed to during firing. </td></tr>
+<tr><td>RevealForRelationships</td><td>Ally</td><td>PlayerRelationship</td><td>Player relationships relative to the target player this actor will be revealed to during firing. </td></tr>
 <tr><td>Duration</td><td>25</td><td>Integer</td><td>Duration of the reveal. </td></tr>
 <tr><td>Radius</td><td>1c512</td><td>1D World Distance</td><td>Radius of the reveal around this actor. </td></tr>
 <tr><td>RevealGeneratedShroud</td><td>True</td><td>Boolean</td><td>Can this actor be revealed through shroud generated by the GeneratesShroud trait? </td></tr>
@@ -3083,7 +3107,7 @@ Reveal this actor to the target's owner when attacking.
 Reveals shroud and fog across the whole map while active.
 <table>
 <tr><th>Property</th><th>Default Value</th><th>Type</th><th>Description</th></tr>
-<tr><td>ValidStances</td><td>Ally</td><td>Stance</td><td>Stance the watching player needs to see the shroud removed. </td></tr>
+<tr><td>ValidRelationships</td><td>Ally</td><td>PlayerRelationship</td><td>Relationships the watching player needs to see the shroud removed. </td></tr>
 <tr><td>RevealGeneratedShroud</td><td>True</td><td>Boolean</td><td>Can this actor reveal shroud generated by the `GeneratesShroud` trait? </td></tr>
 <tr><td>RequiresCondition</td><td></td><td>BooleanExpression</td><td>Boolean expression defining the condition to enable this trait. </td></tr>
 </table>
@@ -3091,7 +3115,7 @@ Reveals shroud and fog across the whole map while active.
 ### RevealsShroud
 <table>
 <tr><th>Property</th><th>Default Value</th><th>Type</th><th>Description</th></tr>
-<tr><td>ValidStances</td><td>Ally</td><td>Stance</td><td>Stance the watching player needs to see the shroud removed. </td></tr>
+<tr><td>ValidRelationships</td><td>Ally</td><td>PlayerRelationship</td><td>Relationships the watching player needs to see the shroud removed. </td></tr>
 <tr><td>RevealGeneratedShroud</td><td>True</td><td>Boolean</td><td>Can this actor reveal shroud generated by the GeneratesShroud trait? </td></tr>
 <tr><td>MinRange</td><td>0c0</td><td>1D World Distance</td><td></td></tr>
 <tr><td>Range</td><td>0c0</td><td>1D World Distance</td><td></td></tr>
@@ -3231,7 +3255,7 @@ Adds capacity to a player's harvested resource limit.
 <tr><td>LaunchSpeechNotification</td><td></td><td>String</td><td></td></tr>
 <tr><td>IncomingSound</td><td></td><td>String</td><td></td></tr>
 <tr><td>IncomingSpeechNotification</td><td></td><td>String</td><td></td></tr>
-<tr><td>DisplayTimerStances</td><td>None</td><td>Stance</td><td>Defines to which players the timer is shown. </td></tr>
+<tr><td>DisplayTimerRelationships</td><td>None</td><td>PlayerRelationship</td><td>Defines to which players the timer is shown. </td></tr>
 <tr><td>DisplayBeacon</td><td>False</td><td>Boolean</td><td>Beacons are only supported on the Airstrike, Paratroopers, and Nuke powers </td></tr>
 <tr><td>BeaconPaletteIsPlayerPalette</td><td>True</td><td>Boolean</td><td></td></tr>
 <tr><td>BeaconPalette</td><td>player</td><td>String</td><td></td></tr>
@@ -3259,7 +3283,7 @@ Adds capacity to a player's harvested resource limit.
 <tr><td>Dimensions</td><td><em>(required)</em></td><td>2D Cell Vector</td><td>Size of the footprint of the affected area. </td></tr>
 <tr><td>Footprint</td><td><em>(required)</em></td><td>String</td><td>Actual footprint. Cells marked as x will be affected. </td></tr>
 <tr><td>OnFireSound</td><td></td><td>String</td><td>Sound to instantly play at the targeted area. </td></tr>
-<tr><td>ValidStances</td><td>Ally</td><td>Stance</td><td>Player stances which condition can be applied to. </td></tr>
+<tr><td>ValidRelationships</td><td>Ally</td><td>PlayerRelationship</td><td>Player relationships which condition can be applied to. </td></tr>
 <tr><td>Sequence</td><td>active</td><td>String</td><td>Sequence to play for granting actor when activated. This requires the actor to have the WithSpriteBody trait or one of its derivatives. </td></tr>
 <tr><td>BlockedCursor</td><td>move-blocked</td><td>String</td><td>Cursor to display when there are no units to apply the condition in range. </td></tr>
 <tr><td>ChargeInterval</td><td>0</td><td>Integer</td><td>Measured in ticks. </td></tr>
@@ -3285,7 +3309,7 @@ Adds capacity to a player's harvested resource limit.
 <tr><td>LaunchSpeechNotification</td><td></td><td>String</td><td></td></tr>
 <tr><td>IncomingSound</td><td></td><td>String</td><td></td></tr>
 <tr><td>IncomingSpeechNotification</td><td></td><td>String</td><td></td></tr>
-<tr><td>DisplayTimerStances</td><td>None</td><td>Stance</td><td>Defines to which players the timer is shown. </td></tr>
+<tr><td>DisplayTimerRelationships</td><td>None</td><td>PlayerRelationship</td><td>Defines to which players the timer is shown. </td></tr>
 <tr><td>DisplayBeacon</td><td>False</td><td>Boolean</td><td>Beacons are only supported on the Airstrike, Paratroopers, and Nuke powers </td></tr>
 <tr><td>BeaconPaletteIsPlayerPalette</td><td>True</td><td>Boolean</td><td></td></tr>
 <tr><td>BeaconPalette</td><td>player</td><td>String</td><td></td></tr>
@@ -3329,7 +3353,7 @@ Adds capacity to a player's harvested resource limit.
 <tr><td>BeaconRemoveAdvance</td><td>25</td><td>Integer</td><td>Amount of time before detonation to remove the beacon. </td></tr>
 <tr><td>CameraRange</td><td>0c0</td><td>1D World Distance</td><td>Range of cells the camera should reveal around target cell. </td></tr>
 <tr><td>RevealGeneratedShroud</td><td>True</td><td>Boolean</td><td>Can the camera reveal shroud generated by the GeneratesShroud trait? </td></tr>
-<tr><td>CameraStances</td><td>Ally</td><td>Stance</td><td>Reveal cells to players with these stances only. </td></tr>
+<tr><td>CameraRelationships</td><td>Ally</td><td>PlayerRelationship</td><td>Reveal cells to players with these relationships only. </td></tr>
 <tr><td>CameraSpawnAdvance</td><td>25</td><td>Integer</td><td>Amount of time before detonation to spawn the camera. </td></tr>
 <tr><td>CameraRemoveDelay</td><td>25</td><td>Integer</td><td>Amount of time after detonation to remove the camera. </td></tr>
 <tr><td>CircleColor</td><td>FF000080</td><td>Color (RRGGBB[AA] notation)</td><td>Range circle color. </td></tr>
@@ -3360,7 +3384,7 @@ Adds capacity to a player's harvested resource limit.
 <tr><td>LaunchSpeechNotification</td><td></td><td>String</td><td></td></tr>
 <tr><td>IncomingSound</td><td></td><td>String</td><td></td></tr>
 <tr><td>IncomingSpeechNotification</td><td></td><td>String</td><td></td></tr>
-<tr><td>DisplayTimerStances</td><td>None</td><td>Stance</td><td>Defines to which players the timer is shown. </td></tr>
+<tr><td>DisplayTimerRelationships</td><td>None</td><td>PlayerRelationship</td><td>Defines to which players the timer is shown. </td></tr>
 <tr><td>DisplayBeacon</td><td>False</td><td>Boolean</td><td>Beacons are only supported on the Airstrike, Paratroopers, and Nuke powers </td></tr>
 <tr><td>BeaconPaletteIsPlayerPalette</td><td>True</td><td>Boolean</td><td></td></tr>
 <tr><td>BeaconPalette</td><td>player</td><td>String</td><td></td></tr>
@@ -3420,7 +3444,7 @@ Adds capacity to a player's harvested resource limit.
 <tr><td>LaunchSpeechNotification</td><td></td><td>String</td><td></td></tr>
 <tr><td>IncomingSound</td><td></td><td>String</td><td></td></tr>
 <tr><td>IncomingSpeechNotification</td><td></td><td>String</td><td></td></tr>
-<tr><td>DisplayTimerStances</td><td>None</td><td>Stance</td><td>Defines to which players the timer is shown. </td></tr>
+<tr><td>DisplayTimerRelationships</td><td>None</td><td>PlayerRelationship</td><td>Defines to which players the timer is shown. </td></tr>
 <tr><td>DisplayBeacon</td><td>False</td><td>Boolean</td><td>Beacons are only supported on the Airstrike, Paratroopers, and Nuke powers </td></tr>
 <tr><td>BeaconPaletteIsPlayerPalette</td><td>True</td><td>Boolean</td><td></td></tr>
 <tr><td>BeaconPalette</td><td>player</td><td>String</td><td></td></tr>
@@ -3471,7 +3495,7 @@ Produces an actor without using the standard production queue.
 <tr><td>LaunchSpeechNotification</td><td></td><td>String</td><td></td></tr>
 <tr><td>IncomingSound</td><td></td><td>String</td><td></td></tr>
 <tr><td>IncomingSpeechNotification</td><td></td><td>String</td><td></td></tr>
-<tr><td>DisplayTimerStances</td><td>None</td><td>Stance</td><td>Defines to which players the timer is shown. </td></tr>
+<tr><td>DisplayTimerRelationships</td><td>None</td><td>PlayerRelationship</td><td>Defines to which players the timer is shown. </td></tr>
 <tr><td>DisplayBeacon</td><td>False</td><td>Boolean</td><td>Beacons are only supported on the Airstrike, Paratroopers, and Nuke powers </td></tr>
 <tr><td>BeaconPaletteIsPlayerPalette</td><td>True</td><td>Boolean</td><td></td></tr>
 <tr><td>BeaconPalette</td><td>player</td><td>String</td><td></td></tr>
@@ -3524,7 +3548,7 @@ Spawns an actor that stays for a limited amount of time.
 <tr><td>LaunchSpeechNotification</td><td></td><td>String</td><td></td></tr>
 <tr><td>IncomingSound</td><td></td><td>String</td><td></td></tr>
 <tr><td>IncomingSpeechNotification</td><td></td><td>String</td><td></td></tr>
-<tr><td>DisplayTimerStances</td><td>None</td><td>Stance</td><td>Defines to which players the timer is shown. </td></tr>
+<tr><td>DisplayTimerRelationships</td><td>None</td><td>PlayerRelationship</td><td>Defines to which players the timer is shown. </td></tr>
 <tr><td>DisplayBeacon</td><td>False</td><td>Boolean</td><td>Beacons are only supported on the Airstrike, Paratroopers, and Nuke powers </td></tr>
 <tr><td>BeaconPaletteIsPlayerPalette</td><td>True</td><td>Boolean</td><td></td></tr>
 <tr><td>BeaconPalette</td><td>player</td><td>String</td><td></td></tr>
@@ -3630,7 +3654,7 @@ Shown in the build palette widget.
 <tr><td>AllyPrefix</td><td>Allied</td><td>String</td><td>Prefix to display in the tooltip for allied units. </td></tr>
 <tr><td>NeutralPrefix</td><td></td><td>String</td><td>Prefix to display in the tooltip for neutral units. </td></tr>
 <tr><td>EnemyPrefix</td><td>Enemy</td><td>String</td><td>Prefix to display in the tooltip for enemy units. </td></tr>
-<tr><td>GenericVisibility</td><td>None</td><td>Stance</td><td>Player stances that the generic name should be shown to. </td></tr>
+<tr><td>GenericVisibility</td><td>None</td><td>PlayerRelationship</td><td>Player stances that the generic name should be shown to. </td></tr>
 <tr><td>ShowOwnerRow</td><td>True</td><td>Boolean</td><td>Show the actor's owner and their faction flag </td></tr>
 <tr><td>Name</td><td></td><td>String</td><td></td></tr>
 <tr><td>RequiresCondition</td><td></td><td>BooleanExpression</td><td>Boolean expression defining the condition to enable this trait. </td></tr>
@@ -3641,7 +3665,7 @@ Additional info shown in the battlefield tooltip.
 <table>
 <tr><th>Property</th><th>Default Value</th><th>Type</th><th>Description</th></tr>
 <tr><td>Description</td><td></td><td>String</td><td>Text shown in tooltip. </td></tr>
-<tr><td>ValidStances</td><td>Enemy, Neutral, Ally</td><td>Stance</td><td>Player stances who can view the description. </td></tr>
+<tr><td>ValidRelationships</td><td>Enemy, Neutral, Ally</td><td>PlayerRelationship</td><td>Player relationships who can view the description. </td></tr>
 <tr><td>RequiresCondition</td><td></td><td>BooleanExpression</td><td>Boolean expression defining the condition to enable this trait. </td></tr>
 </table>
 
@@ -3743,6 +3767,7 @@ Wanders around aimlessly while idle.
 <tr><td>ReduceMoveRadiusDelay</td><td>5</td><td>Integer</td><td>Number of ticks to wait before decreasing the effective move radius. </td></tr>
 <tr><td>MinMoveDelay</td><td>0</td><td>Integer</td><td>Minimum amount of ticks the actor will sit idly before starting to wander. </td></tr>
 <tr><td>MaxMoveDelay</td><td>0</td><td>Integer</td><td>Maximum amount of ticks the actor will sit idly before starting to wander. </td></tr>
+<tr><td>AvoidTerrainTypes</td><td></td><td>Set of String</td><td>The terrain types that this actor should avoid wandering on to. </td></tr>
 <tr><td>RequiresCondition</td><td></td><td>BooleanExpression</td><td>Boolean expression defining the condition to enable this trait. </td></tr>
 </table>
 
@@ -4151,7 +4176,7 @@ Allows harvesters to coordinate their operations. Attach this to the world actor
 Attach this to the world actor.
 Order of the layers defines the Z sorting.
 
-Requires trait: [`ResourceType`](#resourcetype).
+Requires traits: [`BuildingInfluence`](#buildinginfluence), [`ResourceType`](#resourcetype).
 
 ### ResourceRenderer
 Visualizes the state of the `ResourceLayer`.
@@ -4356,7 +4381,7 @@ Grants a random condition from a predefined list to the actor when created.
 <table>
 <tr><th>Property</th><th>Default Value</th><th>Type</th><th>Description</th></tr>
 <tr><td>UseLocation</td><td>False</td><td>Boolean</td><td></td></tr>
-<tr><td>ValidStances</td><td>Enemy, Neutral, Ally</td><td>Stance</td><td>Player stances who can view this actor on radar. </td></tr>
+<tr><td>ValidRelationships</td><td>Enemy, Neutral, Ally</td><td>PlayerRelationship</td><td>Player relationships who can view this actor on radar. </td></tr>
 <tr><td>RequiresCondition</td><td></td><td>BooleanExpression</td><td>Boolean expression defining the condition to enable this trait. </td></tr>
 </table>
 
@@ -4381,7 +4406,7 @@ Display the time remaining until the next cash is given by actor's CashTrickler 
 Requires trait: [`CashTrickler`](#cashtrickler).
 <table>
 <tr><th>Property</th><th>Default Value</th><th>Type</th><th>Description</th></tr>
-<tr><td>DisplayStances</td><td>Ally</td><td>Stance</td><td>Defines to which players the bar is to be shown. </td></tr>
+<tr><td>DisplayRelationships</td><td>Ally</td><td>PlayerRelationship</td><td>Defines to which players the bar is to be shown. </td></tr>
 <tr><td>Color</td><td>FF00FF</td><td>Color (RRGGBB[AA] notation)</td><td></td></tr>
 </table>
 
@@ -4527,7 +4552,7 @@ Requires trait: [`Interactable`](#interactable).
 Display the time remaining until the super weapon attached to the actor is ready.
 <table>
 <tr><th>Property</th><th>Default Value</th><th>Type</th><th>Description</th></tr>
-<tr><td>DisplayStances</td><td>Ally</td><td>Stance</td><td>Defines to which players the bar is to be shown. </td></tr>
+<tr><td>DisplayRelationships</td><td>Ally</td><td>PlayerRelationship</td><td>Defines to which players the bar is to be shown. </td></tr>
 <tr><td>Color</td><td>FF00FF</td><td>Color (RRGGBB[AA] notation)</td><td></td></tr>
 <tr><td>RequiresCondition</td><td></td><td>BooleanExpression</td><td>Boolean expression defining the condition to enable this trait. </td></tr>
 </table>
@@ -4585,7 +4610,7 @@ Requires trait: [`AmmoPool`](#ammopool).
 <tr><td>FullSequence</td><td>pip-green</td><td>String</td><td>Sequence used for full pips. </td></tr>
 <tr><td>Palette</td><td>chrome</td><td>String</td><td></td></tr>
 <tr><td>Position</td><td>TopLeft</td><td>String</td><td>Position in the actor's selection box to draw the decoration. </td></tr>
-<tr><td>ValidStances</td><td>Ally</td><td>Stance</td><td>Player stances who can view the decoration. </td></tr>
+<tr><td>ValidRelationships</td><td>Ally</td><td>PlayerRelationship</td><td>Player relationships who can view the decoration. </td></tr>
 <tr><td>RequiresSelection</td><td>False</td><td>Boolean</td><td>Should this be visible only when selected? </td></tr>
 <tr><td>Margin</td><td>0,0</td><td>2D Integer</td><td>Offset sprite center position from the selection box edge. </td></tr>
 <tr><td>Offsets</td><td></td><td>Mapping of BooleanExpression to 2D Integer</td><td>Screen-space offsets to apply when defined conditions are enabled. A dictionary of [condition string]: [x, y offset]. </td></tr>
@@ -4675,7 +4700,7 @@ Requires trait: [`RepairableBuilding`](#repairablebuilding).
 <tr><td>Palette</td><td>chrome</td><td>String</td><td>Palette to render the sprite in. Reference the world actor's PaletteFrom* traits. </td></tr>
 <tr><td>IsPlayerPalette</td><td>False</td><td>Boolean</td><td>Custom palette is a player palette BaseName </td></tr>
 <tr><td>Position</td><td>TopLeft</td><td>String</td><td>Position in the actor's selection box to draw the decoration. </td></tr>
-<tr><td>ValidStances</td><td>Ally</td><td>Stance</td><td>Player stances who can view the decoration. </td></tr>
+<tr><td>ValidRelationships</td><td>Ally</td><td>PlayerRelationship</td><td>Player relationships who can view the decoration. </td></tr>
 <tr><td>RequiresSelection</td><td>False</td><td>Boolean</td><td>Should this be visible only when selected? </td></tr>
 <tr><td>Margin</td><td>0,0</td><td>2D Integer</td><td>Offset sprite center position from the selection box edge. </td></tr>
 <tr><td>Offsets</td><td></td><td>Mapping of BooleanExpression to 2D Integer</td><td>Screen-space offsets to apply when defined conditions are enabled. A dictionary of [condition string]: [x, y offset]. </td></tr>
@@ -4697,7 +4722,7 @@ Requires trait: [`Cargo`](#cargo).
 <tr><td>CustomPipSequences</td><td></td><td>Mapping of String to String</td><td>Pip sequence to use for specific passenger actors. </td></tr>
 <tr><td>Palette</td><td>chrome</td><td>String</td><td></td></tr>
 <tr><td>Position</td><td>TopLeft</td><td>String</td><td>Position in the actor's selection box to draw the decoration. </td></tr>
-<tr><td>ValidStances</td><td>Ally</td><td>Stance</td><td>Player stances who can view the decoration. </td></tr>
+<tr><td>ValidRelationships</td><td>Ally</td><td>PlayerRelationship</td><td>Player relationships who can view the decoration. </td></tr>
 <tr><td>RequiresSelection</td><td>False</td><td>Boolean</td><td>Should this be visible only when selected? </td></tr>
 <tr><td>Margin</td><td>0,0</td><td>2D Integer</td><td>Offset sprite center position from the selection box edge. </td></tr>
 <tr><td>Offsets</td><td></td><td>Mapping of BooleanExpression to 2D Integer</td><td>Screen-space offsets to apply when defined conditions are enabled. A dictionary of [condition string]: [x, y offset]. </td></tr>
@@ -4813,7 +4838,7 @@ Displays a custom UI overlay relative to the actor's mouseover bounds.
 <tr><td>Palette</td><td>chrome</td><td>String</td><td>Palette to render the sprite in. Reference the world actor's PaletteFrom* traits. </td></tr>
 <tr><td>IsPlayerPalette</td><td>False</td><td>Boolean</td><td>Custom palette is a player palette BaseName </td></tr>
 <tr><td>Position</td><td>TopLeft</td><td>String</td><td>Position in the actor's selection box to draw the decoration. </td></tr>
-<tr><td>ValidStances</td><td>Ally</td><td>Stance</td><td>Player stances who can view the decoration. </td></tr>
+<tr><td>ValidRelationships</td><td>Ally</td><td>PlayerRelationship</td><td>Player relationships who can view the decoration. </td></tr>
 <tr><td>RequiresSelection</td><td>False</td><td>Boolean</td><td>Should this be visible only when selected? </td></tr>
 <tr><td>Margin</td><td>0,0</td><td>2D Integer</td><td>Offset sprite center position from the selection box edge. </td></tr>
 <tr><td>Offsets</td><td></td><td>Mapping of BooleanExpression to 2D Integer</td><td>Screen-space offsets to apply when defined conditions are enabled. A dictionary of [condition string]: [x, y offset]. </td></tr>
@@ -4905,7 +4930,7 @@ Requires trait: [`Harvester`](#harvester).
 <tr><td>ResourceSequences</td><td></td><td>Mapping of String to String</td><td>Pip sequence to use for specific resource types. </td></tr>
 <tr><td>Palette</td><td>chrome</td><td>String</td><td></td></tr>
 <tr><td>Position</td><td>TopLeft</td><td>String</td><td>Position in the actor's selection box to draw the decoration. </td></tr>
-<tr><td>ValidStances</td><td>Ally</td><td>Stance</td><td>Player stances who can view the decoration. </td></tr>
+<tr><td>ValidRelationships</td><td>Ally</td><td>PlayerRelationship</td><td>Player relationships who can view the decoration. </td></tr>
 <tr><td>RequiresSelection</td><td>False</td><td>Boolean</td><td>Should this be visible only when selected? </td></tr>
 <tr><td>Margin</td><td>0,0</td><td>2D Integer</td><td>Offset sprite center position from the selection box edge. </td></tr>
 <tr><td>Offsets</td><td></td><td>Mapping of BooleanExpression to 2D Integer</td><td>Screen-space offsets to apply when defined conditions are enabled. A dictionary of [condition string]: [x, y offset]. </td></tr>
@@ -5011,7 +5036,7 @@ Displays the player name above the unit
 <tr><td>Color</td><td>FFFFFF</td><td>Color (RRGGBB[AA] notation)</td><td>Display in this color when not using the player color. </td></tr>
 <tr><td>UsePlayerColor</td><td>False</td><td>Boolean</td><td>Use the player color of the current owner. </td></tr>
 <tr><td>Position</td><td>TopLeft</td><td>String</td><td>Position in the actor's selection box to draw the decoration. </td></tr>
-<tr><td>ValidStances</td><td>Ally</td><td>Stance</td><td>Player stances who can view the decoration. </td></tr>
+<tr><td>ValidRelationships</td><td>Ally</td><td>PlayerRelationship</td><td>Player relationships who can view the decoration. </td></tr>
 <tr><td>RequiresSelection</td><td>False</td><td>Boolean</td><td>Should this be visible only when selected? </td></tr>
 <tr><td>Margin</td><td>0,0</td><td>2D Integer</td><td>Offset sprite center position from the selection box edge. </td></tr>
 <tr><td>Offsets</td><td></td><td>Mapping of BooleanExpression to 2D Integer</td><td>Screen-space offsets to apply when defined conditions are enabled. A dictionary of [condition string]: [x, y offset]. </td></tr>
@@ -5078,7 +5103,7 @@ Renders an arbitrary circle when selected or placing a structure
 <tr><td>BorderColor</td><td>00000060</td><td>Color (RRGGBB[AA] notation)</td><td>Color of the border. </td></tr>
 <tr><td>BorderWidth</td><td>3</td><td>Real Number</td><td>Range circle border width. </td></tr>
 <tr><td>UsePlayerColor</td><td>False</td><td>Boolean</td><td>If set, the color of the owning player will be used instead of `Color`. </td></tr>
-<tr><td>ValidStances</td><td>Ally</td><td>Stance</td><td>Stances of players which will be able to see the circle. Valid values are combinations of `None`, `Ally`, `Enemy` and `Neutral`. </td></tr>
+<tr><td>ValidRelationships</td><td>Ally</td><td>PlayerRelationship</td><td>Player relationships which will be able to see the circle. Valid values are combinations of `None`, `Ally`, `Enemy` and `Neutral`. </td></tr>
 <tr><td>Visible</td><td>WhenSelected</td><td>RangeCircleVisibility</td><td>When to show the range circle. Valid values are `Always`, and `WhenSelected` </td></tr>
 <tr><td>Range</td><td>0c0</td><td>1D World Distance</td><td>Range of the circle </td></tr>
 <tr><td>RequiresCondition</td><td></td><td>BooleanExpression</td><td>Boolean expression defining the condition to enable this trait. </td></tr>
@@ -5137,7 +5162,7 @@ Requires trait: [`RenderSprites`](#rendersprites).
 <tr><td>FullSequence</td><td>pip-green</td><td>String</td><td>Sequence used for full pips. </td></tr>
 <tr><td>Palette</td><td>chrome</td><td>String</td><td></td></tr>
 <tr><td>Position</td><td>TopLeft</td><td>String</td><td>Position in the actor's selection box to draw the decoration. </td></tr>
-<tr><td>ValidStances</td><td>Ally</td><td>Stance</td><td>Player stances who can view the decoration. </td></tr>
+<tr><td>ValidRelationships</td><td>Ally</td><td>PlayerRelationship</td><td>Player relationships who can view the decoration. </td></tr>
 <tr><td>RequiresSelection</td><td>False</td><td>Boolean</td><td>Should this be visible only when selected? </td></tr>
 <tr><td>Margin</td><td>0,0</td><td>2D Integer</td><td>Offset sprite center position from the selection box edge. </td></tr>
 <tr><td>Offsets</td><td></td><td>Mapping of BooleanExpression to 2D Integer</td><td>Screen-space offsets to apply when defined conditions are enabled. A dictionary of [condition string]: [x, y offset]. </td></tr>
@@ -5264,7 +5289,7 @@ Displays a text overlay relative to the selection box.
 <tr><td>Color</td><td>FFFFFF</td><td>Color (RRGGBB[AA] notation)</td><td>Display in this color when not using the player color. </td></tr>
 <tr><td>UsePlayerColor</td><td>False</td><td>Boolean</td><td>Use the player color of the current owner. </td></tr>
 <tr><td>Position</td><td>TopLeft</td><td>String</td><td>Position in the actor's selection box to draw the decoration. </td></tr>
-<tr><td>ValidStances</td><td>Ally</td><td>Stance</td><td>Player stances who can view the decoration. </td></tr>
+<tr><td>ValidRelationships</td><td>Ally</td><td>PlayerRelationship</td><td>Player relationships who can view the decoration. </td></tr>
 <tr><td>RequiresSelection</td><td>False</td><td>Boolean</td><td>Should this be visible only when selected? </td></tr>
 <tr><td>Margin</td><td>0,0</td><td>2D Integer</td><td>Offset sprite center position from the selection box edge. </td></tr>
 <tr><td>Offsets</td><td></td><td>Mapping of BooleanExpression to 2D Integer</td><td>Screen-space offsets to apply when defined conditions are enabled. A dictionary of [condition string]: [x, y offset]. </td></tr>
@@ -5452,13 +5477,26 @@ Plays a voice clip when the trait is enabled.
 <table>
 <tr><th>Property</th><th>Default Value</th><th>Type</th><th>Description</th></tr>
 <tr><td>Voice</td><td><em>(required)</em></td><td>String</td><td>Voice to play. </td></tr>
-<tr><td>ValidStances</td><td>Enemy, Neutral, Ally</td><td>Stance</td><td>Player stances who can hear this voice. </td></tr>
+<tr><td>ValidRelationships</td><td>Enemy, Neutral, Ally</td><td>PlayerRelationship</td><td>Player relationships who can hear this voice. </td></tr>
 <tr><td>PlayToOwner</td><td>True</td><td>Boolean</td><td>Play the voice to the owning player even if Stance.Ally is not included in ValidStances. </td></tr>
 <tr><td>OneShot</td><td>False</td><td>Boolean</td><td>Disable the announcement after it has been triggered. </td></tr>
 <tr><td>RequiresCondition</td><td></td><td>BooleanExpression</td><td>Boolean expression defining the condition to enable this trait. </td></tr>
 </table>
 
 ## OpenRA.Mods.HV.Traits
+
+### CubePickupBotModule
+Put this on the Player actor. Manages cube collection.
+<table>
+<tr><th>Property</th><th>Default Value</th><th>Type</th><th>Description</th></tr>
+<tr><td>ExcludedUnitTypes</td><td></td><td>Set of String</td><td>Actor types that should not start hunting for cubes. </td></tr>
+<tr><td>IncludedUnitTypes</td><td></td><td>Set of String</td><td>Only these actor types should start hunting for cubes. </td></tr>
+<tr><td>ScanForCubesInterval</td><td>50</td><td>Integer</td><td>Interval (in ticks) between giving out orders to idle units. </td></tr>
+<tr><td>MaxProximityRadius</td><td>0</td><td>Integer</td><td>Only move this far away from base. Disabled if set to zero. </td></tr>
+<tr><td>EnemyAvoidanceRadius</td><td>8c0</td><td>1D World Distance</td><td>Avoid enemy actors nearby when searching for cubes. Should be somewhere near the max weapon range. </td></tr>
+<tr><td>CheckTargetsForVisibility</td><td>True</td><td>Boolean</td><td>Should visibility (Shroud, Fog, Cloak, etc) be considered when searching for cubes? </td></tr>
+<tr><td>RequiresCondition</td><td></td><td>BooleanExpression</td><td>Boolean expression defining the condition to enable this trait. </td></tr>
+</table>
 
 ### MinerDeployManagerBotModule
 Manages AI miner deployment logic.
@@ -5486,7 +5524,7 @@ Manages AI capturing logic.
 <tr><td>MinimumCaptureDelay</td><td>375</td><td>Integer</td><td>Minimum delay (in ticks) between trying to capture with CapturingActorTypes. </td></tr>
 <tr><td>MaximumCaptureTargetOptions</td><td>10</td><td>Integer</td><td>Maximum number of options to consider for capturing. If a value less than 1 is given 1 will be used instead. </td></tr>
 <tr><td>CheckCaptureTargetsForVisibility</td><td>True</td><td>Boolean</td><td>Should visibility (Shroud, Fog, Cloak, etc) be considered when searching for capturable targets? </td></tr>
-<tr><td>CapturableStances</td><td>Enemy, Neutral</td><td>Stance</td><td>Player stances that capturers should attempt to target. </td></tr>
+<tr><td>CapturableStances</td><td>Enemy, Neutral</td><td>PlayerRelationship</td><td>Player stances that capturers should attempt to target. </td></tr>
 <tr><td>RequiresCondition</td><td></td><td>BooleanExpression</td><td>Boolean expression defining the condition to enable this trait. </td></tr>
 </table>
 
@@ -5594,6 +5632,10 @@ Requires trait: [`Rearmable`](#rearmable).
 <tr><td>TileInvalidName</td><td>target-invalid</td><td>String</td><td>Sprite overlay to use for invalid minefield cells. </td></tr>
 <tr><td>TileUnknownName</td><td>target-unknown</td><td>String</td><td>Sprite overlay to use for minefield cells hidden behind fog or shroud. </td></tr>
 <tr><td>Cursor</td><td>ability</td><td>String</td><td>Cursor to display when able to (un)deploy the actor. </td></tr>
+<tr><td>TargetLineColor</td><td>DC143C</td><td>Color (RRGGBB[AA] notation)</td><td>Color to use for the target line when laying mines. </td></tr>
+<tr><td>TerrainTypes</td><td></td><td>Set of String</td><td>Only allow laying mines on listed terrain types. Leave empty to allow all terrain types. </td></tr>
+<tr><td>DeployCursor</td><td>deploy</td><td>String</td><td>Cursor to display when able to lay a mine. </td></tr>
+<tr><td>DeployBlockedCursor</td><td>deploy-blocked</td><td>String</td><td>Cursor to display when unable to lay a mine. </td></tr>
 </table>
 
 ### PeriodicDischarge
@@ -5690,7 +5732,7 @@ Spawns shrapnel weapons after a periodic interval.
 <tr><td>Amount</td><td>1</td><td>Collection of Integer</td><td>Amount of shrapnels thrown. Two values indicate a range. </td></tr>
 <tr><td>Delay</td><td>50</td><td>Collection of Integer</td><td>Delay between two spawns. Two values indicate a range. </td></tr>
 <tr><td>AimChance</td><td>0</td><td>Integer</td><td>The percentage of aiming this shrapnel to a suitable target actor. </td></tr>
-<tr><td>AimTargetStances</td><td>Enemy, Neutral, Ally</td><td>Stance</td><td>What diplomatic stances can be targeted by the shrapnel. </td></tr>
+<tr><td>AimTargetStances</td><td>Enemy, Neutral, Ally</td><td>PlayerRelationship</td><td>What diplomatic stances can be targeted by the shrapnel. </td></tr>
 <tr><td>ThrowWithoutTarget</td><td>True</td><td>Boolean</td><td>Allow this shrapnel to be thrown randomly when no targets found. </td></tr>
 <tr><td>AllowSelfHit</td><td>False</td><td>Boolean</td><td>Should the shrapnel hit the spawner actor? </td></tr>
 <tr><td>LocalOffset</td><td>0,0,0</td><td>3D World Vector</td><td>Shrapnel spawn offset relative to actor's position. </td></tr>
@@ -5703,7 +5745,7 @@ This actor can teleport actors to another actor with the same trait.
 <table>
 <tr><th>Property</th><th>Default Value</th><th>Type</th><th>Description</th></tr>
 <tr><td>Type</td><td><em>(required)</em></td><td>String</td><td>Type of TeleportNetwork that pairs up, in order for it to work. </td></tr>
-<tr><td>ValidStances</td><td>Ally</td><td>Stance</td><td>Stances requirement that targeted TeleportNetwork has to meet in order to teleport units. </td></tr>
+<tr><td>ValidStances</td><td>Ally</td><td>PlayerRelationship</td><td>Stances requirement that targeted TeleportNetwork has to meet in order to teleport units. </td></tr>
 <tr><td>Delay</td><td>20</td><td>Integer</td><td>Time in ticks to wait for the teleporter to charge up. </td></tr>
 </table>
 
@@ -5747,6 +5789,24 @@ For use with the ForestLayer.
 <tr><td>CruiseAltitude</td><td>2c512</td><td>1D World Distance</td><td>The altitude of the cloud. </td></tr>
 <tr><td>CloseEnough</td><td>0c128</td><td>1D World Distance</td><td>Distance margin where the cloud can be removed. </td></tr>
 <tr><td>ShouldPrespawn</td><td>True</td><td>Boolean</td><td>Should we pre-spawn clouds covers the map? </td></tr>
+</table>
+
+### CubeSpawner
+<table>
+<tr><th>Property</th><th>Default Value</th><th>Type</th><th>Description</th></tr>
+<tr><td>CheckboxLabel</td><td>Cubes</td><td>String</td><td>Descriptive label for the cubes checkbox in the lobby. </td></tr>
+<tr><td>CheckboxDescription</td><td>Collect cubes with units to receive random bonuses</td><td>String</td><td>Tooltip description for the cubes checkbox in the lobby. </td></tr>
+<tr><td>CheckboxEnabled</td><td>False</td><td>Boolean</td><td>Default value of the cubes checkbox in the lobby. </td></tr>
+<tr><td>CheckboxLocked</td><td>False</td><td>Boolean</td><td>Prevent the cubes state from being changed in the lobby. </td></tr>
+<tr><td>CheckboxVisible</td><td>True</td><td>Boolean</td><td>Whether to display the cubes checkbox in the lobby. </td></tr>
+<tr><td>CheckboxDisplayOrder</td><td>0</td><td>Integer</td><td>Display order for the cubes checkbox in the lobby. </td></tr>
+<tr><td>Minimum</td><td>1</td><td>Integer</td><td>Minimum number of cubes. </td></tr>
+<tr><td>Maximum</td><td>255</td><td>Integer</td><td>Maximum number of cubes. </td></tr>
+<tr><td>SpawnInterval</td><td>4500</td><td>Integer</td><td>Average time (ticks) between cube spawn. </td></tr>
+<tr><td>InitialSpawnDelay</td><td>0</td><td>Integer</td><td>Delay (in ticks) before the first cube spawns. </td></tr>
+<tr><td>ValidGround</td><td>Clear</td><td>Set of String</td><td>Which terrain types can we drop on? </td></tr>
+<tr><td>CubeActors</td><td>cube</td><td>Collection of String</td><td>Cube actors to drop. </td></tr>
+<tr><td>CubeActorShares</td><td>10</td><td>Collection of Integer</td><td>Chance of each cube actor spawning. </td></tr>
 </table>
 
 ### CustomTerrainLayer
@@ -5952,18 +6012,6 @@ Requires traits: [`BodyOrientation`](#bodyorientation), [`RenderSprites`](#rende
 ### DebugPauseState
 Checks for pause related desyncs. Attach this to the world actor.
 
-### FixedColorPalette
-Add this to the World actor definition.
-<table>
-<tr><th>Property</th><th>Default Value</th><th>Type</th><th>Description</th></tr>
-<tr><td>Base</td><td>terrain</td><td>String</td><td>The name of the palette to base off. </td></tr>
-<tr><td>Name</td><td>resources</td><td>String</td><td>The name of the resulting palette </td></tr>
-<tr><td>RemapIndex</td><td></td><td>Collection of Integer</td><td>Remap these indices to pre-defined colors. </td></tr>
-<tr><td>Color</td><td>00000000</td><td>Color (RRGGBB[AA] notation)</td><td>The fixed color to remap. </td></tr>
-<tr><td>Ramp</td><td>0.05</td><td>Real Number</td><td>Luminosity range to span. </td></tr>
-<tr><td>AllowModifiers</td><td>True</td><td>Boolean</td><td>Allow palette modifiers to change the palette. </td></tr>
-</table>
-
 ### FrozenActorLayer
 Required for FrozenUnderFog to work. Attach this to the player actor.
 
@@ -6023,6 +6071,18 @@ Attach this to the `World` actor.
 <tr><td>Side</td><td></td><td>String</td><td>The side that the faction belongs to. For example, England belongs to the 'Allies' side. </td></tr>
 <tr><td>Description</td><td></td><td>String</td><td></td></tr>
 <tr><td>Selectable</td><td>True</td><td>Boolean</td><td></td></tr>
+</table>
+
+### FixedColorPalette
+Add this to the World actor definition.
+<table>
+<tr><th>Property</th><th>Default Value</th><th>Type</th><th>Description</th></tr>
+<tr><td>Base</td><td>terrain</td><td>String</td><td>The name of the palette to base off. </td></tr>
+<tr><td>Name</td><td>resources</td><td>String</td><td>The name of the resulting palette </td></tr>
+<tr><td>RemapIndex</td><td></td><td>Collection of Integer</td><td>Remap these indices to pre-defined colors. </td></tr>
+<tr><td>Color</td><td>00000000</td><td>Color (RRGGBB[AA] notation)</td><td>The fixed color to remap. </td></tr>
+<tr><td>Ramp</td><td>0.05</td><td>Real Number</td><td>Luminosity range to span. </td></tr>
+<tr><td>AllowModifiers</td><td>True</td><td>Boolean</td><td>Allow palette modifiers to change the palette. </td></tr>
 </table>
 
 ### ScreenMap

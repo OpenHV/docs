@@ -1,4 +1,4 @@
-This documentation is aimed at modders. It displays a template for weapon definitions as well as its contained types (warheads and projectiles) with default values and developer commentary. Please do not edit it directly, but add new `[Desc("String")]` tags to the source code. This file has been automatically generated for version  of OpenHV.
+This documentation is aimed at modders. It displays a template for weapon definitions as well as its contained types (warheads and projectiles) with default values and developer commentary. Please do not edit it directly, but add new `[Desc("String")]` tags to the source code. This file has been automatically generated for version 20210109 of OpenRA.
 
 
 ## OpenRA.Mods.Common.Projectiles
@@ -49,7 +49,7 @@ This documentation is aimed at modders. It displays a template for weapon defini
 <tr><td>BounceRangeModifier</td><td>60</td><td>Integer</td><td>Modify distance of each bounce by this percentage of previous distance. </td></tr>
 <tr><td>BounceSound</td><td></td><td>String</td><td>Sound to play when the projectile hits the ground, but not the target. </td></tr>
 <tr><td>InvalidBounceTerrain</td><td></td><td>Set of String</td><td>Terrain where the projectile explodes instead of bouncing. </td></tr>
-<tr><td>ValidBounceBlockerStances</td><td>Enemy, Neutral</td><td>Stance</td><td>If projectile touches an actor with one of these stances during or after the first bounce, trigger explosion. </td></tr>
+<tr><td>ValidBounceBlockerRelationships</td><td>Enemy, Neutral</td><td>PlayerRelationship</td><td>Trigger the explosion if the projectile touches an actor thats owner has these player relationships. </td></tr>
 <tr><td>AirburstAltitude</td><td>0c0</td><td>1D World Distance</td><td>Altitude above terrain below which to explode. Zero effectively deactivates airburst. </td></tr>
 <tr><td>ContrailLength</td><td>0</td><td>Integer</td><td></td></tr>
 <tr><td>ContrailZOffset</td><td>2047</td><td>Integer</td><td></td></tr>
@@ -219,7 +219,7 @@ Interacts with the TemporaryOwnerManager trait.
 <tr><td>Range</td><td>1c0</td><td>1D World Distance</td><td></td></tr>
 <tr><td>ValidTargets</td><td>Ground, Water</td><td>Collection of TargetableType</td><td>What types of targets are affected. </td></tr>
 <tr><td>InvalidTargets</td><td></td><td>Collection of TargetableType</td><td>What types of targets are unaffected. Overrules ValidTargets. </td></tr>
-<tr><td>ValidStances</td><td>Enemy, Neutral, Ally</td><td>Stance</td><td>What diplomatic stances are affected. </td></tr>
+<tr><td>ValidRelationships</td><td>Enemy, Neutral, Ally</td><td>PlayerRelationship</td><td>What player relationships are affected. </td></tr>
 <tr><td>AffectsParent</td><td>False</td><td>Boolean</td><td>Can this warhead affect the actor that fired it. </td></tr>
 <tr><td>AirThreshold</td><td>0c128</td><td>1D World Distance</td><td>If impact is above this altitude, warheads that would affect terrain ignore terrain target types (and either do nothing or perform their own checks). </td></tr>
 <tr><td>Delay</td><td>0</td><td>Integer</td><td>Delay in ticks before applying the warhead effect. 0 = instant (old model). </td></tr>
@@ -237,9 +237,10 @@ Interacts with the TemporaryOwnerManager trait.
 <tr><td>ImpactSounds</td><td></td><td>Collection of String</td><td>List of sounds that can be played on impact. </td></tr>
 <tr><td>ImpactSoundChance</td><td>100</td><td>Integer</td><td>Chance of impact sound to play. </td></tr>
 <tr><td>ImpactActors</td><td>True</td><td>Boolean</td><td>Whether to consider actors in determining whether the explosion should happen. If false, only terrain will be considered. </td></tr>
+<tr><td>Inaccuracy</td><td>0c0</td><td>1D World Distance</td><td>The maximum inaccuracy of the effect spawn position relative to actual impact position. </td></tr>
 <tr><td>ValidTargets</td><td>Ground, Water</td><td>Collection of TargetableType</td><td>What types of targets are affected. </td></tr>
 <tr><td>InvalidTargets</td><td></td><td>Collection of TargetableType</td><td>What types of targets are unaffected. Overrules ValidTargets. </td></tr>
-<tr><td>ValidStances</td><td>Enemy, Neutral, Ally</td><td>Stance</td><td>What diplomatic stances are affected. </td></tr>
+<tr><td>ValidRelationships</td><td>Enemy, Neutral, Ally</td><td>PlayerRelationship</td><td>What player relationships are affected. </td></tr>
 <tr><td>AffectsParent</td><td>False</td><td>Boolean</td><td>Can this warhead affect the actor that fired it. </td></tr>
 <tr><td>AirThreshold</td><td>0c128</td><td>1D World Distance</td><td>If impact is above this altitude, warheads that would affect terrain ignore terrain target types (and either do nothing or perform their own checks). </td></tr>
 <tr><td>Delay</td><td>0</td><td>Integer</td><td>Delay in ticks before applying the warhead effect. 0 = instant (old model). </td></tr>
@@ -253,7 +254,7 @@ Interacts with the TemporaryOwnerManager trait.
 <tr><td>AddsResourceType</td><td></td><td>String</td><td>Will this splatter resources and which? </td></tr>
 <tr><td>ValidTargets</td><td>Ground, Water</td><td>Collection of TargetableType</td><td>What types of targets are affected. </td></tr>
 <tr><td>InvalidTargets</td><td></td><td>Collection of TargetableType</td><td>What types of targets are unaffected. Overrules ValidTargets. </td></tr>
-<tr><td>ValidStances</td><td>Enemy, Neutral, Ally</td><td>Stance</td><td>What diplomatic stances are affected. </td></tr>
+<tr><td>ValidRelationships</td><td>Enemy, Neutral, Ally</td><td>PlayerRelationship</td><td>What player relationships are affected. </td></tr>
 <tr><td>AffectsParent</td><td>False</td><td>Boolean</td><td>Can this warhead affect the actor that fired it. </td></tr>
 <tr><td>AirThreshold</td><td>0c128</td><td>1D World Distance</td><td>If impact is above this altitude, warheads that would affect terrain ignore terrain target types (and either do nothing or perform their own checks). </td></tr>
 <tr><td>Delay</td><td>0</td><td>Integer</td><td>Delay in ticks before applying the warhead effect. 0 = instant (old model). </td></tr>
@@ -266,7 +267,7 @@ Interacts with the TemporaryOwnerManager trait.
 <tr><td>Size</td><td>0, 0</td><td>Collection of Integer</td><td>Size of the area. The resources are seeded within this area. Provide 2 values for a ring effect (outer/inner). </td></tr>
 <tr><td>ValidTargets</td><td>Ground, Water</td><td>Collection of TargetableType</td><td>What types of targets are affected. </td></tr>
 <tr><td>InvalidTargets</td><td></td><td>Collection of TargetableType</td><td>What types of targets are unaffected. Overrules ValidTargets. </td></tr>
-<tr><td>ValidStances</td><td>Enemy, Neutral, Ally</td><td>Stance</td><td>What diplomatic stances are affected. </td></tr>
+<tr><td>ValidRelationships</td><td>Enemy, Neutral, Ally</td><td>PlayerRelationship</td><td>What player relationships are affected. </td></tr>
 <tr><td>AffectsParent</td><td>False</td><td>Boolean</td><td>Can this warhead affect the actor that fired it. </td></tr>
 <tr><td>AirThreshold</td><td>0c128</td><td>1D World Distance</td><td>If impact is above this altitude, warheads that would affect terrain ignore terrain target types (and either do nothing or perform their own checks). </td></tr>
 <tr><td>Delay</td><td>0</td><td>Integer</td><td>Delay in ticks before applying the warhead effect. 0 = instant (old model). </td></tr>
@@ -282,7 +283,7 @@ Interacts with the TemporaryOwnerManager trait.
 <tr><td>Footprint</td><td></td><td>String</td><td>Cluster footprint. Cells marked as X will be attacked. Cells marked as x will be attacked randomly until RandomClusterCount is reached. </td></tr>
 <tr><td>ValidTargets</td><td>Ground, Water</td><td>Collection of TargetableType</td><td>What types of targets are affected. </td></tr>
 <tr><td>InvalidTargets</td><td></td><td>Collection of TargetableType</td><td>What types of targets are unaffected. Overrules ValidTargets. </td></tr>
-<tr><td>ValidStances</td><td>Enemy, Neutral, Ally</td><td>Stance</td><td>What diplomatic stances are affected. </td></tr>
+<tr><td>ValidRelationships</td><td>Enemy, Neutral, Ally</td><td>PlayerRelationship</td><td>What player relationships are affected. </td></tr>
 <tr><td>AffectsParent</td><td>False</td><td>Boolean</td><td>Can this warhead affect the actor that fired it. </td></tr>
 <tr><td>AirThreshold</td><td>0c128</td><td>1D World Distance</td><td>If impact is above this altitude, warheads that would affect terrain ignore terrain target types (and either do nothing or perform their own checks). </td></tr>
 <tr><td>Delay</td><td>0</td><td>Integer</td><td>Delay in ticks before applying the warhead effect. 0 = instant (old model). </td></tr>
@@ -297,7 +298,7 @@ Used to trigger a FlashPaletteEffect trait on the world actor.
 <tr><td>Duration</td><td>0</td><td>Integer</td><td>Duration of the flashing, measured in ticks. Set to -1 to default to the `Length` of the `FlashPaletteEffect`. </td></tr>
 <tr><td>ValidTargets</td><td>Ground, Water</td><td>Collection of TargetableType</td><td>What types of targets are affected. </td></tr>
 <tr><td>InvalidTargets</td><td></td><td>Collection of TargetableType</td><td>What types of targets are unaffected. Overrules ValidTargets. </td></tr>
-<tr><td>ValidStances</td><td>Enemy, Neutral, Ally</td><td>Stance</td><td>What diplomatic stances are affected. </td></tr>
+<tr><td>ValidRelationships</td><td>Enemy, Neutral, Ally</td><td>PlayerRelationship</td><td>What player relationships are affected. </td></tr>
 <tr><td>AffectsParent</td><td>False</td><td>Boolean</td><td>Can this warhead affect the actor that fired it. </td></tr>
 <tr><td>AirThreshold</td><td>0c128</td><td>1D World Distance</td><td>If impact is above this altitude, warheads that would affect terrain ignore terrain target types (and either do nothing or perform their own checks). </td></tr>
 <tr><td>Delay</td><td>0</td><td>Integer</td><td>Delay in ticks before applying the warhead effect. 0 = instant (old model). </td></tr>
@@ -312,7 +313,7 @@ Used to trigger a FlashPaletteEffect trait on the world actor.
 <tr><td>Range</td><td>1c0</td><td>1D World Distance</td><td></td></tr>
 <tr><td>ValidTargets</td><td>Ground, Water</td><td>Collection of TargetableType</td><td>What types of targets are affected. </td></tr>
 <tr><td>InvalidTargets</td><td></td><td>Collection of TargetableType</td><td>What types of targets are unaffected. Overrules ValidTargets. </td></tr>
-<tr><td>ValidStances</td><td>Enemy, Neutral, Ally</td><td>Stance</td><td>What diplomatic stances are affected. </td></tr>
+<tr><td>ValidRelationships</td><td>Enemy, Neutral, Ally</td><td>PlayerRelationship</td><td>What player relationships are affected. </td></tr>
 <tr><td>AffectsParent</td><td>False</td><td>Boolean</td><td>Can this warhead affect the actor that fired it. </td></tr>
 <tr><td>AirThreshold</td><td>0c128</td><td>1D World Distance</td><td>If impact is above this altitude, warheads that would affect terrain ignore terrain target types (and either do nothing or perform their own checks). </td></tr>
 <tr><td>Delay</td><td>0</td><td>Integer</td><td>Delay in ticks before applying the warhead effect. 0 = instant (old model). </td></tr>
@@ -328,7 +329,7 @@ Used to trigger a FlashPaletteEffect trait on the world actor.
 <tr><td>Versus</td><td></td><td>Mapping of String to Integer</td><td>Damage percentage versus each armortype. </td></tr>
 <tr><td>ValidTargets</td><td>Ground, Water</td><td>Collection of TargetableType</td><td>What types of targets are affected. </td></tr>
 <tr><td>InvalidTargets</td><td></td><td>Collection of TargetableType</td><td>What types of targets are unaffected. Overrules ValidTargets. </td></tr>
-<tr><td>ValidStances</td><td>Enemy, Neutral, Ally</td><td>Stance</td><td>What diplomatic stances are affected. </td></tr>
+<tr><td>ValidRelationships</td><td>Enemy, Neutral, Ally</td><td>PlayerRelationship</td><td>What player relationships are affected. </td></tr>
 <tr><td>AffectsParent</td><td>False</td><td>Boolean</td><td>Can this warhead affect the actor that fired it. </td></tr>
 <tr><td>AirThreshold</td><td>0c128</td><td>1D World Distance</td><td>If impact is above this altitude, warheads that would affect terrain ignore terrain target types (and either do nothing or perform their own checks). </td></tr>
 <tr><td>Delay</td><td>0</td><td>Integer</td><td>Delay in ticks before applying the warhead effect. 0 = instant (old model). </td></tr>
@@ -343,7 +344,7 @@ Used to trigger a FlashPaletteEffect trait on the world actor.
 <tr><td>Chance</td><td>100</td><td>Integer</td><td>Percentual chance the smudge is created. </td></tr>
 <tr><td>ValidTargets</td><td>Ground, Water</td><td>Collection of TargetableType</td><td>What types of targets are affected. </td></tr>
 <tr><td>InvalidTargets</td><td></td><td>Collection of TargetableType</td><td>What types of targets are unaffected. Overrules ValidTargets. </td></tr>
-<tr><td>ValidStances</td><td>Enemy, Neutral, Ally</td><td>Stance</td><td>What diplomatic stances are affected. </td></tr>
+<tr><td>ValidRelationships</td><td>Enemy, Neutral, Ally</td><td>PlayerRelationship</td><td>What player relationships are affected. </td></tr>
 <tr><td>AffectsParent</td><td>False</td><td>Boolean</td><td>Can this warhead affect the actor that fired it. </td></tr>
 <tr><td>AirThreshold</td><td>0c128</td><td>1D World Distance</td><td>If impact is above this altitude, warheads that would affect terrain ignore terrain target types (and either do nothing or perform their own checks). </td></tr>
 <tr><td>Delay</td><td>0</td><td>Integer</td><td>Delay in ticks before applying the warhead effect. 0 = instant (old model). </td></tr>
@@ -359,7 +360,7 @@ Makes the screen shake.
 <tr><td>Multiplier</td><td>0,0</td><td>2D Real Number</td><td>Shake multipliers by the X and Y axis, comma-separated. </td></tr>
 <tr><td>ValidTargets</td><td>Ground, Water</td><td>Collection of TargetableType</td><td>What types of targets are affected. </td></tr>
 <tr><td>InvalidTargets</td><td></td><td>Collection of TargetableType</td><td>What types of targets are unaffected. Overrules ValidTargets. </td></tr>
-<tr><td>ValidStances</td><td>Enemy, Neutral, Ally</td><td>Stance</td><td>What diplomatic stances are affected. </td></tr>
+<tr><td>ValidRelationships</td><td>Enemy, Neutral, Ally</td><td>PlayerRelationship</td><td>What player relationships are affected. </td></tr>
 <tr><td>AffectsParent</td><td>False</td><td>Boolean</td><td>Can this warhead affect the actor that fired it. </td></tr>
 <tr><td>AirThreshold</td><td>0c128</td><td>1D World Distance</td><td>If impact is above this altitude, warheads that would affect terrain ignore terrain target types (and either do nothing or perform their own checks). </td></tr>
 <tr><td>Delay</td><td>0</td><td>Integer</td><td>Delay in ticks before applying the warhead effect. 0 = instant (old model). </td></tr>
@@ -378,7 +379,7 @@ Makes the screen shake.
 <tr><td>Versus</td><td></td><td>Mapping of String to Integer</td><td>Damage percentage versus each armortype. </td></tr>
 <tr><td>ValidTargets</td><td>Ground, Water</td><td>Collection of TargetableType</td><td>What types of targets are affected. </td></tr>
 <tr><td>InvalidTargets</td><td></td><td>Collection of TargetableType</td><td>What types of targets are unaffected. Overrules ValidTargets. </td></tr>
-<tr><td>ValidStances</td><td>Enemy, Neutral, Ally</td><td>Stance</td><td>What diplomatic stances are affected. </td></tr>
+<tr><td>ValidRelationships</td><td>Enemy, Neutral, Ally</td><td>PlayerRelationship</td><td>What player relationships are affected. </td></tr>
 <tr><td>AffectsParent</td><td>False</td><td>Boolean</td><td>Can this warhead affect the actor that fired it. </td></tr>
 <tr><td>AirThreshold</td><td>0c128</td><td>1D World Distance</td><td>If impact is above this altitude, warheads that would affect terrain ignore terrain target types (and either do nothing or perform their own checks). </td></tr>
 <tr><td>Delay</td><td>0</td><td>Integer</td><td>Delay in ticks before applying the warhead effect. 0 = instant (old model). </td></tr>
@@ -394,7 +395,7 @@ Makes the screen shake.
 <tr><td>Versus</td><td></td><td>Mapping of String to Integer</td><td>Damage percentage versus each armortype. </td></tr>
 <tr><td>ValidTargets</td><td>Ground, Water</td><td>Collection of TargetableType</td><td>What types of targets are affected. </td></tr>
 <tr><td>InvalidTargets</td><td></td><td>Collection of TargetableType</td><td>What types of targets are unaffected. Overrules ValidTargets. </td></tr>
-<tr><td>ValidStances</td><td>Enemy, Neutral, Ally</td><td>Stance</td><td>What diplomatic stances are affected. </td></tr>
+<tr><td>ValidRelationships</td><td>Enemy, Neutral, Ally</td><td>PlayerRelationship</td><td>What player relationships are affected. </td></tr>
 <tr><td>AffectsParent</td><td>False</td><td>Boolean</td><td>Can this warhead affect the actor that fired it. </td></tr>
 <tr><td>AirThreshold</td><td>0c128</td><td>1D World Distance</td><td>If impact is above this altitude, warheads that would affect terrain ignore terrain target types (and either do nothing or perform their own checks). </td></tr>
 <tr><td>Delay</td><td>0</td><td>Integer</td><td>Delay in ticks before applying the warhead effect. 0 = instant (old model). </td></tr>
@@ -413,7 +414,7 @@ Fires a defined amount of weapons with their maximum range in a wave pattern.
 <tr><td>ImpactActors</td><td>True</td><td>Boolean</td><td>Whether to consider actors in determining whether the explosion should happen. If false, only terrain will be considered. </td></tr>
 <tr><td>ValidTargets</td><td>Ground, Water</td><td>Collection of TargetableType</td><td>What types of targets are affected. </td></tr>
 <tr><td>InvalidTargets</td><td></td><td>Collection of TargetableType</td><td>What types of targets are unaffected. Overrules ValidTargets. </td></tr>
-<tr><td>ValidStances</td><td>Enemy, Neutral, Ally</td><td>Stance</td><td>What diplomatic stances are affected. </td></tr>
+<tr><td>ValidRelationships</td><td>Enemy, Neutral, Ally</td><td>PlayerRelationship</td><td>What player relationships are affected. </td></tr>
 <tr><td>AffectsParent</td><td>False</td><td>Boolean</td><td>Can this warhead affect the actor that fired it. </td></tr>
 <tr><td>AirThreshold</td><td>0c128</td><td>1D World Distance</td><td>If impact is above this altitude, warheads that would affect terrain ignore terrain target types (and either do nothing or perform their own checks). </td></tr>
 <tr><td>Delay</td><td>0</td><td>Integer</td><td>Delay in ticks before applying the warhead effect. 0 = instant (old model). </td></tr>
@@ -426,14 +427,14 @@ Fires a defined amount of weapons with their maximum range in a wave pattern.
 <tr><td>Weapon</td><td></td><td>String</td><td>Has to be defined in weapons.yaml as well. </td></tr>
 <tr><td>Amount</td><td>1</td><td>Collection of Integer</td><td>Amount of shrapnels thrown. </td></tr>
 <tr><td>AimChance</td><td>0</td><td>Integer</td><td>The percentage of aiming this shrapnel to a suitable target actor. </td></tr>
-<tr><td>AimTargetStances</td><td>Enemy, Neutral, Ally</td><td>Stance</td><td>What diplomatic stances can be targeted by the shrapnel. </td></tr>
+<tr><td>AimTargetStances</td><td>Enemy, Neutral, Ally</td><td>PlayerRelationship</td><td>What diplomatic stances can be targeted by the shrapnel. </td></tr>
 <tr><td>ThrowWithoutTarget</td><td>True</td><td>Boolean</td><td>Allow this shrapnel to be thrown randomly when no targets found. </td></tr>
 <tr><td>AllowDirectHit</td><td>False</td><td>Boolean</td><td>Should the shrapnel hit the direct target? </td></tr>
 <tr><td>AroundTarget</td><td>False</td><td>Boolean</td><td>Should the weapons be fired around the intended target or at the explosion's epicenter. </td></tr>
 <tr><td>ImpactActors</td><td>True</td><td>Boolean</td><td>Whether to consider actors in determining whether the explosion should happen. If false, only terrain will be considered. </td></tr>
 <tr><td>ValidTargets</td><td>Ground, Water</td><td>Collection of TargetableType</td><td>What types of targets are affected. </td></tr>
 <tr><td>InvalidTargets</td><td></td><td>Collection of TargetableType</td><td>What types of targets are unaffected. Overrules ValidTargets. </td></tr>
-<tr><td>ValidStances</td><td>Enemy, Neutral, Ally</td><td>Stance</td><td>What diplomatic stances are affected. </td></tr>
+<tr><td>ValidRelationships</td><td>Enemy, Neutral, Ally</td><td>PlayerRelationship</td><td>What player relationships are affected. </td></tr>
 <tr><td>AffectsParent</td><td>False</td><td>Boolean</td><td>Can this warhead affect the actor that fired it. </td></tr>
 <tr><td>AirThreshold</td><td>0c128</td><td>1D World Distance</td><td>If impact is above this altitude, warheads that would affect terrain ignore terrain target types (and either do nothing or perform their own checks). </td></tr>
 <tr><td>Delay</td><td>0</td><td>Integer</td><td>Delay in ticks before applying the warhead effect. 0 = instant (old model). </td></tr>
