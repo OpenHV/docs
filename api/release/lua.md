@@ -1,6 +1,6 @@
-This is an automatically generated listing of the Lua map scripting API for version 20210130 of OpenRA.
+This is an automatically generated listing of the Lua map scripting API for version 20210130 of OpenHV.
 
-OpenRA allows custom maps and missions to be scripted using Lua 5.1.
+OpenHV allows custom maps and missions to be scripted using Lua 5.1.
 These scripts run in a sandbox that prevents access to unsafe functions (e.g. OS or file access), and limits the memory and CPU usage of the scripts.
 
 You can access this interface by adding the [LuaScript](../traits/#luascript) trait to the world actor in your map rules (note, you must replace the spaces in the snippet below with a single tab for each level of indentation):
