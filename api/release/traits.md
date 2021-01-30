@@ -1,4 +1,4 @@
-This documentation is aimed at modders. It displays all traits with default values and developer commentary. Please do not edit it directly, but add new `[Desc("String")]` tags to the source code. This file has been automatically generated for version 20210109 of OpenRA.
+This documentation is aimed at modders. It displays all traits with default values and developer commentary. Please do not edit it directly, but add new `[Desc("String")]` tags to the source code. This file has been automatically generated for version 20210130 of OpenRA.
 
 
 ## OpenRA.Mods.Common
@@ -5498,6 +5498,15 @@ Put this on the Player actor. Manages cube collection.
 <tr><td>RequiresCondition</td><td></td><td>BooleanExpression</td><td>Boolean expression defining the condition to enable this trait. </td></tr>
 </table>
 
+### DeployDetectorBotModule
+Manages AI cloak detector deployment logic. For use with the regular `SquadManagerBotModule`.
+<table>
+<tr><th>Property</th><th>Default Value</th><th>Type</th><th>Description</th></tr>
+<tr><td>DeployableActorTypes</td><td><em>(required)</em></td><td>Set of String</td><td>Actor types that can deploy. </td></tr>
+<tr><td>MinimumScanDelay</td><td>20</td><td>Integer</td><td>Minimum delay (in ticks) between trying to deploy with DeployableActorTypes. </td></tr>
+<tr><td>RequiresCondition</td><td></td><td>BooleanExpression</td><td>Boolean expression defining the condition to enable this trait. </td></tr>
+</table>
+
 ### MinerDeployManagerBotModule
 Manages AI miner deployment logic.
 <table>
@@ -5509,6 +5518,14 @@ Manages AI miner deployment logic.
 <tr><td>MinimumScanDelay</td><td>20</td><td>Integer</td><td>Minimum delay (in ticks) between trying to deploy with DeployableActorTypes. </td></tr>
 <tr><td>LastSearchFailedDelay</td><td>500</td><td>Integer</td><td>Minimum delay (in ticks) after the last search for resources failed. </td></tr>
 <tr><td>EnemyAvoidanceRadius</td><td>8c0</td><td>1D World Distance</td><td>Avoid enemy actors nearby when searching for a new resource patch. Should be somewhere near the max weapon range. </td></tr>
+<tr><td>RequiresCondition</td><td></td><td>BooleanExpression</td><td>Boolean expression defining the condition to enable this trait. </td></tr>
+</table>
+
+### PowerDownBotModule
+Manages AI powerdown.
+<table>
+<tr><th>Property</th><th>Default Value</th><th>Type</th><th>Description</th></tr>
+<tr><td>Interval</td><td>150</td><td>Integer</td><td>Delay (in ticks) between toggling powerdown. </td></tr>
 <tr><td>RequiresCondition</td><td></td><td>BooleanExpression</td><td>Boolean expression defining the condition to enable this trait. </td></tr>
 </table>
 
@@ -5525,6 +5542,16 @@ Manages AI capturing logic.
 <tr><td>MaximumCaptureTargetOptions</td><td>10</td><td>Integer</td><td>Maximum number of options to consider for capturing. If a value less than 1 is given 1 will be used instead. </td></tr>
 <tr><td>CheckCaptureTargetsForVisibility</td><td>True</td><td>Boolean</td><td>Should visibility (Shroud, Fog, Cloak, etc) be considered when searching for capturable targets? </td></tr>
 <tr><td>CapturableStances</td><td>Enemy, Neutral</td><td>PlayerRelationship</td><td>Player stances that capturers should attempt to target. </td></tr>
+<tr><td>RequiresCondition</td><td></td><td>BooleanExpression</td><td>Boolean expression defining the condition to enable this trait. </td></tr>
+</table>
+
+### ScoutBotModule
+Manages AI random scouting. Exclude from `SquadManagerBotModule`.
+<table>
+<tr><th>Property</th><th>Default Value</th><th>Type</th><th>Description</th></tr>
+<tr><td>ScoutActorTypes</td><td><em>(required)</em></td><td>Set of String</td><td>Actor types that are sent around the map. </td></tr>
+<tr><td>MinimumScanDelay</td><td>200</td><td>Integer</td><td>Minimum delay (in ticks) between searching for ScoutActorTypes. </td></tr>
+<tr><td>MoveRadius</td><td>1</td><td>Integer</td><td>How far away to move from current location. </td></tr>
 <tr><td>RequiresCondition</td><td></td><td>BooleanExpression</td><td>Boolean expression defining the condition to enable this trait. </td></tr>
 </table>
 
@@ -5581,12 +5608,12 @@ Displays a developer offset point, controllable via chat commands.
 Select the unit first.
 Rendering is enabled automatically with the first valid command.
 Available commands:
-`body`: Sets the reference point to the actor's center position.
-`turret X`: where X is the turret index whose center the reference point should be set. Falls back to actor center position on wrong index.
-`set X,Y,Z`: Sets the offset. No spaces are supported between the values.
-`add X,Y,Z`: Adds the value to the current offset. Negative values function to subtract. No spaces are supported between the values.
-`query`: Returns the current offset value in the chat.
-`disable`: Disables rendering of the offset.
+`/offset body`: Sets the reference point to the actor's center position.
+`/offset turret X`: where X is the turret index whose center the reference point should be set. Falls back to actor center position on wrong index.
+`/offset set X,Y,Z`: Sets the offset. No spaces are supported between the values.
+`/offset add X,Y,Z`: Adds the value to the current offset. Negative values function to subtract. No spaces are supported between the values.
+`/offset query`: Returns the current offset value in the chat.
+`/offset disable`: Disables rendering of the offset.
 
 ### Floods
 Lets the actor spread resources around it in straight lines.
@@ -5654,6 +5681,59 @@ This must be attached to player in order for TeleportNetwork to work.
 <table>
 <tr><th>Property</th><th>Default Value</th><th>Type</th><th>Description</th></tr>
 <tr><td>Type</td><td><em>(required)</em></td><td>String</td><td>Type of TeleportNetwork that pairs up, in order for it to work. </td></tr>
+</table>
+
+### RailgunPower
+<table>
+<tr><th>Property</th><th>Default Value</th><th>Type</th><th>Description</th></tr>
+<tr><td>CameraRange</td><td>0c0</td><td>1D World Distance</td><td>Range of cells the camera should reveal around target cell. </td></tr>
+<tr><td>RevealGeneratedShroud</td><td>True</td><td>Boolean</td><td>Can the camera reveal shroud generated by the GeneratesShroud trait? </td></tr>
+<tr><td>CameraRelationships</td><td>Ally</td><td>PlayerRelationship</td><td>Reveal cells to players with these relationships only. </td></tr>
+<tr><td>CameraSpawnAdvance</td><td>25</td><td>Integer</td><td>Amount of time before detonation to spawn the camera. </td></tr>
+<tr><td>CameraRemoveDelay</td><td>25</td><td>Integer</td><td>Amount of time after detonation to remove the camera. </td></tr>
+<tr><td>Weapon</td><td>RailgunStrike</td><td>String</td><td>Which weapon to fire </td></tr>
+<tr><td>WeaponDelay</td><td>7</td><td>Integer</td><td>Apply the weapon impact this many ticks into the effect </td></tr>
+<tr><td>ChargeInterval</td><td>0</td><td>Integer</td><td>Measured in ticks. </td></tr>
+<tr><td>IconImage</td><td>icon</td><td>String</td><td></td></tr>
+<tr><td>Icon</td><td></td><td>String</td><td>Icon sprite displayed in the support power palette. </td></tr>
+<tr><td>IconPalette</td><td>chrome</td><td>String</td><td>Palette used for the icon. </td></tr>
+<tr><td>Description</td><td></td><td>String</td><td></td></tr>
+<tr><td>LongDesc</td><td></td><td>String</td><td></td></tr>
+<tr><td>AllowMultiple</td><td>False</td><td>Boolean</td><td>Allow multiple instances of the same support power. </td></tr>
+<tr><td>OneShot</td><td>False</td><td>Boolean</td><td>Allow this to be used only once. </td></tr>
+<tr><td>Cursor</td><td>ability</td><td>String</td><td>Cursor to display for using this support power. </td></tr>
+<tr><td>StartFullyCharged</td><td>False</td><td>Boolean</td><td>If set to true, the support power will be fully charged when it becomes available. Normal rules apply for subsequent charges. </td></tr>
+<tr><td>Prerequisites</td><td></td><td>Collection of String</td><td></td></tr>
+<tr><td>BeginChargeSound</td><td></td><td>String</td><td></td></tr>
+<tr><td>BeginChargeSpeechNotification</td><td></td><td>String</td><td></td></tr>
+<tr><td>EndChargeSound</td><td></td><td>String</td><td></td></tr>
+<tr><td>EndChargeSpeechNotification</td><td></td><td>String</td><td></td></tr>
+<tr><td>SelectTargetSound</td><td></td><td>String</td><td></td></tr>
+<tr><td>SelectTargetSpeechNotification</td><td></td><td>String</td><td></td></tr>
+<tr><td>InsufficientPowerSound</td><td></td><td>String</td><td></td></tr>
+<tr><td>InsufficientPowerSpeechNotification</td><td></td><td>String</td><td></td></tr>
+<tr><td>LaunchSound</td><td></td><td>String</td><td></td></tr>
+<tr><td>LaunchSpeechNotification</td><td></td><td>String</td><td></td></tr>
+<tr><td>IncomingSound</td><td></td><td>String</td><td></td></tr>
+<tr><td>IncomingSpeechNotification</td><td></td><td>String</td><td></td></tr>
+<tr><td>DisplayTimerRelationships</td><td>None</td><td>PlayerRelationship</td><td>Defines to which players the timer is shown. </td></tr>
+<tr><td>DisplayBeacon</td><td>False</td><td>Boolean</td><td>Beacons are only supported on the Airstrike, Paratroopers, and Nuke powers </td></tr>
+<tr><td>BeaconPaletteIsPlayerPalette</td><td>True</td><td>Boolean</td><td></td></tr>
+<tr><td>BeaconPalette</td><td>player</td><td>String</td><td></td></tr>
+<tr><td>BeaconImage</td><td>beacon</td><td>String</td><td></td></tr>
+<tr><td>BeaconPoster</td><td></td><td>String</td><td></td></tr>
+<tr><td>BeaconPosterPalette</td><td>chrome</td><td>String</td><td></td></tr>
+<tr><td>ClockSequence</td><td></td><td>String</td><td></td></tr>
+<tr><td>BeaconSequence</td><td></td><td>String</td><td></td></tr>
+<tr><td>ArrowSequence</td><td></td><td>String</td><td></td></tr>
+<tr><td>CircleSequence</td><td></td><td>String</td><td></td></tr>
+<tr><td>BeaconDelay</td><td>0</td><td>Integer</td><td>Delay after launch, measured in ticks. </td></tr>
+<tr><td>DisplayRadarPing</td><td>False</td><td>Boolean</td><td></td></tr>
+<tr><td>RadarPingDuration</td><td>125</td><td>Integer</td><td>Measured in ticks. </td></tr>
+<tr><td>OrderName</td><td>RailgunPowerInfoOrder</td><td>String</td><td></td></tr>
+<tr><td>SupportPowerPaletteOrder</td><td>9999</td><td>Integer</td><td>Sort order for the support power palette. Smaller numbers are presented earlier. </td></tr>
+<tr><td>PauseOnCondition</td><td></td><td>BooleanExpression</td><td>Boolean expression defining the condition to pause this trait. </td></tr>
+<tr><td>RequiresCondition</td><td></td><td>BooleanExpression</td><td>Boolean expression defining the condition to enable this trait. </td></tr>
 </table>
 
 ### ResourceCollector
@@ -5913,6 +5993,17 @@ Requires traits: [`BodyOrientation`](#bodyorientation), [`RenderSprites`](#rende
 <tr><td>IsDecoration</td><td>False</td><td>Boolean</td><td></td></tr>
 <tr><td>PauseOnCondition</td><td></td><td>BooleanExpression</td><td>Boolean expression defining the condition to pause this trait. </td></tr>
 <tr><td>RequiresCondition</td><td></td><td>BooleanExpression</td><td>Boolean expression defining the condition to enable this trait. </td></tr>
+</table>
+
+### WithLandingAnimation
+Requires trait: [`WithSpriteBody`](#withspritebody).
+<table>
+<tr><th>Property</th><th>Default Value</th><th>Type</th><th>Description</th></tr>
+<tr><td>RequiredFacing</td><td>0</td><td>1D World Angle</td><td></td></tr>
+<tr><td>LandingSequence</td><td>landing</td><td>String</td><td></td></tr>
+<tr><td>TouchdownSequence</td><td>touchdown</td><td>String</td><td></td></tr>
+<tr><td>LiftoffSequence</td><td>liftoff</td><td>String</td><td></td></tr>
+<tr><td>Body</td><td>body</td><td>String</td><td>Which sprite body to play the animation on. </td></tr>
 </table>
 
 ### WithProductionDoorAnimation
