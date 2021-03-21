@@ -1,4 +1,4 @@
-This documentation is aimed at modders. It displays all traits with default values and developer commentary. Please do not edit it directly, but add new `[Desc("String")]` tags to the source code. This file has been automatically generated for version 20210221 of OpenHV.
+This documentation is aimed at modders. It displays all traits with default values and developer commentary. Please do not edit it directly, but add new `[Desc("String")]` tags to the source code. This file has been automatically generated for version 20210321 of OpenHV.
 
 
 ## OpenRA.Mods.Common
@@ -4618,6 +4618,7 @@ Requires trait: [`AmmoPool`](#ammopool).
 <tr><td>EmptySequence</td><td>pip-empty</td><td>String</td><td>Sequence used for empty pips. </td></tr>
 <tr><td>FullSequence</td><td>pip-green</td><td>String</td><td>Sequence used for full pips. </td></tr>
 <tr><td>Palette</td><td>chrome</td><td>String</td><td></td></tr>
+<tr><td>AmmoPools</td><td></td><td>Collection of String</td><td>Name(s) of AmmoPool(s) that use this decoration. Leave empty to include all pools. </td></tr>
 <tr><td>Position</td><td>TopLeft</td><td>String</td><td>Position in the actor's selection box to draw the decoration. </td></tr>
 <tr><td>ValidRelationships</td><td>Ally</td><td>PlayerRelationship</td><td>Player relationships who can view the decoration. </td></tr>
 <tr><td>RequiresSelection</td><td>False</td><td>Boolean</td><td>Should this be visible only when selected? </td></tr>
@@ -5494,6 +5495,13 @@ Plays a voice clip when the trait is enabled.
 
 ## OpenRA.Mods.HV.Traits
 
+### BaseBotModule
+Manages the initial base.
+<table>
+<tr><th>Property</th><th>Default Value</th><th>Type</th><th>Description</th></tr>
+<tr><td>RequiresCondition</td><td></td><td>BooleanExpression</td><td>Boolean expression defining the condition to enable this trait. </td></tr>
+</table>
+
 ### CubePickupBotModule
 Put this on the Player actor. Manages cube collection.
 <table>
@@ -5744,6 +5752,9 @@ This must be attached to player in order for TeleportNetwork to work.
 <tr><td>PauseOnCondition</td><td></td><td>BooleanExpression</td><td>Boolean expression defining the condition to pause this trait. </td></tr>
 <tr><td>RequiresCondition</td><td></td><td>BooleanExpression</td><td>Boolean expression defining the condition to enable this trait. </td></tr>
 </table>
+
+### Randomizer
+Wastes a few random numbers.
 
 ### ResourceCollector
 Lets the actor generate resources in a set periodic time.
