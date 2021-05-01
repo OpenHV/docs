@@ -1,4 +1,5 @@
 site_name: OpenHV
+site_description: Trait description and Lua API documentation
 docs_dir: api
 theme:
     name: readthedocs
