@@ -1,4 +1,4 @@
-This is an automatically generated listing of the Lua map scripting API for version 20210321 of OpenHV.
+This is an automatically generated listing of the Lua map scripting API for version 20210401 of OpenHV.
 
 OpenHV allows custom maps and missions to be scripted using Lua 5.1.
 These scripts run in a sandbox that prevents access to unsafe functions (e.g. OS or file access), and limits the memory and CPU usage of the scripts.
@@ -156,9 +156,9 @@ matching the filter function called as function(CPos cell).</td></tr>
 ### Media
 <table>
 <tr><td align="right" width="50%"><strong>void Debug(string text)</strong></td><td>Displays a debug message to the player, if "Show Map Debug Messages" is checked in the settings.</td></tr>
-<tr><td align="right" width="50%"><strong>void DisplayMessage(string text, string prefix = Mission, Nullable`1 color = nil)</strong></td><td>Display a text message to the player.</td></tr>
+<tr><td align="right" width="50%"><strong>void DisplayMessage(string text, string prefix = Mission, Color? color = nil)</strong></td><td>Display a text message to the player.</td></tr>
 <tr><td align="right" width="50%"><strong>void DisplaySystemMessage(string text, string prefix = nil)</strong></td><td>Display a system message to the player. If 'prefix' is nil the default system prefix is used.</td></tr>
-<tr><td align="right" width="50%"><strong>void FloatingText(string text, WPos position, int duration = 30, Nullable`1 color = nil)</strong></td><td>Display a text message at the specified location.</td></tr>
+<tr><td align="right" width="50%"><strong>void FloatingText(string text, WPos position, int duration = 30, Color? color = nil)</strong></td><td>Display a text message at the specified location.</td></tr>
 <tr><td align="right" width="50%"><strong>void PlayMovieFullscreen(string movie, LuaFunction func = nil)</strong></td><td>Play a VQA video fullscreen. File name has to include the file extension.</td></tr>
 <tr><td align="right" width="50%"><strong>bool PlayMovieInRadar(string movie, LuaFunction playComplete = nil)</strong></td><td>Play a VQA video in the radar window. File name has to include the file extension. Returns true on success, if the movie wasn't found the function returns false and the callback is executed.</td></tr>
 <tr><td align="right" width="50%"><strong>void PlayMusic(string track = nil, LuaFunction func = nil)</strong></td><td>Play track defined in music.yaml or map.yaml, or keep track empty for playing a random song.</td></tr>
@@ -221,7 +221,7 @@ matching the filter function called as function(CPos cell).</td></tr>
 </table>
 ### UserInterface
 <table>
-<tr><td align="right" width="50%"><strong>void SetMissionText(string text, Nullable`1 color = nil)</strong></td><td>Displays a text message at the top center of the screen.</td></tr>
+<tr><td align="right" width="50%"><strong>void SetMissionText(string text, Color? color = nil)</strong></td><td>Displays a text message at the top center of the screen.</td></tr>
 </table>
 ### Utils
 <table>
@@ -266,14 +266,14 @@ Captures the target actor.
 </td><td>
 Deliver cash to the target actor.
 <br />
-<b>Requires Traits:</b> DeliversCash, IMove
+<b>Requires Traits:</b> IMove, DeliversCash
 </td></tr>
 <tr><td width="50%" align="right"><strong>void DeliverExperience(Actor target)</strong>
 <br /><em>Queued Activity</em>
 </td><td>
 Deliver experience to the target actor.
 <br />
-<b>Requires Traits:</b> DeliversExperience, IMove
+<b>Requires Traits:</b> IMove, DeliversExperience
 </td></tr>
 </table>
 ### AmmoPool
@@ -320,7 +320,7 @@ Attack the target actor. The target actor needs to be visible.
 </td><td>
 Move to a cell, but stop and attack anything within range on the way. closeEnough defines an optional range (in cells) that will be considered close enough to complete the activity.
 <br />
-<b>Requires Traits:</b> IMove, AttackBase
+<b>Requires Traits:</b> AttackBase, IMove
 </td></tr>
 <tr><td width="50%" align="right"><strong>bool CanTarget(Actor targetActor)</strong>
 </td><td>
@@ -333,35 +333,35 @@ Checks if the targeted actor is a valid target for this actor.
 </td><td>
 Demolish the target actor.
 <br />
-<b>Requires Traits:</b> Demolition, IMove
+<b>Requires Traits:</b> IMove, Demolition
 </td></tr>
 <tr><td width="50%" align="right"><strong>void Guard(Actor targetActor)</strong>
 <br /><em>Queued Activity</em>
 </td><td>
 Guard the target actor.
 <br />
-<b>Requires Traits:</b> IMove, Guard
+<b>Requires Traits:</b> Guard, IMove
 </td></tr>
 <tr><td width="50%" align="right"><strong>void Hunt()</strong>
 <br /><em>Queued Activity</em>
 </td><td>
 Seek out and attack nearby targets.
 <br />
-<b>Requires Traits:</b> IMove, AttackBase
+<b>Requires Traits:</b> AttackBase, IMove
 </td></tr>
 <tr><td width="50%" align="right"><strong>void Patrol(CPos[] waypoints, bool loop = True, int wait = 0)</strong>
 <br /><em>Queued Activity</em>
 </td><td>
 Patrol along a set of given waypoints. The action is repeated by default, and the actor will wait for `wait` ticks at each waypoint.
 <br />
-<b>Requires Traits:</b> IMove, AttackBase
+<b>Requires Traits:</b> AttackBase, IMove
 </td></tr>
 <tr><td width="50%" align="right"><strong>void PatrolUntil(CPos[] waypoints, LuaFunction func, int wait = 0)</strong>
 <br /><em>Queued Activity</em>
 </td><td>
 Patrol along a set of given waypoints until a condition becomes true. The actor will wait for `wait` ticks at each waypoint.
 <br />
-<b>Requires Traits:</b> IMove, AttackBase
+<b>Requires Traits:</b> AttackBase, IMove
 </td></tr>
 </table>
 ### Experience
@@ -663,7 +663,7 @@ Returns the power drained/provided by this actor.
 </td><td>
 Build the specified set of actors using a TD-style (per building) production queue. The function will return true if production could be started, false otherwise. If an actionFunc is given, it will be called as actionFunc(Actor[] actors) once production of all actors has been completed.  The actors array is guaranteed to only contain alive actors.
 <br />
-<b>Requires Traits:</b> ScriptTriggers, ProductionQueue
+<b>Requires Traits:</b> ProductionQueue, ScriptTriggers
 </td></tr>
 <tr><td width="50%" align="right"><strong>bool IsPrimaryBuilding { get; set; }</strong>
 </td><td>
@@ -675,7 +675,7 @@ Query or set the factory's primary building status.
 </td><td>
 Check whether the factory's production queue that builds this type of actor is currently busy. Note: it does not check whether this particular type of actor is being produced.
 <br />
-<b>Requires Traits:</b> ScriptTriggers, ProductionQueue
+<b>Requires Traits:</b> ProductionQueue, ScriptTriggers
 </td></tr>
 <tr><td width="50%" align="right"><strong>void Produce(string actorType, string factionVariant = nil, string productionType = nil)</strong>
 <br /><em>Queued Activity</em>
@@ -719,13 +719,13 @@ Activate the actor's Airstrike Power. DEPRECATED! Will be removed.
 <br />
 <b>Requires Trait:</b> AirstrikePower
 </td></tr>
-<tr><td width="50%" align="right"><strong>Actor[] TargetAirstrike(WPos target, Nullable`1 facing = nil)</strong>
+<tr><td width="50%" align="right"><strong>Actor[] TargetAirstrike(WPos target, WAngle? facing = nil)</strong>
 </td><td>
 Activate the actor's Airstrike Power. Returns the aircraft that will attack.
 <br />
 <b>Requires Trait:</b> AirstrikePower
 </td></tr>
-<tr><td width="50%" align="right"><strong>Actor[] TargetParatroopers(WPos target, Nullable`1 facing = nil)</strong>
+<tr><td width="50%" align="right"><strong>Actor[] TargetParatroopers(WPos target, WAngle? facing = nil)</strong>
 </td><td>
 Activate the actor's Paratroopers Power. Returns the aircraft that will drop the reinforcements.
 <br />
@@ -751,7 +751,7 @@ Teleport an existing actor inside this transport.
 </td><td>
 Command transport to paradrop passengers near the target cell.
 <br />
-<b>Requires Traits:</b> ParaDrop, Cargo
+<b>Requires Traits:</b> Cargo, ParaDrop
 </td></tr>
 <tr><td width="50%" align="right"><strong>int PassengerCount { get; }</strong>
 </td><td>
@@ -771,7 +771,7 @@ Remove an existing actor (or first actor if none specified) from the transport. 
 <br />
 <b>Requires Trait:</b> Cargo
 </td></tr>
-<tr><td width="50%" align="right"><strong>void UnloadPassengers(Nullable`1 cell = nil, int unloadRange = 5)</strong>
+<tr><td width="50%" align="right"><strong>void UnloadPassengers(CPos? cell = nil, int unloadRange = 5)</strong>
 <br /><em>Queued Activity</em>
 </td><td>
 Command transport to unload passengers.
@@ -1009,13 +1009,13 @@ Triggers low power for the chosen amount of ticks.
 </td><td>
 Build the specified set of actors using classic (RA-style) production queues. The function will return true if production could be started, false otherwise. If an actionFunc is given, it will be called as actionFunc(Actor[] actors) once production of all actors has been completed. The actors array is guaranteed to only contain alive actors. Note: This function will fail to work when called during the first tick.
 <br />
-<b>Requires Traits:</b> ScriptTriggers, ClassicProductionQueue
+<b>Requires Traits:</b> ClassicProductionQueue, ScriptTriggers
 </td></tr>
 <tr><td width="50%" align="right"><strong>bool IsProducing(string actorType)</strong>
 </td><td>
 Check whether the production queue that builds this type of actor is currently busy. Note: it does not check whether this particular type of actor is being produced.
 <br />
-<b>Requires Traits:</b> ScriptTriggers, ClassicProductionQueue
+<b>Requires Traits:</b> ClassicProductionQueue, ScriptTriggers
 </td></tr>
 </table>
 <table align="center" width="1024"><tr><th colspan="2" width="1024">Resources</th></tr>

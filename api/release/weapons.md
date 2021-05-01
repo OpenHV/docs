@@ -1,4 +1,4 @@
-This documentation is aimed at modders. It displays a template for weapon definitions as well as its contained types (warheads and projectiles) with default values and developer commentary. Please do not edit it directly, but add new `[Desc("String")]` tags to the source code. This file has been automatically generated for version 20210321 of OpenHV.
+This documentation is aimed at modders. It displays a template for weapon definitions as well as its contained types (warheads and projectiles) with default values and developer commentary. Please do not edit it directly, but add new `[Desc("String")]` tags to the source code. This file has been automatically generated for version 20210401 of OpenHV.
 
 
 ## OpenRA.Mods.Common.Projectiles
@@ -35,7 +35,7 @@ This documentation is aimed at modders. It displays a template for weapon defini
 <tr><td>Palette</td><td>effect</td><td>String</td><td>The palette used to draw this projectile. </td></tr>
 <tr><td>IsPlayerPalette</td><td>False</td><td>Boolean</td><td>Palette is a player palette BaseName </td></tr>
 <tr><td>Shadow</td><td>False</td><td>Boolean</td><td>Does this projectile have a shadow? </td></tr>
-<tr><td>ShadowPalette</td><td>shadow</td><td>String</td><td>Palette to use for this projectile's shadow if Shadow is true. </td></tr>
+<tr><td>ShadowColor</td><td>0000008C</td><td>Color (RRGGBB[AA] notation)</td><td>Color to draw shadow if Shadow is true. </td></tr>
 <tr><td>TrailImage</td><td></td><td>String</td><td>Trail animation. </td></tr>
 <tr><td>TrailSequences</td><td>idle</td><td>Collection of String</td><td>Loop a randomly chosen sequence of TrailImage from this list while this projectile is moving. </td></tr>
 <tr><td>TrailInterval</td><td>2</td><td>Integer</td><td>Interval in ticks between each spawned Trail animation. </td></tr>
@@ -67,8 +67,8 @@ This documentation is aimed at modders. It displays a template for weapon defini
 <tr><td>OpenSequence</td><td></td><td>String</td><td>Sequence to play when launched. Skipped if null or empty. </td></tr>
 <tr><td>Palette</td><td>effect</td><td>String</td><td>The palette used to draw this projectile. </td></tr>
 <tr><td>IsPlayerPalette</td><td>False</td><td>Boolean</td><td>Palette is a player palette BaseName </td></tr>
-<tr><td>Shadow</td><td>False</td><td>Boolean</td><td></td></tr>
-<tr><td>ShadowPalette</td><td>shadow</td><td>String</td><td></td></tr>
+<tr><td>Shadow</td><td>False</td><td>Boolean</td><td>Does this projectile have a shadow? </td></tr>
+<tr><td>ShadowColor</td><td>0000008C</td><td>Color (RRGGBB[AA] notation)</td><td>Color to draw shadow if Shadow is true. </td></tr>
 <tr><td>Velocity</td><td>0,0,0</td><td>3D World Vector</td><td>Projectile movement vector per tick (forward, right, up), use negative values for opposite directions. </td></tr>
 <tr><td>Acceleration</td><td>0,0,-15</td><td>3D World Vector</td><td>Value added to Velocity every tick. </td></tr>
 </table>
@@ -121,7 +121,8 @@ Not a sprite, but an engine effect.
 <tr><td>Sequences</td><td>idle</td><td>Collection of String</td><td>Loop a randomly chosen sequence of Image from this list while this projectile is moving. </td></tr>
 <tr><td>Palette</td><td>effect</td><td>String</td><td>Palette used to render the projectile sequence. </td></tr>
 <tr><td>IsPlayerPalette</td><td>False</td><td>Boolean</td><td>Palette is a player palette BaseName </td></tr>
-<tr><td>Shadow</td><td>False</td><td>Boolean</td><td>Should the projectile's shadow be rendered? </td></tr>
+<tr><td>Shadow</td><td>False</td><td>Boolean</td><td>Does this projectile have a shadow? </td></tr>
+<tr><td>ShadowColor</td><td>0000008C</td><td>Color (RRGGBB[AA] notation)</td><td>Color to draw shadow if Shadow is true. </td></tr>
 <tr><td>MinimumLaunchAngle</td><td>960</td><td>1D World Angle</td><td>Minimum vertical launch angle (pitch). </td></tr>
 <tr><td>MaximumLaunchAngle</td><td>128</td><td>1D World Angle</td><td>Maximum vertical launch angle (pitch). </td></tr>
 <tr><td>MinimumLaunchSpeed</td><td>-0c1</td><td>1D World Distance</td><td>Minimum launch speed in WDist / tick. Defaults to Speed if -1. </td></tr>
