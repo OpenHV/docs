@@ -1,7 +1,6 @@
 This documentation is aimed at modders. It displays a template for weapon definitions as well as its contained types (warheads and projectiles) with default values and developer commentary. Please do not edit it directly, but add new `[Desc("String")]` tags to the source code. This file has been automatically generated for version 20210401 of OpenHV.
 
 
-## OpenRA.Mods.Common.Projectiles
 
 ### AreaBeam
 <table>
@@ -193,7 +192,6 @@ Laser effect with helix coiling around.
 <tr><td>HitAnimPalette</td><td>effect</td><td>String</td><td></td></tr>
 </table>
 
-## OpenRA.Mods.HV.Projectiles
 
 ### EnergyBolt
 Renders an energy discharge.
@@ -210,7 +208,6 @@ Renders an energy discharge.
 <tr><td>ZOffset</td><td>0</td><td>Integer</td><td>Equivalent to sequence ZOffset. Controls Z sorting. </td></tr>
 </table>
 
-## OpenRA.Mods.Common.Warheads
 
 ### ChangeOwnerWarhead
 Interacts with the TemporaryOwnerManager trait.
@@ -403,7 +400,6 @@ Makes the screen shake.
 <tr><td>DebugOverlayColor</td><td>FF0000</td><td>Color (RRGGBB[AA] notation)</td><td>The color used for this warhead's visualization in the world's `WarheadDebugOverlay` trait. </td></tr>
 </table>
 
-## OpenRA.Mods.HV.Warheads
 
 ### FireRadiusWarhead
 Fires a defined amount of weapons with their maximum range in a wave pattern.

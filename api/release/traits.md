@@ -1,7 +1,6 @@
 This documentation is aimed at modders. It displays all traits with default values and developer commentary. Please do not edit it directly, but add new `[Desc("String")]` tags to the source code. This file has been automatically generated for version 20210401 of OpenHV.
 
 
-## OpenRA.Mods.Common
 
 ### IndexedPalette
 Define a palette by swapping palette indices.
@@ -25,7 +24,6 @@ Define a player palette by swapping palette indices.
 <tr><td>PlayerIndex</td><td></td><td>Mapping of String to Collection of Integer</td><td></td></tr>
 </table>
 
-## OpenRA.Mods.Common.Commands
 
 ### ChatCommands
 Enables commands triggered by typing them into the chatbox. Attach this to the world actor.
@@ -42,7 +40,6 @@ Shows a list of available commands in the chatbox. Attach this to the world acto
 ### PlayerCommands
 Allows the player to pause or surrender the game via the chatbox. Attach this to the world actor.
 
-## OpenRA.Mods.Common.Scripting
 
 ### LuaScript
 Part of the new Lua API.
@@ -56,7 +53,6 @@ Requires trait: [`SpawnMapActors`](#spawnmapactors).
 ### ScriptTriggers
 Allows map scripts to attach triggers to this actor via the Triggers global.
 
-## OpenRA.Mods.Common.Traits
 
 ### AcceptsDeliveredCash
 Tag trait for actors with `DeliversCash`.
@@ -4349,7 +4345,6 @@ Adds a particle-based overlay.
 <tr><td>LineTailAlphaValue</td><td>200</td><td>Byte</td><td>Works only with line enabled and can be used to fade out the tail of the line like a contrail. </td></tr>
 </table>
 
-## OpenRA.Mods.Common.Traits.Conditions
 
 ### GrantRandomCondition
 Grants a random condition from a predefined list to the actor when created.
@@ -4358,7 +4353,6 @@ Grants a random condition from a predefined list to the actor when created.
 <tr><td>Conditions</td><td><em>(required)</em></td><td>Collection of String</td><td>List of conditions to grant from. </td></tr>
 </table>
 
-## OpenRA.Mods.Common.Traits.Radar
 
 ### AppearsOnRadar
 <table>
@@ -4381,7 +4375,6 @@ This actor enables the radar minimap.
 <tr><td>Terrain</td><td><em>(required)</em></td><td>String</td><td></td></tr>
 </table>
 
-## OpenRA.Mods.Common.Traits.Render
 
 ### CashTricklerBar
 Display the time remaining until the next cash is given by actor's CashTrickler trait.
@@ -5405,7 +5398,6 @@ Requires trait: [`Interactable`](#interactable).
 <tr><td>SelectionBoxColor</td><td>FFFFFF</td><td>Color (RRGGBB[AA] notation)</td><td></td></tr>
 </table>
 
-## OpenRA.Mods.Common.Traits.Sound
 
 ### ActorLostNotification
 <table>
@@ -5491,11 +5483,9 @@ Plays a voice clip when the trait is enabled.
 <tr><td>RequiresCondition</td><td></td><td>BooleanExpression</td><td>Boolean expression defining the condition to enable this trait. </td></tr>
 </table>
 
-## OpenRA.Mods.HV.Terrain
 
 ### CustomTerrainRenderer
 
-## OpenRA.Mods.HV.Traits
 
 ### AcceptsDeliveredResources
 Tag trait for actors with `ResourceCollector`.
@@ -6017,7 +6007,6 @@ Allows resources below actors. Attach this to the world actor.
 <tr><td>ResourceTypes</td><td></td><td>Mapping of String to ResourceTypeInfo</td><td></td></tr>
 </table>
 
-## OpenRA.Mods.HV.Traits.Render
 
 ### WithConstructionBeamOverlay
 Rendered after the "make" animation.
@@ -6186,7 +6175,6 @@ Requires traits: [`BodyOrientation`](#bodyorientation), [`RenderSprites`](#rende
 <tr><td>Palette</td><td></td><td>String</td><td>Custom palette name </td></tr>
 </table>
 
-## OpenRA.Traits
 
 ### DebugPauseState
 Checks for pause related desyncs. Attach this to the world actor.
