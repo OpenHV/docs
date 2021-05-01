@@ -1,4 +1,4 @@
-This documentation is aimed at modders. It displays all traits with default values and developer commentary. Please do not edit it directly, but add new `[Desc("String")]` tags to the source code. This file has been automatically generated for version 20210401 of OpenHV.
+This documentation is aimed at modders. It displays all traits with default values and developer commentary. Please do not edit it directly, but add new `[Desc("String")]` tags to the source code. This file has been automatically generated for version 20210501 of OpenHV.
 
 
 
@@ -1487,7 +1487,7 @@ Toggles a condition on and off when a specified order type is received.
 Requires trait: [`RenderSprites`](#rendersprites).
 <table>
 <tr><th>Property</th><th>Default Value</th><th>Type</th><th>Description</th></tr>
-<tr><td>Lifetime</td><td>0</td><td>Integer</td><td>Length of time (in seconds) until the crate gets removed automatically. A value of zero disables auto-removal. </td></tr>
+<tr><td>Duration</td><td>0</td><td>Integer</td><td>Length of time (in ticks) until the crate gets removed automatically. A value of zero disables auto-removal. </td></tr>
 <tr><td>TerrainTypes</td><td></td><td>Set of String</td><td>Allowed to land on. </td></tr>
 <tr><td>CrushClass</td><td>crate</td><td>String</td><td>Define actors that can collect crates by setting this into the Crushes field from the Mobile trait. </td></tr>
 </table>
@@ -2053,7 +2053,7 @@ Requires trait: [`Mobile`](#mobile).
 <table>
 <tr><th>Property</th><th>Default Value</th><th>Type</th><th>Description</th></tr>
 <tr><td>PanicChance</td><td>100</td><td>Integer</td><td>Chance (out of 100) the unit has to enter panic mode when attacked. </td></tr>
-<tr><td>PanicLength</td><td>250</td><td>Integer</td><td>How long (in ticks) the actor should panic for. </td></tr>
+<tr><td>PanicDuration</td><td>250</td><td>Integer</td><td>How long (in ticks) the actor should panic for. </td></tr>
 <tr><td>PanicSpeedModifier</td><td>200</td><td>Integer</td><td>Panic movement speed as a percentage of the normal speed. </td></tr>
 <tr><td>AttackPanicChance</td><td>20</td><td>Integer</td><td>Chance (out of 100) the unit has to enter panic mode when attacking. </td></tr>
 <tr><td>AvoidTerrainTypes</td><td></td><td>Set of String</td><td>The terrain types that this actor should avoid running on to while panicking. </td></tr>
@@ -2464,7 +2464,7 @@ Plays an audio notification and shows a radar ping when a building is attacked.
 Attach this to the player actor.
 <table>
 <tr><th>Property</th><th>Default Value</th><th>Type</th><th>Description</th></tr>
-<tr><td>NotifyInterval</td><td>30</td><td>Integer</td><td>Minimum duration (in seconds) between notification events. </td></tr>
+<tr><td>NotifyInterval</td><td>30000</td><td>Integer</td><td>Minimum duration (in milliseconds) between notification events. </td></tr>
 <tr><td>RadarPingColor</td><td>FF0000</td><td>Color (RRGGBB[AA] notation)</td><td></td></tr>
 <tr><td>RadarPingDuration</td><td>250</td><td>Integer</td><td>Length of time (in ticks) to display a location ping in the minimap. </td></tr>
 <tr><td>Notification</td><td>BaseAttack</td><td>String</td><td>The audio notification type to play. </td></tr>
@@ -2587,7 +2587,7 @@ Plays an audio notification and shows a radar ping when a harvester is attacked.
 Attach this to the player actor.
 <table>
 <tr><th>Property</th><th>Default Value</th><th>Type</th><th>Description</th></tr>
-<tr><td>NotifyInterval</td><td>30</td><td>Integer</td><td>Minimum duration (in seconds) between notification events. </td></tr>
+<tr><td>NotifyInterval</td><td>30000</td><td>Integer</td><td>Minimum duration (in milliseconds) between notification events. </td></tr>
 <tr><td>RadarPingColor</td><td>FF0000</td><td>Color (RRGGBB[AA] notation)</td><td></td></tr>
 <tr><td>RadarPingDuration</td><td>250</td><td>Integer</td><td>Length of time (in ticks) to display a location ping in the minimap. </td></tr>
 <tr><td>Notification</td><td>HarvesterAttack</td><td>String</td><td>The audio notification type to play. </td></tr>
@@ -2690,7 +2690,7 @@ Requires trait: [`Shroud`](#shroud).
 <tr><td>DefaultCashDropdownVisible</td><td>True</td><td>Boolean</td><td>Whether to display the DefaultCash option in the lobby. </td></tr>
 <tr><td>DefaultCashDropdownDisplayOrder</td><td>0</td><td>Integer</td><td>Display order for the DefaultCash option. </td></tr>
 <tr><td>InsufficientFundsNotification</td><td></td><td>String</td><td>Speech notification to play when the player does not have any funds. </td></tr>
-<tr><td>InsufficientFundsNotificationDelay</td><td>750</td><td>Integer</td><td>Delay (in ticks) during which warnings will be muted. </td></tr>
+<tr><td>InsufficientFundsNotificationInterval</td><td>30000</td><td>Integer</td><td>Delay (in ticks) during which warnings will be muted. </td></tr>
 <tr><td>CashTickUpNotification</td><td></td><td>String</td><td></td></tr>
 <tr><td>CashTickDownNotification</td><td></td><td>String</td><td></td></tr>
 <tr><td>ResourceValues</td><td></td><td>Mapping of String to Integer</td><td>Monetery value of each resource type. Dictionary of [resource type]: [value per unit]. </td></tr>
@@ -2757,7 +2757,7 @@ Provides the player with an audible warning when their storage is nearing full.
 Requires trait: [`PlayerResources`](#playerresources).
 <table>
 <tr><th>Property</th><th>Default Value</th><th>Type</th><th>Description</th></tr>
-<tr><td>AdviceInterval</td><td>20</td><td>Integer</td><td>Interval, in seconds, at which to check if more storage is needed. </td></tr>
+<tr><td>AdviceInterval</td><td>20000</td><td>Integer</td><td>Interval (in milliseconds) at which to check if more storage is needed. </td></tr>
 <tr><td>Threshold</td><td>80</td><td>Integer</td><td>The percentage threshold above which a warning is played. </td></tr>
 <tr><td>Notification</td><td>SilosNeeded</td><td>String</td><td>The speech to play for the warning. </td></tr>
 </table>
@@ -2839,7 +2839,7 @@ Attach this to the player actor.
 Requires trait: [`DeveloperMode`](#developermode).
 <table>
 <tr><th>Property</th><th>Default Value</th><th>Type</th><th>Description</th></tr>
-<tr><td>AdviceInterval</td><td>250</td><td>Integer</td><td></td></tr>
+<tr><td>AdviceInterval</td><td>10000</td><td>Integer</td><td>Interval (in milliseconds) at which to warn the player of low power. </td></tr>
 <tr><td>SpeechNotification</td><td></td><td>String</td><td></td></tr>
 </table>
 
@@ -5421,7 +5421,7 @@ Plays a looping audio file at the actor position. Attach this to the `World` act
 Play the Kill voice of this actor when eliminating enemies.
 <table>
 <tr><th>Property</th><th>Default Value</th><th>Type</th><th>Description</th></tr>
-<tr><td>Interval</td><td>5</td><td>Integer</td><td>Minimum duration (in seconds) between sound events. </td></tr>
+<tr><td>Interval</td><td>5000</td><td>Integer</td><td>Minimum duration (in milliseconds) between sound events. </td></tr>
 <tr><td>Voice</td><td>Kill</td><td>String</td><td>Voice to use when killing something. </td></tr>
 </table>
 
@@ -5600,15 +5600,6 @@ Manages AI capturing logic.
 <tr><td>MaximumCaptureTargetOptions</td><td>10</td><td>Integer</td><td>Maximum number of options to consider for capturing. If a value less than 1 is given 1 will be used instead. </td></tr>
 <tr><td>CheckCaptureTargetsForVisibility</td><td>True</td><td>Boolean</td><td>Should visibility (Shroud, Fog, Cloak, etc) be considered when searching for capturable targets? </td></tr>
 <tr><td>CapturableStances</td><td>Enemy, Neutral</td><td>PlayerRelationship</td><td>Player stances that capturers should attempt to target. </td></tr>
-<tr><td>RequiresCondition</td><td></td><td>BooleanExpression</td><td>Boolean expression defining the condition to enable this trait. </td></tr>
-</table>
-
-### ProductionThrottleBotModule
-Pauses unit production.
-<table>
-<tr><th>Property</th><th>Default Value</th><th>Type</th><th>Description</th></tr>
-<tr><td>Frequency</td><td>1500</td><td>Integer</td><td>How often in ticks to halt production. </td></tr>
-<tr><td>Delay</td><td>1000</td><td>Integer</td><td>How long in ticks to halt production. </td></tr>
 <tr><td>RequiresCondition</td><td></td><td>BooleanExpression</td><td>Boolean expression defining the condition to enable this trait. </td></tr>
 </table>
 

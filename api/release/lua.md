@@ -1,4 +1,4 @@
-This is an automatically generated listing of the Lua map scripting API for version 20210401 of OpenHV.
+This is an automatically generated listing of the Lua map scripting API for version 20210501 of OpenHV.
 
 OpenHV allows custom maps and missions to be scripted using Lua 5.1.
 These scripts run in a sandbox that prevents access to unsafe functions (e.g. OS or file access), and limits the memory and CPU usage of the scripts.
@@ -222,6 +222,7 @@ matching the filter function called as function(CPos cell).</td></tr>
 ### UserInterface
 <table>
 <tr><td align="right" width="50%"><strong>void SetMissionText(string text, Color? color = nil)</strong></td><td>Displays a text message at the top center of the screen.</td></tr>
+<tr><td align="right" width="50%"><strong>string Translate(string text)</strong></td><td></td></tr>
 </table>
 ### Utils
 <table>
