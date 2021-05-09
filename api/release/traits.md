@@ -1,4 +1,4 @@
-This documentation is aimed at modders. It displays all traits with default values and developer commentary. Please do not edit it directly, but add new `[Desc("String")]` tags to the source code. This file has been automatically generated for version 20210501 of OpenHV.
+This documentation is aimed at modders. It displays all traits with default values and developer commentary. Please do not edit it directly, but add new `[Desc("String")]` tags to the source code. This file has been automatically generated for version 20210509 of OpenHV.
 
 
 
@@ -5570,6 +5570,7 @@ Manages AI miner deployment logic.
 <table>
 <tr><th>Property</th><th>Default Value</th><th>Type</th><th>Description</th></tr>
 <tr><td>DeployableActorTypes</td><td><em>(required)</em></td><td>Set of String</td><td>Actor types that can deploy onto resources. </td></tr>
+<tr><td>VehiclesQueue</td><td>Vehicle</td><td>String</td><td>Where to request production of additional deployable actors. </td></tr>
 <tr><td>DeployableTerrainTypes</td><td><em>(required)</em></td><td>Set of String</td><td>Terrain types that can be targeted for deployment. </td></tr>
 <tr><td>DeployedActorTypes</td><td><em>(required)</em></td><td>Set of String</td><td>Actor types that have been deployed onto resources. </td></tr>
 <tr><td>MinimumDeployedActors</td><td>1</td><td>Integer</td><td>Prioritize this many resource towers before building other units. </td></tr>
@@ -5683,6 +5684,22 @@ Lets the actor spread resources around it in straight lines.
 <tr><td>RequiresCondition</td><td></td><td>BooleanExpression</td><td>Boolean expression defining the condition to enable this trait. </td></tr>
 </table>
 
+### FreeActorWithEffect
+Player receives a unit for free once the building is placed with a sprite effect.
+If you want more than one unit to be spawned, copy this section and assign IDs like FreeActorWithDelay@2, ...
+<table>
+<tr><th>Property</th><th>Default Value</th><th>Type</th><th>Description</th></tr>
+<tr><td>Image</td><td></td><td>String</td><td></td></tr>
+<tr><td>Sequence</td><td></td><td>String</td><td>Sequence to use for overlay animation. </td></tr>
+<tr><td>Palette</td><td></td><td>String</td><td>Custom palette name </td></tr>
+<tr><td>Actor</td><td><em>(required)</em></td><td>String</td><td>Name of the actor. </td></tr>
+<tr><td>SpawnOffset</td><td>0,0</td><td>2D Cell Vector</td><td>Offset relative to the top-left cell of the building. </td></tr>
+<tr><td>Facing</td><td>0</td><td>1D World Angle</td><td>Which direction the unit should face. </td></tr>
+<tr><td>AllowRespawn</td><td>False</td><td>Boolean</td><td>Whether another actor should spawn upon re-enabling the trait. </td></tr>
+<tr><td>EditorFreeActorDisplayOrder</td><td>4</td><td>Integer</td><td>Display order for the free actor checkbox in the map editor </td></tr>
+<tr><td>RequiresCondition</td><td></td><td>BooleanExpression</td><td>Boolean expression defining the condition to enable this trait. </td></tr>
+</table>
+
 ### LaysTerrain
 Requires trait: [`Building`](#building).
 <table>
@@ -5750,6 +5767,14 @@ This must be attached to player in order for TeleportNetwork to work.
 <tr><td>Type</td><td><em>(required)</em></td><td>String</td><td>Type of TeleportNetwork that pairs up, in order for it to work. </td></tr>
 </table>
 
+### ProductionSound
+Requires trait: [`RenderSprites`](#rendersprites).
+<table>
+<tr><th>Property</th><th>Default Value</th><th>Type</th><th>Description</th></tr>
+<tr><td>Files</td><td><em>(required)</em></td><td>Collection of String</td><td></td></tr>
+<tr><td>RequiresCondition</td><td></td><td>BooleanExpression</td><td>Boolean expression defining the condition to enable this trait. </td></tr>
+</table>
+
 ### RailgunPower
 <table>
 <tr><th>Property</th><th>Default Value</th><th>Type</th><th>Description</th></tr>
@@ -5758,6 +5783,9 @@ This must be attached to player in order for TeleportNetwork to work.
 <tr><td>CameraRelationships</td><td>Ally</td><td>PlayerRelationship</td><td>Reveal cells to players with these relationships only. </td></tr>
 <tr><td>CameraSpawnAdvance</td><td>25</td><td>Integer</td><td>Amount of time before detonation to spawn the camera. </td></tr>
 <tr><td>CameraRemoveDelay</td><td>25</td><td>Integer</td><td>Amount of time after detonation to remove the camera. </td></tr>
+<tr><td>Effect</td><td>railgun</td><td>String</td><td>Effect sequence sprite image </td></tr>
+<tr><td>EffectSequence</td><td>idle</td><td>String</td><td>Effect sequence to display </td></tr>
+<tr><td>EffectPalette</td><td>effect</td><td>String</td><td></td></tr>
 <tr><td>Weapon</td><td>RailgunStrike</td><td>String</td><td>Which weapon to fire </td></tr>
 <tr><td>WeaponDelay</td><td>7</td><td>Integer</td><td>Apply the weapon impact this many ticks into the effect </td></tr>
 <tr><td>ChargeInterval</td><td>0</td><td>Integer</td><td>Measured in ticks. </td></tr>
@@ -6090,6 +6118,7 @@ Requires trait: [`RenderSprites`](#rendersprites).
 <tr><td>Sequence</td><td><em>(required)</em></td><td>String</td><td>Sequence name to use. </td></tr>
 <tr><td>Palette</td><td></td><td>String</td><td>Custom palette name. </td></tr>
 <tr><td>IsPlayerPalette</td><td>False</td><td>Boolean</td><td>Custom palette is a player palette BaseName. </td></tr>
+<tr><td>RequiresCondition</td><td></td><td>BooleanExpression</td><td>Boolean expression defining the condition to enable this trait. </td></tr>
 </table>
 
 ### WithRandomFacingSpriteBody
