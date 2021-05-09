@@ -1,6 +1,7 @@
 site_name: OpenHV
 site_description: Trait description and Lua API documentation
 docs_dir: api
+extra_css: [extra.css]
 theme:
     name: readthedocs
     navigation_depth: 3
