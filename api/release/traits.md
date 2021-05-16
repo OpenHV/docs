@@ -1,28 +1,5 @@
-This documentation is aimed at modders. It displays all traits with default values and developer commentary. Please do not edit it directly, but add new `[Desc("String")]` tags to the source code. This file has been automatically generated for version 20210509 of OpenHV.
+This documentation is aimed at modders. It displays all traits with default values and developer commentary. Please do not edit it directly, but add new `[Desc("String")]` tags to the source code. This file has been automatically generated for version 20210516 of OpenHV.
 
-
-
-### IndexedPalette
-Define a palette by swapping palette indices.
-<table>
-<tr><th>Property</th><th>Default Value</th><th>Type</th><th>Description</th></tr>
-<tr><td>Name</td><td><em>(required)</em></td><td>String</td><td>Internal palette name </td></tr>
-<tr><td>BasePalette</td><td></td><td>String</td><td>The name of the palette to base off. </td></tr>
-<tr><td>Index</td><td><em>(required)</em></td><td>Collection of Integer</td><td>Indices from BasePalette to be swapped with ReplaceIndex. </td></tr>
-<tr><td>ReplaceIndex</td><td><em>(required)</em></td><td>Collection of Integer</td><td>Indices from BasePalette to replace from Index. </td></tr>
-<tr><td>AllowModifiers</td><td>True</td><td>Boolean</td><td>Allow palette modifiers to change the palette. </td></tr>
-</table>
-
-### IndexedPlayerPalette
-Define a player palette by swapping palette indices.
-<table>
-<tr><th>Property</th><th>Default Value</th><th>Type</th><th>Description</th></tr>
-<tr><td>BasePalette</td><td></td><td>String</td><td>The name of the palette to base off. </td></tr>
-<tr><td>BaseName</td><td>player</td><td>String</td><td>The prefix for the resulting player palettes </td></tr>
-<tr><td>RemapIndex</td><td></td><td>Collection of Integer</td><td>Remap these indices to player colors. </td></tr>
-<tr><td>AllowModifiers</td><td>True</td><td>Boolean</td><td>Allow palette modifiers to change the palette. </td></tr>
-<tr><td>PlayerIndex</td><td></td><td>Mapping of String to Collection of Integer</td><td></td></tr>
-</table>
 
 
 ### ChatCommands
@@ -47,7 +24,7 @@ Part of the new Lua API.
 Requires trait: [`SpawnMapActors`](#spawnmapactors).
 <table>
 <tr><th>Property</th><th>Default Value</th><th>Type</th><th>Description</th></tr>
-<tr><td>Scripts</td><td></td><td>Set of String</td><td></td></tr>
+<tr><td>Scripts</td><td></td><td>Set of System.String[]</td><td></td></tr>
 </table>
 
 ### ScriptTriggers
@@ -58,7 +35,7 @@ Allows map scripts to attach triggers to this actor via the Triggers global.
 Tag trait for actors with `DeliversCash`.
 <table>
 <tr><th>Property</th><th>Default Value</th><th>Type</th><th>Description</th></tr>
-<tr><td>ValidTypes</td><td></td><td>Set of String</td><td>Accepted `DeliversCash` types. Leave empty to accept all types. </td></tr>
+<tr><td>ValidTypes</td><td></td><td>Set of System.String[]</td><td>Accepted `DeliversCash` types. Leave empty to accept all types. </td></tr>
 <tr><td>ValidRelationships</td><td>Ally</td><td>PlayerRelationship</td><td>Player relationships the owner of the delivering actor needs. </td></tr>
 <tr><td>Sounds</td><td></td><td>Collection of String</td><td>Play a randomly selected sound from this list when accepting cash. </td></tr>
 </table>
@@ -69,7 +46,7 @@ Tag trait for actors with `DeliversExperience`.
 Requires trait: [`GainsExperience`](#gainsexperience).
 <table>
 <tr><th>Property</th><th>Default Value</th><th>Type</th><th>Description</th></tr>
-<tr><td>ValidTypes</td><td></td><td>Set of String</td><td>Accepted `DeliversExperience` types. Leave empty to accept all types. </td></tr>
+<tr><td>ValidTypes</td><td></td><td>Set of System.String[]</td><td>Accepted `DeliversExperience` types. Leave empty to accept all types. </td></tr>
 <tr><td>ValidRelationships</td><td>Ally</td><td>PlayerRelationship</td><td>Player relationships the owner of the delivering actor needs. </td></tr>
 </table>
 
@@ -77,7 +54,7 @@ Requires trait: [`GainsExperience`](#gainsexperience).
 An actor with this trait indicates a valid spawn point for actors of ActorSpawnManager.
 <table>
 <tr><th>Property</th><th>Default Value</th><th>Type</th><th>Description</th></tr>
-<tr><td>Types</td><td></td><td>Set of String</td><td>Type of ActorSpawner with which it connects. </td></tr>
+<tr><td>Types</td><td></td><td>Set of System.String[]</td><td>Type of ActorSpawner with which it connects. </td></tr>
 <tr><td>RequiresCondition</td><td></td><td>BooleanExpression</td><td>Boolean expression defining the condition to enable this trait. </td></tr>
 </table>
 
@@ -100,7 +77,7 @@ An actor with this trait indicates a valid spawn point for actors of ActorSpawnM
 <tr><td>IdleRoll</td><td></td><td>1D World Angle (optional)</td><td>Body roll to apply when aircraft flies in circles while idle. Defaults to Roll if undefined. Only relevant for voxel aircraft. </td></tr>
 <tr><td>RollSpeed</td><td>0</td><td>1D World Angle</td><td>Roll steps to apply each tick when turning. </td></tr>
 <tr><td>MinAirborneAltitude</td><td>1</td><td>Integer</td><td>Minimum altitude where this aircraft is considered airborne. </td></tr>
-<tr><td>LandableTerrainTypes</td><td></td><td>Set of String</td><td></td></tr>
+<tr><td>LandableTerrainTypes</td><td></td><td>Set of System.String[]</td><td></td></tr>
 <tr><td>MoveIntoShroud</td><td>True</td><td>Boolean</td><td>Can the actor be ordered to move in to shroud? </td></tr>
 <tr><td>Crushes</td><td></td><td>Collection of CrushClass</td><td>e.g. crate, wall, infantry </td></tr>
 <tr><td>CrushDamageTypes</td><td></td><td>Collection of DamageType</td><td>Types of damage that are caused while crushing. Leave empty for no damage types. </td></tr>
@@ -126,6 +103,8 @@ An actor with this trait indicates a valid spawn point for actors of ActorSpawnM
 <tr><td>PreviewFacing</td><td>384</td><td>1D World Angle</td><td>Facing to use for actor previews (map editor, color picker, etc) </td></tr>
 <tr><td>EditorFacingDisplayOrder</td><td>3</td><td>Integer</td><td>Display order for the facing slider in the map editor </td></tr>
 <tr><td>RequireForceMoveCondition</td><td></td><td>BooleanExpression</td><td>Boolean expression defining the condition under which the regular (non-force) move cursor is disabled. </td></tr>
+<tr><td>Cursor</td><td>move</td><td>String</td><td>Cursor to display when a move order can be issued at target location. </td></tr>
+<tr><td>BlockedCursor</td><td>move-blocked</td><td>String</td><td>Cursor to display when a move order cannot be issued at target location. </td></tr>
 <tr><td>EnterCursor</td><td>enter</td><td>String</td><td>Cursor to display when able to land at target building. </td></tr>
 <tr><td>EnterBlockedCursor</td><td>enter-blocked</td><td>String</td><td>Cursor to display when unable to land at target building. </td></tr>
 <tr><td>PauseOnCondition</td><td></td><td>BooleanExpression</td><td>Boolean expression defining the condition to pause this trait. </td></tr>
@@ -152,7 +131,7 @@ Requires trait: [`Aircraft`](#aircraft).
 <tr><td>ForceFireIgnoresActors</td><td>False</td><td>Boolean</td><td>Force-fire mode ignores actors and targets the ground instead. </td></tr>
 <tr><td>OutsideRangeRequiresForceFire</td><td>False</td><td>Boolean</td><td>Force-fire mode is required to enable targeting against targets outside of range. </td></tr>
 <tr><td>Voice</td><td>Action</td><td>String</td><td></td></tr>
-<tr><td>FacingTolerance</td><td>512</td><td>1D World Angle</td><td>Tolerance for attack angle. Range [0, 128], 128 covers 360 degrees. </td></tr>
+<tr><td>FacingTolerance</td><td>512</td><td>1D World Angle</td><td>Tolerance for attack angle. Range [0, 512], 512 covers 360 degrees. </td></tr>
 <tr><td>PauseOnCondition</td><td></td><td>BooleanExpression</td><td>Boolean expression defining the condition to pause this trait. </td></tr>
 <tr><td>RequiresCondition</td><td></td><td>BooleanExpression</td><td>Boolean expression defining the condition to enable this trait. </td></tr>
 </table>
@@ -170,7 +149,7 @@ Requires trait: [`Aircraft`](#aircraft).
 <tr><td>ForceFireIgnoresActors</td><td>False</td><td>Boolean</td><td>Force-fire mode ignores actors and targets the ground instead. </td></tr>
 <tr><td>OutsideRangeRequiresForceFire</td><td>False</td><td>Boolean</td><td>Force-fire mode is required to enable targeting against targets outside of range. </td></tr>
 <tr><td>Voice</td><td>Action</td><td>String</td><td></td></tr>
-<tr><td>FacingTolerance</td><td>8</td><td>1D World Angle</td><td>Tolerance for attack angle. Range [0, 128], 128 covers 360 degrees. </td></tr>
+<tr><td>FacingTolerance</td><td>8</td><td>1D World Angle</td><td>Tolerance for attack angle. Range [0, 512], 512 covers 360 degrees. </td></tr>
 <tr><td>PauseOnCondition</td><td></td><td>BooleanExpression</td><td>Boolean expression defining the condition to pause this trait. </td></tr>
 <tr><td>RequiresCondition</td><td></td><td>BooleanExpression</td><td>Boolean expression defining the condition to enable this trait. </td></tr>
 </table>
@@ -259,7 +238,7 @@ Actor must charge up its armaments before firing.
 <tr><td>ForceFireIgnoresActors</td><td>False</td><td>Boolean</td><td>Force-fire mode ignores actors and targets the ground instead. </td></tr>
 <tr><td>OutsideRangeRequiresForceFire</td><td>False</td><td>Boolean</td><td>Force-fire mode is required to enable targeting against targets outside of range. </td></tr>
 <tr><td>Voice</td><td>Action</td><td>String</td><td></td></tr>
-<tr><td>FacingTolerance</td><td>512</td><td>1D World Angle</td><td>Tolerance for attack angle. Range [0, 128], 128 covers 360 degrees. </td></tr>
+<tr><td>FacingTolerance</td><td>512</td><td>1D World Angle</td><td>Tolerance for attack angle. Range [0, 512], 512 covers 360 degrees. </td></tr>
 <tr><td>PauseOnCondition</td><td></td><td>BooleanExpression</td><td>Boolean expression defining the condition to pause this trait. </td></tr>
 <tr><td>RequiresCondition</td><td></td><td>BooleanExpression</td><td>Boolean expression defining the condition to enable this trait. </td></tr>
 </table>
@@ -280,7 +259,7 @@ Actor will follow units until in range to attack them.
 <tr><td>ForceFireIgnoresActors</td><td>False</td><td>Boolean</td><td>Force-fire mode ignores actors and targets the ground instead. </td></tr>
 <tr><td>OutsideRangeRequiresForceFire</td><td>False</td><td>Boolean</td><td>Force-fire mode is required to enable targeting against targets outside of range. </td></tr>
 <tr><td>Voice</td><td>Action</td><td>String</td><td></td></tr>
-<tr><td>FacingTolerance</td><td>512</td><td>1D World Angle</td><td>Tolerance for attack angle. Range [0, 128], 128 covers 360 degrees. </td></tr>
+<tr><td>FacingTolerance</td><td>512</td><td>1D World Angle</td><td>Tolerance for attack angle. Range [0, 512], 512 covers 360 degrees. </td></tr>
 <tr><td>PauseOnCondition</td><td></td><td>BooleanExpression</td><td>Boolean expression defining the condition to pause this trait. </td></tr>
 <tr><td>RequiresCondition</td><td></td><td>BooleanExpression</td><td>Boolean expression defining the condition to enable this trait. </td></tr>
 </table>
@@ -299,7 +278,7 @@ Unit got to face the target
 <tr><td>ForceFireIgnoresActors</td><td>False</td><td>Boolean</td><td>Force-fire mode ignores actors and targets the ground instead. </td></tr>
 <tr><td>OutsideRangeRequiresForceFire</td><td>False</td><td>Boolean</td><td>Force-fire mode is required to enable targeting against targets outside of range. </td></tr>
 <tr><td>Voice</td><td>Action</td><td>String</td><td></td></tr>
-<tr><td>FacingTolerance</td><td>0</td><td>1D World Angle</td><td>Tolerance for attack angle. Range [0, 128], 128 covers 360 degrees. </td></tr>
+<tr><td>FacingTolerance</td><td>0</td><td>1D World Angle</td><td>Tolerance for attack angle. Range [0, 512], 512 covers 360 degrees. </td></tr>
 <tr><td>PauseOnCondition</td><td></td><td>BooleanExpression</td><td>Boolean expression defining the condition to pause this trait. </td></tr>
 <tr><td>RequiresCondition</td><td></td><td>BooleanExpression</td><td>Boolean expression defining the condition to enable this trait. </td></tr>
 </table>
@@ -326,7 +305,7 @@ Requires trait: [`Cargo`](#cargo).
 <tr><td>ForceFireIgnoresActors</td><td>False</td><td>Boolean</td><td>Force-fire mode ignores actors and targets the ground instead. </td></tr>
 <tr><td>OutsideRangeRequiresForceFire</td><td>False</td><td>Boolean</td><td>Force-fire mode is required to enable targeting against targets outside of range. </td></tr>
 <tr><td>Voice</td><td>Action</td><td>String</td><td></td></tr>
-<tr><td>FacingTolerance</td><td>512</td><td>1D World Angle</td><td>Tolerance for attack angle. Range [0, 128], 128 covers 360 degrees. </td></tr>
+<tr><td>FacingTolerance</td><td>512</td><td>1D World Angle</td><td>Tolerance for attack angle. Range [0, 512], 512 covers 360 degrees. </td></tr>
 <tr><td>PauseOnCondition</td><td></td><td>BooleanExpression</td><td>Boolean expression defining the condition to pause this trait. </td></tr>
 <tr><td>RequiresCondition</td><td></td><td>BooleanExpression</td><td>Boolean expression defining the condition to enable this trait. </td></tr>
 </table>
@@ -343,7 +322,7 @@ Requires trait: [`Cargo`](#cargo).
 <tr><td>ForceFireIgnoresActors</td><td>False</td><td>Boolean</td><td>Force-fire mode ignores actors and targets the ground instead. </td></tr>
 <tr><td>OutsideRangeRequiresForceFire</td><td>False</td><td>Boolean</td><td>Force-fire mode is required to enable targeting against targets outside of range. </td></tr>
 <tr><td>Voice</td><td>Action</td><td>String</td><td></td></tr>
-<tr><td>FacingTolerance</td><td>512</td><td>1D World Angle</td><td>Tolerance for attack angle. Range [0, 128], 128 covers 360 degrees. </td></tr>
+<tr><td>FacingTolerance</td><td>512</td><td>1D World Angle</td><td>Tolerance for attack angle. Range [0, 512], 512 covers 360 degrees. </td></tr>
 <tr><td>PauseOnCondition</td><td></td><td>BooleanExpression</td><td>Boolean expression defining the condition to pause this trait. </td></tr>
 <tr><td>RequiresCondition</td><td></td><td>BooleanExpression</td><td>Boolean expression defining the condition to enable this trait. </td></tr>
 </table>
@@ -367,7 +346,7 @@ Requires trait: [`Turreted`](#turreted).
 <tr><td>ForceFireIgnoresActors</td><td>False</td><td>Boolean</td><td>Force-fire mode ignores actors and targets the ground instead. </td></tr>
 <tr><td>OutsideRangeRequiresForceFire</td><td>False</td><td>Boolean</td><td>Force-fire mode is required to enable targeting against targets outside of range. </td></tr>
 <tr><td>Voice</td><td>Action</td><td>String</td><td></td></tr>
-<tr><td>FacingTolerance</td><td>512</td><td>1D World Angle</td><td>Tolerance for attack angle. Range [0, 128], 128 covers 360 degrees. </td></tr>
+<tr><td>FacingTolerance</td><td>512</td><td>1D World Angle</td><td>Tolerance for attack angle. Range [0, 512], 512 covers 360 degrees. </td></tr>
 <tr><td>PauseOnCondition</td><td></td><td>BooleanExpression</td><td>Boolean expression defining the condition to pause this trait. </td></tr>
 <tr><td>RequiresCondition</td><td></td><td>BooleanExpression</td><td>Boolean expression defining the condition to enable this trait. </td></tr>
 </table>
@@ -398,7 +377,7 @@ Requires trait: [`AttackMove`](#attackmove).
 <tr><td>ReduceMoveRadiusDelay</td><td>5</td><td>Integer</td><td>Number of ticks to wait before decreasing the effective move radius. </td></tr>
 <tr><td>MinMoveDelay</td><td>0</td><td>Integer</td><td>Minimum amount of ticks the actor will sit idly before starting to wander. </td></tr>
 <tr><td>MaxMoveDelay</td><td>0</td><td>Integer</td><td>Maximum amount of ticks the actor will sit idly before starting to wander. </td></tr>
-<tr><td>AvoidTerrainTypes</td><td></td><td>Set of String</td><td>The terrain types that this actor should avoid wandering on to. </td></tr>
+<tr><td>AvoidTerrainTypes</td><td></td><td>Set of System.String[]</td><td>The terrain types that this actor should avoid wandering on to. </td></tr>
 <tr><td>RequiresCondition</td><td></td><td>BooleanExpression</td><td>Boolean expression defining the condition to enable this trait. </td></tr>
 </table>
 
@@ -492,16 +471,16 @@ This actor blocks bullets and missiles with 'Blockable' property.
 Manages AI base construction.
 <table>
 <tr><th>Property</th><th>Default Value</th><th>Type</th><th>Description</th></tr>
-<tr><td>ConstructionYardTypes</td><td></td><td>Set of String</td><td>Tells the AI what building types are considered construction yards. </td></tr>
-<tr><td>VehiclesFactoryTypes</td><td></td><td>Set of String</td><td>Tells the AI what building types are considered vehicle production facilities. </td></tr>
-<tr><td>RefineryTypes</td><td></td><td>Set of String</td><td>Tells the AI what building types are considered refineries. </td></tr>
-<tr><td>PowerTypes</td><td></td><td>Set of String</td><td>Tells the AI what building types are considered power plants. </td></tr>
-<tr><td>BarracksTypes</td><td></td><td>Set of String</td><td>Tells the AI what building types are considered infantry production facilities. </td></tr>
-<tr><td>ProductionTypes</td><td></td><td>Set of String</td><td>Tells the AI what building types are considered production facilities. </td></tr>
-<tr><td>NavalProductionTypes</td><td></td><td>Set of String</td><td>Tells the AI what building types are considered naval production facilities. </td></tr>
-<tr><td>SiloTypes</td><td></td><td>Set of String</td><td>Tells the AI what building types are considered silos (resource storage). </td></tr>
-<tr><td>BuildingQueues</td><td>Building</td><td>Set of String</td><td>Production queues AI uses for buildings. </td></tr>
-<tr><td>DefenseQueues</td><td>Defense</td><td>Set of String</td><td>Production queues AI uses for defenses. </td></tr>
+<tr><td>ConstructionYardTypes</td><td></td><td>Set of System.String[]</td><td>Tells the AI what building types are considered construction yards. </td></tr>
+<tr><td>VehiclesFactoryTypes</td><td></td><td>Set of System.String[]</td><td>Tells the AI what building types are considered vehicle production facilities. </td></tr>
+<tr><td>RefineryTypes</td><td></td><td>Set of System.String[]</td><td>Tells the AI what building types are considered refineries. </td></tr>
+<tr><td>PowerTypes</td><td></td><td>Set of System.String[]</td><td>Tells the AI what building types are considered power plants. </td></tr>
+<tr><td>BarracksTypes</td><td></td><td>Set of System.String[]</td><td>Tells the AI what building types are considered infantry production facilities. </td></tr>
+<tr><td>ProductionTypes</td><td></td><td>Set of System.String[]</td><td>Tells the AI what building types are considered production facilities. </td></tr>
+<tr><td>NavalProductionTypes</td><td></td><td>Set of System.String[]</td><td>Tells the AI what building types are considered naval production facilities. </td></tr>
+<tr><td>SiloTypes</td><td></td><td>Set of System.String[]</td><td>Tells the AI what building types are considered silos (resource storage). </td></tr>
+<tr><td>BuildingQueues</td><td>Building</td><td>Set of System.String[]</td><td>Production queues AI uses for buildings. </td></tr>
+<tr><td>DefenseQueues</td><td>Defense</td><td>Set of System.String[]</td><td>Production queues AI uses for defenses. </td></tr>
 <tr><td>MinBaseRadius</td><td>2</td><td>Integer</td><td>Minimum distance in cells from center of the base when checking for building placement. </td></tr>
 <tr><td>MaxBaseRadius</td><td>20</td><td>Integer</td><td>Radius in cells around the center of the base to expand. </td></tr>
 <tr><td>MinimumExcessPower</td><td>0</td><td>Integer</td><td>Minimum excess power the AI should try to maintain. </td></tr>
@@ -523,10 +502,10 @@ Manages AI base construction.
 <tr><td>NewProductionCashThreshold</td><td>5000</td><td>Integer</td><td>Try to build another production building if there is too much cash. </td></tr>
 <tr><td>RallyPointScanRadius</td><td>8</td><td>Integer</td><td>Radius in cells around a factory scanned for rally points by the AI. </td></tr>
 <tr><td>CheckForWaterRadius</td><td>8</td><td>Integer</td><td>Radius in cells around each building with ProvideBuildableArea to check for a 3x3 area of water where naval structures can be built. Should match maximum adjacency of naval structures. </td></tr>
-<tr><td>WaterTerrainTypes</td><td>Water</td><td>Set of String</td><td>Terrain types which are considered water for base building purposes. </td></tr>
-<tr><td>BuildingFractions</td><td></td><td>Mapping of String to Integer</td><td>What buildings to the AI should build. What integer percentage of the total base must be this type of building. </td></tr>
-<tr><td>BuildingLimits</td><td></td><td>Mapping of String to Integer</td><td>What buildings should the AI have a maximum limit to build. </td></tr>
-<tr><td>BuildingDelays</td><td></td><td>Mapping of String to Integer</td><td>When should the AI start building specific buildings. </td></tr>
+<tr><td>WaterTerrainTypes</td><td>Water</td><td>Set of System.String[]</td><td>Terrain types which are considered water for base building purposes. </td></tr>
+<tr><td>BuildingFractions</td><td></td><td>Dictionary with Key: String, Value Integer</td><td>What buildings to the AI should build. What integer percentage of the total base must be this type of building. </td></tr>
+<tr><td>BuildingLimits</td><td></td><td>Dictionary with Key: String, Value Integer</td><td>What buildings should the AI have a maximum limit to build. </td></tr>
+<tr><td>BuildingDelays</td><td></td><td>Dictionary with Key: String, Value Integer</td><td>When should the AI start building specific buildings. </td></tr>
 <tr><td>RequiresCondition</td><td></td><td>BooleanExpression</td><td>Boolean expression defining the condition to enable this trait. </td></tr>
 </table>
 
@@ -541,8 +520,8 @@ Manages AI repairing base buildings.
 Manages AI capturing logic.
 <table>
 <tr><th>Property</th><th>Default Value</th><th>Type</th><th>Description</th></tr>
-<tr><td>CapturingActorTypes</td><td></td><td>Set of String</td><td>Actor types that can capture other actors (via `Captures`). Leave this empty to disable capturing. </td></tr>
-<tr><td>CapturableActorTypes</td><td></td><td>Set of String</td><td>Actor types that can be targeted for capturing. Leave this empty to include all actors. </td></tr>
+<tr><td>CapturingActorTypes</td><td></td><td>Set of System.String[]</td><td>Actor types that can capture other actors (via `Captures`). Leave this empty to disable capturing. </td></tr>
+<tr><td>CapturableActorTypes</td><td></td><td>Set of System.String[]</td><td>Actor types that can be targeted for capturing. Leave this empty to include all actors. </td></tr>
 <tr><td>MinimumCaptureDelay</td><td>375</td><td>Integer</td><td>Minimum delay (in ticks) between trying to capture with CapturingActorTypes. </td></tr>
 <tr><td>MaximumCaptureTargetOptions</td><td>10</td><td>Integer</td><td>Maximum number of options to consider for capturing. If a value less than 1 is given 1 will be used instead. </td></tr>
 <tr><td>CheckCaptureTargetsForVisibility</td><td>True</td><td>Boolean</td><td>Should visibility (Shroud, Fog, Cloak, etc) be considered when searching for capturable targets? </td></tr>
@@ -554,8 +533,8 @@ Manages AI capturing logic.
 Put this on the Player actor. Manages bot harvesters to ensure they always continue harvesting as long as there are resources on the map.
 <table>
 <tr><th>Property</th><th>Default Value</th><th>Type</th><th>Description</th></tr>
-<tr><td>HarvesterTypes</td><td></td><td>Set of String</td><td>Actor types that are considered harvesters. If harvester count drops below RefineryTypes count, a new harvester is built. Leave empty to disable harvester replacement. Currently only needed by harvester replacement system. </td></tr>
-<tr><td>RefineryTypes</td><td></td><td>Set of String</td><td>Actor types that are counted as refineries. Currently only needed by harvester replacement system. </td></tr>
+<tr><td>HarvesterTypes</td><td></td><td>Set of System.String[]</td><td>Actor types that are considered harvesters. If harvester count drops below RefineryTypes count, a new harvester is built. Leave empty to disable harvester replacement. Currently only needed by harvester replacement system. </td></tr>
+<tr><td>RefineryTypes</td><td></td><td>Set of System.String[]</td><td>Actor types that are counted as refineries. Currently only needed by harvester replacement system. </td></tr>
 <tr><td>ScanForIdleHarvestersInterval</td><td>50</td><td>Integer</td><td>Interval (in ticks) between giving out orders to idle harvesters. </td></tr>
 <tr><td>HarvesterEnemyAvoidanceRadius</td><td>8c0</td><td>1D World Distance</td><td>Avoid enemy actors nearby when searching for a new resource patch. Should be somewhere near the max weapon range. </td></tr>
 <tr><td>RequiresCondition</td><td></td><td>BooleanExpression</td><td>Boolean expression defining the condition to enable this trait. </td></tr>
@@ -565,9 +544,9 @@ Put this on the Player actor. Manages bot harvesters to ensure they always conti
 Manages AI MCVs.
 <table>
 <tr><th>Property</th><th>Default Value</th><th>Type</th><th>Description</th></tr>
-<tr><td>McvTypes</td><td></td><td>Set of String</td><td>Actor types that are considered MCVs (deploy into base builders). </td></tr>
-<tr><td>ConstructionYardTypes</td><td></td><td>Set of String</td><td>Actor types that are considered construction yards (base builders). </td></tr>
-<tr><td>McvFactoryTypes</td><td></td><td>Set of String</td><td>Actor types that are able to produce MCVs. </td></tr>
+<tr><td>McvTypes</td><td></td><td>Set of System.String[]</td><td>Actor types that are considered MCVs (deploy into base builders). </td></tr>
+<tr><td>ConstructionYardTypes</td><td></td><td>Set of System.String[]</td><td>Actor types that are considered construction yards (base builders). </td></tr>
+<tr><td>McvFactoryTypes</td><td></td><td>Set of System.String[]</td><td>Actor types that are able to produce MCVs. </td></tr>
 <tr><td>MinimumConstructionYardCount</td><td>1</td><td>Integer</td><td>Try to maintain at least this many ConstructionYardTypes, build an MCV if number is below this. </td></tr>
 <tr><td>ScanForNewMcvInterval</td><td>20</td><td>Integer</td><td>Delay (in ticks) between looking for and giving out orders to new MCVs. </td></tr>
 <tr><td>MinBaseRadius</td><td>2</td><td>Integer</td><td>Minimum distance in cells from center of the base when checking for MCV deployment location. </td></tr>
@@ -580,10 +559,10 @@ Manages AI MCVs.
 Manages AI squads.
 <table>
 <tr><th>Property</th><th>Default Value</th><th>Type</th><th>Description</th></tr>
-<tr><td>NavalUnitsTypes</td><td></td><td>Set of String</td><td>Actor types that are valid for naval squads. </td></tr>
-<tr><td>ExcludeFromSquadsTypes</td><td></td><td>Set of String</td><td>Actor types that should generally be excluded from attack squads. </td></tr>
-<tr><td>ConstructionYardTypes</td><td></td><td>Set of String</td><td>Actor types that are considered construction yards (base builders). </td></tr>
-<tr><td>NavalProductionTypes</td><td></td><td>Set of String</td><td>Enemy building types around which to scan for targets for naval squads. </td></tr>
+<tr><td>NavalUnitsTypes</td><td></td><td>Set of System.String[]</td><td>Actor types that are valid for naval squads. </td></tr>
+<tr><td>ExcludeFromSquadsTypes</td><td></td><td>Set of System.String[]</td><td>Actor types that should generally be excluded from attack squads. </td></tr>
+<tr><td>ConstructionYardTypes</td><td></td><td>Set of System.String[]</td><td>Actor types that are considered construction yards (base builders). </td></tr>
+<tr><td>NavalProductionTypes</td><td></td><td>Set of System.String[]</td><td>Enemy building types around which to scan for targets for naval squads. </td></tr>
 <tr><td>SquadSize</td><td>8</td><td>Integer</td><td>Minimum number of units AI must have before attacking. </td></tr>
 <tr><td>SquadSizeRandomBonus</td><td>30</td><td>Integer</td><td>Random number of up to this many units is added to squad size when creating an attack squad. </td></tr>
 <tr><td>AssignRolesInterval</td><td>50</td><td>Integer</td><td>Delay (in ticks) between giving out orders to units. </td></tr>
@@ -616,10 +595,10 @@ Controls AI unit production.
 <table>
 <tr><th>Property</th><th>Default Value</th><th>Type</th><th>Description</th></tr>
 <tr><td>IdleBaseUnitsMaximum</td><td>12</td><td>Integer</td><td>Only produce units as long as there are less than this amount of units idling inside the base. </td></tr>
-<tr><td>UnitQueues</td><td>Vehicle, Infantry, Plane, Ship, Aircraft</td><td>Set of String</td><td>Production queues AI uses for producing units. </td></tr>
-<tr><td>UnitsToBuild</td><td></td><td>Mapping of String to Integer</td><td>What units to the AI should build. What relative share of the total army must be this type of unit. </td></tr>
-<tr><td>UnitLimits</td><td></td><td>Mapping of String to Integer</td><td>What units should the AI have a maximum limit to train. </td></tr>
-<tr><td>UnitDelays</td><td></td><td>Mapping of String to Integer</td><td>When should the AI start train specific units. </td></tr>
+<tr><td>UnitQueues</td><td>Vehicle, Infantry, Plane, Ship, Aircraft</td><td>Set of System.String[]</td><td>Production queues AI uses for producing units. </td></tr>
+<tr><td>UnitsToBuild</td><td></td><td>Dictionary with Key: String, Value Integer</td><td>What units to the AI should build. What relative share of the total army must be this type of unit. </td></tr>
+<tr><td>UnitLimits</td><td></td><td>Dictionary with Key: String, Value Integer</td><td>What units should the AI have a maximum limit to train. </td></tr>
+<tr><td>UnitDelays</td><td></td><td>Dictionary with Key: String, Value Integer</td><td>When should the AI start train specific units. </td></tr>
 <tr><td>RequiresCondition</td><td></td><td>BooleanExpression</td><td>Boolean expression defining the condition to enable this trait. </td></tr>
 </table>
 
@@ -627,7 +606,7 @@ Controls AI unit production.
 <table>
 <tr><th>Property</th><th>Default Value</th><th>Type</th><th>Description</th></tr>
 <tr><td>Prerequisites</td><td></td><td>Collection of String</td><td>The prerequisite names that must be available before this can be built. This can be prefixed with ! to invert the prerequisite (disabling production if the prerequisite is available) and/or ~ to hide the actor from the production palette if the prerequisite is not available. Prerequisites are granted by actors with the ProvidesPrerequisite trait. </td></tr>
-<tr><td>Queue</td><td></td><td>Set of String</td><td>Production queue(s) that can produce this. </td></tr>
+<tr><td>Queue</td><td></td><td>Set of System.String[]</td><td>Production queue(s) that can produce this. </td></tr>
 <tr><td>BuildAtProductionType</td><td></td><td>String</td><td>Override the production structure type (from the Production Produces list) that this unit should be built at. </td></tr>
 <tr><td>BuildLimit</td><td>0</td><td>Integer</td><td>Disable production when there are more than this many of this actor on the battlefield. Set to 0 to disable. </td></tr>
 <tr><td>ForceFaction</td><td></td><td>String</td><td>Force a specific faction variant, overriding the faction of the producing actor. </td></tr>
@@ -715,8 +694,8 @@ Placeholder actor used for dead segments and bridge end ramps.
 ### Building
 <table>
 <tr><th>Property</th><th>Default Value</th><th>Type</th><th>Description</th></tr>
-<tr><td>TerrainTypes</td><td></td><td>Set of String</td><td>Where you are allowed to place the building (Water, Clear, ...) </td></tr>
-<tr><td>Footprint</td><td></td><td>Mapping of 2D Cell Vector to FootprintCellType</td><td>x means cell is blocked, capital X means blocked but not counting as targetable,  = means part of the footprint but passable, _ means completely empty. </td></tr>
+<tr><td>TerrainTypes</td><td></td><td>Set of System.String[]</td><td>Where you are allowed to place the building (Water, Clear, ...) </td></tr>
+<tr><td>Footprint</td><td></td><td>Dictionary with Key: 2D Cell Vector, Value FootprintCellType</td><td>x means cell is blocked, capital X means blocked but not counting as targetable,  = means part of the footprint but passable, _ means completely empty. </td></tr>
 <tr><td>Dimensions</td><td>1,1</td><td>2D Cell Vector</td><td></td></tr>
 <tr><td>LocalCenterOffset</td><td>0,0,0</td><td>3D World Vector</td><td>Shift center of the actor by this offset. </td></tr>
 <tr><td>RequiresBaseProvider</td><td>False</td><td>Boolean</td><td></td></tr>
@@ -739,7 +718,7 @@ Where the unit should leave the building. Multiples are allowed if IDs are added
 <tr><td>SpawnOffset</td><td>0,0,0</td><td>3D World Vector</td><td>Offset at which that the exiting actor is spawned relative to the center of the producing actor. </td></tr>
 <tr><td>ExitCell</td><td>0,0</td><td>2D Cell Vector</td><td>Cell offset where the exiting actor enters the ActorMap relative to the topleft cell of the producing actor. </td></tr>
 <tr><td>Facing</td><td></td><td>1D World Angle (optional)</td><td></td></tr>
-<tr><td>ProductionTypes</td><td></td><td>Set of String</td><td>Type tags on this exit. </td></tr>
+<tr><td>ProductionTypes</td><td></td><td>Set of System.String[]</td><td>Type tags on this exit. </td></tr>
 <tr><td>ExitDelay</td><td>0</td><td>Integer</td><td>Number of ticks to wait before moving into the world. </td></tr>
 <tr><td>Priority</td><td>1</td><td>Integer</td><td>Exits with larger priorities will be used before lower priorities. </td></tr>
 <tr><td>RequiresCondition</td><td></td><td>BooleanExpression</td><td>Boolean expression defining the condition to enable this trait. </td></tr>
@@ -803,7 +782,7 @@ Requires trait: [`Building`](#building).
 This actor allows placement of other actors with 'RequiresBuildableArea' trait around it.
 <table>
 <tr><th>Property</th><th>Default Value</th><th>Type</th><th>Description</th></tr>
-<tr><td>AreaTypes</td><td><em>(required)</em></td><td>Set of String</td><td>Types of buildable area this actor gives. </td></tr>
+<tr><td>AreaTypes</td><td><em>(required)</em></td><td>Set of System.String[]</td><td>Types of buildable area this actor gives. </td></tr>
 <tr><td>RequiresCondition</td><td></td><td>BooleanExpression</td><td>Boolean expression defining the condition to enable this trait. </td></tr>
 </table>
 
@@ -828,7 +807,7 @@ Place the second actor in line to build more of the same at once (used for walls
 <table>
 <tr><th>Property</th><th>Default Value</th><th>Type</th><th>Description</th></tr>
 <tr><td>Range</td><td>5</td><td>Integer</td><td>The maximum allowed length of the line. </td></tr>
-<tr><td>NodeTypes</td><td>wall</td><td>Set of String</td><td>LineBuildNode 'Types' to attach to. </td></tr>
+<tr><td>NodeTypes</td><td>wall</td><td>Set of System.String[]</td><td>LineBuildNode 'Types' to attach to. </td></tr>
 <tr><td>SegmentType</td><td></td><td>String</td><td>Actor type for line-built segments (defaults to same actor). </td></tr>
 <tr><td>SegmentsRequireNode</td><td>False</td><td>Boolean</td><td>Delete generated segments when destroyed or sold. </td></tr>
 </table>
@@ -837,7 +816,7 @@ Place the second actor in line to build more of the same at once (used for walls
 LineBuild actors attach to LineBuildNodes.
 <table>
 <tr><th>Property</th><th>Default Value</th><th>Type</th><th>Description</th></tr>
-<tr><td>Types</td><td>wall</td><td>Set of String</td><td>This actor is of LineBuild 'NodeType'... </td></tr>
+<tr><td>Types</td><td>wall</td><td>Set of System.String[]</td><td>This actor is of LineBuild 'NodeType'... </td></tr>
 <tr><td>Connections</td><td>1,0, 0,1, -1,0, 0,-1</td><td>Collection of 2D Cell Vector</td><td>Cells (outside the footprint) that contain cells that can connect to this actor. </td></tr>
 </table>
 
@@ -928,7 +907,7 @@ This actor requires another actor with 'GivesBuildableArea' trait around to be p
 Requires trait: [`Building`](#building).
 <table>
 <tr><th>Property</th><th>Default Value</th><th>Type</th><th>Description</th></tr>
-<tr><td>AreaTypes</td><td><em>(required)</em></td><td>Set of String</td><td>Types of buildable are this actor requires. </td></tr>
+<tr><td>AreaTypes</td><td><em>(required)</em></td><td>Set of System.String[]</td><td>Types of buildable are this actor requires. </td></tr>
 <tr><td>Adjacent</td><td>2</td><td>Integer</td><td>Maximum range from the actor with 'GivesBuildableArea' this can be placed at. </td></tr>
 </table>
 
@@ -957,9 +936,11 @@ Requires trait: [`Transforms`](#transforms).
 <table>
 <tr><th>Property</th><th>Default Value</th><th>Type</th><th>Description</th></tr>
 <tr><td>MoveIntoShroud</td><td>True</td><td>Boolean</td><td>Can the actor be ordered to move in to shroud? </td></tr>
-<tr><td>DockActors</td><td><em>(required)</em></td><td>Set of String</td><td></td></tr>
+<tr><td>DockActors</td><td><em>(required)</em></td><td>Set of System.String[]</td><td></td></tr>
 <tr><td>Voice</td><td>Action</td><td>String</td><td></td></tr>
 <tr><td>RequiresForceMove</td><td>False</td><td>Boolean</td><td>Require the force-move modifier to display the move cursor. </td></tr>
+<tr><td>Cursor</td><td>move</td><td>String</td><td>Cursor to display when a move order can be issued at target location. </td></tr>
+<tr><td>BlockedCursor</td><td>move-blocked</td><td>String</td><td>Cursor to display when a move order cannot be issued at target location. </td></tr>
 <tr><td>EnterCursor</td><td>enter</td><td>String</td><td>Cursor to display when able to land at target building. </td></tr>
 <tr><td>EnterBlockedCursor</td><td>enter-blocked</td><td>String</td><td>Cursor to display when unable to land at target building. </td></tr>
 <tr><td>TargetLineColor</td><td>008000</td><td>Color (RRGGBB[AA] notation)</td><td>Color to use for the target line for regular move orders. </td></tr>
@@ -988,6 +969,7 @@ Requires trait: [`Transforms`](#transforms).
 <tr><th>Property</th><th>Default Value</th><th>Type</th><th>Description</th></tr>
 <tr><td>Locomotor</td><td><em>(required)</em></td><td>String</td><td>Locomotor used by the transformed actor. Must be defined on the World actor. </td></tr>
 <tr><td>Cursor</td><td>move</td><td>String</td><td>Cursor to display when a move order can be issued at target location. </td></tr>
+<tr><td>TerrainCursors</td><td></td><td>Dictionary with Key: String, Value String</td><td>Cursor overrides to display for specific terrain types. A dictionary of [terrain type]: [cursor name]. </td></tr>
 <tr><td>BlockedCursor</td><td>move-blocked</td><td>String</td><td>Cursor to display when a move order cannot be issued at target location. </td></tr>
 <tr><td>Voice</td><td>Action</td><td>String</td><td></td></tr>
 <tr><td>TargetLineColor</td><td>008000</td><td>Color (RRGGBB[AA] notation)</td><td>Color to use for the target line for regular move orders. </td></tr>
@@ -1017,7 +999,7 @@ Add to a building to expose a move cursor that triggers Transforms and issues a 
 Requires trait: [`Transforms`](#transforms).
 <table>
 <tr><th>Property</th><th>Default Value</th><th>Type</th><th>Description</th></tr>
-<tr><td>RepairActors</td><td><em>(required)</em></td><td>Set of String</td><td></td></tr>
+<tr><td>RepairActors</td><td><em>(required)</em></td><td>Set of System.String[]</td><td></td></tr>
 <tr><td>Voice</td><td>Action</td><td>String</td><td></td></tr>
 <tr><td>TargetLineColor</td><td>008000</td><td>Color (RRGGBB[AA] notation)</td><td>Color to use for the target line. </td></tr>
 <tr><td>RequiresForceMove</td><td>False</td><td>Boolean</td><td>Require the force-move modifier to display the enter cursor. </td></tr>
@@ -1115,11 +1097,11 @@ This actor can transport Passenger actors.
 <table>
 <tr><th>Property</th><th>Default Value</th><th>Type</th><th>Description</th></tr>
 <tr><td>MaxWeight</td><td>0</td><td>Integer</td><td>The maximum sum of Passenger.Weight that this actor can support. </td></tr>
-<tr><td>Types</td><td></td><td>Set of String</td><td>`Passenger.CargoType`s that can be loaded into this actor. </td></tr>
+<tr><td>Types</td><td></td><td>Set of System.String[]</td><td>`Passenger.CargoType`s that can be loaded into this actor. </td></tr>
 <tr><td>InitialUnits</td><td></td><td>Collection of String</td><td>A list of actor types that are initially spawned into this actor. </td></tr>
 <tr><td>EjectOnSell</td><td>True</td><td>Boolean</td><td>When this actor is sold should all of its passengers be unloaded? </td></tr>
 <tr><td>EjectOnDeath</td><td>False</td><td>Boolean</td><td>When this actor dies should all of its passengers be unloaded? </td></tr>
-<tr><td>UnloadTerrainTypes</td><td></td><td>Set of String</td><td>Terrain types that this actor is allowed to eject actors onto. Leave empty for all terrain types. </td></tr>
+<tr><td>UnloadTerrainTypes</td><td></td><td>Set of System.String[]</td><td>Terrain types that this actor is allowed to eject actors onto. Leave empty for all terrain types. </td></tr>
 <tr><td>UnloadVoice</td><td>Action</td><td>String</td><td>Voice to play when ordered to unload the passengers. </td></tr>
 <tr><td>LoadRange</td><td>5c0</td><td>1D World Distance</td><td>Radius to search for a load/unload location if the ordered cell is blocked. </td></tr>
 <tr><td>PassengerFacing</td><td>512</td><td>1D World Angle</td><td>Which direction the passenger will face (relative to the transport) when unloading. </td></tr>
@@ -1130,7 +1112,7 @@ This actor can transport Passenger actors.
 <tr><td>UnloadBlockedCursor</td><td>deploy-blocked</td><td>String</td><td>Cursor to display when unable to unload the passengers. </td></tr>
 <tr><td>LoadingCondition</td><td></td><td>String</td><td>The condition to grant to self while waiting for cargo to load. </td></tr>
 <tr><td>LoadedCondition</td><td></td><td>String</td><td>The condition to grant to self while passengers are loaded. Condition can stack with multiple passengers. </td></tr>
-<tr><td>PassengerConditions</td><td></td><td>Mapping of String to String</td><td>Conditions to grant when specified actors are loaded inside the transport. A dictionary of [actor id]: [condition]. </td></tr>
+<tr><td>PassengerConditions</td><td></td><td>Dictionary with Key: String, Value String</td><td>Conditions to grant when specified actors are loaded inside the transport. A dictionary of [actor id]: [condition]. </td></tr>
 </table>
 
 ### Carryable
@@ -1254,7 +1236,7 @@ Grants a condition while the trait is active.
 <table>
 <tr><th>Property</th><th>Default Value</th><th>Type</th><th>Description</th></tr>
 <tr><td>Condition</td><td><em>(required)</em></td><td>String</td><td>The condition type to grant. </td></tr>
-<tr><td>ArmamentNames</td><td>primary</td><td>Set of String</td><td>Name of the armaments that grant this condition. </td></tr>
+<tr><td>ArmamentNames</td><td>primary</td><td>Set of System.String[]</td><td>Name of the armaments that grant this condition. </td></tr>
 <tr><td>RequiredShotsPerInstance</td><td>1</td><td>Collection of Integer</td><td>Shots required to apply an instance of the condition. If there are more instances of the condition granted than values listed, the last value is used for all following instances beyond the defined range. </td></tr>
 <tr><td>MaximumInstances</td><td>1</td><td>Integer</td><td>Maximum instances of the condition to grant. </td></tr>
 <tr><td>IsCyclic</td><td>False</td><td>Boolean</td><td>Should all instances reset if the actor passes the final stage? </td></tr>
@@ -1297,7 +1279,7 @@ Grants a condition when a deploy order is issued.Can be paused with the granted 
 <tr><th>Property</th><th>Default Value</th><th>Type</th><th>Description</th></tr>
 <tr><td>UndeployedCondition</td><td></td><td>String</td><td>The condition to grant while the actor is undeployed. </td></tr>
 <tr><td>DeployedCondition</td><td><em>(required)</em></td><td>String</td><td>The condition to grant after deploying and revoke before undeploying. </td></tr>
-<tr><td>AllowedTerrainTypes</td><td></td><td>Set of String</td><td>The terrain types that this actor can deploy on. Leave empty to allow any. </td></tr>
+<tr><td>AllowedTerrainTypes</td><td></td><td>Set of System.String[]</td><td>The terrain types that this actor can deploy on. Leave empty to allow any. </td></tr>
 <tr><td>CanDeployOnRamps</td><td>False</td><td>Boolean</td><td>Can this actor deploy on slopes? </td></tr>
 <tr><td>DeployCursor</td><td>deploy</td><td>String</td><td>Cursor to display when able to (un)deploy the actor. </td></tr>
 <tr><td>DeployBlockedCursor</td><td>deploy-blocked</td><td>String</td><td>Cursor to display when unable to (un)deploy the actor. </td></tr>
@@ -1318,7 +1300,7 @@ Grants a condition while the trait is active.
 <table>
 <tr><th>Property</th><th>Default Value</th><th>Type</th><th>Description</th></tr>
 <tr><td>Condition</td><td><em>(required)</em></td><td>String</td><td>Condition to grant. </td></tr>
-<tr><td>Factions</td><td></td><td>Set of String</td><td>Only grant this condition for certain factions. </td></tr>
+<tr><td>Factions</td><td></td><td>Set of System.String[]</td><td>Only grant this condition for certain factions. </td></tr>
 <tr><td>ResetOnOwnerChange</td><td>False</td><td>Boolean</td><td>Should it recheck everything when it is captured? </td></tr>
 <tr><td>RequiresCondition</td><td></td><td>BooleanExpression</td><td>Boolean expression defining the condition to enable this trait. </td></tr>
 </table>
@@ -1388,7 +1370,7 @@ Grants a condition when this actor produces a specific actor.
 <table>
 <tr><th>Property</th><th>Default Value</th><th>Type</th><th>Description</th></tr>
 <tr><td>Condition</td><td><em>(required)</em></td><td>String</td><td>The condition to grant </td></tr>
-<tr><td>Actors</td><td></td><td>Set of String</td><td>The actors to grant condition for. If empty condition will be granted for all actors. </td></tr>
+<tr><td>Actors</td><td></td><td>Set of System.String[]</td><td>The actors to grant condition for. If empty condition will be granted for all actors. </td></tr>
 <tr><td>Duration</td><td>-1</td><td>Integer</td><td>How long condition is applies for. Use -1 for infinite. </td></tr>
 <tr><td>ShowSelectionBar</td><td>True</td><td>Boolean</td><td>Show a selection bar while condition is applied if it has a duration. </td></tr>
 <tr><td>SelectionBarColor</td><td>FF00FF</td><td>Color (RRGGBB[AA] notation)</td><td></td></tr>
@@ -1488,7 +1470,7 @@ Requires trait: [`RenderSprites`](#rendersprites).
 <table>
 <tr><th>Property</th><th>Default Value</th><th>Type</th><th>Description</th></tr>
 <tr><td>Duration</td><td>0</td><td>Integer</td><td>Length of time (in ticks) until the crate gets removed automatically. A value of zero disables auto-removal. </td></tr>
-<tr><td>TerrainTypes</td><td></td><td>Set of String</td><td>Allowed to land on. </td></tr>
+<tr><td>TerrainTypes</td><td></td><td>Set of System.String[]</td><td>Allowed to land on. </td></tr>
 <tr><td>CrushClass</td><td>crate</td><td>String</td><td>Define actors that can collect crates by setting this into the Crushes field from the Mobile trait. </td></tr>
 </table>
 
@@ -1516,7 +1498,7 @@ Creates duplicates of the actor that collects the crate.
 <tr><td>MaxDuplicateValue</td><td>-1</td><td>Integer</td><td>The maximum total value allowed for the duplicates. Duplication stops if the total worth will exceed this number. -1 = no limit </td></tr>
 <tr><td>MaxRadius</td><td>4</td><td>Integer</td><td>The maximum radius (in cells) that duplicates can be spawned. </td></tr>
 <tr><td>ValidTargets</td><td>Ground, Water</td><td>Collection of TargetableType</td><td>The list of unit target types we are allowed to duplicate. </td></tr>
-<tr><td>ValidFactions</td><td></td><td>Set of String</td><td>Which factions this crate action can occur for. </td></tr>
+<tr><td>ValidFactions</td><td></td><td>Set of System.String[]</td><td>Which factions this crate action can occur for. </td></tr>
 <tr><td>Owner</td><td></td><td>String</td><td>Is the new duplicates given to a specific owner, regardless of whom collected it? </td></tr>
 <tr><td>SelectionShares</td><td>10</td><td>Integer</td><td>Chance of getting this crate, assuming the collector is compatible. </td></tr>
 <tr><td>Image</td><td>crate-effects</td><td>String</td><td>Image containing the crate effect animation sequence. </td></tr>
@@ -1572,7 +1554,7 @@ Adjust selection shares when player has no base.
 <tr><th>Property</th><th>Default Value</th><th>Type</th><th>Description</th></tr>
 <tr><td>NoBaseSelectionShares</td><td>1000</td><td>Integer</td><td>The selection shares to use if the collector has no base. </td></tr>
 <tr><td>Units</td><td><em>(required)</em></td><td>Collection of String</td><td>The list of units to spawn. </td></tr>
-<tr><td>ValidFactions</td><td></td><td>Set of String</td><td>Factions that are allowed to trigger this action. </td></tr>
+<tr><td>ValidFactions</td><td></td><td>Set of System.String[]</td><td>Factions that are allowed to trigger this action. </td></tr>
 <tr><td>Owner</td><td></td><td>String</td><td>Override the owner of the newly spawned unit: e.g. Creeps or Neutral </td></tr>
 <tr><td>SelectionShares</td><td>10</td><td>Integer</td><td>Chance of getting this crate, assuming the collector is compatible. </td></tr>
 <tr><td>Image</td><td>crate-effects</td><td>String</td><td>Image containing the crate effect animation sequence. </td></tr>
@@ -1591,7 +1573,7 @@ Spawns units when collected.
 <table>
 <tr><th>Property</th><th>Default Value</th><th>Type</th><th>Description</th></tr>
 <tr><td>Units</td><td><em>(required)</em></td><td>Collection of String</td><td>The list of units to spawn. </td></tr>
-<tr><td>ValidFactions</td><td></td><td>Set of String</td><td>Factions that are allowed to trigger this action. </td></tr>
+<tr><td>ValidFactions</td><td></td><td>Set of System.String[]</td><td>Factions that are allowed to trigger this action. </td></tr>
 <tr><td>Owner</td><td></td><td>String</td><td>Override the owner of the newly spawned unit: e.g. Creeps or Neutral </td></tr>
 <tr><td>SelectionShares</td><td>10</td><td>Integer</td><td>Chance of getting this crate, assuming the collector is compatible. </td></tr>
 <tr><td>Image</td><td>crate-effects</td><td>String</td><td>Image containing the crate effect animation sequence. </td></tr>
@@ -1914,7 +1896,7 @@ This actor triggers an explosion on itself when transitioning to a specific dama
 This actor's experience increases when it has killed a GivesExperience actor.
 <table>
 <tr><th>Property</th><th>Default Value</th><th>Type</th><th>Description</th></tr>
-<tr><td>Conditions</td><td><em>(required)</em></td><td>Mapping of Integer to String</td><td>Condition to grant at each level. Key is the XP requirements for each level as a percentage of our own value. Value is the condition to grant. </td></tr>
+<tr><td>Conditions</td><td><em>(required)</em></td><td>Dictionary with Key: Integer, Value String</td><td>Condition to grant at each level. Key is the XP requirements for each level as a percentage of our own value. Value is the condition to grant. </td></tr>
 <tr><td>LevelUpImage</td><td></td><td>String</td><td>Image for the level up sprite. </td></tr>
 <tr><td>LevelUpSequence</td><td>levelup</td><td>String</td><td>Sequence for the level up sprite. Needs to be present on LevelUpImage. </td></tr>
 <tr><td>LevelUpPalette</td><td>effect</td><td>String</td><td>Palette for the level up sprite. </td></tr>
@@ -1974,7 +1956,7 @@ This unit can be guarded (followed and protected) by a Guard unit.
 Requires trait: [`Mobile`](#mobile).
 <table>
 <tr><th>Property</th><th>Default Value</th><th>Type</th><th>Description</th></tr>
-<tr><td>DeliveryBuildings</td><td></td><td>Set of String</td><td></td></tr>
+<tr><td>DeliveryBuildings</td><td></td><td>Set of System.String[]</td><td></td></tr>
 <tr><td>SearchForDeliveryBuildingDelay</td><td>125</td><td>Integer</td><td>How long (in ticks) to wait until (re-)checking for a nearby available DeliveryBuilding if not yet linked to one. </td></tr>
 <tr><td>UnblockCell</td><td>0,4</td><td>2D Cell Vector</td><td>Cell to move to when automatically unblocking DeliveryBuilding. </td></tr>
 <tr><td>Capacity</td><td>28</td><td>Integer</td><td>How much resources it can carry. </td></tr>
@@ -1982,7 +1964,7 @@ Requires trait: [`Mobile`](#mobile).
 <tr><td>BaleUnloadDelay</td><td>4</td><td>Integer</td><td>How fast it can dump it's carryage. </td></tr>
 <tr><td>BaleUnloadAmount</td><td>1</td><td>Integer</td><td>How many bales can it dump at once. </td></tr>
 <tr><td>HarvestFacings</td><td>0</td><td>Integer</td><td></td></tr>
-<tr><td>Resources</td><td></td><td>Set of String</td><td>Which resources it can harvest. </td></tr>
+<tr><td>Resources</td><td></td><td>Set of System.String[]</td><td>Which resources it can harvest. </td></tr>
 <tr><td>FullyLoadedSpeed</td><td>85</td><td>Integer</td><td>Percentage of maximum speed when fully loaded. </td></tr>
 <tr><td>SearchOnCreation</td><td>True</td><td>Boolean</td><td>Automatically scan for resources when created. </td></tr>
 <tr><td>SearchFromProcRadius</td><td>24</td><td>Integer</td><td>Initial search radius (in cells) from the refinery that created us. </td></tr>
@@ -1999,6 +1981,7 @@ Requires trait: [`Mobile`](#mobile).
 <tr><td>DeliverLineColor</td><td>008000</td><td>Color (RRGGBB[AA] notation)</td><td>Color to use for the target line of harvest orders. </td></tr>
 <tr><td>EnterCursor</td><td>enter</td><td>String</td><td>Cursor to display when able to unload at target actor. </td></tr>
 <tr><td>EnterBlockedCursor</td><td>enter-blocked</td><td>String</td><td>Cursor to display when unable to unload at target actor. </td></tr>
+<tr><td>HarvestCursor</td><td>harvest</td><td>String</td><td>Cursor to display when ordering to harvest resources. </td></tr>
 </table>
 
 ### Health
@@ -2030,7 +2013,7 @@ This actor can be targeted by the Hunt activity.
 Spawns remains of a husk actor with the correct facing.
 <table>
 <tr><th>Property</th><th>Default Value</th><th>Type</th><th>Description</th></tr>
-<tr><td>AllowedTerrain</td><td></td><td>Set of String</td><td></td></tr>
+<tr><td>AllowedTerrain</td><td></td><td>Set of System.String[]</td><td></td></tr>
 <tr><td>PreviewFacing</td><td>384</td><td>1D World Angle</td><td>Facing to use for actor previews (map editor, color picker, etc) </td></tr>
 </table>
 
@@ -2056,7 +2039,7 @@ Requires trait: [`Mobile`](#mobile).
 <tr><td>PanicDuration</td><td>250</td><td>Integer</td><td>How long (in ticks) the actor should panic for. </td></tr>
 <tr><td>PanicSpeedModifier</td><td>200</td><td>Integer</td><td>Panic movement speed as a percentage of the normal speed. </td></tr>
 <tr><td>AttackPanicChance</td><td>20</td><td>Integer</td><td>Chance (out of 100) the unit has to enter panic mode when attacking. </td></tr>
-<tr><td>AvoidTerrainTypes</td><td></td><td>Set of String</td><td>The terrain types that this actor should avoid running on to while panicking. </td></tr>
+<tr><td>AvoidTerrainTypes</td><td></td><td>Set of System.String[]</td><td>The terrain types that this actor should avoid running on to while panicking. </td></tr>
 <tr><td>PanicSequencePrefix</td><td>panic-</td><td>String</td><td></td></tr>
 </table>
 
@@ -2069,7 +2052,7 @@ Requires trait: [`BodyOrientation`](#bodyorientation).
 <tr><td>Duration</td><td>100</td><td>Integer</td><td>How long (in ticks) the actor remains prone. Negative values mean actor remains prone permanently. </td></tr>
 <tr><td>SpeedModifier</td><td>50</td><td>Integer</td><td>Prone movement speed as a percentage of the normal speed. </td></tr>
 <tr><td>DamageTriggers</td><td></td><td>Collection of DamageType</td><td>Damage types that trigger prone state. Defined on the warheads. If Duration is negative (permanent), you can leave this empty to trigger prone state immediately. </td></tr>
-<tr><td>DamageModifiers</td><td></td><td>Mapping of String to Integer</td><td>Damage modifiers for each damage type (defined on the warheads) while the unit is prone. </td></tr>
+<tr><td>DamageModifiers</td><td></td><td>Dictionary with Key: String, Value Integer</td><td>Damage modifiers for each damage type (defined on the warheads) while the unit is prone. </td></tr>
 <tr><td>ProneOffset</td><td>500,0,0</td><td>3D World Vector</td><td>Muzzle offset modifier to apply while prone. </td></tr>
 <tr><td>ProneSequencePrefix</td><td>prone-</td><td>String</td><td>Sequence prefix to apply while prone. </td></tr>
 <tr><td>Turret</td><td>primary</td><td>String</td><td></td></tr>
@@ -2085,7 +2068,7 @@ Requires trait: [`BodyOrientation`](#bodyorientation).
 ### TerrainModifiesDamage
 <table>
 <tr><th>Property</th><th>Default Value</th><th>Type</th><th>Description</th></tr>
-<tr><td>TerrainModifier</td><td><em>(required)</em></td><td>Mapping of String to Integer</td><td>Damage percentage for specific terrain types. 120 = 120%, 80 = 80%, etc. </td></tr>
+<tr><td>TerrainModifier</td><td><em>(required)</em></td><td>Dictionary with Key: String, Value Integer</td><td>Damage percentage for specific terrain types. 120 = 120%, 80 = 80%, etc. </td></tr>
 <tr><td>ModifyHealing</td><td>False</td><td>Boolean</td><td>Modify healing damage? For example: A friendly medic. </td></tr>
 </table>
 
@@ -2136,8 +2119,8 @@ This actor deflects missiles.
 ### MapEditorData
 <table>
 <tr><th>Property</th><th>Default Value</th><th>Type</th><th>Description</th></tr>
-<tr><td>RequireTilesets</td><td></td><td>Set of String</td><td></td></tr>
-<tr><td>ExcludeTilesets</td><td></td><td>Set of String</td><td></td></tr>
+<tr><td>RequireTilesets</td><td></td><td>Set of System.String[]</td><td></td></tr>
+<tr><td>ExcludeTilesets</td><td></td><td>Set of System.String[]</td><td></td></tr>
 <tr><td>Categories</td><td></td><td>Collection of String</td><td></td></tr>
 </table>
 
@@ -2151,6 +2134,7 @@ Unit is able to move.
 <tr><td>Speed</td><td>1</td><td>Integer</td><td></td></tr>
 <tr><td>AlwaysTurnInPlace</td><td>False</td><td>Boolean</td><td>If set to true, this unit will always turn in place instead of following a curved trajectory (like infantry). </td></tr>
 <tr><td>Cursor</td><td>move</td><td>String</td><td>Cursor to display when a move order can be issued at target location. </td></tr>
+<tr><td>TerrainCursors</td><td></td><td>Dictionary with Key: String, Value String</td><td>Cursor overrides to display for specific terrain types. A dictionary of [terrain type]: [cursor name]. </td></tr>
 <tr><td>BlockedCursor</td><td>move-blocked</td><td>String</td><td>Cursor to display when a move order cannot be issued at target location. </td></tr>
 <tr><td>Voice</td><td>Action</td><td>String</td><td></td></tr>
 <tr><td>TargetLineColor</td><td>008000</td><td>Color (RRGGBB[AA] notation)</td><td>Color to use for the target line for regular move orders. </td></tr>
@@ -2288,7 +2272,7 @@ Modifies the production cost of this actor for a specific queue or when a prereq
 <tr><th>Property</th><th>Default Value</th><th>Type</th><th>Description</th></tr>
 <tr><td>Multiplier</td><td>100</td><td>Integer</td><td>Percentage modifier to apply. </td></tr>
 <tr><td>Prerequisites</td><td></td><td>Collection of String</td><td>Only apply this cost change if owner has these prerequisites. </td></tr>
-<tr><td>Queue</td><td></td><td>Set of String</td><td>Queues that this cost will apply. </td></tr>
+<tr><td>Queue</td><td></td><td>Set of System.String[]</td><td>Queues that this cost will apply. </td></tr>
 </table>
 
 ### ProductionTimeMultiplier
@@ -2297,7 +2281,7 @@ Modifies the production time of this actor for a specific queue or when a prereq
 <tr><th>Property</th><th>Default Value</th><th>Type</th><th>Description</th></tr>
 <tr><td>Multiplier</td><td>100</td><td>Integer</td><td>Percentage modifier to apply. </td></tr>
 <tr><td>Prerequisites</td><td></td><td>Collection of String</td><td>Only apply this time change if owner has these prerequisites. </td></tr>
-<tr><td>Queue</td><td></td><td>Set of String</td><td>Queues that this time will apply. </td></tr>
+<tr><td>Queue</td><td></td><td>Set of System.String[]</td><td>Queues that this time will apply. </td></tr>
 </table>
 
 ### RangeMultiplier
@@ -2371,7 +2355,7 @@ Perform an action when the actor's owner is defeated.
 Used for bursted one-colored whole screen effects. Add this to the world actor.
 <table>
 <tr><th>Property</th><th>Default Value</th><th>Type</th><th>Description</th></tr>
-<tr><td>ExcludePalettes</td><td>cursor, chrome, colorpicker, fog, shroud</td><td>Set of String</td><td></td></tr>
+<tr><td>ExcludePalettes</td><td>cursor, chrome, colorpicker, fog, shroud</td><td>Set of System.String[]</td><td></td></tr>
 <tr><td>Length</td><td>20</td><td>Integer</td><td>Measured in ticks. </td></tr>
 <tr><td>Color</td><td>FFFFFF</td><td>Color (RRGGBB[AA] notation)</td><td></td></tr>
 <tr><td>Type</td><td></td><td>String</td><td>Set this when using multiple independent flash effects. </td></tr>
@@ -2381,8 +2365,8 @@ Used for bursted one-colored whole screen effects. Add this to the world actor.
 Used for day/night effects.
 <table>
 <tr><th>Property</th><th>Default Value</th><th>Type</th><th>Description</th></tr>
-<tr><td>ExcludePalettes</td><td>cursor, chrome, colorpicker, fog, shroud, alpha</td><td>Set of String</td><td>Do not modify graphics that use any palette in this list. </td></tr>
-<tr><td>ExcludePalettePrefixes</td><td></td><td>Set of String</td><td>Do not modify graphics that start with these letters. </td></tr>
+<tr><td>ExcludePalettes</td><td>cursor, chrome, colorpicker, fog, shroud, alpha</td><td>Set of System.String[]</td><td>Do not modify graphics that use any palette in this list. </td></tr>
+<tr><td>ExcludePalettePrefixes</td><td></td><td>Set of System.String[]</td><td>Do not modify graphics that start with these letters. </td></tr>
 <tr><td>Red</td><td>1</td><td>Real Number</td><td></td></tr>
 <tr><td>Green</td><td>1</td><td>Real Number</td><td></td></tr>
 <tr><td>Blue</td><td>1</td><td>Real Number</td><td></td></tr>
@@ -2402,13 +2386,151 @@ Fades the world from/to black at the start/end of the game, and can (optionally)
 Palette effect used for sprinkle "animations".
 <table>
 <tr><th>Property</th><th>Default Value</th><th>Type</th><th>Description</th></tr>
-<tr><td>Palettes</td><td></td><td>Set of String</td><td>Defines to which palettes this effect should be applied to. If none specified, it applies to all palettes not explicitly excluded. </td></tr>
-<tr><td>Tilesets</td><td></td><td>Set of String</td><td>Defines for which tileset IDs this effect should be loaded. If none specified, it applies to all tileset IDs not explicitly excluded. </td></tr>
-<tr><td>ExcludePalettes</td><td></td><td>Set of String</td><td>Defines which palettes should be excluded from this effect. </td></tr>
-<tr><td>ExcludeTilesets</td><td></td><td>Set of String</td><td>Don't apply the effect for these tileset IDs. </td></tr>
+<tr><td>Palettes</td><td></td><td>Set of System.String[]</td><td>Defines to which palettes this effect should be applied to. If none specified, it applies to all palettes not explicitly excluded. </td></tr>
+<tr><td>Tilesets</td><td></td><td>Set of System.String[]</td><td>Defines for which tileset IDs this effect should be loaded. If none specified, it applies to all tileset IDs not explicitly excluded. </td></tr>
+<tr><td>ExcludePalettes</td><td></td><td>Set of System.String[]</td><td>Defines which palettes should be excluded from this effect. </td></tr>
+<tr><td>ExcludeTilesets</td><td></td><td>Set of System.String[]</td><td>Don't apply the effect for these tileset IDs. </td></tr>
 <tr><td>RotationBase</td><td>96</td><td>Integer</td><td>Palette index of first RotationRange color. </td></tr>
 <tr><td>RotationRange</td><td>7</td><td>Integer</td><td>Range of colors to rotate. </td></tr>
 <tr><td>RotationStep</td><td>0.25</td><td>Real Number</td><td>Step towards next color index per tick. </td></tr>
+</table>
+
+### ColorPickerPalette
+Create a color picker palette from another palette.
+<table>
+<tr><th>Property</th><th>Default Value</th><th>Type</th><th>Description</th></tr>
+<tr><td>Name</td><td><em>(required)</em></td><td>String</td><td>Internal palette name. </td></tr>
+<tr><td>BasePalette</td><td><em>(required)</em></td><td>String</td><td>The name of the palette to base off. </td></tr>
+<tr><td>RemapIndex</td><td><em>(required)</em></td><td>Collection of Integer</td><td>Remap these indices to player colors. </td></tr>
+<tr><td>AllowModifiers</td><td>True</td><td>Boolean</td><td>Allow palette modifiers to change the palette. </td></tr>
+</table>
+
+### FixedColorPalette
+Add this to the World actor definition.
+<table>
+<tr><th>Property</th><th>Default Value</th><th>Type</th><th>Description</th></tr>
+<tr><td>Base</td><td>terrain</td><td>String</td><td>The name of the palette to base off. </td></tr>
+<tr><td>Name</td><td>resources</td><td>String</td><td>The name of the resulting palette </td></tr>
+<tr><td>RemapIndex</td><td></td><td>Collection of Integer</td><td>Remap these indices to pre-defined colors. </td></tr>
+<tr><td>Color</td><td>00000000</td><td>Color (RRGGBB[AA] notation)</td><td>The fixed color to remap. </td></tr>
+<tr><td>AllowModifiers</td><td>True</td><td>Boolean</td><td>Allow palette modifiers to change the palette. </td></tr>
+</table>
+
+### IndexedPalette
+Define a palette by swapping palette indices.
+<table>
+<tr><th>Property</th><th>Default Value</th><th>Type</th><th>Description</th></tr>
+<tr><td>Name</td><td><em>(required)</em></td><td>String</td><td>Internal palette name </td></tr>
+<tr><td>BasePalette</td><td></td><td>String</td><td>The name of the palette to base off. </td></tr>
+<tr><td>Index</td><td><em>(required)</em></td><td>Collection of Integer</td><td>Indices from BasePalette to be swapped with ReplaceIndex. </td></tr>
+<tr><td>ReplaceIndex</td><td><em>(required)</em></td><td>Collection of Integer</td><td>Indices from BasePalette to replace from Index. </td></tr>
+<tr><td>AllowModifiers</td><td>True</td><td>Boolean</td><td>Allow palette modifiers to change the palette. </td></tr>
+</table>
+
+### IndexedPlayerPalette
+Define a player palette by swapping palette indices.
+<table>
+<tr><th>Property</th><th>Default Value</th><th>Type</th><th>Description</th></tr>
+<tr><td>BasePalette</td><td></td><td>String</td><td>The name of the palette to base off. </td></tr>
+<tr><td>BaseName</td><td>player</td><td>String</td><td>The prefix for the resulting player palettes </td></tr>
+<tr><td>RemapIndex</td><td></td><td>Collection of Integer</td><td>Remap these indices to player colors. </td></tr>
+<tr><td>AllowModifiers</td><td>True</td><td>Boolean</td><td>Allow palette modifiers to change the palette. </td></tr>
+<tr><td>PlayerIndex</td><td></td><td>Dictionary with Key: String, Value Collection of Integer</td><td></td></tr>
+</table>
+
+### PaletteFromEmbeddedSpritePalette
+<table>
+<tr><th>Property</th><th>Default Value</th><th>Type</th><th>Description</th></tr>
+<tr><td>Name</td><td><em>(required)</em></td><td>String</td><td>Internal palette name </td></tr>
+<tr><td>Image</td><td><em>(required)</em></td><td>String</td><td>Sequence image holding the palette definition </td></tr>
+<tr><td>Sequence</td><td><em>(required)</em></td><td>String</td><td>Sequence holding the palette definition </td></tr>
+<tr><td>AllowModifiers</td><td>True</td><td>Boolean</td><td>Allow palette modifiers to change the palette. </td></tr>
+<tr><td>CursorPalette</td><td>False</td><td>Boolean</td><td>Whether this palette is available for cursors. </td></tr>
+</table>
+
+### PaletteFromFile
+Load VGA palette (.pal) registers.
+<table>
+<tr><th>Property</th><th>Default Value</th><th>Type</th><th>Description</th></tr>
+<tr><td>Name</td><td><em>(required)</em></td><td>String</td><td>internal palette name </td></tr>
+<tr><td>Tileset</td><td></td><td>String</td><td>If defined, load the palette only for this tileset. </td></tr>
+<tr><td>Filename</td><td><em>(required)</em></td><td>String</td><td>filename to load </td></tr>
+<tr><td>TransparentIndex</td><td>0</td><td>Collection of Integer</td><td>Map listed indices to transparent. Ignores previous color. </td></tr>
+<tr><td>ShadowIndex</td><td></td><td>Collection of Integer</td><td>Map listed indices to shadow. Ignores previous color. </td></tr>
+<tr><td>AllowModifiers</td><td>True</td><td>Boolean</td><td></td></tr>
+<tr><td>CursorPalette</td><td>False</td><td>Boolean</td><td>Whether this palette is available for cursors. </td></tr>
+</table>
+
+### PaletteFromGimpOrJascFile
+Load a GIMP .gpl or JASC .pal palette file. Supports per-color alpha.
+<table>
+<tr><th>Property</th><th>Default Value</th><th>Type</th><th>Description</th></tr>
+<tr><td>Name</td><td><em>(required)</em></td><td>String</td><td>Palette name used internally. </td></tr>
+<tr><td>Tilesets</td><td></td><td>Set of System.String[]</td><td>Defines for which tileset IDs this palette should be loaded. If none specified, it applies to all tileset IDs not explicitly excluded. </td></tr>
+<tr><td>ExcludeTilesets</td><td></td><td>Set of System.String[]</td><td>Don't load palette for these tileset IDs. </td></tr>
+<tr><td>Filename</td><td><em>(required)</em></td><td>String</td><td>Name of the file to load. </td></tr>
+<tr><td>Premultiply</td><td>True</td><td>Boolean</td><td>Premultiply colors with their alpha values. </td></tr>
+<tr><td>AllowModifiers</td><td>True</td><td>Boolean</td><td></td></tr>
+<tr><td>TransparentIndex</td><td>0</td><td>Integer</td><td>Index set to be fully transparent/invisible. </td></tr>
+<tr><td>CursorPalette</td><td>False</td><td>Boolean</td><td>Whether this palette is available for cursors. </td></tr>
+</table>
+
+### PaletteFromPaletteWithAlpha
+Create a palette by applying alpha transparency to another palette.
+<table>
+<tr><th>Property</th><th>Default Value</th><th>Type</th><th>Description</th></tr>
+<tr><td>Name</td><td><em>(required)</em></td><td>String</td><td>Internal palette name </td></tr>
+<tr><td>BasePalette</td><td><em>(required)</em></td><td>String</td><td>The name of the palette to base off. </td></tr>
+<tr><td>AllowModifiers</td><td>True</td><td>Boolean</td><td>Allow palette modifiers to change the palette. </td></tr>
+<tr><td>Alpha</td><td>1</td><td>Real Number</td><td>Alpha component that is applied to the base palette. </td></tr>
+<tr><td>Premultiply</td><td>True</td><td>Boolean</td><td>Premultiply color by the alpha component. </td></tr>
+</table>
+
+### PaletteFromPlayerPaletteWithAlpha
+Create player palettes by applying alpha transparency to another player palette.
+<table>
+<tr><th>Property</th><th>Default Value</th><th>Type</th><th>Description</th></tr>
+<tr><td>BaseName</td><td><em>(required)</em></td><td>String</td><td>The prefix for the resulting player palettes </td></tr>
+<tr><td>BasePalette</td><td><em>(required)</em></td><td>String</td><td>The name of the player palette to base off. </td></tr>
+<tr><td>AllowModifiers</td><td>True</td><td>Boolean</td><td>Allow palette modifiers to change the palette. </td></tr>
+<tr><td>Alpha</td><td>1</td><td>Real Number</td><td>Alpha component that is applied to the base palette. </td></tr>
+<tr><td>Premultiply</td><td>True</td><td>Boolean</td><td>Premultiply color by the alpha component. </td></tr>
+</table>
+
+### PaletteFromPng
+Load a PNG and use its embedded palette.
+<table>
+<tr><th>Property</th><th>Default Value</th><th>Type</th><th>Description</th></tr>
+<tr><td>Name</td><td><em>(required)</em></td><td>String</td><td>Internal palette name </td></tr>
+<tr><td>Tileset</td><td></td><td>String</td><td>If defined, load the palette only for this tileset. </td></tr>
+<tr><td>Filename</td><td><em>(required)</em></td><td>String</td><td>Filename to load </td></tr>
+<tr><td>ShadowIndex</td><td></td><td>Collection of Integer</td><td>Map listed indices to shadow. Ignores previous color. </td></tr>
+<tr><td>AllowModifiers</td><td>True</td><td>Boolean</td><td></td></tr>
+<tr><td>CursorPalette</td><td>False</td><td>Boolean</td><td>Whether this palette is available for cursors. </td></tr>
+</table>
+
+### PaletteFromRGBA
+Creates a single color palette without any base palette file.
+<table>
+<tr><th>Property</th><th>Default Value</th><th>Type</th><th>Description</th></tr>
+<tr><td>Name</td><td><em>(required)</em></td><td>String</td><td>internal palette name </td></tr>
+<tr><td>Tileset</td><td></td><td>String</td><td>If defined, load the palette only for this tileset. </td></tr>
+<tr><td>R</td><td>0</td><td>Integer</td><td>red color component </td></tr>
+<tr><td>G</td><td>0</td><td>Integer</td><td>green color component </td></tr>
+<tr><td>B</td><td>0</td><td>Integer</td><td>blue color component </td></tr>
+<tr><td>A</td><td>255</td><td>Integer</td><td>alpha channel (transparency) </td></tr>
+<tr><td>AllowModifiers</td><td>True</td><td>Boolean</td><td></td></tr>
+<tr><td>TransparentIndex</td><td>0</td><td>Integer</td><td>Index set to be fully transparent/invisible. </td></tr>
+</table>
+
+### PlayerColorPalette
+Add this to the World actor definition.
+<table>
+<tr><th>Property</th><th>Default Value</th><th>Type</th><th>Description</th></tr>
+<tr><td>BasePalette</td><td></td><td>String</td><td>The name of the palette to base off. </td></tr>
+<tr><td>BaseName</td><td>player</td><td>String</td><td>The prefix for the resulting player palettes </td></tr>
+<tr><td>RemapIndex</td><td></td><td>Collection of Integer</td><td>Remap these indices to player colors. </td></tr>
+<tr><td>AllowModifiers</td><td>True</td><td>Boolean</td><td>Allow palette modifiers to change the palette. </td></tr>
 </table>
 
 ### Parachutable
@@ -2423,7 +2545,7 @@ Can be paradropped by a ParaDrop actor.
 <tr><td>GroundImpactSound</td><td></td><td>String</td><td></td></tr>
 <tr><td>WaterCorpseSequence</td><td></td><td>String</td><td></td></tr>
 <tr><td>WaterCorpsePalette</td><td>effect</td><td>String</td><td></td></tr>
-<tr><td>WaterTerrainTypes</td><td>Water</td><td>Set of String</td><td>Terrain types on which to display WaterCorpseSequence. </td></tr>
+<tr><td>WaterTerrainTypes</td><td>Water</td><td>Set of System.String[]</td><td>Terrain types on which to display WaterCorpseSequence. </td></tr>
 <tr><td>WaterImpactSound</td><td></td><td>String</td><td></td></tr>
 <tr><td>FallRate</td><td>13</td><td>Integer</td><td></td></tr>
 <tr><td>ParachutingCondition</td><td></td><td>String</td><td>The condition to grant to self while parachuting. </td></tr>
@@ -2448,7 +2570,7 @@ This actor can enter Cargo actors.
 <tr><td>CustomPipType</td><td></td><td>String</td><td>If defined, use a custom pip type defined on the transport's WithCargoPipsDecoration.CustomPipSequences list. </td></tr>
 <tr><td>Weight</td><td>1</td><td>Integer</td><td></td></tr>
 <tr><td>CargoCondition</td><td></td><td>String</td><td>The condition to grant to when this actor is loaded inside any transport. </td></tr>
-<tr><td>CargoConditions</td><td></td><td>Mapping of String to String</td><td>Conditions to grant when this actor is loaded inside specified transport. A dictionary of [actor id]: [condition]. </td></tr>
+<tr><td>CargoConditions</td><td></td><td>Dictionary with Key: String, Value String</td><td>Conditions to grant when this actor is loaded inside specified transport. A dictionary of [actor id]: [condition]. </td></tr>
 <tr><td>Voice</td><td>Action</td><td>String</td><td></td></tr>
 <tr><td>TargetLineColor</td><td>008000</td><td>Color (RRGGBB[AA] notation)</td><td>Color to use for the target line. </td></tr>
 <tr><td>RequireForceMoveCondition</td><td></td><td>BooleanExpression</td><td>Boolean expression defining the condition under which the regular (non-force) enter cursor is disabled. </td></tr>
@@ -2486,7 +2608,7 @@ Requires traits: [`PlayerResources`](#playerresources), [`TechTree`](#techtree).
 <tr><td>Type</td><td><em>(required)</em></td><td>String</td><td>What kind of production will be added (e.g. Building, Infantry, Vehicle, ...) </td></tr>
 <tr><td>DisplayOrder</td><td>0</td><td>Integer</td><td>The value used when ordering this for display (e.g. in the Spectator UI). </td></tr>
 <tr><td>Group</td><td></td><td>String</td><td>Group queues from separate buildings together into the same tab. </td></tr>
-<tr><td>Factions</td><td></td><td>Set of String</td><td>Only enable this queue for certain factions. </td></tr>
+<tr><td>Factions</td><td></td><td>Set of System.String[]</td><td>Only enable this queue for certain factions. </td></tr>
 <tr><td>Sticky</td><td>True</td><td>Boolean</td><td>Should the prerequisite remain enabled if the owner changes? </td></tr>
 <tr><td>DisallowPaused</td><td>False</td><td>Boolean</td><td>Should right clicking on the icon instantly cancel the production instead of putting it on hold? </td></tr>
 <tr><td>BuildDurationModifier</td><td>100</td><td>Integer</td><td>This percentage value is multiplied with actor cost to translate into build time (lower means faster). </td></tr>
@@ -2515,7 +2637,7 @@ Requires traits: [`PlayerResources`](#playerresources), [`TechTree`](#techtree).
 <tr><td>Type</td><td><em>(required)</em></td><td>String</td><td>What kind of production will be added (e.g. Building, Infantry, Vehicle, ...) </td></tr>
 <tr><td>DisplayOrder</td><td>0</td><td>Integer</td><td>The value used when ordering this for display (e.g. in the Spectator UI). </td></tr>
 <tr><td>Group</td><td></td><td>String</td><td>Group queues from separate buildings together into the same tab. </td></tr>
-<tr><td>Factions</td><td></td><td>Set of String</td><td>Only enable this queue for certain factions. </td></tr>
+<tr><td>Factions</td><td></td><td>Set of System.String[]</td><td>Only enable this queue for certain factions. </td></tr>
 <tr><td>Sticky</td><td>True</td><td>Boolean</td><td>Should the prerequisite remain enabled if the owner changes? </td></tr>
 <tr><td>DisallowPaused</td><td>False</td><td>Boolean</td><td>Should right clicking on the icon instantly cancel the production instead of putting it on hold? </td></tr>
 <tr><td>BuildDurationModifier</td><td>100</td><td>Integer</td><td>This percentage value is multiplied with actor cost to translate into build time (lower means faster). </td></tr>
@@ -2629,7 +2751,7 @@ Bot that uses BotModules.
 <tr><td>Type</td><td><em>(required)</em></td><td>String</td><td>What kind of production will be added (e.g. Building, Infantry, Vehicle, ...) </td></tr>
 <tr><td>DisplayOrder</td><td>0</td><td>Integer</td><td>The value used when ordering this for display (e.g. in the Spectator UI). </td></tr>
 <tr><td>Group</td><td></td><td>String</td><td>Group queues from separate buildings together into the same tab. </td></tr>
-<tr><td>Factions</td><td></td><td>Set of String</td><td>Only enable this queue for certain factions. </td></tr>
+<tr><td>Factions</td><td></td><td>Set of System.String[]</td><td>Only enable this queue for certain factions. </td></tr>
 <tr><td>Sticky</td><td>True</td><td>Boolean</td><td>Should the prerequisite remain enabled if the owner changes? </td></tr>
 <tr><td>DisallowPaused</td><td>False</td><td>Boolean</td><td>Should right clicking on the icon instantly cancel the production instead of putting it on hold? </td></tr>
 <tr><td>BuildDurationModifier</td><td>100</td><td>Integer</td><td>This percentage value is multiplied with actor cost to translate into build time (lower means faster). </td></tr>
@@ -2693,7 +2815,7 @@ Requires trait: [`Shroud`](#shroud).
 <tr><td>InsufficientFundsNotificationInterval</td><td>30000</td><td>Integer</td><td>Delay (in ticks) during which warnings will be muted. </td></tr>
 <tr><td>CashTickUpNotification</td><td></td><td>String</td><td></td></tr>
 <tr><td>CashTickDownNotification</td><td></td><td>String</td><td></td></tr>
-<tr><td>ResourceValues</td><td></td><td>Mapping of String to Integer</td><td>Monetery value of each resource type. Dictionary of [resource type]: [value per unit]. </td></tr>
+<tr><td>ResourceValues</td><td></td><td>Dictionary with Key: String, Value Integer</td><td>Monetery value of each resource type. Dictionary of [resource type]: [value per unit]. </td></tr>
 </table>
 
 ### PlayerStatistics
@@ -2717,7 +2839,7 @@ at the same time. Will only work together with the Production: trait.
 <tr><td>Type</td><td><em>(required)</em></td><td>String</td><td>What kind of production will be added (e.g. Building, Infantry, Vehicle, ...) </td></tr>
 <tr><td>DisplayOrder</td><td>0</td><td>Integer</td><td>The value used when ordering this for display (e.g. in the Spectator UI). </td></tr>
 <tr><td>Group</td><td></td><td>String</td><td>Group queues from separate buildings together into the same tab. </td></tr>
-<tr><td>Factions</td><td></td><td>Set of String</td><td>Only enable this queue for certain factions. </td></tr>
+<tr><td>Factions</td><td></td><td>Set of System.String[]</td><td>Only enable this queue for certain factions. </td></tr>
 <tr><td>Sticky</td><td>True</td><td>Boolean</td><td>Should the prerequisite remain enabled if the owner changes? </td></tr>
 <tr><td>DisallowPaused</td><td>False</td><td>Boolean</td><td>Should right clicking on the icon instantly cancel the production instead of putting it on hold? </td></tr>
 <tr><td>BuildDurationModifier</td><td>100</td><td>Integer</td><td>This percentage value is multiplied with actor cost to translate into build time (lower means faster). </td></tr>
@@ -2738,7 +2860,7 @@ at the same time. Will only work together with the Production: trait.
 <tr><th>Property</th><th>Default Value</th><th>Type</th><th>Description</th></tr>
 <tr><td>Prerequisite</td><td></td><td>String</td><td>The prerequisite type that this provides. If left empty it defaults to the actor's name. </td></tr>
 <tr><td>RequiresPrerequisites</td><td></td><td>Collection of String</td><td>Only grant this prerequisite when you have these prerequisites. </td></tr>
-<tr><td>Factions</td><td></td><td>Set of String</td><td>Only grant this prerequisite for certain factions. </td></tr>
+<tr><td>Factions</td><td></td><td>Set of System.String[]</td><td>Only grant this prerequisite for certain factions. </td></tr>
 <tr><td>ResetOnOwnerChange</td><td>False</td><td>Boolean</td><td>Should it recheck everything when it is captured? </td></tr>
 <tr><td>RequiresCondition</td><td></td><td>BooleanExpression</td><td>Boolean expression defining the condition to enable this trait. </td></tr>
 </table>
@@ -2796,7 +2918,7 @@ This trait allows setting a time limit on matches. Attach this to the World acto
 4: 
 5: 
 10: 
-</td><td>Mapping of Integer to String</td><td>List of remaining minutes of game time when a text and optional speech notification should be made to players. </td></tr>
+</td><td>Dictionary with Key: Integer, Value String</td><td>List of remaining minutes of game time when a text and optional speech notification should be made to players. </td></tr>
 <tr><td>TimeLimitDefault</td><td>0</td><td>Integer</td><td>Default selection for the time limit option in the lobby. Needs to use one of the TimeLimitOptions. </td></tr>
 <tr><td>TimeLimitLocked</td><td>False</td><td>Boolean</td><td>Prevent the time limit option from being changed in the lobby. </td></tr>
 <tr><td>TimeLimitDropdownVisible</td><td>True</td><td>Boolean</td><td>Whether to display the options dropdown in the lobby. </td></tr>
@@ -2818,9 +2940,9 @@ This trait allows setting a time limit on matches. Attach this to the World acto
 <table>
 <tr><th>Property</th><th>Default Value</th><th>Type</th><th>Description</th></tr>
 <tr><td>Offset</td><td>0,0</td><td>2D Cell Vector</td><td>Footprint cell offset where a plug can be placed. </td></tr>
-<tr><td>Conditions</td><td><em>(required)</em></td><td>Mapping of String to String</td><td>Conditions to grant for each accepted plug type. Key is the plug type. Value is the condition that is granted when the plug is enabled. </td></tr>
-<tr><td>Requirements</td><td></td><td>Mapping of String to BooleanExpression</td><td>Requirements for accepting a plug type. Key is the plug type that the requirements applies to. Value is the condition expression defining the requirements to place the plug. </td></tr>
-<tr><td>EditorOptions</td><td></td><td>Mapping of String to String</td><td>Options to display in the map editor. Key is the plug type that the requirements applies to. Value is the label that is displayed in the actor editor dropdown. </td></tr>
+<tr><td>Conditions</td><td><em>(required)</em></td><td>Dictionary with Key: String, Value String</td><td>Conditions to grant for each accepted plug type. Key is the plug type. Value is the condition that is granted when the plug is enabled. </td></tr>
+<tr><td>Requirements</td><td></td><td>Dictionary with Key: String, Value BooleanExpression</td><td>Requirements for accepting a plug type. Key is the plug type that the requirements applies to. Value is the condition expression defining the requirements to place the plug. </td></tr>
+<tr><td>EditorOptions</td><td></td><td>Dictionary with Key: String, Value String</td><td>Options to display in the map editor. Key is the plug type that the requirements applies to. Value is the label that is displayed in the actor editor dropdown. </td></tr>
 <tr><td>EmptyOption</td><td>Empty</td><td>String</td><td>Label to use for an empty plug socket. </td></tr>
 <tr><td>EditorDisplayOrder</td><td>5</td><td>Integer</td><td>Display order for the dropdown in the map editor </td></tr>
 </table>
@@ -2941,16 +3063,16 @@ Requires trait: [`RenderSprites`](#rendersprites).
 ### Rearmable
 <table>
 <tr><th>Property</th><th>Default Value</th><th>Type</th><th>Description</th></tr>
-<tr><td>RearmActors</td><td><em>(required)</em></td><td>Set of String</td><td>Actors that this actor can dock to and get rearmed by. </td></tr>
-<tr><td>AmmoPools</td><td>primary</td><td>Set of String</td><td>Name(s) of AmmoPool(s) that use this trait to rearm. </td></tr>
+<tr><td>RearmActors</td><td><em>(required)</em></td><td>Set of System.String[]</td><td>Actors that this actor can dock to and get rearmed by. </td></tr>
+<tr><td>AmmoPools</td><td>primary</td><td>Set of System.String[]</td><td>Name(s) of AmmoPool(s) that use this trait to rearm. </td></tr>
 </table>
 
 ### RejectsOrders
 Can be used to make a unit partly uncontrollable by the player.
 <table>
 <tr><th>Property</th><th>Default Value</th><th>Type</th><th>Description</th></tr>
-<tr><td>Reject</td><td></td><td>Set of String</td><td>Explicit list of rejected orders. Leave empty to reject all minus those listed under Except. </td></tr>
-<tr><td>Except</td><td></td><td>Set of String</td><td>List of orders that should *not* be rejected. Also overrides other instances of this trait's Reject fields. </td></tr>
+<tr><td>Reject</td><td></td><td>Set of System.String[]</td><td>Explicit list of rejected orders. Leave empty to reject all minus those listed under Except. </td></tr>
+<tr><td>Except</td><td></td><td>Set of System.String[]</td><td>List of orders that should *not* be rejected. Also overrides other instances of this trait's Reject fields. </td></tr>
 <tr><td>RequiresCondition</td><td></td><td>BooleanExpression</td><td>Boolean expression defining the condition to enable this trait. </td></tr>
 </table>
 
@@ -3022,7 +3144,7 @@ Renders target lines between order waypoints.
 This actor can be sent to a structure for repairs.
 <table>
 <tr><th>Property</th><th>Default Value</th><th>Type</th><th>Description</th></tr>
-<tr><td>RepairActors</td><td><em>(required)</em></td><td>Set of String</td><td></td></tr>
+<tr><td>RepairActors</td><td><em>(required)</em></td><td>Set of System.String[]</td><td></td></tr>
 <tr><td>Voice</td><td>Action</td><td>String</td><td></td></tr>
 <tr><td>HpPerStep</td><td>-1</td><td>Integer</td><td>The amount the unit will be repaired at each step. Use -1 for fallback behavior where HpPerStep from RepairsUnits trait will be used. </td></tr>
 <tr><td>RequireForceMoveCondition</td><td></td><td>BooleanExpression</td><td>Boolean expression defining the condition under which the regular (non-force) enter cursor is disabled. </td></tr>
@@ -3033,7 +3155,7 @@ This actor can be sent to a structure for repairs.
 ### RepairableNear
 <table>
 <tr><th>Property</th><th>Default Value</th><th>Type</th><th>Description</th></tr>
-<tr><td>RepairActors</td><td><em>(required)</em></td><td>Set of String</td><td></td></tr>
+<tr><td>RepairActors</td><td><em>(required)</em></td><td>Set of System.String[]</td><td></td></tr>
 <tr><td>CloseEnough</td><td>4c0</td><td>1D World Distance</td><td></td></tr>
 <tr><td>Voice</td><td>Action</td><td>String</td><td></td></tr>
 <tr><td>RequireForceMoveCondition</td><td></td><td>BooleanExpression</td><td>Boolean expression defining the condition under which the regular (non-force) enter cursor is disabled. </td></tr>
@@ -3070,21 +3192,21 @@ Can enter a BridgeHut or LegacyBridgeHut to trigger a repair.
 ### Replaceable
 <table>
 <tr><th>Property</th><th>Default Value</th><th>Type</th><th>Description</th></tr>
-<tr><td>Types</td><td><em>(required)</em></td><td>Set of String</td><td>Replacement types this Replaceable actor accepts. </td></tr>
+<tr><td>Types</td><td><em>(required)</em></td><td>Set of System.String[]</td><td>Replacement types this Replaceable actor accepts. </td></tr>
 <tr><td>RequiresCondition</td><td></td><td>BooleanExpression</td><td>Boolean expression defining the condition to enable this trait. </td></tr>
 </table>
 
 ### Replacement
 <table>
 <tr><th>Property</th><th>Default Value</th><th>Type</th><th>Description</th></tr>
-<tr><td>ReplaceableTypes</td><td><em>(required)</em></td><td>Set of String</td><td>Replacement type (matched against Types in Replaceable). </td></tr>
+<tr><td>ReplaceableTypes</td><td><em>(required)</em></td><td>Set of System.String[]</td><td>Replacement type (matched against Types in Replaceable). </td></tr>
 </table>
 
 ### RequiresSpecificOwners
 Can be used to enforce specific owners (like 'Neutral' or 'Creeps') for this actor.
 <table>
 <tr><th>Property</th><th>Default Value</th><th>Type</th><th>Description</th></tr>
-<tr><td>ValidOwnerNames</td><td><em>(required)</em></td><td>Set of String</td><td>Only allow players listed here as owners. </td></tr>
+<tr><td>ValidOwnerNames</td><td><em>(required)</em></td><td>Set of System.String[]</td><td>Only allow players listed here as owners. </td></tr>
 </table>
 
 ### RevealOnDeath
@@ -3204,7 +3326,7 @@ Spawn new actors when sold.
 <tr><td>ValuePercent</td><td>40</td><td>Integer</td><td></td></tr>
 <tr><td>MinHpPercent</td><td>30</td><td>Integer</td><td></td></tr>
 <tr><td>ActorTypes</td><td><em>(required)</em></td><td>Collection of String</td><td>Actor types to spawn on sell. Be sure to use lowercase. </td></tr>
-<tr><td>Factions</td><td></td><td>Set of String</td><td>Spawns actors only if the selling player's faction is in this list. Leave empty to allow all factions by default. </td></tr>
+<tr><td>Factions</td><td></td><td>Set of System.String[]</td><td>Spawns actors only if the selling player's faction is in this list. Leave empty to allow all factions by default. </td></tr>
 <tr><td>RequiresCondition</td><td></td><td>BooleanExpression</td><td>Boolean expression defining the condition to enable this trait. </td></tr>
 </table>
 
@@ -3764,7 +3886,7 @@ Wanders around aimlessly while idle.
 <tr><td>ReduceMoveRadiusDelay</td><td>5</td><td>Integer</td><td>Number of ticks to wait before decreasing the effective move radius. </td></tr>
 <tr><td>MinMoveDelay</td><td>0</td><td>Integer</td><td>Minimum amount of ticks the actor will sit idly before starting to wander. </td></tr>
 <tr><td>MaxMoveDelay</td><td>0</td><td>Integer</td><td>Maximum amount of ticks the actor will sit idly before starting to wander. </td></tr>
-<tr><td>AvoidTerrainTypes</td><td></td><td>Set of String</td><td>The terrain types that this actor should avoid wandering on to. </td></tr>
+<tr><td>AvoidTerrainTypes</td><td></td><td>Set of System.String[]</td><td>The terrain types that this actor should avoid wandering on to. </td></tr>
 <tr><td>RequiresCondition</td><td></td><td>BooleanExpression</td><td>Boolean expression defining the condition to enable this trait. </td></tr>
 </table>
 
@@ -3786,7 +3908,7 @@ Requires trait: [`MapCreeps`](#mapcreeps).
 If 2 values are provided they are used as a range from which a value is randomly selected. </td></tr>
 <tr><td>Actors</td><td><em>(required)</em></td><td>Collection of String</td><td>Name of the actor that will be randomly picked to spawn. </td></tr>
 <tr><td>Owner</td><td>Creeps</td><td>String</td><td></td></tr>
-<tr><td>Types</td><td></td><td>Set of String</td><td>Type of ActorSpawner with which it connects. </td></tr>
+<tr><td>Types</td><td></td><td>Set of System.String[]</td><td>Type of ActorSpawner with which it connects. </td></tr>
 <tr><td>RequiresCondition</td><td></td><td>BooleanExpression</td><td>Boolean expression defining the condition to enable this trait. </td></tr>
 </table>
 
@@ -3798,6 +3920,20 @@ This trait replicates the default CliffBackImpassability=2 behaviour from the TS
 <table>
 <tr><th>Property</th><th>Default Value</th><th>Type</th><th>Description</th></tr>
 <tr><td>TerrainType</td><td>Impassable</td><td>String</td><td></td></tr>
+</table>
+
+### ColorPickerManager
+Configuration options for the lobby player color picker. Attach this to the world actor.
+<table>
+<tr><th>Property</th><th>Default Value</th><th>Type</th><th>Description</th></tr>
+<tr><td>HsvSaturationRange</td><td>0.3, 0.95</td><td>Collection of Real Number</td><td>Minimum and maximum saturation levels that are valid for use. </td></tr>
+<tr><td>V</td><td>0.95</td><td>Real Number</td><td>HSV value component for player colors. </td></tr>
+<tr><td>SimilarityThreshold</td><td>0.314</td><td>Real Number</td><td>Perceptual color threshold for determining whether two colors are too similar. </td></tr>
+<tr><td>PresetHues</td><td></td><td>Collection of Real Number</td><td>List of hue components for the preset colors in the palette tab. Each entry must have a corresponding PresetSaturations definition. </td></tr>
+<tr><td>PresetSaturations</td><td></td><td>Collection of Real Number</td><td>List of saturation components for the preset colors in the palette tab. Each entry must have a corresponding PresetHues definition. </td></tr>
+<tr><td>PreviewActor</td><td></td><td>String</td><td>Actor type to show in the color picker. This can be overriden for specific factions with FactionPreviewActors. </td></tr>
+<tr><td>FactionPreviewActors</td><td></td><td>Dictionary with Key: String, Value String</td><td>Actor type to show in the color picker for specific factions. Overrides PreviewActor. A dictionary of [faction name]: [actor name]. </td></tr>
+<tr><td>Color</td><td>00000000</td><td>Color (RRGGBB[AA] notation)</td><td></td></tr>
 </table>
 
 ### CrateSpawner
@@ -3813,8 +3949,8 @@ This trait replicates the default CliffBackImpassability=2 behaviour from the TS
 <tr><td>Maximum</td><td>255</td><td>Integer</td><td>Maximum number of crates. </td></tr>
 <tr><td>SpawnInterval</td><td>4500</td><td>Integer</td><td>Average time (ticks) between crate spawn. </td></tr>
 <tr><td>InitialSpawnDelay</td><td>0</td><td>Integer</td><td>Delay (in ticks) before the first crate spawns. </td></tr>
-<tr><td>ValidGround</td><td>Clear, Rough, Road, Ore, Beach</td><td>Set of String</td><td>Which terrain types can we drop on? </td></tr>
-<tr><td>ValidWater</td><td>Water</td><td>Set of String</td><td>Which terrain types count as water? </td></tr>
+<tr><td>ValidGround</td><td>Clear, Rough, Road, Ore, Beach</td><td>Set of System.String[]</td><td>Which terrain types can we drop on? </td></tr>
+<tr><td>ValidWater</td><td>Water</td><td>Set of System.String[]</td><td>Which terrain types count as water? </td></tr>
 <tr><td>WaterChance</td><td>20</td><td>Integer</td><td>Chance of generating a water crate instead of a land crate. </td></tr>
 <tr><td>CrateActors</td><td>crate</td><td>Collection of String</td><td>Crate actors to drop. </td></tr>
 <tr><td>CrateActorShares</td><td>10</td><td>Collection of Integer</td><td>Chance of each crate actor spawning. </td></tr>
@@ -3852,7 +3988,7 @@ Requires trait: [`EditorActorLayer`](#editoractorlayer).
 Required for the map editor to work. Attach this to the world actor.
 <table>
 <tr><th>Property</th><th>Default Value</th><th>Type</th><th>Description</th></tr>
-<tr><td>ResourceTypes</td><td></td><td>Mapping of String to ResourceTypeInfo</td><td></td></tr>
+<tr><td>ResourceTypes</td><td></td><td>Dictionary with Key: String, Value ResourceTypeInfo</td><td></td></tr>
 <tr><td>RecalculateResourceDensity</td><td>False</td><td>Boolean</td><td>Override the density saved in maps with values calculated based on the number of neighbouring resource cells. </td></tr>
 </table>
 
@@ -3909,7 +4045,7 @@ Used by Mobile. Required for jumpjet actors. Attach these to the world actor. Yo
 <table>
 <tr><th>Property</th><th>Default Value</th><th>Type</th><th>Description</th></tr>
 <tr><td>JumpjetTransitionCost</td><td>0</td><td>Integer</td><td>Pathfinding cost for taking off or landing. </td></tr>
-<tr><td>JumpjetTransitionTerrainTypes</td><td></td><td>Set of String</td><td>The terrain types that this actor can transition on. Leave empty to allow any. </td></tr>
+<tr><td>JumpjetTransitionTerrainTypes</td><td></td><td>Set of System.String[]</td><td>The terrain types that this actor can transition on. Leave empty to allow any. </td></tr>
 <tr><td>JumpjetTransitionOnRamps</td><td>True</td><td>Boolean</td><td>Can this actor transition on slopes? </td></tr>
 <tr><td>Name</td><td>default</td><td>String</td><td>Locomotor ID. </td></tr>
 <tr><td>WaitAverage</td><td>40</td><td>Integer</td><td></td></tr>
@@ -3918,7 +4054,7 @@ Used by Mobile. Required for jumpjet actors. Attach these to the world actor. Yo
 <tr><td>MoveIntoShroud</td><td>True</td><td>Boolean</td><td>Can the actor be ordered to move in to shroud? </td></tr>
 <tr><td>Crushes</td><td></td><td>Collection of CrushClass</td><td>e.g. crate, wall, infantry </td></tr>
 <tr><td>CrushDamageTypes</td><td></td><td>Collection of DamageType</td><td>Types of damage that are caused while crushing. Leave empty for no damage types. </td></tr>
-<tr><td>TerrainSpeeds</td><td><em>(required)</em></td><td>Mapping of String to TerrainInfo</td><td>Lower the value on rough terrain. Leave out entries for impassable terrain. </td></tr>
+<tr><td>TerrainSpeeds</td><td><em>(required)</em></td><td>Dictionary with Key: String, Value TerrainInfo</td><td>Lower the value on rough terrain. Leave out entries for impassable terrain. </td></tr>
 </table>
 
 ### LegacyBridgeLayer
@@ -3948,7 +4084,7 @@ Enables defined prerequisites at game start for all players if the checkbox is e
 <tr><td>Locked</td><td>False</td><td>Boolean</td><td>Prevent the checkbox from being changed from its default value. </td></tr>
 <tr><td>Visible</td><td>True</td><td>Boolean</td><td>Display the checkbox in the lobby. </td></tr>
 <tr><td>DisplayOrder</td><td>0</td><td>Integer</td><td>Display order for the checkbox in the lobby. </td></tr>
-<tr><td>Prerequisites</td><td><em>(required)</em></td><td>Set of String</td><td>Prerequisites to grant when this checkbox is enabled. </td></tr>
+<tr><td>Prerequisites</td><td><em>(required)</em></td><td>Set of System.String[]</td><td>Prerequisites to grant when this checkbox is enabled. </td></tr>
 </table>
 
 ### Locomotor
@@ -3962,7 +4098,7 @@ Used by Mobile. Attach these to the world actor. You can have multiple variants 
 <tr><td>MoveIntoShroud</td><td>True</td><td>Boolean</td><td>Can the actor be ordered to move in to shroud? </td></tr>
 <tr><td>Crushes</td><td></td><td>Collection of CrushClass</td><td>e.g. crate, wall, infantry </td></tr>
 <tr><td>CrushDamageTypes</td><td></td><td>Collection of DamageType</td><td>Types of damage that are caused while crushing. Leave empty for no damage types. </td></tr>
-<tr><td>TerrainSpeeds</td><td><em>(required)</em></td><td>Mapping of String to TerrainInfo</td><td>Lower the value on rough terrain. Leave out entries for impassable terrain. </td></tr>
+<tr><td>TerrainSpeeds</td><td><em>(required)</em></td><td>Dictionary with Key: String, Value TerrainInfo</td><td>Lower the value on rough terrain. Leave out entries for impassable terrain. </td></tr>
 </table>
 
 ### MapBuildRadius
@@ -4038,7 +4174,7 @@ Used by SpawnStartingUnits. Attach these to the world actor. You can have multip
 <tr><th>Property</th><th>Default Value</th><th>Type</th><th>Description</th></tr>
 <tr><td>Class</td><td>none</td><td>String</td><td>Internal class ID. </td></tr>
 <tr><td>ClassName</td><td>Unlabeled</td><td>String</td><td>Exposed via the UI to the player. </td></tr>
-<tr><td>Factions</td><td></td><td>Set of String</td><td>Only available when selecting one of these factions. Leave empty for no restrictions. </td></tr>
+<tr><td>Factions</td><td></td><td>Set of System.String[]</td><td>Only available when selecting one of these factions. Leave empty for no restrictions. </td></tr>
 <tr><td>BaseActor</td><td></td><td>String</td><td>The actor at the center, usually the mobile construction vehicle. </td></tr>
 <tr><td>BaseActorOffset</td><td>0,0</td><td>2D Cell Vector</td><td>Offset from the spawn point, BaseActor will spawn at. </td></tr>
 <tr><td>SupportActors</td><td></td><td>Collection of String</td><td>A group of units ready to defend or scout. </td></tr>
@@ -4072,91 +4208,6 @@ Trait for music handling. Attach this to the world actor.
 <tr><td>DisableWorldSounds</td><td>False</td><td>Boolean</td><td>Disable all world sounds (combat etc). </td></tr>
 </table>
 
-### PaletteFromEmbeddedSpritePalette
-<table>
-<tr><th>Property</th><th>Default Value</th><th>Type</th><th>Description</th></tr>
-<tr><td>Name</td><td><em>(required)</em></td><td>String</td><td>Internal palette name </td></tr>
-<tr><td>Image</td><td><em>(required)</em></td><td>String</td><td>Sequence image holding the palette definition </td></tr>
-<tr><td>Sequence</td><td><em>(required)</em></td><td>String</td><td>Sequence holding the palette definition </td></tr>
-<tr><td>AllowModifiers</td><td>True</td><td>Boolean</td><td>Allow palette modifiers to change the palette. </td></tr>
-<tr><td>CursorPalette</td><td>False</td><td>Boolean</td><td>Whether this palette is available for cursors. </td></tr>
-</table>
-
-### PaletteFromFile
-Load VGA palette (.pal) registers.
-<table>
-<tr><th>Property</th><th>Default Value</th><th>Type</th><th>Description</th></tr>
-<tr><td>Name</td><td><em>(required)</em></td><td>String</td><td>internal palette name </td></tr>
-<tr><td>Tileset</td><td></td><td>String</td><td>If defined, load the palette only for this tileset. </td></tr>
-<tr><td>Filename</td><td><em>(required)</em></td><td>String</td><td>filename to load </td></tr>
-<tr><td>TransparentIndex</td><td>0</td><td>Collection of Integer</td><td>Map listed indices to transparent. Ignores previous color. </td></tr>
-<tr><td>ShadowIndex</td><td></td><td>Collection of Integer</td><td>Map listed indices to shadow. Ignores previous color. </td></tr>
-<tr><td>AllowModifiers</td><td>True</td><td>Boolean</td><td></td></tr>
-<tr><td>CursorPalette</td><td>False</td><td>Boolean</td><td>Whether this palette is available for cursors. </td></tr>
-</table>
-
-### PaletteFromGimpOrJascFile
-Load a GIMP .gpl or JASC .pal palette file. Supports per-color alpha.
-<table>
-<tr><th>Property</th><th>Default Value</th><th>Type</th><th>Description</th></tr>
-<tr><td>Name</td><td><em>(required)</em></td><td>String</td><td>Palette name used internally. </td></tr>
-<tr><td>Tilesets</td><td></td><td>Set of String</td><td>Defines for which tileset IDs this palette should be loaded. If none specified, it applies to all tileset IDs not explicitly excluded. </td></tr>
-<tr><td>ExcludeTilesets</td><td></td><td>Set of String</td><td>Don't load palette for these tileset IDs. </td></tr>
-<tr><td>Filename</td><td><em>(required)</em></td><td>String</td><td>Name of the file to load. </td></tr>
-<tr><td>Premultiply</td><td>True</td><td>Boolean</td><td>Premultiply colors with their alpha values. </td></tr>
-<tr><td>AllowModifiers</td><td>True</td><td>Boolean</td><td></td></tr>
-<tr><td>TransparentIndex</td><td>0</td><td>Integer</td><td>Index set to be fully transparent/invisible. </td></tr>
-<tr><td>CursorPalette</td><td>False</td><td>Boolean</td><td>Whether this palette is available for cursors. </td></tr>
-</table>
-
-### PaletteFromPaletteWithAlpha
-Create a palette by applying alpha transparency to another palette.
-<table>
-<tr><th>Property</th><th>Default Value</th><th>Type</th><th>Description</th></tr>
-<tr><td>Name</td><td><em>(required)</em></td><td>String</td><td>Internal palette name </td></tr>
-<tr><td>BasePalette</td><td><em>(required)</em></td><td>String</td><td>The name of the palette to base off. </td></tr>
-<tr><td>AllowModifiers</td><td>True</td><td>Boolean</td><td>Allow palette modifiers to change the palette. </td></tr>
-<tr><td>Alpha</td><td>1</td><td>Real Number</td><td>Alpha component that is applied to the base palette. </td></tr>
-<tr><td>Premultiply</td><td>True</td><td>Boolean</td><td>Premultiply color by the alpha component. </td></tr>
-</table>
-
-### PaletteFromPlayerPaletteWithAlpha
-Create player palettes by applying alpha transparency to another player palette.
-<table>
-<tr><th>Property</th><th>Default Value</th><th>Type</th><th>Description</th></tr>
-<tr><td>BaseName</td><td><em>(required)</em></td><td>String</td><td>The prefix for the resulting player palettes </td></tr>
-<tr><td>BasePalette</td><td><em>(required)</em></td><td>String</td><td>The name of the player palette to base off. </td></tr>
-<tr><td>AllowModifiers</td><td>True</td><td>Boolean</td><td>Allow palette modifiers to change the palette. </td></tr>
-<tr><td>Alpha</td><td>1</td><td>Real Number</td><td>Alpha component that is applied to the base palette. </td></tr>
-<tr><td>Premultiply</td><td>True</td><td>Boolean</td><td>Premultiply color by the alpha component. </td></tr>
-</table>
-
-### PaletteFromPng
-Load a PNG and use its embedded palette.
-<table>
-<tr><th>Property</th><th>Default Value</th><th>Type</th><th>Description</th></tr>
-<tr><td>Name</td><td><em>(required)</em></td><td>String</td><td>Internal palette name </td></tr>
-<tr><td>Tileset</td><td></td><td>String</td><td>If defined, load the palette only for this tileset. </td></tr>
-<tr><td>Filename</td><td><em>(required)</em></td><td>String</td><td>Filename to load </td></tr>
-<tr><td>ShadowIndex</td><td></td><td>Collection of Integer</td><td>Map listed indices to shadow. Ignores previous color. </td></tr>
-<tr><td>AllowModifiers</td><td>True</td><td>Boolean</td><td></td></tr>
-<tr><td>CursorPalette</td><td>False</td><td>Boolean</td><td>Whether this palette is available for cursors. </td></tr>
-</table>
-
-### PaletteFromRGBA
-Creates a single color palette without any base palette file.
-<table>
-<tr><th>Property</th><th>Default Value</th><th>Type</th><th>Description</th></tr>
-<tr><td>Name</td><td><em>(required)</em></td><td>String</td><td>internal palette name </td></tr>
-<tr><td>Tileset</td><td></td><td>String</td><td>If defined, load the palette only for this tileset. </td></tr>
-<tr><td>R</td><td>0</td><td>Integer</td><td>red color component </td></tr>
-<tr><td>G</td><td>0</td><td>Integer</td><td>green color component </td></tr>
-<tr><td>B</td><td>0</td><td>Integer</td><td>blue color component </td></tr>
-<tr><td>A</td><td>255</td><td>Integer</td><td>alpha channel (transparency) </td></tr>
-<tr><td>AllowModifiers</td><td>True</td><td>Boolean</td><td></td></tr>
-<tr><td>TransparentIndex</td><td>0</td><td>Integer</td><td>Index set to be fully transparent/invisible. </td></tr>
-</table>
-
 ### PathFinder
 Calculates routes for mobile units based on the A* search algorithm.
  Attach this to the world actor.
@@ -4181,7 +4232,7 @@ Attach this to the world actor.
 Requires trait: [`BuildingInfluence`](#buildinginfluence).
 <table>
 <tr><th>Property</th><th>Default Value</th><th>Type</th><th>Description</th></tr>
-<tr><td>ResourceTypes</td><td></td><td>Mapping of String to ResourceTypeInfo</td><td></td></tr>
+<tr><td>ResourceTypes</td><td></td><td>Dictionary with Key: String, Value ResourceTypeInfo</td><td></td></tr>
 <tr><td>RecalculateResourceDensity</td><td>False</td><td>Boolean</td><td>Override the density saved in maps with values calculated based on the number of neighbouring resource cells. </td></tr>
 </table>
 
@@ -4190,7 +4241,7 @@ Visualizes the state of the `ResourceLayer`.
  Attach this to the world actor.
 <table>
 <tr><th>Property</th><th>Default Value</th><th>Type</th><th>Description</th></tr>
-<tr><td>ResourceTypes</td><td></td><td>Mapping of String to ResourceTypeInfo</td><td></td></tr>
+<tr><td>ResourceTypes</td><td></td><td>Dictionary with Key: String, Value ResourceTypeInfo</td><td></td></tr>
 </table>
 
 ### ScriptLobbyDropdown
@@ -4201,7 +4252,7 @@ Controls the map difficulty, tech level, and short game lobby options.
 <tr><td>Label</td><td><em>(required)</em></td><td>String</td><td>Descriptive label for this option. </td></tr>
 <tr><td>Description</td><td></td><td>String</td><td>Tooltip description for this option. </td></tr>
 <tr><td>Default</td><td><em>(required)</em></td><td>String</td><td>Default option key in the `Values` list. </td></tr>
-<tr><td>Values</td><td><em>(required)</em></td><td>Mapping of String to String</td><td>Difficulty levels supported by the map. </td></tr>
+<tr><td>Values</td><td><em>(required)</em></td><td>Dictionary with Key: String, Value String</td><td>Difficulty levels supported by the map. </td></tr>
 <tr><td>Locked</td><td>False</td><td>Boolean</td><td>Prevent the option from being changed from its default value. </td></tr>
 <tr><td>Visible</td><td>True</td><td>Boolean</td><td>Whether to display the option in the lobby. </td></tr>
 <tr><td>DisplayOrder</td><td>0</td><td>Integer</td><td>Display order for the option in the lobby. </td></tr>
@@ -4238,7 +4289,7 @@ Order of the layers defines the Z sorting.
 <tr><td>SmokeSequences</td><td></td><td>Collection of String</td><td>Smoke sprite sequences randomly chosen from </td></tr>
 <tr><td>SmokePalette</td><td>effect</td><td>String</td><td></td></tr>
 <tr><td>Palette</td><td>terrain</td><td>String</td><td></td></tr>
-<tr><td>InitialSmudges</td><td></td><td>Mapping of 2D Cell Position to MapSmudge</td><td></td></tr>
+<tr><td>InitialSmudges</td><td></td><td>Dictionary with Key: 2D Cell Position, Value MapSmudge</td><td></td></tr>
 </table>
 
 ### SpawnMapActors
@@ -4279,7 +4330,7 @@ Used by Mobile. Required for subterranean actors. Attach these to the world acto
 <table>
 <tr><th>Property</th><th>Default Value</th><th>Type</th><th>Description</th></tr>
 <tr><td>SubterraneanTransitionCost</td><td>0</td><td>Integer</td><td>Pathfinding cost for submerging or reemerging. </td></tr>
-<tr><td>SubterraneanTransitionTerrainTypes</td><td></td><td>Set of String</td><td>The terrain types that this actor can transition on. Leave empty to allow any. </td></tr>
+<tr><td>SubterraneanTransitionTerrainTypes</td><td></td><td>Set of System.String[]</td><td>The terrain types that this actor can transition on. Leave empty to allow any. </td></tr>
 <tr><td>SubterraneanTransitionOnRamps</td><td>False</td><td>Boolean</td><td>Can this actor transition on slopes? </td></tr>
 <tr><td>SubterraneanTransitionDepth</td><td>-1c0</td><td>1D World Distance</td><td>Depth at which the subterranian condition is applied. </td></tr>
 <tr><td>Name</td><td>default</td><td>String</td><td>Locomotor ID. </td></tr>
@@ -4289,7 +4340,7 @@ Used by Mobile. Required for subterranean actors. Attach these to the world acto
 <tr><td>MoveIntoShroud</td><td>True</td><td>Boolean</td><td>Can the actor be ordered to move in to shroud? </td></tr>
 <tr><td>Crushes</td><td></td><td>Collection of CrushClass</td><td>e.g. crate, wall, infantry </td></tr>
 <tr><td>CrushDamageTypes</td><td></td><td>Collection of DamageType</td><td>Types of damage that are caused while crushing. Leave empty for no damage types. </td></tr>
-<tr><td>TerrainSpeeds</td><td><em>(required)</em></td><td>Mapping of String to TerrainInfo</td><td>Lower the value on rough terrain. Leave out entries for impassable terrain. </td></tr>
+<tr><td>TerrainSpeeds</td><td><em>(required)</em></td><td>Dictionary with Key: String, Value TerrainInfo</td><td>Lower the value on rough terrain. Leave out entries for impassable terrain. </td></tr>
 </table>
 
 ### TerrainGeometryOverlay
@@ -4413,7 +4464,7 @@ Renders a sprite effect when leaving a cell.
 <tr><td>Image</td><td><em>(required)</em></td><td>String</td><td></td></tr>
 <tr><td>Sequences</td><td>idle</td><td>Collection of String</td><td></td></tr>
 <tr><td>Palette</td><td>effect</td><td>String</td><td></td></tr>
-<tr><td>TerrainTypes</td><td></td><td>Set of String</td><td>Only leave trail on listed terrain types. Leave empty to leave trail on all terrain types. </td></tr>
+<tr><td>TerrainTypes</td><td></td><td>Set of System.String[]</td><td>Only leave trail on listed terrain types. Leave empty to leave trail on all terrain types. </td></tr>
 <tr><td>Type</td><td>Cell</td><td>TrailType</td><td>Accepts values: Cell to draw the trail sprite in the center of the current cell, CenterPosition to draw the trail sprite at the current position. </td></tr>
 <tr><td>VisibleThroughFog</td><td>False</td><td>Boolean</td><td>Should the trail be visible through fog. </td></tr>
 <tr><td>TrailWhileStationary</td><td>False</td><td>Boolean</td><td>Display a trail while stationary. </td></tr>
@@ -4484,7 +4535,7 @@ Render trait fundament that won't work without additional With* render traits.
 <table>
 <tr><th>Property</th><th>Default Value</th><th>Type</th><th>Description</th></tr>
 <tr><td>Image</td><td></td><td>String</td><td>The sequence name that defines the actor sprites. Defaults to the actor name. </td></tr>
-<tr><td>FactionImages</td><td></td><td>Mapping of String to String</td><td>A dictionary of faction-specific image overrides. </td></tr>
+<tr><td>FactionImages</td><td></td><td>Dictionary with Key: String, Value String</td><td>A dictionary of faction-specific image overrides. </td></tr>
 <tr><td>Palette</td><td></td><td>String</td><td>Custom palette name </td></tr>
 <tr><td>PlayerPalette</td><td>player</td><td>String</td><td>Custom PlayerColorPalette: BaseName </td></tr>
 </table>
@@ -4494,7 +4545,7 @@ Invisible during games.
 <table>
 <tr><th>Property</th><th>Default Value</th><th>Type</th><th>Description</th></tr>
 <tr><td>Image</td><td></td><td>String</td><td>The sequence name that defines the actor sprites. Defaults to the actor name. </td></tr>
-<tr><td>FactionImages</td><td></td><td>Mapping of String to String</td><td>A dictionary of faction-specific image overrides. </td></tr>
+<tr><td>FactionImages</td><td></td><td>Dictionary with Key: String, Value String</td><td>A dictionary of faction-specific image overrides. </td></tr>
 <tr><td>Palette</td><td></td><td>String</td><td>Custom palette name </td></tr>
 <tr><td>PlayerPalette</td><td>player</td><td>String</td><td>Custom PlayerColorPalette: BaseName </td></tr>
 </table>
@@ -4588,10 +4639,10 @@ Requires trait: [`AmmoPool`](#ammopool).
 <tr><td>ValidRelationships</td><td>Ally</td><td>PlayerRelationship</td><td>Player relationships who can view the decoration. </td></tr>
 <tr><td>RequiresSelection</td><td>False</td><td>Boolean</td><td>Should this be visible only when selected? </td></tr>
 <tr><td>Margin</td><td>0,0</td><td>2D Integer</td><td>Offset sprite center position from the selection box edge. </td></tr>
-<tr><td>Offsets</td><td></td><td>Mapping of BooleanExpression to 2D Integer</td><td>Screen-space offsets to apply when defined conditions are enabled. A dictionary of [condition string]: [x, y offset]. </td></tr>
+<tr><td>Offsets</td><td></td><td>Dictionary with Key: BooleanExpression, Value 2D Integer</td><td>Screen-space offsets to apply when defined conditions are enabled. A dictionary of [condition string]: [x, y offset]. </td></tr>
 <tr><td>BlinkInterval</td><td>5</td><td>Integer</td><td>The number of ticks that each step in the blink pattern in active. </td></tr>
 <tr><td>BlinkPattern</td><td></td><td>Collection of BlinkState</td><td>A pattern of ticks (BlinkInterval long) where the decoration is visible or hidden. </td></tr>
-<tr><td>BlinkPatterns</td><td></td><td>Mapping of BooleanExpression to Collection of BlinkState</td><td>Override blink conditions to use when defined conditions are enabled. A dictionary of [condition string]: [pattern]. </td></tr>
+<tr><td>BlinkPatterns</td><td></td><td>Dictionary with Key: BooleanExpression, Value Collection of BlinkState</td><td>Override blink conditions to use when defined conditions are enabled. A dictionary of [condition string]: [pattern]. </td></tr>
 <tr><td>RequiresCondition</td><td></td><td>BooleanExpression</td><td>Boolean expression defining the condition to enable this trait. </td></tr>
 </table>
 
@@ -4680,10 +4731,10 @@ Requires trait: [`RepairableBuilding`](#repairablebuilding).
 <tr><td>ValidRelationships</td><td>Ally</td><td>PlayerRelationship</td><td>Player relationships who can view the decoration. </td></tr>
 <tr><td>RequiresSelection</td><td>False</td><td>Boolean</td><td>Should this be visible only when selected? </td></tr>
 <tr><td>Margin</td><td>0,0</td><td>2D Integer</td><td>Offset sprite center position from the selection box edge. </td></tr>
-<tr><td>Offsets</td><td></td><td>Mapping of BooleanExpression to 2D Integer</td><td>Screen-space offsets to apply when defined conditions are enabled. A dictionary of [condition string]: [x, y offset]. </td></tr>
+<tr><td>Offsets</td><td></td><td>Dictionary with Key: BooleanExpression, Value 2D Integer</td><td>Screen-space offsets to apply when defined conditions are enabled. A dictionary of [condition string]: [x, y offset]. </td></tr>
 <tr><td>BlinkInterval</td><td>5</td><td>Integer</td><td>The number of ticks that each step in the blink pattern in active. </td></tr>
 <tr><td>BlinkPattern</td><td></td><td>Collection of BlinkState</td><td>A pattern of ticks (BlinkInterval long) where the decoration is visible or hidden. </td></tr>
-<tr><td>BlinkPatterns</td><td></td><td>Mapping of BooleanExpression to Collection of BlinkState</td><td>Override blink conditions to use when defined conditions are enabled. A dictionary of [condition string]: [pattern]. </td></tr>
+<tr><td>BlinkPatterns</td><td></td><td>Dictionary with Key: BooleanExpression, Value Collection of BlinkState</td><td>Override blink conditions to use when defined conditions are enabled. A dictionary of [condition string]: [pattern]. </td></tr>
 <tr><td>RequiresCondition</td><td></td><td>BooleanExpression</td><td>Boolean expression defining the condition to enable this trait. </td></tr>
 </table>
 
@@ -4696,16 +4747,16 @@ Requires trait: [`Cargo`](#cargo).
 <tr><td>Image</td><td>pips</td><td>String</td><td>Image that defines the pip sequences. </td></tr>
 <tr><td>EmptySequence</td><td>pip-empty</td><td>String</td><td>Sequence used for empty pips. </td></tr>
 <tr><td>FullSequence</td><td>pip-green</td><td>String</td><td>Sequence used for full pips that aren't defined in CustomPipSequences. </td></tr>
-<tr><td>CustomPipSequences</td><td></td><td>Mapping of String to String</td><td>Pip sequence to use for specific passenger actors. </td></tr>
+<tr><td>CustomPipSequences</td><td></td><td>Dictionary with Key: String, Value String</td><td>Pip sequence to use for specific passenger actors. </td></tr>
 <tr><td>Palette</td><td>chrome</td><td>String</td><td></td></tr>
 <tr><td>Position</td><td>TopLeft</td><td>String</td><td>Position in the actor's selection box to draw the decoration. </td></tr>
 <tr><td>ValidRelationships</td><td>Ally</td><td>PlayerRelationship</td><td>Player relationships who can view the decoration. </td></tr>
 <tr><td>RequiresSelection</td><td>False</td><td>Boolean</td><td>Should this be visible only when selected? </td></tr>
 <tr><td>Margin</td><td>0,0</td><td>2D Integer</td><td>Offset sprite center position from the selection box edge. </td></tr>
-<tr><td>Offsets</td><td></td><td>Mapping of BooleanExpression to 2D Integer</td><td>Screen-space offsets to apply when defined conditions are enabled. A dictionary of [condition string]: [x, y offset]. </td></tr>
+<tr><td>Offsets</td><td></td><td>Dictionary with Key: BooleanExpression, Value 2D Integer</td><td>Screen-space offsets to apply when defined conditions are enabled. A dictionary of [condition string]: [x, y offset]. </td></tr>
 <tr><td>BlinkInterval</td><td>5</td><td>Integer</td><td>The number of ticks that each step in the blink pattern in active. </td></tr>
 <tr><td>BlinkPattern</td><td></td><td>Collection of BlinkState</td><td>A pattern of ticks (BlinkInterval long) where the decoration is visible or hidden. </td></tr>
-<tr><td>BlinkPatterns</td><td></td><td>Mapping of BooleanExpression to Collection of BlinkState</td><td>Override blink conditions to use when defined conditions are enabled. A dictionary of [condition string]: [pattern]. </td></tr>
+<tr><td>BlinkPatterns</td><td></td><td>Dictionary with Key: BooleanExpression, Value Collection of BlinkState</td><td>Override blink conditions to use when defined conditions are enabled. A dictionary of [condition string]: [pattern]. </td></tr>
 <tr><td>RequiresCondition</td><td></td><td>BooleanExpression</td><td>Boolean expression defining the condition to enable this trait. </td></tr>
 </table>
 
@@ -4745,7 +4796,7 @@ Requires trait: [`RenderSprites`](#rendersprites).
 <table>
 <tr><th>Property</th><th>Default Value</th><th>Type</th><th>Description</th></tr>
 <tr><td>XmasImages</td><td></td><td>Collection of String</td><td>Easteregg sequences to use in December. </td></tr>
-<tr><td>WaterTerrainTypes</td><td>Water</td><td>Set of String</td><td>Terrain types on which to display WaterSequence. </td></tr>
+<tr><td>WaterTerrainTypes</td><td>Water</td><td>Set of System.String[]</td><td>Terrain types on which to display WaterSequence. </td></tr>
 <tr><td>IdleSequence</td><td>idle</td><td>String</td><td></td></tr>
 <tr><td>WaterSequence</td><td></td><td>String</td><td></td></tr>
 <tr><td>LandSequence</td><td></td><td>String</td><td></td></tr>
@@ -4804,7 +4855,7 @@ Requires trait: [`RenderSprites`](#rendersprites).
 <tr><td>CrushedSequence</td><td></td><td>String</td><td>Sequence to play when this actor is crushed. </td></tr>
 <tr><td>CrushedSequencePalette</td><td>effect</td><td>String</td><td>The palette used for `CrushedSequence`. </td></tr>
 <tr><td>CrushedPaletteIsPlayerPalette</td><td>False</td><td>Boolean</td><td>Custom crushed animation palette is a player palette BaseName </td></tr>
-<tr><td>DeathTypes</td><td></td><td>Mapping of String to Collection of String</td><td>Death animations to use for each damage type (defined on the warheads). Is only used if UseDeathTypeSuffix is `True`. </td></tr>
+<tr><td>DeathTypes</td><td></td><td>Dictionary with Key: String, Value Collection of String</td><td>Death animations to use for each damage type (defined on the warheads). Is only used if UseDeathTypeSuffix is `True`. </td></tr>
 <tr><td>FallbackSequence</td><td></td><td>String</td><td>Sequence to use when the actor is killed by some non-standard means (e.g. suicide). </td></tr>
 <tr><td>Delay</td><td>0</td><td>Integer</td><td>Delay the spawn of the death animation by this many ticks. </td></tr>
 <tr><td>RequiresCondition</td><td></td><td>BooleanExpression</td><td>Boolean expression defining the condition to enable this trait. </td></tr>
@@ -4822,10 +4873,10 @@ Displays a custom UI overlay relative to the actor's mouseover bounds.
 <tr><td>ValidRelationships</td><td>Ally</td><td>PlayerRelationship</td><td>Player relationships who can view the decoration. </td></tr>
 <tr><td>RequiresSelection</td><td>False</td><td>Boolean</td><td>Should this be visible only when selected? </td></tr>
 <tr><td>Margin</td><td>0,0</td><td>2D Integer</td><td>Offset sprite center position from the selection box edge. </td></tr>
-<tr><td>Offsets</td><td></td><td>Mapping of BooleanExpression to 2D Integer</td><td>Screen-space offsets to apply when defined conditions are enabled. A dictionary of [condition string]: [x, y offset]. </td></tr>
+<tr><td>Offsets</td><td></td><td>Dictionary with Key: BooleanExpression, Value 2D Integer</td><td>Screen-space offsets to apply when defined conditions are enabled. A dictionary of [condition string]: [x, y offset]. </td></tr>
 <tr><td>BlinkInterval</td><td>5</td><td>Integer</td><td>The number of ticks that each step in the blink pattern in active. </td></tr>
 <tr><td>BlinkPattern</td><td></td><td>Collection of BlinkState</td><td>A pattern of ticks (BlinkInterval long) where the decoration is visible or hidden. </td></tr>
-<tr><td>BlinkPatterns</td><td></td><td>Mapping of BooleanExpression to Collection of BlinkState</td><td>Override blink conditions to use when defined conditions are enabled. A dictionary of [condition string]: [pattern]. </td></tr>
+<tr><td>BlinkPatterns</td><td></td><td>Dictionary with Key: BooleanExpression, Value Collection of BlinkState</td><td>Override blink conditions to use when defined conditions are enabled. A dictionary of [condition string]: [pattern]. </td></tr>
 <tr><td>RequiresCondition</td><td></td><td>BooleanExpression</td><td>Boolean expression defining the condition to enable this trait. </td></tr>
 </table>
 
@@ -4912,16 +4963,16 @@ Requires trait: [`Harvester`](#harvester).
 <tr><td>Image</td><td>pips</td><td>String</td><td>Image that defines the pip sequences. </td></tr>
 <tr><td>EmptySequence</td><td>pip-empty</td><td>String</td><td>Sequence used for empty pips. </td></tr>
 <tr><td>FullSequence</td><td>pip-green</td><td>String</td><td>Sequence used for full pips that aren't defined in ResourceSequences. </td></tr>
-<tr><td>ResourceSequences</td><td></td><td>Mapping of String to String</td><td>Pip sequence to use for specific resource types. </td></tr>
+<tr><td>ResourceSequences</td><td></td><td>Dictionary with Key: String, Value String</td><td>Pip sequence to use for specific resource types. </td></tr>
 <tr><td>Palette</td><td>chrome</td><td>String</td><td></td></tr>
 <tr><td>Position</td><td>TopLeft</td><td>String</td><td>Position in the actor's selection box to draw the decoration. </td></tr>
 <tr><td>ValidRelationships</td><td>Ally</td><td>PlayerRelationship</td><td>Player relationships who can view the decoration. </td></tr>
 <tr><td>RequiresSelection</td><td>False</td><td>Boolean</td><td>Should this be visible only when selected? </td></tr>
 <tr><td>Margin</td><td>0,0</td><td>2D Integer</td><td>Offset sprite center position from the selection box edge. </td></tr>
-<tr><td>Offsets</td><td></td><td>Mapping of BooleanExpression to 2D Integer</td><td>Screen-space offsets to apply when defined conditions are enabled. A dictionary of [condition string]: [x, y offset]. </td></tr>
+<tr><td>Offsets</td><td></td><td>Dictionary with Key: BooleanExpression, Value 2D Integer</td><td>Screen-space offsets to apply when defined conditions are enabled. A dictionary of [condition string]: [x, y offset]. </td></tr>
 <tr><td>BlinkInterval</td><td>5</td><td>Integer</td><td>The number of ticks that each step in the blink pattern in active. </td></tr>
 <tr><td>BlinkPattern</td><td></td><td>Collection of BlinkState</td><td>A pattern of ticks (BlinkInterval long) where the decoration is visible or hidden. </td></tr>
-<tr><td>BlinkPatterns</td><td></td><td>Mapping of BooleanExpression to Collection of BlinkState</td><td>Override blink conditions to use when defined conditions are enabled. A dictionary of [condition string]: [pattern]. </td></tr>
+<tr><td>BlinkPatterns</td><td></td><td>Dictionary with Key: BooleanExpression, Value Collection of BlinkState</td><td>Override blink conditions to use when defined conditions are enabled. A dictionary of [condition string]: [pattern]. </td></tr>
 <tr><td>RequiresCondition</td><td></td><td>BooleanExpression</td><td>Boolean expression defining the condition to enable this trait. </td></tr>
 </table>
 
@@ -4973,7 +5024,7 @@ Requires trait: [`RenderSprites`](#rendersprites).
 <tr><td>MaxIdleDelay</td><td>110</td><td>Integer</td><td></td></tr>
 <tr><td>MoveSequence</td><td>run</td><td>String</td><td></td></tr>
 <tr><td>DefaultAttackSequence</td><td></td><td>String</td><td></td></tr>
-<tr><td>AttackSequences</td><td></td><td>Mapping of String to Collection of String</td><td>Attack sequence to use for each armament. A dictionary of [armament name]: [sequence name(s)]. Multiple sequence names can be defined to specify per-burst animations. </td></tr>
+<tr><td>AttackSequences</td><td></td><td>Dictionary with Key: String, Value Collection of String</td><td>Attack sequence to use for each armament. A dictionary of [armament name]: [sequence name(s)]. Multiple sequence names can be defined to specify per-burst animations. </td></tr>
 <tr><td>IdleSequences</td><td></td><td>Collection of String</td><td></td></tr>
 <tr><td>StandSequences</td><td>stand</td><td>Collection of String</td><td></td></tr>
 <tr><td>Palette</td><td></td><td>String</td><td>Custom palette name </td></tr>
@@ -5033,10 +5084,10 @@ Displays the player name above the unit
 <tr><td>ValidRelationships</td><td>Ally</td><td>PlayerRelationship</td><td>Player relationships who can view the decoration. </td></tr>
 <tr><td>RequiresSelection</td><td>False</td><td>Boolean</td><td>Should this be visible only when selected? </td></tr>
 <tr><td>Margin</td><td>0,0</td><td>2D Integer</td><td>Offset sprite center position from the selection box edge. </td></tr>
-<tr><td>Offsets</td><td></td><td>Mapping of BooleanExpression to 2D Integer</td><td>Screen-space offsets to apply when defined conditions are enabled. A dictionary of [condition string]: [x, y offset]. </td></tr>
+<tr><td>Offsets</td><td></td><td>Dictionary with Key: BooleanExpression, Value 2D Integer</td><td>Screen-space offsets to apply when defined conditions are enabled. A dictionary of [condition string]: [x, y offset]. </td></tr>
 <tr><td>BlinkInterval</td><td>5</td><td>Integer</td><td>The number of ticks that each step in the blink pattern in active. </td></tr>
 <tr><td>BlinkPattern</td><td></td><td>Collection of BlinkState</td><td>A pattern of ticks (BlinkInterval long) where the decoration is visible or hidden. </td></tr>
-<tr><td>BlinkPatterns</td><td></td><td>Mapping of BooleanExpression to Collection of BlinkState</td><td>Override blink conditions to use when defined conditions are enabled. A dictionary of [condition string]: [pattern]. </td></tr>
+<tr><td>BlinkPatterns</td><td></td><td>Dictionary with Key: BooleanExpression, Value Collection of BlinkState</td><td>Override blink conditions to use when defined conditions are enabled. A dictionary of [condition string]: [pattern]. </td></tr>
 <tr><td>RequiresCondition</td><td></td><td>BooleanExpression</td><td>Boolean expression defining the condition to enable this trait. </td></tr>
 </table>
 
@@ -5078,7 +5129,7 @@ Works both with per player ClassicProductionQueue and per building ProductionQue
 Requires traits: [`BodyOrientation`](#bodyorientation), [`Production`](#production), [`RenderSprites`](#rendersprites).
 <table>
 <tr><th>Property</th><th>Default Value</th><th>Type</th><th>Description</th></tr>
-<tr><td>Queues</td><td></td><td>Set of String</td><td>Queues that should be producing for this overlay to render. </td></tr>
+<tr><td>Queues</td><td></td><td>Set of System.String[]</td><td>Queues that should be producing for this overlay to render. </td></tr>
 <tr><td>Sequence</td><td>production-overlay</td><td>String</td><td>Sequence name to use </td></tr>
 <tr><td>Offset</td><td>0,0,0</td><td>3D World Vector</td><td>Position relative to body </td></tr>
 <tr><td>Palette</td><td></td><td>String</td><td>Custom palette name </td></tr>
@@ -5161,10 +5212,10 @@ Requires trait: [`RenderSprites`](#rendersprites).
 <tr><td>ValidRelationships</td><td>Ally</td><td>PlayerRelationship</td><td>Player relationships who can view the decoration. </td></tr>
 <tr><td>RequiresSelection</td><td>False</td><td>Boolean</td><td>Should this be visible only when selected? </td></tr>
 <tr><td>Margin</td><td>0,0</td><td>2D Integer</td><td>Offset sprite center position from the selection box edge. </td></tr>
-<tr><td>Offsets</td><td></td><td>Mapping of BooleanExpression to 2D Integer</td><td>Screen-space offsets to apply when defined conditions are enabled. A dictionary of [condition string]: [x, y offset]. </td></tr>
+<tr><td>Offsets</td><td></td><td>Dictionary with Key: BooleanExpression, Value 2D Integer</td><td>Screen-space offsets to apply when defined conditions are enabled. A dictionary of [condition string]: [x, y offset]. </td></tr>
 <tr><td>BlinkInterval</td><td>5</td><td>Integer</td><td>The number of ticks that each step in the blink pattern in active. </td></tr>
 <tr><td>BlinkPattern</td><td></td><td>Collection of BlinkState</td><td>A pattern of ticks (BlinkInterval long) where the decoration is visible or hidden. </td></tr>
-<tr><td>BlinkPatterns</td><td></td><td>Mapping of BooleanExpression to Collection of BlinkState</td><td>Override blink conditions to use when defined conditions are enabled. A dictionary of [condition string]: [pattern]. </td></tr>
+<tr><td>BlinkPatterns</td><td></td><td>Dictionary with Key: BooleanExpression, Value Collection of BlinkState</td><td>Override blink conditions to use when defined conditions are enabled. A dictionary of [condition string]: [pattern]. </td></tr>
 <tr><td>RequiresCondition</td><td></td><td>BooleanExpression</td><td>Boolean expression defining the condition to enable this trait. </td></tr>
 </table>
 
@@ -5290,10 +5341,10 @@ Displays a text overlay relative to the selection box.
 <tr><td>ValidRelationships</td><td>Ally</td><td>PlayerRelationship</td><td>Player relationships who can view the decoration. </td></tr>
 <tr><td>RequiresSelection</td><td>False</td><td>Boolean</td><td>Should this be visible only when selected? </td></tr>
 <tr><td>Margin</td><td>0,0</td><td>2D Integer</td><td>Offset sprite center position from the selection box edge. </td></tr>
-<tr><td>Offsets</td><td></td><td>Mapping of BooleanExpression to 2D Integer</td><td>Screen-space offsets to apply when defined conditions are enabled. A dictionary of [condition string]: [x, y offset]. </td></tr>
+<tr><td>Offsets</td><td></td><td>Dictionary with Key: BooleanExpression, Value 2D Integer</td><td>Screen-space offsets to apply when defined conditions are enabled. A dictionary of [condition string]: [x, y offset]. </td></tr>
 <tr><td>BlinkInterval</td><td>5</td><td>Integer</td><td>The number of ticks that each step in the blink pattern in active. </td></tr>
 <tr><td>BlinkPattern</td><td></td><td>Collection of BlinkState</td><td>A pattern of ticks (BlinkInterval long) where the decoration is visible or hidden. </td></tr>
-<tr><td>BlinkPatterns</td><td></td><td>Mapping of BooleanExpression to Collection of BlinkState</td><td>Override blink conditions to use when defined conditions are enabled. A dictionary of [condition string]: [pattern]. </td></tr>
+<tr><td>BlinkPatterns</td><td></td><td>Dictionary with Key: BooleanExpression, Value Collection of BlinkState</td><td>Override blink conditions to use when defined conditions are enabled. A dictionary of [condition string]: [pattern]. </td></tr>
 <tr><td>RequiresCondition</td><td></td><td>BooleanExpression</td><td>Boolean expression defining the condition to enable this trait. </td></tr>
 </table>
 
@@ -5505,8 +5556,8 @@ Manages the initial base.
 Put this on the Player actor. Manages cube collection.
 <table>
 <tr><th>Property</th><th>Default Value</th><th>Type</th><th>Description</th></tr>
-<tr><td>ExcludedUnitTypes</td><td></td><td>Set of String</td><td>Actor types that should not start hunting for cubes. </td></tr>
-<tr><td>IncludedUnitTypes</td><td></td><td>Set of String</td><td>Only these actor types should start hunting for cubes. </td></tr>
+<tr><td>ExcludedUnitTypes</td><td></td><td>Set of System.String[]</td><td>Actor types that should not start hunting for cubes. </td></tr>
+<tr><td>IncludedUnitTypes</td><td></td><td>Set of System.String[]</td><td>Only these actor types should start hunting for cubes. </td></tr>
 <tr><td>ScanForCubesInterval</td><td>50</td><td>Integer</td><td>Interval (in ticks) between giving out orders to idle units. </td></tr>
 <tr><td>MaxProximityRadius</td><td>0</td><td>Integer</td><td>Only move this far away from base. Disabled if set to zero. </td></tr>
 <tr><td>EnemyAvoidanceRadius</td><td>8c0</td><td>1D World Distance</td><td>Avoid enemy actors nearby when searching for cubes. Should be somewhere near the max weapon range. </td></tr>
@@ -5518,17 +5569,17 @@ Put this on the Player actor. Manages cube collection.
 Manages AI base construction.
 <table>
 <tr><th>Property</th><th>Default Value</th><th>Type</th><th>Description</th></tr>
-<tr><td>ConstructionYardTypes</td><td></td><td>Set of String</td><td>Tells the AI what building types are considered construction yards. </td></tr>
-<tr><td>VehiclesFactoryTypes</td><td></td><td>Set of String</td><td>Tells the AI what building types are considered vehicle production facilities. </td></tr>
-<tr><td>RefineryTypes</td><td></td><td>Set of String</td><td>Tells the AI what building types are considered refineries. </td></tr>
-<tr><td>MinerTypes</td><td></td><td>Set of String</td><td>Tells the AI what building types are considered miners. </td></tr>
-<tr><td>PowerTypes</td><td></td><td>Set of String</td><td>Tells the AI what building types are considered power plants. </td></tr>
-<tr><td>BarracksTypes</td><td></td><td>Set of String</td><td>Tells the AI what building types are considered infantry production facilities. </td></tr>
-<tr><td>ProductionTypes</td><td></td><td>Set of String</td><td>Tells the AI what building types are considered production facilities. </td></tr>
-<tr><td>NavalProductionTypes</td><td></td><td>Set of String</td><td>Tells the AI what building types are considered naval production facilities. </td></tr>
-<tr><td>SiloTypes</td><td></td><td>Set of String</td><td>Tells the AI what building types are considered silos (resource storage). </td></tr>
-<tr><td>BuildingQueues</td><td>Building</td><td>Set of String</td><td>Production queues AI uses for buildings. </td></tr>
-<tr><td>DefenseQueues</td><td>Defense</td><td>Set of String</td><td>Production queues AI uses for defenses. </td></tr>
+<tr><td>ConstructionYardTypes</td><td></td><td>Set of System.String[]</td><td>Tells the AI what building types are considered construction yards. </td></tr>
+<tr><td>VehiclesFactoryTypes</td><td></td><td>Set of System.String[]</td><td>Tells the AI what building types are considered vehicle production facilities. </td></tr>
+<tr><td>RefineryTypes</td><td></td><td>Set of System.String[]</td><td>Tells the AI what building types are considered refineries. </td></tr>
+<tr><td>MinerTypes</td><td></td><td>Set of System.String[]</td><td>Tells the AI what building types are considered miners. </td></tr>
+<tr><td>PowerTypes</td><td></td><td>Set of System.String[]</td><td>Tells the AI what building types are considered power plants. </td></tr>
+<tr><td>BarracksTypes</td><td></td><td>Set of System.String[]</td><td>Tells the AI what building types are considered infantry production facilities. </td></tr>
+<tr><td>ProductionTypes</td><td></td><td>Set of System.String[]</td><td>Tells the AI what building types are considered production facilities. </td></tr>
+<tr><td>NavalProductionTypes</td><td></td><td>Set of System.String[]</td><td>Tells the AI what building types are considered naval production facilities. </td></tr>
+<tr><td>SiloTypes</td><td></td><td>Set of System.String[]</td><td>Tells the AI what building types are considered silos (resource storage). </td></tr>
+<tr><td>BuildingQueues</td><td>Building</td><td>Set of System.String[]</td><td>Production queues AI uses for buildings. </td></tr>
+<tr><td>DefenseQueues</td><td>Defense</td><td>Set of System.String[]</td><td>Production queues AI uses for defenses. </td></tr>
 <tr><td>MinBaseRadius</td><td>2</td><td>Integer</td><td>Minimum distance in cells from center of the base when checking for building placement. </td></tr>
 <tr><td>MaxBaseRadius</td><td>20</td><td>Integer</td><td>Radius in cells around the center of the base to expand. </td></tr>
 <tr><td>MinimumExcessPower</td><td>0</td><td>Integer</td><td>Minimum excess power the AI should try to maintain. </td></tr>
@@ -5536,12 +5587,12 @@ Manages AI base construction.
 <tr><td>ExcessPowerIncrement</td><td>0</td><td>Integer</td><td>Increase maintained excess power by this amount for every ExcessPowerIncreaseThreshold of base buildings. </td></tr>
 <tr><td>ExcessPowerIncreaseThreshold</td><td>1</td><td>Integer</td><td>Increase maintained excess power by ExcessPowerIncrement for every N base buildings. </td></tr>
 <tr><td>MinimumRefineryCount</td><td>1</td><td>Integer</td><td>Number of refineries to build before building a barracks. </td></tr>
+<tr><td>ResourceDistance</td><td>5</td><td>Integer</td><td>Minimum distance in cells for resource patches when checking for building placement. </td></tr>
 <tr><td>StructureProductionInactiveDelay</td><td>125</td><td>Integer</td><td>Additional delay (in ticks) between structure production checks when there is no active production. StructureProductionRandomBonusDelay is added to this. </td></tr>
 <tr><td>StructureProductionActiveDelay</td><td>0</td><td>Integer</td><td>Additional delay (in ticks) added between structure production checks when actively building things. Note: The total delay is gamespeed OrderLatency x 4 + this + StructureProductionRandomBonusDelay. </td></tr>
 <tr><td>StructureProductionRandomBonusDelay</td><td>10</td><td>Integer</td><td>A random delay (in ticks) of up to this is added to active/inactive production delays. </td></tr>
 <tr><td>StructureProductionResumeDelay</td><td>1500</td><td>Integer</td><td>Delay (in ticks) until retrying to build structure after the last 3 consecutive attempts failed. </td></tr>
 <tr><td>MaximumFailedPlacementAttempts</td><td>3</td><td>Integer</td><td>After how many failed attempts to place a structure should AI give up and wait for StructureProductionResumeDelay before retrying. </td></tr>
-<tr><td>MaxResourceCellsToCheck</td><td>3</td><td>Integer</td><td>How many randomly chosen cells with resources to check when deciding refinery placement. </td></tr>
 <tr><td>CheckForNewBasesDelay</td><td>1500</td><td>Integer</td><td>Delay (in ticks) until rechecking for new BaseProviders. </td></tr>
 <tr><td>PlaceDefenseTowardsEnemyChance</td><td>100</td><td>Integer</td><td>Chance that the AI will place the defenses in the direction of the closest enemy building. </td></tr>
 <tr><td>MinimumDefenseRadius</td><td>5</td><td>Integer</td><td>Minimum range at which to build defensive structures near a combat hotspot. </td></tr>
@@ -5549,10 +5600,10 @@ Manages AI base construction.
 <tr><td>NewProductionCashThreshold</td><td>5000</td><td>Integer</td><td>Try to build another production building if there is too much cash. </td></tr>
 <tr><td>RallyPointScanRadius</td><td>8</td><td>Integer</td><td>Radius in cells around a factory scanned for rally points by the AI. </td></tr>
 <tr><td>CheckForWaterRadius</td><td>8</td><td>Integer</td><td>Radius in cells around each building with ProvideBuildableArea to check for a 3x3 area of water where naval structures can be built. Should match maximum adjacency of naval structures. </td></tr>
-<tr><td>WaterTerrainTypes</td><td>Water</td><td>Set of String</td><td>Terrain types which are considered water for base building purposes. </td></tr>
-<tr><td>BuildingFractions</td><td></td><td>Mapping of String to Integer</td><td>What buildings to the AI should build. What integer percentage of the total base must be this type of building. </td></tr>
-<tr><td>BuildingLimits</td><td></td><td>Mapping of String to Integer</td><td>What buildings should the AI have a maximum limit to build. </td></tr>
-<tr><td>BuildingDelays</td><td></td><td>Mapping of String to Integer</td><td>When should the AI start building specific buildings. </td></tr>
+<tr><td>WaterTerrainTypes</td><td>Water</td><td>Set of System.String[]</td><td>Terrain types which are considered water for base building purposes. </td></tr>
+<tr><td>BuildingFractions</td><td></td><td>Dictionary with Key: String, Value Integer</td><td>What buildings to the AI should build. What integer percentage of the total base must be this type of building. </td></tr>
+<tr><td>BuildingLimits</td><td></td><td>Dictionary with Key: String, Value Integer</td><td>What buildings should the AI have a maximum limit to build. </td></tr>
+<tr><td>BuildingDelays</td><td></td><td>Dictionary with Key: String, Value Integer</td><td>When should the AI start building specific buildings. </td></tr>
 <tr><td>RequiresCondition</td><td></td><td>BooleanExpression</td><td>Boolean expression defining the condition to enable this trait. </td></tr>
 </table>
 
@@ -5560,7 +5611,7 @@ Manages AI base construction.
 Manages AI cloak detector deployment logic. For use with the regular `SquadManagerBotModule`.
 <table>
 <tr><th>Property</th><th>Default Value</th><th>Type</th><th>Description</th></tr>
-<tr><td>DeployableActorTypes</td><td><em>(required)</em></td><td>Set of String</td><td>Actor types that can deploy. </td></tr>
+<tr><td>DeployableActorTypes</td><td><em>(required)</em></td><td>Set of System.String[]</td><td>Actor types that can deploy. </td></tr>
 <tr><td>MinimumScanDelay</td><td>20</td><td>Integer</td><td>Minimum delay (in ticks) between trying to deploy with DeployableActorTypes. </td></tr>
 <tr><td>RequiresCondition</td><td></td><td>BooleanExpression</td><td>Boolean expression defining the condition to enable this trait. </td></tr>
 </table>
@@ -5569,10 +5620,10 @@ Manages AI cloak detector deployment logic. For use with the regular `SquadManag
 Manages AI miner deployment logic.
 <table>
 <tr><th>Property</th><th>Default Value</th><th>Type</th><th>Description</th></tr>
-<tr><td>DeployableActorTypes</td><td><em>(required)</em></td><td>Set of String</td><td>Actor types that can deploy onto resources. </td></tr>
+<tr><td>DeployableActorTypes</td><td><em>(required)</em></td><td>Set of System.String[]</td><td>Actor types that can deploy onto resources. </td></tr>
 <tr><td>VehiclesQueue</td><td>Vehicle</td><td>String</td><td>Where to request production of additional deployable actors. </td></tr>
-<tr><td>DeployableTerrainTypes</td><td><em>(required)</em></td><td>Set of String</td><td>Terrain types that can be targeted for deployment. </td></tr>
-<tr><td>DeployedActorTypes</td><td><em>(required)</em></td><td>Set of String</td><td>Actor types that have been deployed onto resources. </td></tr>
+<tr><td>DeployableTerrainTypes</td><td><em>(required)</em></td><td>Set of System.String[]</td><td>Terrain types that can be targeted for deployment. </td></tr>
+<tr><td>DeployedActorTypes</td><td><em>(required)</em></td><td>Set of System.String[]</td><td>Actor types that have been deployed onto resources. </td></tr>
 <tr><td>MinimumDeployedActors</td><td>1</td><td>Integer</td><td>Prioritize this many resource towers before building other units. </td></tr>
 <tr><td>MinimumScanDelay</td><td>20</td><td>Integer</td><td>Minimum delay (in ticks) between trying to deploy with DeployableActorTypes. </td></tr>
 <tr><td>LastSearchFailedDelay</td><td>500</td><td>Integer</td><td>Minimum delay (in ticks) after the last search for resources failed. </td></tr>
@@ -5592,10 +5643,10 @@ Manages AI powerdown.
 Manages AI capturing logic.
 <table>
 <tr><th>Property</th><th>Default Value</th><th>Type</th><th>Description</th></tr>
-<tr><td>CapturingActorTypes</td><td><em>(required)</em></td><td>Set of String</td><td>Actor types that can capture other actors (via `Captures`). </td></tr>
+<tr><td>CapturingActorTypes</td><td><em>(required)</em></td><td>Set of System.String[]</td><td>Actor types that can capture other actors (via `Captures`). </td></tr>
 <tr><td>PriorityCaptureChance</td><td>75</td><td>Integer</td><td>Percentage chance of trying a priority capture. </td></tr>
-<tr><td>PriorityCapturableActorTypes</td><td></td><td>Set of String</td><td>Actor types that should be priorizited to be captured. Leave this empty to include all actors. </td></tr>
-<tr><td>CapturableActorTypes</td><td></td><td>Set of String</td><td>Actor types that can be targeted for capturing. Leave this empty to include all actors. </td></tr>
+<tr><td>PriorityCapturableActorTypes</td><td></td><td>Set of System.String[]</td><td>Actor types that should be priorizited to be captured. Leave this empty to include all actors. </td></tr>
+<tr><td>CapturableActorTypes</td><td></td><td>Set of System.String[]</td><td>Actor types that can be targeted for capturing. Leave this empty to include all actors. </td></tr>
 <tr><td>EnemyAvoidanceRadius</td><td>8c0</td><td>1D World Distance</td><td>Avoid enemy actors nearby when searching for capture opportunities. Should be somewhere near the max weapon range. </td></tr>
 <tr><td>MinimumCaptureDelay</td><td>375</td><td>Integer</td><td>Minimum delay (in ticks) between trying to capture with CapturingActorTypes. </td></tr>
 <tr><td>MaximumCaptureTargetOptions</td><td>10</td><td>Integer</td><td>Maximum number of options to consider for capturing. If a value less than 1 is given 1 will be used instead. </td></tr>
@@ -5608,7 +5659,7 @@ Manages AI capturing logic.
 Manages AI random scouting. Exclude from `SquadManagerBotModule`.
 <table>
 <tr><th>Property</th><th>Default Value</th><th>Type</th><th>Description</th></tr>
-<tr><td>ScoutActorTypes</td><td><em>(required)</em></td><td>Set of String</td><td>Actor types that are sent around the map. </td></tr>
+<tr><td>ScoutActorTypes</td><td><em>(required)</em></td><td>Set of System.String[]</td><td>Actor types that are sent around the map. </td></tr>
 <tr><td>MinimumScanDelay</td><td>200</td><td>Integer</td><td>Minimum delay (in ticks) between searching for ScoutActorTypes. </td></tr>
 <tr><td>MoveRadius</td><td>1</td><td>Integer</td><td>How far away to move from current location. </td></tr>
 <tr><td>RequiresCondition</td><td></td><td>BooleanExpression</td><td>Boolean expression defining the condition to enable this trait. </td></tr>
@@ -5641,7 +5692,7 @@ Grants a condition when this actor finishes a burst.
 <table>
 <tr><th>Property</th><th>Default Value</th><th>Type</th><th>Description</th></tr>
 <tr><td>Condition</td><td><em>(required)</em></td><td>String</td><td>The condition to grant. </td></tr>
-<tr><td>ArmamentNames</td><td>primary</td><td>Set of String</td><td>Name of the armaments that grant this condition. </td></tr>
+<tr><td>ArmamentNames</td><td>primary</td><td>Set of System.String[]</td><td>Name of the armaments that grant this condition. </td></tr>
 <tr><td>RevokeDelay</td><td><em>(required)</em></td><td>Integer</td><td></td></tr>
 <tr><td>PauseOnCondition</td><td></td><td>BooleanExpression</td><td>Boolean expression defining the condition to pause this trait. </td></tr>
 <tr><td>RequiresCondition</td><td></td><td>BooleanExpression</td><td>Boolean expression defining the condition to enable this trait. </td></tr>
@@ -5705,7 +5756,7 @@ Requires trait: [`Building`](#building).
 <table>
 <tr><th>Property</th><th>Default Value</th><th>Type</th><th>Description</th></tr>
 <tr><td>Template</td><td>0</td><td>UInt16</td><td>The terrain template to place. If the template is PickAny, then the actor footprint will be filled with this tile. </td></tr>
-<tr><td>TerrainTypes</td><td></td><td>Set of String</td><td>The terrain types that this template will be placed on. </td></tr>
+<tr><td>TerrainTypes</td><td></td><td>Set of System.String[]</td><td>The terrain types that this template will be placed on. </td></tr>
 <tr><td>Offset</td><td>0,0</td><td>2D Cell Vector</td><td>Offset relative to the actor TopLeft. Not used if the template is PickAny. Tiles being offset out of the actor's footprint will not be placed. </td></tr>
 </table>
 
@@ -5735,7 +5786,7 @@ Requires trait: [`Rearmable`](#rearmable).
 <tr><td>TileUnknownName</td><td>target-unknown</td><td>String</td><td>Sprite overlay to use for minefield cells hidden behind fog or shroud. </td></tr>
 <tr><td>Cursor</td><td>ability</td><td>String</td><td>Cursor to display when able to (un)deploy the actor. </td></tr>
 <tr><td>TargetLineColor</td><td>DC143C</td><td>Color (RRGGBB[AA] notation)</td><td>Color to use for the target line when laying mines. </td></tr>
-<tr><td>TerrainTypes</td><td></td><td>Set of String</td><td>Only allow laying mines on listed terrain types. Leave empty to allow all terrain types. </td></tr>
+<tr><td>TerrainTypes</td><td></td><td>Set of System.String[]</td><td>Only allow laying mines on listed terrain types. Leave empty to allow all terrain types. </td></tr>
 <tr><td>DeployCursor</td><td>deploy</td><td>String</td><td>Cursor to display when able to lay a mine. </td></tr>
 <tr><td>DeployBlockedCursor</td><td>deploy-blocked</td><td>String</td><td>Cursor to display when unable to lay a mine. </td></tr>
 </table>
@@ -5745,7 +5796,7 @@ Allows the miner to deploy at a target location with a single order.
 <table>
 <tr><th>Property</th><th>Default Value</th><th>Type</th><th>Description</th></tr>
 <tr><td>DeployCursor</td><td>deploy</td><td>String</td><td>Cursor to display when able to lay a mine. </td></tr>
-<tr><td>TerrainTypes</td><td><em>(required)</em></td><td>Set of String</td><td>Terrain types that can be targeted for deployment. </td></tr>
+<tr><td>TerrainTypes</td><td><em>(required)</em></td><td>Set of System.String[]</td><td>Terrain types that can be targeted for deployment. </td></tr>
 <tr><td>Voice</td><td>Action</td><td>String</td><td>Voice to use when ordered to lay a minefield. </td></tr>
 </table>
 
@@ -5831,6 +5882,13 @@ Requires trait: [`RenderSprites`](#rendersprites).
 <tr><td>RequiresCondition</td><td></td><td>BooleanExpression</td><td>Boolean expression defining the condition to enable this trait. </td></tr>
 </table>
 
+### ResourceDensityOverlay
+Displays resource density colored by type.
+<table>
+<tr><th>Property</th><th>Default Value</th><th>Type</th><th>Description</th></tr>
+<tr><td>Font</td><td>TinyBold</td><td>String</td><td></td></tr>
+</table>
+
 ### TerrainDebugOverlay
 Displays terrain tile IDs colored by terrain type.
 <table>
@@ -5857,7 +5915,7 @@ Requires trait: [`Building`](#building).
 Requires trait: [`Mobile`](#mobile).
 <table>
 <tr><th>Property</th><th>Default Value</th><th>Type</th><th>Description</th></tr>
-<tr><td>DeliveryBuildings</td><td></td><td>Set of String</td><td></td></tr>
+<tr><td>DeliveryBuildings</td><td></td><td>Set of System.String[]</td><td></td></tr>
 <tr><td>Capacity</td><td>10</td><td>Integer</td><td>How much resources it can carry. </td></tr>
 <tr><td>DeliverVoice</td><td>Action</td><td>String</td><td></td></tr>
 <tr><td>EnterCursor</td><td>enter</td><td>String</td><td>Cursor to display when able to unload at target actor. </td></tr>
@@ -5978,7 +6036,7 @@ For use with the ForestLayer.
 <tr><td>Maximum</td><td>255</td><td>Integer</td><td>Maximum number of cubes. </td></tr>
 <tr><td>SpawnInterval</td><td>4500</td><td>Integer</td><td>Average time (ticks) between cube spawn. </td></tr>
 <tr><td>InitialSpawnDelay</td><td>0</td><td>Integer</td><td>Delay (in ticks) before the first cube spawns. </td></tr>
-<tr><td>ValidGround</td><td>Clear</td><td>Set of String</td><td>Which terrain types can we drop on? </td></tr>
+<tr><td>ValidGround</td><td>Clear</td><td>Set of System.String[]</td><td>Which terrain types can we drop on? </td></tr>
 <tr><td>CubeActors</td><td>cube</td><td>Collection of String</td><td>Cube actors to drop. </td></tr>
 <tr><td>CubeActorShares</td><td>10</td><td>Collection of Integer</td><td>Chance of each cube actor spawning. </td></tr>
 </table>
@@ -6005,7 +6063,7 @@ Used to render liquids.
 Attach this to the world actor
 <table>
 <tr><th>Property</th><th>Default Value</th><th>Type</th><th>Description</th></tr>
-<tr><td>ResourceTypes</td><td></td><td>Mapping of String to ResourceTypeInfo</td><td></td></tr>
+<tr><td>ResourceTypes</td><td></td><td>Dictionary with Key: String, Value ResourceTypeInfo</td><td></td></tr>
 </table>
 
 ### TerrainTileAnimation
@@ -6023,7 +6081,7 @@ Attach this to the world actor
 Allows resources below actors. Attach this to the world actor.
 <table>
 <tr><th>Property</th><th>Default Value</th><th>Type</th><th>Description</th></tr>
-<tr><td>ResourceTypes</td><td></td><td>Mapping of String to ResourceTypeInfo</td><td></td></tr>
+<tr><td>ResourceTypes</td><td></td><td>Dictionary with Key: String, Value ResourceTypeInfo</td><td></td></tr>
 </table>
 
 
@@ -6208,17 +6266,6 @@ Requires trait: [`Shroud`](#shroud).
 <tr><td>BinSize</td><td>10</td><td>Integer</td><td>Size of partition bins (cells) </td></tr>
 </table>
 
-### PlayerColorPalette
-Add this to the World actor definition.
-<table>
-<tr><th>Property</th><th>Default Value</th><th>Type</th><th>Description</th></tr>
-<tr><td>BasePalette</td><td></td><td>String</td><td>The name of the palette to base off. </td></tr>
-<tr><td>BaseName</td><td>player</td><td>String</td><td>The prefix for the resulting player palettes </td></tr>
-<tr><td>RemapIndex</td><td></td><td>Collection of Integer</td><td>Remap these indices to player colors. </td></tr>
-<tr><td>Ramp</td><td>0.05</td><td>Real Number</td><td>Luminosity range to span. </td></tr>
-<tr><td>AllowModifiers</td><td>True</td><td>Boolean</td><td>Allow palette modifiers to change the palette. </td></tr>
-</table>
-
 ### Shroud
 Required for shroud and fog visibility checks. Add this to the player actor.
 <table>
@@ -6246,22 +6293,10 @@ Attach this to the `World` actor.
 <tr><th>Property</th><th>Default Value</th><th>Type</th><th>Description</th></tr>
 <tr><td>Name</td><td></td><td>String</td><td>This is the name exposed to the players. </td></tr>
 <tr><td>InternalName</td><td></td><td>String</td><td>This is the internal name for owner checks. </td></tr>
-<tr><td>RandomFactionMembers</td><td></td><td>Set of String</td><td>Pick a random faction as the player's faction out of this list. </td></tr>
+<tr><td>RandomFactionMembers</td><td></td><td>Set of System.String[]</td><td>Pick a random faction as the player's faction out of this list. </td></tr>
 <tr><td>Side</td><td></td><td>String</td><td>The side that the faction belongs to. For example, England belongs to the 'Allies' side. </td></tr>
 <tr><td>Description</td><td></td><td>String</td><td></td></tr>
 <tr><td>Selectable</td><td>True</td><td>Boolean</td><td></td></tr>
-</table>
-
-### FixedColorPalette
-Add this to the World actor definition.
-<table>
-<tr><th>Property</th><th>Default Value</th><th>Type</th><th>Description</th></tr>
-<tr><td>Base</td><td>terrain</td><td>String</td><td>The name of the palette to base off. </td></tr>
-<tr><td>Name</td><td>resources</td><td>String</td><td>The name of the resulting palette </td></tr>
-<tr><td>RemapIndex</td><td></td><td>Collection of Integer</td><td>Remap these indices to pre-defined colors. </td></tr>
-<tr><td>Color</td><td>00000000</td><td>Color (RRGGBB[AA] notation)</td><td>The fixed color to remap. </td></tr>
-<tr><td>Ramp</td><td>0.05</td><td>Real Number</td><td>Luminosity range to span. </td></tr>
-<tr><td>AllowModifiers</td><td>True</td><td>Boolean</td><td>Allow palette modifiers to change the palette. </td></tr>
 </table>
 
 ### ScreenMap

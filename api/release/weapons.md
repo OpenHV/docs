@@ -1,4 +1,4 @@
-This documentation is aimed at modders. It displays a template for weapon definitions as well as its contained types (warheads and projectiles) with default values and developer commentary. Please do not edit it directly, but add new `[Desc("String")]` tags to the source code. This file has been automatically generated for version 20210509 of OpenHV.
+This documentation is aimed at modders. It displays a template for weapon definitions as well as its contained types (warheads and projectiles) with default values and developer commentary. Please do not edit it directly, but add new `[Desc("String")]` tags to the source code. This file has been automatically generated for version 20210516 of OpenHV.
 
 
 
@@ -47,7 +47,7 @@ This documentation is aimed at modders. It displays a template for weapon defini
 <tr><td>BounceCount</td><td>0</td><td>Integer</td><td>Up to how many times does this bullet bounce when touching ground without hitting a target. 0 implies exploding on contact with the originally targeted position. </td></tr>
 <tr><td>BounceRangeModifier</td><td>60</td><td>Integer</td><td>Modify distance of each bounce by this percentage of previous distance. </td></tr>
 <tr><td>BounceSound</td><td></td><td>String</td><td>Sound to play when the projectile hits the ground, but not the target. </td></tr>
-<tr><td>InvalidBounceTerrain</td><td></td><td>Set of String</td><td>Terrain where the projectile explodes instead of bouncing. </td></tr>
+<tr><td>InvalidBounceTerrain</td><td></td><td>Set of System.String[]</td><td>Terrain where the projectile explodes instead of bouncing. </td></tr>
 <tr><td>ValidBounceBlockerRelationships</td><td>Enemy, Neutral</td><td>PlayerRelationship</td><td>Trigger the explosion if the projectile touches an actor thats owner has these player relationships. </td></tr>
 <tr><td>AirburstAltitude</td><td>0c0</td><td>1D World Distance</td><td>Altitude above terrain below which to explode. Zero effectively deactivates airburst. </td></tr>
 <tr><td>ContrailLength</td><td>0</td><td>Integer</td><td></td></tr>
@@ -324,7 +324,7 @@ Used to trigger a FlashPaletteEffect trait on the world actor.
 <tr><td>Spread</td><td>0c0</td><td>1D World Distance</td><td>Damage will be applied to actors in this area. A value of zero means only targeted actor will be damaged. </td></tr>
 <tr><td>Damage</td><td>0</td><td>Integer</td><td>How much (raw) damage to deal. </td></tr>
 <tr><td>DamageTypes</td><td></td><td>Collection of DamageType</td><td>Types of damage that this warhead causes. Leave empty for no damage types. </td></tr>
-<tr><td>Versus</td><td></td><td>Mapping of String to Integer</td><td>Damage percentage versus each armortype. </td></tr>
+<tr><td>Versus</td><td></td><td>Dictionary with Key: String, Value Integer</td><td>Damage percentage versus each armortype. </td></tr>
 <tr><td>ValidTargets</td><td>Ground, Water</td><td>Collection of TargetableType</td><td>What types of targets are affected. </td></tr>
 <tr><td>InvalidTargets</td><td></td><td>Collection of TargetableType</td><td>What types of targets are unaffected. Overrules ValidTargets. </td></tr>
 <tr><td>ValidRelationships</td><td>Enemy, Neutral, Ally</td><td>PlayerRelationship</td><td>What player relationships are affected. </td></tr>
@@ -338,7 +338,7 @@ Used to trigger a FlashPaletteEffect trait on the world actor.
 <table>
 <tr><th>Property</th><th>Default Value</th><th>Type</th><th>Description</th></tr>
 <tr><td>Size</td><td>0, 0</td><td>Collection of Integer</td><td>Size of the area. A smudge will be created in each tile. Provide 2 values for a ring effect (outer/inner). </td></tr>
-<tr><td>SmudgeType</td><td></td><td>Set of String</td><td>Type of smudge to apply to terrain. </td></tr>
+<tr><td>SmudgeType</td><td></td><td>Set of System.String[]</td><td>Type of smudge to apply to terrain. </td></tr>
 <tr><td>Chance</td><td>100</td><td>Integer</td><td>Percentual chance the smudge is created. </td></tr>
 <tr><td>ValidTargets</td><td>Ground, Water</td><td>Collection of TargetableType</td><td>What types of targets are affected. </td></tr>
 <tr><td>InvalidTargets</td><td></td><td>Collection of TargetableType</td><td>What types of targets are unaffected. Overrules ValidTargets. </td></tr>
@@ -374,7 +374,7 @@ Makes the screen shake.
 <tr><td>DamageCalculationType</td><td>HitShape</td><td>DamageCalculationType</td><td>Controls the way damage is calculated. Possible values are 'HitShape', 'ClosestTargetablePosition' and 'CenterPosition'. </td></tr>
 <tr><td>Damage</td><td>0</td><td>Integer</td><td>How much (raw) damage to deal. </td></tr>
 <tr><td>DamageTypes</td><td></td><td>Collection of DamageType</td><td>Types of damage that this warhead causes. Leave empty for no damage types. </td></tr>
-<tr><td>Versus</td><td></td><td>Mapping of String to Integer</td><td>Damage percentage versus each armortype. </td></tr>
+<tr><td>Versus</td><td></td><td>Dictionary with Key: String, Value Integer</td><td>Damage percentage versus each armortype. </td></tr>
 <tr><td>ValidTargets</td><td>Ground, Water</td><td>Collection of TargetableType</td><td>What types of targets are affected. </td></tr>
 <tr><td>InvalidTargets</td><td></td><td>Collection of TargetableType</td><td>What types of targets are unaffected. Overrules ValidTargets. </td></tr>
 <tr><td>ValidRelationships</td><td>Enemy, Neutral, Ally</td><td>PlayerRelationship</td><td>What player relationships are affected. </td></tr>
@@ -390,7 +390,7 @@ Makes the screen shake.
 <tr><td>Spread</td><td>0c0</td><td>1D World Distance</td><td>Damage will be applied to actors in this area. A value of zero means only targeted actor will be damaged. </td></tr>
 <tr><td>Damage</td><td>0</td><td>Integer</td><td>How much (raw) damage to deal. </td></tr>
 <tr><td>DamageTypes</td><td></td><td>Collection of DamageType</td><td>Types of damage that this warhead causes. Leave empty for no damage types. </td></tr>
-<tr><td>Versus</td><td></td><td>Mapping of String to Integer</td><td>Damage percentage versus each armortype. </td></tr>
+<tr><td>Versus</td><td></td><td>Dictionary with Key: String, Value Integer</td><td>Damage percentage versus each armortype. </td></tr>
 <tr><td>ValidTargets</td><td>Ground, Water</td><td>Collection of TargetableType</td><td>What types of targets are affected. </td></tr>
 <tr><td>InvalidTargets</td><td></td><td>Collection of TargetableType</td><td>What types of targets are unaffected. Overrules ValidTargets. </td></tr>
 <tr><td>ValidRelationships</td><td>Enemy, Neutral, Ally</td><td>PlayerRelationship</td><td>What player relationships are affected. </td></tr>

@@ -1,4 +1,4 @@
-This is an automatically generated listing of the Lua map scripting API for version 20210509 of OpenHV.
+This is an automatically generated listing of the Lua map scripting API for version 20210516 of OpenHV.
 
 OpenHV allows custom maps and missions to be scripted using Lua 5.1.
 These scripts run in a sandbox that prevents access to unsafe functions (e.g. OS or file access), and limits the memory and CPU usage of the scripts.
@@ -253,7 +253,7 @@ matching the filter function called as function(CPos cell).</td></tr>
 <tr><td align="right" width="50%"><strong>WVec New(int x, int y, int z)</strong></td><td>Create a new WVec with the specified coordinates.</td></tr>
 <tr><td align="right" width="50%"><strong>WVec Zero { get; }</strong></td><td>The world zero-vector.</td></tr>
 </table>
-### Actor Properties / Commands
+## Actor Properties / Commands
 ### Ability
 <table>
 <tr><td width="50%" align="right"><strong>void Capture(Actor target)</strong>
@@ -781,13 +781,15 @@ Command transport to unload passengers.
 </td></tr>
 </table>
 ## Player Properties / Commands
-<table align="center" width="1024"><tr><th colspan="2" width="1024">Diplomacy</th></tr>
+### Diplomacy
+<table>
 <tr><td width="50%" align="right"><strong>bool IsAlliedWith(Player targetPlayer)</strong>
 </td><td>
 Returns true if the player is allied with the other player.
 </td></tr>
 </table>
-<table align="center" width="1024"><tr><th colspan="2" width="1024">MissionObjectives</th></tr>
+### MissionObjectives
+<table>
 <tr><td width="50%" align="right"><strong>int AddObjective(string description, string type = Primary, bool required = True)</strong>
 <br /><em>Queued Activity</em>
 </td><td>
@@ -859,7 +861,8 @@ Mark an objective as failed.  This needs the objective ID returned by AddObjecti
 <b>Requires Trait:</b> MissionObjectives
 </td></tr>
 </table>
-<table align="center" width="1024"><tr><th colspan="2" width="1024">Player</th></tr>
+### Player
+<table>
 <tr><td width="50%" align="right"><strong>bool AcceptsCondition(string condition)</strong>
 </td><td>
 Check whether this player actor accepts a specific external condition.
@@ -979,7 +982,8 @@ The total number of units lost by this player.
 <b>Requires Trait:</b> PlayerStatistics
 </td></tr>
 </table>
-<table align="center" width="1024"><tr><th colspan="2" width="1024">Power</th></tr>
+### Power
+<table>
 <tr><td width="50%" align="right"><strong>int PowerDrained { get; }</strong>
 </td><td>
 Returns the power used by the player.
@@ -1005,7 +1009,8 @@ Triggers low power for the chosen amount of ticks.
 <b>Requires Trait:</b> PowerManager
 </td></tr>
 </table>
-<table align="center" width="1024"><tr><th colspan="2" width="1024">Production</th></tr>
+### Production
+<table>
 <tr><td width="50%" align="right"><strong>bool Build(String[] actorTypes, LuaFunction actionFunc = nil)</strong>
 </td><td>
 Build the specified set of actors using classic (RA-style) production queues. The function will return true if production could be started, false otherwise. If an actionFunc is given, it will be called as actionFunc(Actor[] actors) once production of all actors has been completed. The actors array is guaranteed to only contain alive actors. Note: This function will fail to work when called during the first tick.
@@ -1019,7 +1024,8 @@ Check whether the production queue that builds this type of actor is currently b
 <b>Requires Traits:</b> ClassicProductionQueue, ScriptTriggers
 </td></tr>
 </table>
-<table align="center" width="1024"><tr><th colspan="2" width="1024">Resources</th></tr>
+### Resources
+<table>
 <tr><td width="50%" align="right"><strong>int Cash { get; set; }</strong>
 </td><td>
 The amount of cash held by the player.
