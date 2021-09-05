@@ -1,4 +1,4 @@
-This documentation is aimed at modders. It displays a template for weapon definitions as well as its contained types (warheads and projectiles) with default values and developer commentary. Please do not edit it directly, but add new `[Desc("String")]` tags to the source code. This file has been automatically generated for version 20210517 of OpenHV.
+This documentation is aimed at modders. It displays a template for weapon definitions as well as its contained types (warheads and projectiles) with default values and developer commentary. Please do not edit it directly, but add new `[Desc("String")]` tags to the source code. This file has been automatically generated for version 20210905 of OpenHV.
 
 
 
@@ -262,7 +262,9 @@ Interacts with the TemporaryOwnerManager trait.
 ### DestroyResourceWarhead
 <table>
 <tr><th>Property</th><th>Default Value</th><th>Type</th><th>Description</th></tr>
-<tr><td>Size</td><td>0, 0</td><td>Collection of Integer</td><td>Size of the area. The resources are seeded within this area. Provide 2 values for a ring effect (outer/inner). </td></tr>
+<tr><td>Size</td><td>0, 0</td><td>Collection of Integer</td><td>Size of the area. The resources are removed within this area. Provide 2 values for a ring effect (outer/inner). </td></tr>
+<tr><td>ResourceAmount</td><td>0</td><td>Integer</td><td>Amount of resources to be removed. If negative or zero, all resources within the area will be removed. </td></tr>
+<tr><td>ResourceTypes</td><td></td><td>Set of System.String[]</td><td>Resource types to remove with this warhead. If empty, all resource types will be removed. </td></tr>
 <tr><td>ValidTargets</td><td>Ground, Water</td><td>Collection of TargetableType</td><td>What types of targets are affected. </td></tr>
 <tr><td>InvalidTargets</td><td></td><td>Collection of TargetableType</td><td>What types of targets are unaffected. Overrules ValidTargets. </td></tr>
 <tr><td>ValidRelationships</td><td>Enemy, Neutral, Ally</td><td>PlayerRelationship</td><td>What player relationships are affected. </td></tr>
