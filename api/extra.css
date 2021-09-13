@@ -1,3 +1,7 @@
 h3 {
     margin-top: 32px;
 }
+
+.wy-nav-content {
+    max-width: none;
+}
