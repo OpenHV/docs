@@ -6,6 +6,6 @@ h3 {
     max-width: none;
 }
 
-.wy-table-responsive {
+.wy-table-responsive table td, .wy-table-responsive table th {
     white-space: normal;
 }
