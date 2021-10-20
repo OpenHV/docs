@@ -1,4 +1,4 @@
-This documentation is aimed at modders. It displays all traits with default values and developer commentary. Please do not edit it directly, but add new `[Desc("String")]` tags to the source code. This file has been automatically generated for version 20210922 of OpenHV.
+This documentation is aimed at modders. It displays all traits with default values and developer commentary. Please do not edit it directly, but add new `[Desc("String")]` tags to the source code. This file has been automatically generated for version 20211016 of OpenHV.
 
 
 
@@ -2830,7 +2830,7 @@ Requires trait: [`Shroud`](#shroud).
 | Property | Default Value | Type | Description |
 | -------- | --------------| ---- | ----------- |
 | DefaultCashDropdownLabel | Starting Cash | String | Descriptive label for the starting cash option in the lobby. |
-| DefaultCashDropdownDescription | Change the amount of cash that players start with | String | Tooltip description for the starting cash option in the lobby. |
+| DefaultCashDropdownDescription | The amount of cash that players start with | String | Tooltip description for the starting cash option in the lobby. |
 | SelectableCash | 2500, 5000, 10000, 20000 | Collection of Integer | Starting cash options that are available in the lobby options. |
 | DefaultCash | 5000 | Integer | Default starting cash option: should be one of the SelectableCash options. |
 | DefaultCashDropdownLocked | False | Boolean | Force the DefaultCash option by disabling changes in the lobby. |
@@ -4082,7 +4082,7 @@ Used by Mobile. Required for jumpjet actors. Attach these to the world actor. Yo
 
 | Property | Default Value | Type | Description |
 | -------- | --------------| ---- | ----------- |
-| JumpjetTransitionCost | 0 | Integer | Pathfinding cost for taking off or landing. |
+| JumpjetTransitionCost | 0 | Int16 | Pathfinding cost for taking off or landing. |
 | JumpjetTransitionTerrainTypes |  | Set of String | The terrain types that this actor can transition on. Leave empty to allow any. |
 | JumpjetTransitionOnRamps | True | Boolean | Can this actor transition on slopes? |
 | Name | default | String | Locomotor ID. |
@@ -4180,13 +4180,13 @@ Controls the game speed, tech level, and short game lobby options.
 | ShortGameCheckboxVisible | True | Boolean | Whether to display the short game checkbox in the lobby. |
 | ShortGameCheckboxDisplayOrder | 0 | Integer | Display order for the short game checkbox in the lobby. |
 | TechLevelDropdownLabel | Tech Level | String | Descriptive label for the tech level option in the lobby. |
-| TechLevelDropdownDescription | Change the units and abilities at your disposal | String | Tooltip description for the tech level option in the lobby. |
+| TechLevelDropdownDescription | The units and abilities that players can use | String | Tooltip description for the tech level option in the lobby. |
 | TechLevel | unrestricted | String | Default tech level. |
 | TechLevelDropdownLocked | False | Boolean | Prevent the tech level from being changed in the lobby. |
 | TechLevelDropdownVisible | True | Boolean | Display the tech level option in the lobby. |
 | TechLevelDropdownDisplayOrder | 0 | Integer | Display order for the tech level option in the lobby. |
 | GameSpeedDropdownLabel | Game Speed | String | Tooltip description for the game speed option in the lobby. |
-| GameSpeedDropdownDescription | Change the rate at which time passes | String | Description of the game speed option in the lobby. |
+| GameSpeedDropdownDescription | The rate at which time passes | String | Description of the game speed option in the lobby. |
 | GameSpeed |  | String | Default game speed (leave empty to use the default defined in mod.yaml). |
 | GameSpeedDropdownLocked | False | Boolean | Prevent the game speed from being changed in the lobby. |
 | GameSpeedDropdownVisible | True | Boolean | Display the game speed option in the lobby. |
@@ -4356,7 +4356,7 @@ Requires trait: [`StartingUnits`](#startingunits).
 | -------- | --------------| ---- | ----------- |
 | StartingUnitsClass | none | String | |
 | DropdownLabel | Starting Units | String | Descriptive label for the starting units option in the lobby. |
-| DropdownDescription | Change the units that you start the game with | String | Tooltip description for the starting units option in the lobby. |
+| DropdownDescription | The units that players start the game with | String | Tooltip description for the starting units option in the lobby. |
 | DropdownLocked | False | Boolean | Prevent the starting units option from being changed in the lobby. |
 | DropdownVisible | True | Boolean | Whether to display the starting units option in the lobby. |
 | DropdownDisplayOrder | 0 | Integer | Display order for the starting units option in the lobby. |
@@ -4382,10 +4382,10 @@ Used by Mobile. Required for subterranean actors. Attach these to the world acto
 
 | Property | Default Value | Type | Description |
 | -------- | --------------| ---- | ----------- |
-| SubterraneanTransitionCost | 0 | Integer | Pathfinding cost for submerging or reemerging. |
+| SubterraneanTransitionCost | 0 | Int16 | Pathfinding cost for submerging or reemerging. |
 | SubterraneanTransitionTerrainTypes |  | Set of String | The terrain types that this actor can transition on. Leave empty to allow any. |
 | SubterraneanTransitionOnRamps | False | Boolean | Can this actor transition on slopes? |
-| SubterraneanTransitionDepth | -1c0 | 1D World Distance | Depth at which the subterranian condition is applied. |
+| SubterraneanTransitionDepth | -1c0 | 1D World Distance | Depth at which the subterranean condition is applied. |
 | Name | default | String | Locomotor ID. |
 | WaitAverage | 40 | Integer | |
 | WaitSpread | 10 | Integer | |
@@ -5974,6 +5974,30 @@ Dispenses a weapon at the actor's position when enabled.Reload/BurstDelays are u
 | LocalOffset | 0,0,0 | 3D World Vector | Explosion offset relative to actor's position. |
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
+### BuildingAttackNotifier
+Plays an audio notification and shows a radar ping when a building (except resource towers) is attacked.
+Attach this to the player actor.
+
+| Property | Default Value | Type | Description |
+| -------- | --------------| ---- | ----------- |
+| NotifyInterval | 30000 | Integer | Minimum duration (in milliseconds) between notification events. |
+| RadarPingColor | FF0000 | Color (RRGGBB[AA] notation) | |
+| RadarPingDuration | 250 | Integer | Length of time (in ticks) to display a location ping in the minimap. |
+| Notification | BaseAttack | String | The audio notification type to play. |
+| AllyNotification |  | String | The audio notification to play to allies when under attack. Won't play a notification to allies if this is null. |
+
+### MinerAttackNotifier
+Plays an audio notification and shows a radar ping when a miner is attacked.
+Attach this to the player actor.
+
+| Property | Default Value | Type | Description |
+| -------- | --------------| ---- | ----------- |
+| NotifyInterval | 30000 | Integer | Minimum duration (in milliseconds) between notification events. |
+| RadarPingColor | FF0000 | Color (RRGGBB[AA] notation) | |
+| RadarPingDuration | 250 | Integer | Length of time (in ticks) to display a location ping in the minimap. |
+| MinerNotification | MinerUnderAttack | String | The audio notification type to play for undeployed miners. |
+| ResourceCollectorNotification | MiningTowerUnderAttack | String | The audio notification type to play for deployed miners. |
+
 ### TeleportNetworkManager
 This must be attached to player in order for TeleportNetwork to work.
 
@@ -6529,26 +6553,6 @@ Requires traits: [`RenderSprites`](#rendersprites), [`ResourceCollector`](#resou
 | Offset | 0,0,0 | 3D World Vector | Position relative to body |
 | Palette |  | String | Custom palette name |
 | IsPlayerPalette | False | Boolean | Custom palette is a player palette BaseName |
-| PauseOnCondition |  | BooleanExpression | Boolean expression defining the condition to pause this trait. |
-| RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
-
-### WithSeaMonsterBody
-Emerge from water animation.
-
-Requires traits: [`BodyOrientation`](#bodyorientation), [`RenderSprites`](#rendersprites).
-
-| Property | Default Value | Type | Description |
-| -------- | --------------| ---- | ----------- |
-| LeftSequence | left | String | |
-| RightSequence | right | String | |
-| EditorSequence | left | String | Placeholder sequence to use in the map editor. |
-| EmergeDuration | 0 | Integer | |
-| StartSequence |  | String | Animation to play when the actor is created. |
-| Sequence | idle | String | Animation to play when the actor is idle. |
-| Name | body | String | Identifier used to assign modifying traits to this sprite body. |
-| ForceToGround | False | Boolean | Forces sprite body to be rendered on ground regardless of actor altitude (for example for custom shadow sprites). |
-| Palette |  | String | Custom palette name. |
-| IsPlayerPalette | False | Boolean | Palette is a player palette BaseName. |
 | PauseOnCondition |  | BooleanExpression | Boolean expression defining the condition to pause this trait. |
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
