@@ -1,4 +1,4 @@
-This documentation is aimed at modders. It displays all traits with default values and developer commentary. Please do not edit it directly, but add new `[Desc("String")]` tags to the source code. This file has been automatically generated for version 20211016 of OpenHV.
+This documentation is aimed at modders. It displays all traits with default values and developer commentary. Please do not edit it directly, but add new `[Desc("String")]` tags to the source code. This file has been automatically generated for version 20211029 of OpenHV.
 
 
 
@@ -2723,6 +2723,8 @@ Attach this to the player actor. The actors to track need the 'AnnounceOnSeen' t
 | ScanInterval | 25 | Integer | Interval in ticks between scanning for enemies. |
 | NotificationInterval | 750 | Integer | Minimal ticks in-between notifications. |
 
+### GameSaveViewportManager
+
 ### GrantConditionOnPrerequisiteManager
 Attach this to the player actor.
 
@@ -2738,6 +2740,20 @@ Attach this to the player actor.
 | RadarPingColor | FF0000 | Color (RRGGBB[AA] notation) | |
 | RadarPingDuration | 250 | Integer | Length of time (in ticks) to display a location ping in the minimap. |
 | Notification | HarvesterAttack | String | The audio notification type to play. |
+
+### LobbyPrerequisiteCheckbox
+Enables defined prerequisites at game start for all players if the checkbox is enabled.
+
+| Property | Default Value | Type | Description |
+| -------- | --------------| ---- | ----------- |
+| ID | *(required)* | String | Internal id for this checkbox. |
+| Label | *(required)* | String | Display name for this checkbox. |
+| Description |  | String | Description name for this checkbox. |
+| Enabled | False | Boolean | Default value of the checkbox in the lobby. |
+| Locked | False | Boolean | Prevent the checkbox from being changed from its default value. |
+| Visible | True | Boolean | Display the checkbox in the lobby. |
+| DisplayOrder | 0 | Integer | Display order for the checkbox in the lobby. |
+| Prerequisites | *(required)* | Set of String | Prerequisites to grant when this checkbox is enabled. |
 
 ### MissionObjectives
 
@@ -2928,31 +2944,6 @@ Requires trait: [`MissionObjectives`](#missionobjectives).
 ### TechTree
 Manages build limits and pre-requisites.
  Attach this to the player actor.
-
-### TimeLimitManager
-This trait allows setting a time limit on matches. Attach this to the World actor.
-
-| Property | Default Value | Type | Description |
-| -------- | --------------| ---- | ----------- |
-| TimeLimitLabel | Time Limit | String | Label that will be shown for the time limit option in the lobby. |
-| TimeLimitDescription | Player or team with the highest score after this time wins | String | Tooltip description that will be shown for the time limit option in the lobby. |
-| TimeLimitOptions | 0, 10, 20, 30, 40, 60, 90 | Collection of Integer | Time Limit options that will be shown in the lobby dropdown. Values are in minutes. |
-| TimeLimitWarnings | 1: 
-2: 
-3: 
-4: 
-5: 
-10: 
- | Dictionary with Key: Integer, Value String | List of remaining minutes of game time when a text and optional speech notification should be made to players. |
-| TimeLimitDefault | 0 | Integer | Default selection for the time limit option in the lobby. Needs to use one of the TimeLimitOptions. |
-| TimeLimitLocked | False | Boolean | Prevent the time limit option from being changed in the lobby. |
-| TimeLimitDropdownVisible | True | Boolean | Whether to display the options dropdown in the lobby. |
-| TimeLimitDisplayOrder | 0 | Integer | Display order for the time limit dropdown in the lobby. |
-| Notification | {0} minute{1} remaining. | String | Notification text for time limit warnings. The string '{0}' will be replaced by the remaining time in minutes, '{1}' is used for the plural form. |
-| CountdownLabel |  | String | ID of the LabelWidget used to display a text ingame that will be updated every second. |
-| CountdownText |  | String | Text to be shown using the CountdownLabel. The string '{0}' will be replaced by the time in hh:mm:ss format. |
-| SkipTimeRemainingNotifications | False | Boolean | Will prevent showing/playing the built-in time limit warnings when set to true. |
-| SkipTimerExpiredNotification | False | Boolean | Will prevent showing/playing the built-in timer expired notification when set to true. |
 
 ### Plug
 
@@ -3736,18 +3727,6 @@ Displays a bar how long this actor is affected and reverts back to the old owner
 | -------- | --------------| ---- | ----------- |
 | BarColor | FFA500 | Color (RRGGBB[AA] notation) | |
 
-### TerrainLighting
-Add to the world actor to apply a global lighting tint and allow actors using the TerrainLightSource to add localised lighting.
-
-| Property | Default Value | Type | Description |
-| -------- | --------------| ---- | ----------- |
-| Intensity | 1 | Real Number | |
-| HeightStep | 0 | Real Number | |
-| RedTint | 1 | Real Number | |
-| GreenTint | 1 | Real Number | |
-| BlueTint | 1 | Real Number | |
-| BinSize | 10 | Integer | Size of light source partition bins (cells) |
-
 ### TerrainLightSource
 Adds a localized circular light centered on the actor to the world's TerrainLightSource trait.
 
@@ -4067,8 +4046,6 @@ Requires trait: [`ElevatedBridgeLayer`](#elevatedbridgelayer).
 | -------- | --------------| ---- | ----------- |
 | Font | TinyBold | String | The font used to draw cell vectors. Should match the value as-is in the Fonts section of the mod manifest (do not convert to lowercase). |
 
-### GameSaveViewportManager
-
 ### JumpjetActorLayer
 
 | Property | Default Value | Type | Description |
@@ -4109,20 +4086,6 @@ Used by Mobile. Required for jumpjet actors. Attach these to the world actor. Yo
 | EditorRoot | EDITOR_ROOT | String | The widget tree to open when the map editor is loaded. |
 | GameSaveLoadingRoot | GAMESAVE_LOADING_SCREEN | String | The widget tree to open (in addition to INGAME_ROOT) while loading a saved game. |
 | ClearRoot | True | Boolean | Remove any existing UI when a map is loaded. |
-
-### LobbyPrerequisiteCheckbox
-Enables defined prerequisites at game start for all players if the checkbox is enabled.
-
-| Property | Default Value | Type | Description |
-| -------- | --------------| ---- | ----------- |
-| ID | *(required)* | String | Internal id for this checkbox. |
-| Label | *(required)* | String | Display name for this checkbox. |
-| Description |  | String | Description name for this checkbox. |
-| Enabled | False | Boolean | Default value of the checkbox in the lobby. |
-| Locked | False | Boolean | Prevent the checkbox from being changed from its default value. |
-| Visible | True | Boolean | Display the checkbox in the lobby. |
-| DisplayOrder | 0 | Integer | Display order for the checkbox in the lobby. |
-| Prerequisites | *(required)* | Set of String | Prerequisites to grant when this checkbox is enabled. |
 
 ### Locomotor
 Used by Mobile. Attach these to the world actor. You can have multiple variants by adding @suffixes.
@@ -4398,6 +4361,18 @@ Used by Mobile. Required for subterranean actors. Attach these to the world acto
 ### TerrainGeometryOverlay
 Renders a debug overlay showing the terrain cells. Attach this to the world actor.
 
+### TerrainLighting
+Add to the world actor to apply a global lighting tint and allow actors using the TerrainLightSource to add localised lighting.
+
+| Property | Default Value | Type | Description |
+| -------- | --------------| ---- | ----------- |
+| Intensity | 1 | Real Number | |
+| HeightStep | 0 | Real Number | |
+| RedTint | 1 | Real Number | |
+| GreenTint | 1 | Real Number | |
+| BlueTint | 1 | Real Number | |
+| BinSize | 10 | Integer | Size of light source partition bins (cells) |
+
 ### TerrainRenderer
 
 ### TerrainTunnel
@@ -4417,6 +4392,31 @@ Requires trait: [`DomainIndex`](#domainindex).
 | Property | Default Value | Type | Description |
 | -------- | --------------| ---- | ----------- |
 | ImpassableTerrainType | Impassable | String | Terrain type used by cells outside any tunnel footprint. |
+
+### TimeLimitManager
+This trait allows setting a time limit on matches. Attach this to the World actor.
+
+| Property | Default Value | Type | Description |
+| -------- | --------------| ---- | ----------- |
+| TimeLimitLabel | Time Limit | String | Label that will be shown for the time limit option in the lobby. |
+| TimeLimitDescription | Player or team with the highest score after this time wins | String | Tooltip description that will be shown for the time limit option in the lobby. |
+| TimeLimitOptions | 0, 10, 20, 30, 40, 60, 90 | Collection of Integer | Time Limit options that will be shown in the lobby dropdown. Values are in minutes. |
+| TimeLimitWarnings | 1: 
+2: 
+3: 
+4: 
+5: 
+10: 
+ | Dictionary with Key: Integer, Value String | List of remaining minutes of game time when a text and optional speech notification should be made to players. |
+| TimeLimitDefault | 0 | Integer | Default selection for the time limit option in the lobby. Needs to use one of the TimeLimitOptions. |
+| TimeLimitLocked | False | Boolean | Prevent the time limit option from being changed in the lobby. |
+| TimeLimitDropdownVisible | True | Boolean | Whether to display the options dropdown in the lobby. |
+| TimeLimitDisplayOrder | 0 | Integer | Display order for the time limit dropdown in the lobby. |
+| Notification | {0} minute{1} remaining. | String | Notification text for time limit warnings. The string '{0}' will be replaced by the remaining time in minutes, '{1}' is used for the plural form. |
+| CountdownLabel |  | String | ID of the LabelWidget used to display a text ingame that will be updated every second. |
+| CountdownText |  | String | Text to be shown using the CountdownLabel. The string '{0}' will be replaced by the time in hh:mm:ss format. |
+| SkipTimeRemainingNotifications | False | Boolean | Will prevent showing/playing the built-in time limit warnings when set to true. |
+| SkipTimerExpiredNotification | False | Boolean | Will prevent showing/playing the built-in timer expired notification when set to true. |
 
 ### ValidateOrder
 Used to detect exploits. Attach this to the world actor.
