@@ -1,4 +1,4 @@
-This is an automatically generated listing of the Lua map scripting API for version 20211029 of OpenHV.
+This is an automatically generated listing of the Lua map scripting API for version 20211208 of OpenHV.
 
 OpenHV allows custom maps and missions to be scripted using Lua 5.1.
 These scripts run in a sandbox that prevents access to unsafe functions (e.g. OS or file access), and limits the memory and CPU usage of the scripts.
@@ -386,7 +386,7 @@ For a basic guide about map scripts see the [`Map Scripting` wiki page](https://
 | **void EnterTransport(Actor transport)**<br />*Queued Activity* | Move to and enter the transport.<br />**Requires Trait:** Mobile |
 | **void FindResources()**<br />*Queued Activity* | Search for nearby resources and begin harvesting.<br />**Requires Trait:** Harvester |
 | **bool IsMobile { get; }** | Whether the actor can move (false if immobilized).<br />**Requires Trait:** Mobile |
-| **void Land(Actor landOn)**<br />*Queued Activity* | Queues a landing activity on the specififed actor.<br />**Requires Trait:** Aircraft |
+| **void Land(Actor landOn)**<br />*Queued Activity* | Queues a landing activity on the specified actor.<br />**Requires Trait:** Aircraft |
 | **void Move(CPos cell)**<br />*Queued Activity* | Fly within the cell grid.<br />**Requires Trait:** Aircraft |
 | **void Move(CPos cell, int closeEnough = 0)**<br />*Queued Activity* | Moves within the cell grid. closeEnough defines an optional range (in cells) that will be considered close enough to complete the activity.<br />**Requires Trait:** Mobile |
 | **void MoveIntoWorld(CPos cell)**<br />*Queued Activity* | Moves from outside the world into the cell grid.<br />**Requires Trait:** Mobile |

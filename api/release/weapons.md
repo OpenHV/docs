@@ -1,4 +1,4 @@
-This documentation is aimed at modders. It displays a template for weapon definitions as well as its contained types (warheads and projectiles) with default values and developer commentary. Please do not edit it directly, but add new `[Desc("String")]` tags to the source code. This file has been automatically generated for version 20211029 of OpenHV.
+This documentation is aimed at modders. It displays a template for weapon definitions as well as its contained types (warheads and projectiles) with default values and developer commentary. Please do not edit it directly, but add new `[Desc("String")]` tags to the source code. This file has been automatically generated for version 20211208 of OpenHV.
 
 
 
@@ -135,7 +135,7 @@ Not a sprite, but an engine effect.
 | Width | 0c1 | 1D World Distance | Width of projectile (used for finding blocking actors). |
 | Inaccuracy | 0c0 | 1D World Distance | The maximum/constant/incremental inaccuracy used in conjunction with the InaccuracyType property. |
 | InaccuracyType | Absolute | InaccuracyType | Controls the way inaccuracy is calculated. Possible values are 'Maximum' - scale from 0 to max with range, 'PerCellIncrement' - scale from 0 with range and 'Absolute' - use set value regardless of range. |
-| LockOnInaccuracy | -0c1 | 1D World Distance | Inaccuracy override when sucessfully locked onto target. Defaults to Inaccuracy if negative. |
+| LockOnInaccuracy | -0c1 | 1D World Distance | Inaccuracy override when successfully locked onto target. Defaults to Inaccuracy if negative. |
 | LockOnProbability | 100 | Integer | Probability of locking onto and following target. |
 | HorizontalRateOfTurn | 20 | 1D World Angle | Horizontal rate of turn. |
 | VerticalRateOfTurn | 24 | 1D World Angle | Vertical rate of turn. |
@@ -327,7 +327,7 @@ Used to trigger a FlashPaletteEffect trait on the world actor.
 | Spread | 0c0 | 1D World Distance | Damage will be applied to actors in this area. A value of zero means only targeted actor will be damaged. |
 | Damage | 0 | Integer | How much (raw) damage to deal. |
 | DamageTypes |  | Collection of DamageType | Types of damage that this warhead causes. Leave empty for no damage types. |
-| Versus |  | Dictionary with Key: String, Value Integer | Damage percentage versus each armortype. |
+| Versus |  | Dictionary with Key: String, Value Integer | Damage percentage versus each armor type. |
 | ValidTargets | Ground, Water | Collection of TargetableType | What types of targets are affected. |
 | InvalidTargets |  | Collection of TargetableType | What types of targets are unaffected. Overrules ValidTargets. |
 | ValidRelationships | Enemy, Neutral, Ally | PlayerRelationship | What player relationships are affected. |
@@ -342,7 +342,7 @@ Used to trigger a FlashPaletteEffect trait on the world actor.
 | -------- | --------------| ---- | ----------- |
 | Size | 0, 0 | Collection of Integer | Size of the area. A smudge will be created in each tile. Provide 2 values for a ring effect (outer/inner). |
 | SmudgeType |  | Set of String | Type of smudge to apply to terrain. |
-| Chance | 100 | Integer | Percentual chance the smudge is created. |
+| Chance | 100 | Integer | Percentage chance the smudge is created. |
 | ValidTargets | Ground, Water | Collection of TargetableType | What types of targets are affected. |
 | InvalidTargets |  | Collection of TargetableType | What types of targets are unaffected. Overrules ValidTargets. |
 | ValidRelationships | Enemy, Neutral, Ally | PlayerRelationship | What player relationships are affected. |
@@ -377,7 +377,7 @@ Makes the screen shake.
 | DamageCalculationType | HitShape | DamageCalculationType | Controls the way damage is calculated. Possible values are 'HitShape', 'ClosestTargetablePosition' and 'CenterPosition'. |
 | Damage | 0 | Integer | How much (raw) damage to deal. |
 | DamageTypes |  | Collection of DamageType | Types of damage that this warhead causes. Leave empty for no damage types. |
-| Versus |  | Dictionary with Key: String, Value Integer | Damage percentage versus each armortype. |
+| Versus |  | Dictionary with Key: String, Value Integer | Damage percentage versus each armor type. |
 | ValidTargets | Ground, Water | Collection of TargetableType | What types of targets are affected. |
 | InvalidTargets |  | Collection of TargetableType | What types of targets are unaffected. Overrules ValidTargets. |
 | ValidRelationships | Enemy, Neutral, Ally | PlayerRelationship | What player relationships are affected. |
@@ -393,7 +393,7 @@ Makes the screen shake.
 | Spread | 0c0 | 1D World Distance | Damage will be applied to actors in this area. A value of zero means only targeted actor will be damaged. |
 | Damage | 0 | Integer | How much (raw) damage to deal. |
 | DamageTypes |  | Collection of DamageType | Types of damage that this warhead causes. Leave empty for no damage types. |
-| Versus |  | Dictionary with Key: String, Value Integer | Damage percentage versus each armortype. |
+| Versus |  | Dictionary with Key: String, Value Integer | Damage percentage versus each armor type. |
 | ValidTargets | Ground, Water | Collection of TargetableType | What types of targets are affected. |
 | InvalidTargets |  | Collection of TargetableType | What types of targets are unaffected. Overrules ValidTargets. |
 | ValidRelationships | Enemy, Neutral, Ally | PlayerRelationship | What player relationships are affected. |

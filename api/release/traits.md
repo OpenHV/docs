@@ -1,4 +1,4 @@
-This documentation is aimed at modders. It displays all traits with default values and developer commentary. Please do not edit it directly, but add new `[Desc("String")]` tags to the source code. This file has been automatically generated for version 20211029 of OpenHV.
+This documentation is aimed at modders. It displays all traits with default values and developer commentary. Please do not edit it directly, but add new `[Desc("String")]` tags to the source code. This file has been automatically generated for version 20211208 of OpenHV.
 
 
 
@@ -574,9 +574,11 @@ Manages AI squads.
 | Property | Default Value | Type | Description |
 | -------- | --------------| ---- | ----------- |
 | NavalUnitsTypes |  | Set of String | Actor types that are valid for naval squads. |
+| AirUnitsTypes |  | Set of String | Actor types that are excluded from ground attacks. |
 | ExcludeFromSquadsTypes |  | Set of String | Actor types that should generally be excluded from attack squads. |
 | ConstructionYardTypes |  | Set of String | Actor types that are considered construction yards (base builders). |
 | NavalProductionTypes |  | Set of String | Enemy building types around which to scan for targets for naval squads. |
+| ProtectionTypes |  | Set of String | Own actor types that are prioritized when defending. |
 | SquadSize | 8 | Integer | Minimum number of units AI must have before attacking. |
 | SquadSizeRandomBonus | 30 | Integer | Random number of up to this many units is added to squad size when creating an attack squad. |
 | AssignRolesInterval | 50 | Integer | Delay (in ticks) between giving out orders to units. |
@@ -1330,7 +1332,7 @@ Applies a condition to the actor at when its health is between 2 specific values
 | DisabledSounds |  | Collection of String | Play a random sound from this list when disabled. |
 | MinHP | 0 | Integer | Minimum level of health at which to grant the condition. |
 | MaxHP | 0 | Integer | Maximum level of health at which to grant the condition. Non-positive values will make it use Health.HP. |
-| GrantPermanently | False | Boolean | Is the condition irrevokable once it has been granted? |
+| GrantPermanently | False | Boolean | Is the condition irrevocable once it has been granted? |
 
 ### GrantConditionOnJumpjetLayer
 
@@ -2628,7 +2630,7 @@ Requires traits: [`PlayerResources`](#playerresources), [`TechTree`](#techtree).
 | Property | Default Value | Type | Description |
 | -------- | --------------| ---- | ----------- |
 | SpeedUp | False | Boolean | If you build more actors of the same type, the same queue will get its build time lowered for every actor produced there. |
-| BuildingCountBuildTimeMultipliers | 100, 85, 75, 65, 60, 55, 50 | Collection of Integer | Every time another production building of the same queue is constructed, the build times of all actors in the queue modified by a percentage of the original time. |
+| BuildingCountBuildTimeMultipliers | 100, 86, 75, 67, 60, 55, 50 | Collection of Integer | Every time another production building of the same queue is constructed, the build times of all actors in the queue modified by a percentage of the original time. |
 | ParallelPenaltyBuildTimeMultipliers | 100, 116, 133, 150, 166, 183, 200, 216, 233, 250 | Collection of Integer | Build time modifier multiplied by the number of parallel production for producing different actors at the same time. |
 | Type | *(required)* | String | What kind of production will be added (e.g. Building, Infantry, Vehicle, ...) |
 | DisplayOrder | 0 | Integer | The value used when ordering this for display (e.g. in the Spectator UI). |
@@ -2658,7 +2660,7 @@ Requires traits: [`PlayerResources`](#playerresources), [`TechTree`](#techtree).
 | Property | Default Value | Type | Description |
 | -------- | --------------| ---- | ----------- |
 | SpeedUp | False | Boolean | If you build more actors of the same type, the same queue will get its build time lowered for every actor produced there. |
-| BuildTimeSpeedReduction | 100, 85, 75, 65, 60, 55, 50 | Collection of Integer | Every time another production building of the same queue is constructed, the build times of all actors in the queue decreased by a percentage of the original time. |
+| BuildTimeSpeedReduction | 100, 86, 75, 67, 60, 55, 50 | Collection of Integer | Every time another production building of the same queue is constructed, the build times of all actors in the queue decreased by a percentage of the original time. |
 | Type | *(required)* | String | What kind of production will be added (e.g. Building, Infantry, Vehicle, ...) |
 | DisplayOrder | 0 | Integer | The value used when ordering this for display (e.g. in the Spectator UI). |
 | Group |  | String | Group queues from separate buildings together into the same tab. |
@@ -2856,7 +2858,7 @@ Requires trait: [`Shroud`](#shroud).
 | InsufficientFundsNotificationInterval | 30000 | Integer | Delay (in ticks) during which warnings will be muted. |
 | CashTickUpNotification |  | String | |
 | CashTickDownNotification |  | String | |
-| ResourceValues |  | Dictionary with Key: String, Value Integer | Monetery value of each resource type. Dictionary of [resource type]: [value per unit]. |
+| ResourceValues |  | Dictionary with Key: String, Value Integer | Monetary value of each resource type. Dictionary of [resource type]: [value per unit]. |
 
 ### PlayerStatistics
 Attach this to the player actor to collect observer stats.
@@ -3371,13 +3373,15 @@ Adds capacity to a player's harvested resource limit.
 | IconImage | icon | String | |
 | Icon |  | String | Icon sprite displayed in the support power palette. |
 | IconPalette | chrome | String | Palette used for the icon. |
+| Name |  | String | |
 | Description |  | String | |
-| LongDesc |  | String | |
 | AllowMultiple | False | Boolean | Allow multiple instances of the same support power. |
 | OneShot | False | Boolean | Allow this to be used only once. |
 | Cursor | ability | String | Cursor to display for using this support power. |
 | StartFullyCharged | False | Boolean | If set to true, the support power will be fully charged when it becomes available. Normal rules apply for subsequent charges. |
 | Prerequisites |  | Collection of String | |
+| DetectedSound |  | String | |
+| DetectedSpeechNotification |  | String | |
 | BeginChargeSound |  | String | |
 | BeginChargeSpeechNotification |  | String | |
 | EndChargeSound |  | String | |
@@ -3425,13 +3429,15 @@ Adds capacity to a player's harvested resource limit.
 | IconImage | icon | String | |
 | Icon |  | String | Icon sprite displayed in the support power palette. |
 | IconPalette | chrome | String | Palette used for the icon. |
+| Name |  | String | |
 | Description |  | String | |
-| LongDesc |  | String | |
 | AllowMultiple | False | Boolean | Allow multiple instances of the same support power. |
 | OneShot | False | Boolean | Allow this to be used only once. |
 | Cursor | ability | String | Cursor to display for using this support power. |
 | StartFullyCharged | False | Boolean | If set to true, the support power will be fully charged when it becomes available. Normal rules apply for subsequent charges. |
 | Prerequisites |  | Collection of String | |
+| DetectedSound |  | String | |
+| DetectedSpeechNotification |  | String | |
 | BeginChargeSound |  | String | |
 | BeginChargeSpeechNotification |  | String | |
 | EndChargeSound |  | String | |
@@ -3500,13 +3506,15 @@ Adds capacity to a player's harvested resource limit.
 | IconImage | icon | String | |
 | Icon |  | String | Icon sprite displayed in the support power palette. |
 | IconPalette | chrome | String | Palette used for the icon. |
+| Name |  | String | |
 | Description |  | String | |
-| LongDesc |  | String | |
 | AllowMultiple | False | Boolean | Allow multiple instances of the same support power. |
 | OneShot | False | Boolean | Allow this to be used only once. |
 | Cursor | ability | String | Cursor to display for using this support power. |
 | StartFullyCharged | False | Boolean | If set to true, the support power will be fully charged when it becomes available. Normal rules apply for subsequent charges. |
 | Prerequisites |  | Collection of String | |
+| DetectedSound |  | String | |
+| DetectedSpeechNotification |  | String | |
 | BeginChargeSound |  | String | |
 | BeginChargeSpeechNotification |  | String | |
 | EndChargeSound |  | String | |
@@ -3560,13 +3568,15 @@ Adds capacity to a player's harvested resource limit.
 | IconImage | icon | String | |
 | Icon |  | String | Icon sprite displayed in the support power palette. |
 | IconPalette | chrome | String | Palette used for the icon. |
+| Name |  | String | |
 | Description |  | String | |
-| LongDesc |  | String | |
 | AllowMultiple | False | Boolean | Allow multiple instances of the same support power. |
 | OneShot | False | Boolean | Allow this to be used only once. |
 | Cursor | ability | String | Cursor to display for using this support power. |
 | StartFullyCharged | False | Boolean | If set to true, the support power will be fully charged when it becomes available. Normal rules apply for subsequent charges. |
 | Prerequisites |  | Collection of String | |
+| DetectedSound |  | String | |
+| DetectedSpeechNotification |  | String | |
 | BeginChargeSound |  | String | |
 | BeginChargeSpeechNotification |  | String | |
 | EndChargeSound |  | String | |
@@ -3611,13 +3621,15 @@ Produces an actor without using the standard production queue.
 | IconImage | icon | String | |
 | Icon |  | String | Icon sprite displayed in the support power palette. |
 | IconPalette | chrome | String | Palette used for the icon. |
+| Name |  | String | |
 | Description |  | String | |
-| LongDesc |  | String | |
 | AllowMultiple | False | Boolean | Allow multiple instances of the same support power. |
 | OneShot | False | Boolean | Allow this to be used only once. |
 | Cursor | ability | String | Cursor to display for using this support power. |
 | StartFullyCharged | False | Boolean | If set to true, the support power will be fully charged when it becomes available. Normal rules apply for subsequent charges. |
 | Prerequisites |  | Collection of String | |
+| DetectedSound |  | String | |
+| DetectedSpeechNotification |  | String | |
 | BeginChargeSound |  | String | |
 | BeginChargeSpeechNotification |  | String | |
 | EndChargeSound |  | String | |
@@ -3667,13 +3679,15 @@ Spawns an actor that stays for a limited amount of time.
 | IconImage | icon | String | |
 | Icon |  | String | Icon sprite displayed in the support power palette. |
 | IconPalette | chrome | String | Palette used for the icon. |
+| Name |  | String | |
 | Description |  | String | |
-| LongDesc |  | String | |
 | AllowMultiple | False | Boolean | Allow multiple instances of the same support power. |
 | OneShot | False | Boolean | Allow this to be used only once. |
 | Cursor | ability | String | Cursor to display for using this support power. |
 | StartFullyCharged | False | Boolean | If set to true, the support power will be fully charged when it becomes available. Normal rules apply for subsequent charges. |
 | Prerequisites |  | Collection of String | |
+| DetectedSound |  | String | |
+| DetectedSpeechNotification |  | String | |
 | BeginChargeSound |  | String | |
 | BeginChargeSpeechNotification |  | String | |
 | EndChargeSound |  | String | |
@@ -3948,7 +3962,7 @@ Configuration options for the lobby player color picker. Attach this to the worl
 | SimilarityThreshold | 0.314 | Real Number | Perceptual color threshold for determining whether two colors are too similar. |
 | PresetHues |  | Collection of Real Number | List of hue components for the preset colors in the palette tab. Each entry must have a corresponding PresetSaturations definition. |
 | PresetSaturations |  | Collection of Real Number | List of saturation components for the preset colors in the palette tab. Each entry must have a corresponding PresetHues definition. |
-| PreviewActor |  | String | Actor type to show in the color picker. This can be overriden for specific factions with FactionPreviewActors. |
+| PreviewActor |  | String | Actor type to show in the color picker. This can be overridden for specific factions with FactionPreviewActors. |
 | FactionPreviewActors |  | Dictionary with Key: String, Value String | Actor type to show in the color picker for specific factions. Overrides PreviewActor. A dictionary of [faction name]: [actor name]. |
 | Color | 00000000 | Color (RRGGBB[AA] notation) | |
 
@@ -4981,6 +4995,7 @@ Requires traits: [`BodyOrientation`](#bodyorientation), [`RenderSprites`](#rende
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### WithGateSpriteBody
+This actor visually connects to walls and changes appearance when actors walk through it.
 
 Requires traits: [`Gate`](#gate), [`RenderSprites`](#rendersprites).
 
@@ -5256,7 +5271,7 @@ Requires trait: [`RenderSprites`](#rendersprites).
 | Property | Default Value | Type | Description |
 | -------- | --------------| ---- | ----------- |
 | PipCount | *(required)* | Integer | Number of pips to display how filled unit is. |
-| PipStride | 0,0 | 2D Integer | If non-zero, override the spacing between adjacing pips. |
+| PipStride | 0,0 | 2D Integer | If non-zero, override the spacing between adjacent pips. |
 | Image | pips | String | Image that defines the pip sequences. |
 | EmptySequence | pip-empty | String | Sequence used for empty pips. |
 | FullSequence | pip-green | String | Sequence used for full pips. |
@@ -6100,6 +6115,7 @@ Requires trait: [`Building`](#building).
 | Deposits |  | Dictionary with Key: String, Value Integer | How much can be mined in total before depletion. |
 | DisplayRelationships | Ally | PlayerRelationship | Defines to which players the bar is to be shown. |
 | Colors |  | Dictionary with Key: String, Value Color (RRGGBB[AA] notation) | Defines to which players the bar is to be shown. |
+| DepletionNotification |  | String | The audio notification type to play when the resources are exhausted. |
 | PauseOnCondition |  | BooleanExpression | Boolean expression defining the condition to pause this trait. |
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
@@ -6163,6 +6179,61 @@ Spawns shrapnel weapons after a periodic interval.
 | PauseOnCondition |  | BooleanExpression | Boolean expression defining the condition to pause this trait. |
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
+### AttackOrderPower
+Requires trait: [`AttackBase`](#attackbase).
+
+| Property | Default Value | Type | Description |
+| -------- | --------------| ---- | ----------- |
+| CircleColor | FF0000 | Color (RRGGBB[AA] notation) | Range circle color. |
+| CircleWidth | 1 | Real Number | Range circle line width. |
+| CircleBorderColor | 00000060 | Color (RRGGBB[AA] notation) | Range circle border color. |
+| CircleBorderWidth | 3 | Real Number | Range circle border width. |
+| BlockedCursor | attack-blocked | String | Cursor to display when out of range. |
+| AttackingCondition |  | String | The condition to grant to self while attacking. |
+| ChargeInterval | 0 | Integer | Measured in ticks. |
+| IconImage | icon | String | |
+| Icon |  | String | Icon sprite displayed in the support power palette. |
+| IconPalette | chrome | String | Palette used for the icon. |
+| Name |  | String | |
+| Description |  | String | |
+| AllowMultiple | False | Boolean | Allow multiple instances of the same support power. |
+| OneShot | False | Boolean | Allow this to be used only once. |
+| Cursor | ability | String | Cursor to display for using this support power. |
+| StartFullyCharged | False | Boolean | If set to true, the support power will be fully charged when it becomes available. Normal rules apply for subsequent charges. |
+| Prerequisites |  | Collection of String | |
+| DetectedSound |  | String | |
+| DetectedSpeechNotification |  | String | |
+| BeginChargeSound |  | String | |
+| BeginChargeSpeechNotification |  | String | |
+| EndChargeSound |  | String | |
+| EndChargeSpeechNotification |  | String | |
+| SelectTargetSound |  | String | |
+| SelectTargetSpeechNotification |  | String | |
+| InsufficientPowerSound |  | String | |
+| InsufficientPowerSpeechNotification |  | String | |
+| LaunchSound |  | String | |
+| LaunchSpeechNotification |  | String | |
+| IncomingSound |  | String | |
+| IncomingSpeechNotification |  | String | |
+| DisplayTimerRelationships | None | PlayerRelationship | Defines to which players the timer is shown. |
+| DisplayBeacon | False | Boolean | Beacons are only supported on the Airstrike, Paratroopers, and Nuke powers |
+| BeaconPaletteIsPlayerPalette | True | Boolean | |
+| BeaconPalette | player | String | |
+| BeaconImage | beacon | String | |
+| BeaconPoster |  | String | |
+| BeaconPosterPalette | chrome | String | |
+| ClockSequence |  | String | |
+| BeaconSequence |  | String | |
+| ArrowSequence |  | String | |
+| CircleSequence |  | String | |
+| BeaconDelay | 0 | Integer | Delay after launch, measured in ticks. |
+| DisplayRadarPing | False | Boolean | |
+| RadarPingDuration | 125 | Integer | Measured in ticks. |
+| OrderName | AttackOrderPowerInfoOrder | String | |
+| SupportPowerPaletteOrder | 9999 | Integer | Sort order for the support power palette. Smaller numbers are presented earlier. |
+| PauseOnCondition |  | BooleanExpression | Boolean expression defining the condition to pause this trait. |
+| RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
+
 ### DropPodsPower
 
 | Property | Default Value | Type | Description |
@@ -6177,13 +6248,15 @@ Spawns shrapnel weapons after a periodic interval.
 | IconImage | icon | String | |
 | Icon |  | String | Icon sprite displayed in the support power palette. |
 | IconPalette | chrome | String | Palette used for the icon. |
+| Name |  | String | |
 | Description |  | String | |
-| LongDesc |  | String | |
 | AllowMultiple | False | Boolean | Allow multiple instances of the same support power. |
 | OneShot | False | Boolean | Allow this to be used only once. |
 | Cursor | ability | String | Cursor to display for using this support power. |
 | StartFullyCharged | False | Boolean | If set to true, the support power will be fully charged when it becomes available. Normal rules apply for subsequent charges. |
 | Prerequisites |  | Collection of String | |
+| DetectedSound |  | String | |
+| DetectedSpeechNotification |  | String | |
 | BeginChargeSound |  | String | |
 | BeginChargeSpeechNotification |  | String | |
 | EndChargeSound |  | String | |
@@ -6233,13 +6306,15 @@ Spawns shrapnel weapons after a periodic interval.
 | IconImage | icon | String | |
 | Icon |  | String | Icon sprite displayed in the support power palette. |
 | IconPalette | chrome | String | Palette used for the icon. |
+| Name |  | String | |
 | Description |  | String | |
-| LongDesc |  | String | |
 | AllowMultiple | False | Boolean | Allow multiple instances of the same support power. |
 | OneShot | False | Boolean | Allow this to be used only once. |
 | Cursor | ability | String | Cursor to display for using this support power. |
 | StartFullyCharged | False | Boolean | If set to true, the support power will be fully charged when it becomes available. Normal rules apply for subsequent charges. |
 | Prerequisites |  | Collection of String | |
+| DetectedSound |  | String | |
+| DetectedSpeechNotification |  | String | |
 | BeginChargeSound |  | String | |
 | BeginChargeSpeechNotification |  | String | |
 | EndChargeSound |  | String | |
