@@ -1,4 +1,4 @@
-This documentation is aimed at modders. It displays all traits with default values and developer commentary. Please do not edit it directly, but add new `[Desc("String")]` tags to the source code. This file has been automatically generated for version 20211208 of OpenHV.
+This documentation is aimed at modders. It displays all traits with default values and developer commentary. Please do not edit it directly, but add new `[Desc("String")]` tags to the source code. This file has been automatically generated for version 20220102 of OpenHV.
 
 
 
@@ -4462,6 +4462,23 @@ Adds a particle-based overlay.
 | ParticleColors | ECECEC, E4E4E4, D0D0D0, BCBCBC | Collection of Color (RRGGBB[AA] notation) | The randomly selected rgb(a) hex colors for the particles. Use this order: rrggbb[aa], rrggbb[aa], ... |
 | LineTailAlphaValue | 200 | Byte | Works only with line enabled and can be used to fade out the tail of the line like a contrail. |
 
+### VariedCostMultiplier
+Modifies the production cost of this actor for a specific queue or when a prerequisite is granted. Requires VariedCostManager on the World actor.
+
+| Property | Default Value | Type | Description |
+| -------- | --------------| ---- | ----------- |
+| Prerequisites |  | Collection of String | Only apply this cost change if the owner has these prerequisites. |
+| Queues |  | Set of String | Production queues that this cost will apply to. |
+| Group |  | String | Set this if items should get the same random pricing. |
+
+### VariedCostManager
+Keeps cost variations in sync. Attach this to the world actor.
+
+| Property | Default Value | Type | Description |
+| -------- | --------------| ---- | ----------- |
+| AdjustmentDelay | 1000 | Integer | Interval between new pricings measured in ticks. |
+| Multiplier | 100,125 | 2D Integer | Range of percentage modifiers to apply. |
+
 
 ### GrantRandomCondition
 Grants a random condition from a predefined list to the actor when created.
@@ -5848,6 +5865,16 @@ Grants a condition when this actor finishes a burst.
 | PauseOnCondition |  | BooleanExpression | Boolean expression defining the condition to pause this trait. |
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
+### GrantConditionOnLineBuildConnection
+Grants a condition when this actor is connected to a wall.
+
+Requires trait: [`Building`](#building).
+
+| Property | Default Value | Type | Description |
+| -------- | --------------| ---- | ----------- |
+| Condition | *(required)* | String | The condition to grant. |
+| Edges |  | Collection of 2D Cell Vector | Possible connections left/right or top/bottom from top left origin. |
+
 ### GrantConditionOnNeutralOwner
 Grants a condition if the owner is the Neutral player.
 
@@ -5876,13 +5903,15 @@ Available commands:
 `/offset disable`: Disables rendering of the offset.
 
 ### Floods
-Lets the actor spread resources around it in straight lines.
+Lets the actor spread liquid tiles around it in straight lines.
 
 | Property | Default Value | Type | Description |
 | -------- | --------------| ---- | ----------- |
-| Interval | 75 | Integer | |
-| ResourceType | water | String | |
-| MaxRange | 100 | Integer | |
+| Interval | 10 | Integer | Speed in ticks between each wave. |
+| MaxTiles | 10000 | Integer | After which amount of flooded tiles to stop traversing further. |
+| ReplacementTiles |  | Dictionary with Key: UInt16, Value UInt16 | Which tile ID to replace with which flooded variant |
+| StopTerrainTypes |  | Collection of String | Terrain type that should be converted albeit unpathable. |
+| Locomotor | *(required)* | String | Locomotor to test pathability of barriers against. |
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### FreeActorWithEffect
@@ -6375,13 +6404,6 @@ Can move actors instantly to primary designated teleport network canal actor.
 | EnterCursor | enter | String | |
 | EnterBlockedCursor | enter-blocked | String | |
 
-### Tree
-For use with the ForestLayer.
-
-| Property | Default Value | Type | Description |
-| -------- | --------------| ---- | ----------- |
-| Template | *(required)* | UInt16 | Terrain tile to match. |
-
 ### CloudSpawner
 
 | Property | Default Value | Type | Description |
@@ -6428,10 +6450,21 @@ Attach this to the world actor. Required for LaysTerrain to work.
 ### EditorAutoTiler
 
 ### ForestLayer
+Attach this to the world actor.
 
 | Property | Default Value | Type | Description |
 | -------- | --------------| ---- | ----------- |
-| Trees | *(required)* | Collection of String | |
+| Palette | terrain | String | Palette to render the layer sprites in. |
+| CrushClasses | Tree | Collection of CrushClass | Who should be allowed to crush a tree. |
+| Hitpoints | 100000 | Integer | Initial max amount per tile. |
+| DamagedHitpoints | 75000 | Integer | At which health level to display flames. |
+| Image | *(required)* | String | Animation image. |
+| Sequence |  | String | Animation to play when damaged. |
+| Interval | 8 | Integer | Time in ticks to spawn a new flame and to apply damage. |
+| Damage | 10 | Integer | How much damage to apply to neighboring tiles when on fire. |
+| TransformedTerrain | *(required)* | Collection of String | Terrain types a tree can change into. |
+| CrushedTiles | *(required)* | Dictionary with Key: UInt16, Value UInt16 | Which tile ID to replace with which munched variant |
+| BurnedTiles | *(required)* | Dictionary with Key: UInt16, Value UInt16 | Which tile ID to replace with which scorched variant |
 
 ### LimitedResources
 
@@ -6444,13 +6477,26 @@ Attach this to the world actor. Required for LaysTerrain to work.
 | CheckboxVisible | True | Boolean | Whether to display the limited resources checkbox in the lobby. |
 | CheckboxDisplayOrder | 0 | Integer | Display order for the limited resources checkbox in the lobby. |
 
-### LiquidTerrainRenderer
-Used to render liquids.
+### LiquidEdgeRenderer
+Used to render the border of liquids.
 Attach this to the world actor
+
+Requires trait: [`LiquidTerrainLayer`](#liquidterrainlayer).
 
 | Property | Default Value | Type | Description |
 | -------- | --------------| ---- | ----------- |
-| ResourceTypes |  | Dictionary with Key: String, Value ResourceTypeInfo | |
+| Image | *(required)* | String | Sequence image that holds the different variants. |
+| Sequence | idle | String | |
+| Palette | terrain | String | Palette used for rendering the resource sprites. |
+| BlockTerrainTypes |  | Collection of String | |
+| CoveredTerrainTypes |  | Collection of String | |
+
+### LiquidTerrainLayer
+Attach this to the world actor.
+
+| Property | Default Value | Type | Description |
+| -------- | --------------| ---- | ----------- |
+| Palette | terrain | String | Palette to render the layer sprites in. |
 
 ### TerrainTileAnimation
 
@@ -6547,6 +6593,16 @@ Requires trait: [`WithSpriteBody`](#withspritebody).
 | LandingSequence | landing | String | |
 | TouchdownSequence | touchdown | String | |
 | LiftoffSequence | liftoff | String | |
+| Body | body | String | Which sprite body to play the animation on. |
+
+### WithLandingUnloadAnimation
+Requires traits: [`Aircraft`](#aircraft), [`WithSpriteBody`](#withspritebody).
+
+| Property | Default Value | Type | Description |
+| -------- | --------------| ---- | ----------- |
+| RequiredFacing | 0 | 1D World Angle | |
+| LandingSequence | landing | String | |
+| UnloadedSequence | unloaded | String | |
 | Body | body | String | Which sprite body to play the animation on. |
 
 ### WithMissileLaunchAnimation

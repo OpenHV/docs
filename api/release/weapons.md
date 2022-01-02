@@ -1,4 +1,4 @@
-This documentation is aimed at modders. It displays a template for weapon definitions as well as its contained types (warheads and projectiles) with default values and developer commentary. Please do not edit it directly, but add new `[Desc("String")]` tags to the source code. This file has been automatically generated for version 20211208 of OpenHV.
+This documentation is aimed at modders. It displays a template for weapon definitions as well as its contained types (warheads and projectiles) with default values and developer commentary. Please do not edit it directly, but add new `[Desc("String")]` tags to the source code. This file has been automatically generated for version 20220102 of OpenHV.
 
 
 
@@ -432,6 +432,26 @@ Fires a defined amount of weapons with their maximum range in a wave pattern.
 | AllowDirectHit | False | Boolean | Should the shrapnel hit the direct target? |
 | AroundTarget | False | Boolean | Should the weapons be fired around the intended target or at the explosion's epicenter. |
 | ImpactActors | True | Boolean | Whether to consider actors in determining whether the explosion should happen. If false, only terrain will be considered. |
+| ValidTargets | Ground, Water | Collection of TargetableType | What types of targets are affected. |
+| InvalidTargets |  | Collection of TargetableType | What types of targets are unaffected. Overrules ValidTargets. |
+| ValidRelationships | Enemy, Neutral, Ally | PlayerRelationship | What player relationships are affected. |
+| AffectsParent | False | Boolean | Can this warhead affect the actor that fired it. |
+| AirThreshold | 0c128 | 1D World Distance | If impact is above this altitude, warheads that would affect terrain ignore terrain target types (and either do nothing or perform their own checks). |
+| Delay | 0 | Integer | Delay in ticks before applying the warhead effect. 0 = instant (old model). |
+| DebugOverlayColor | FF0000 | Color (RRGGBB[AA] notation) | The color used for this warhead's visualization in the world's `WarheadDebugOverlay` trait. |
+
+### TreeDamageWarhead
+A simplified SpreadDamageWarhead that interacts with ForestLayer
+
+| Property | Default Value | Type | Description |
+| -------- | --------------| ---- | ----------- |
+| Spread | 0c43 | 1D World Distance | Range between falloff steps. |
+| Falloff | 100, 37, 14, 5, 0 | Collection of Integer | Damage percentage at each range step |
+| Range |  | Collection of 1D World Distance | Ranges at which each Falloff step is defined. Overrides Spread. |
+| Percentage | 100 | Integer | How much damage to apply to wood armor. |
+| Damage | 0 | Integer | How much (raw) damage to deal. |
+| DamageTypes |  | Collection of DamageType | Types of damage that this warhead causes. Leave empty for no damage types. |
+| Versus |  | Dictionary with Key: String, Value Integer | Damage percentage versus each armor type. |
 | ValidTargets | Ground, Water | Collection of TargetableType | What types of targets are affected. |
 | InvalidTargets |  | Collection of TargetableType | What types of targets are unaffected. Overrules ValidTargets. |
 | ValidRelationships | Enemy, Neutral, Ally | PlayerRelationship | What player relationships are affected. |
