@@ -1,4 +1,4 @@
-This documentation is aimed at modders. It displays all traits with default values and developer commentary. Please do not edit it directly, but add new `[Desc("String")]` tags to the source code. This file has been automatically generated for version 20220102 of OpenHV.
+This documentation is aimed at modders. It displays all traits with default values and developer commentary. Please do not edit it directly, but add new `[Desc("String")]` tags to the source code. This file has been automatically generated for version 20220128 of OpenHV.
 
 
 
@@ -151,7 +151,6 @@ Requires trait: [`Aircraft`](#aircraft).
 
 | Property | Default Value | Type | Description |
 | -------- | --------------| ---- | ----------- |
-| FacingTolerance | 8 | 1D World Angle | Tolerance for attack angle. Range [0, 512], 512 covers 360 degrees. |
 | Armaments | primary, secondary | Collection of String | Armament names |
 | Cursor |  | String | Cursor to display when hovering over a valid target. |
 | OutsideRangeCursor |  | String | Cursor to display when hovering over a valid target that is outside of range. |
@@ -161,7 +160,7 @@ Requires trait: [`Aircraft`](#aircraft).
 | ForceFireIgnoresActors | False | Boolean | Force-fire mode ignores actors and targets the ground instead. |
 | OutsideRangeRequiresForceFire | False | Boolean | Force-fire mode is required to enable targeting against targets outside of range. |
 | Voice | Action | String | |
-| FacingTolerance | 8 | 1D World Angle | Tolerance for attack angle. Range [0, 512], 512 covers 360 degrees. |
+| FacingTolerance | 512 | 1D World Angle | Tolerance for attack angle. Range [0, 512], 512 covers 360 degrees. |
 | PauseOnCondition |  | BooleanExpression | Boolean expression defining the condition to pause this trait. |
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
@@ -424,6 +423,7 @@ Requires traits: [`Aircraft`](#aircraft), [`BodyOrientation`](#bodyorientation).
 | DropOffBlockedCursor | move-blocked | String | Cursor to display when unable to drop off the passengers at location. |
 | PickUpCursor | ability | String | Cursor to display when picking up the passengers. |
 | CarryCondition |  | String | Condition to grant to the Carryall while it is carrying something. |
+| CarryableConditions |  | Dictionary with Key: String, Value String | Conditions to grant when a specified actor is being carried. A dictionary of [actor name]: [condition]. |
 | Voice | Action | String | |
 | TargetLineColor | FFFF00 | Color (RRGGBB[AA] notation) | Color to use for the target line. |
 
@@ -1130,7 +1130,7 @@ This actor can transport Passenger actors.
 | UnloadBlockedCursor | deploy-blocked | String | Cursor to display when unable to unload the passengers. |
 | LoadingCondition |  | String | The condition to grant to self while waiting for cargo to load. |
 | LoadedCondition |  | String | The condition to grant to self while passengers are loaded. Condition can stack with multiple passengers. |
-| PassengerConditions |  | Dictionary with Key: String, Value String | Conditions to grant when specified actors are loaded inside the transport. A dictionary of [actor id]: [condition]. |
+| PassengerConditions |  | Dictionary with Key: String, Value String | Conditions to grant when specified actors are loaded inside the transport. A dictionary of [actor name]: [condition]. |
 
 ### Carryable
 Can be carried by actors with the `Carryall` trait.
@@ -1164,6 +1164,7 @@ Requires traits: [`Aircraft`](#aircraft), [`BodyOrientation`](#bodyorientation).
 | DropOffBlockedCursor | move-blocked | String | Cursor to display when unable to drop off the passengers at location. |
 | PickUpCursor | ability | String | Cursor to display when picking up the passengers. |
 | CarryCondition |  | String | Condition to grant to the Carryall while it is carrying something. |
+| CarryableConditions |  | Dictionary with Key: String, Value String | Conditions to grant when a specified actor is being carried. A dictionary of [actor name]: [condition]. |
 | Voice | Action | String | |
 | TargetLineColor | FFFF00 | Color (RRGGBB[AA] notation) | Color to use for the target line. |
 
@@ -2597,7 +2598,7 @@ This actor can enter Cargo actors.
 | CustomPipType |  | String | If defined, use a custom pip type defined on the transport's WithCargoPipsDecoration.CustomPipSequences list. |
 | Weight | 1 | Integer | |
 | CargoCondition |  | String | The condition to grant to when this actor is loaded inside any transport. |
-| CargoConditions |  | Dictionary with Key: String, Value String | Conditions to grant when this actor is loaded inside specified transport. A dictionary of [actor id]: [condition]. |
+| CargoConditions |  | Dictionary with Key: String, Value String | Conditions to grant when this actor is loaded inside specified transport. A dictionary of [actor name]: [condition]. |
 | Voice | Action | String | |
 | TargetLineColor | 008000 | Color (RRGGBB[AA] notation) | Color to use for the target line. |
 | RequireForceMoveCondition |  | BooleanExpression | Boolean expression defining the condition under which the regular (non-force) enter cursor is disabled. |
@@ -3966,6 +3967,12 @@ Configuration options for the lobby player color picker. Attach this to the worl
 | FactionPreviewActors |  | Dictionary with Key: String, Value String | Actor type to show in the color picker for specific factions. Overrides PreviewActor. A dictionary of [faction name]: [actor name]. |
 | Color | 00000000 | Color (RRGGBB[AA] notation) | |
 
+### ControlGroups
+
+| Property | Default Value | Type | Description |
+| -------- | --------------| ---- | ----------- |
+| Groups | 1, 2, 3, 4, 5, 6, 7, 8, 9, 0 | Collection of String | |
+
 ### CrateSpawner
 
 | Property | Default Value | Type | Description |
@@ -4461,23 +4468,6 @@ Adds a particle-based overlay.
 | SwingAmplitude | 1, 1.5 | Collection of Real Number | The value range that can be swung to the left or right. SwingAmplitude min. and max. value in px/tick. |
 | ParticleColors | ECECEC, E4E4E4, D0D0D0, BCBCBC | Collection of Color (RRGGBB[AA] notation) | The randomly selected rgb(a) hex colors for the particles. Use this order: rrggbb[aa], rrggbb[aa], ... |
 | LineTailAlphaValue | 200 | Byte | Works only with line enabled and can be used to fade out the tail of the line like a contrail. |
-
-### VariedCostMultiplier
-Modifies the production cost of this actor for a specific queue or when a prerequisite is granted. Requires VariedCostManager on the World actor.
-
-| Property | Default Value | Type | Description |
-| -------- | --------------| ---- | ----------- |
-| Prerequisites |  | Collection of String | Only apply this cost change if the owner has these prerequisites. |
-| Queues |  | Set of String | Production queues that this cost will apply to. |
-| Group |  | String | Set this if items should get the same random pricing. |
-
-### VariedCostManager
-Keeps cost variations in sync. Attach this to the world actor.
-
-| Property | Default Value | Type | Description |
-| -------- | --------------| ---- | ----------- |
-| AdjustmentDelay | 1000 | Integer | Interval between new pricings measured in ticks. |
-| Multiplier | 100,125 | 2D Integer | Range of percentage modifiers to apply. |
 
 
 ### GrantRandomCondition
@@ -5504,35 +5494,6 @@ Requires traits: [`Building`](#building), [`RenderSprites`](#rendersprites).
 | PauseOnCondition |  | BooleanExpression | Boolean expression defining the condition to pause this trait. |
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
-### EmptySelectionDecorations
-Requires trait: [`Interactable`](#interactable).
-
-| Property | Default Value | Type | Description |
-| -------- | --------------| ---- | ----------- |
-| SelectionBoxColor | FFFFFF | Color (RRGGBB[AA] notation) | |
-
-### OutlinedSelectionDecorations
-Displays thick and outlined healthbars as well as sprite based selection boxes.
-
-Requires trait: [`Interactable`](#interactable).
-
-| Property | Default Value | Type | Description |
-| -------- | --------------| ---- | ----------- |
-| Image | outline | String | Image used for the undamaged decoration. |
-| DamagedImage | outline-yellow | String | |
-| CriticallyDamagedImage | outline-red | String | |
-| TopLeftSequence | top-left | String | |
-| TopRightSequence | top-right | String | |
-| BottomLeftSequence | bottom-left | String | |
-| BottomRightSequence | bottom-right | String | |
-| Spacers | False | Boolean | Render left, bottom, right and top as well. |
-| LeftSequence | left | String | |
-| BottomSequence | bottom | String | |
-| RightSequence | right | String | |
-| TopSequence | top | String | |
-| Palette | cursor | String | Palette to render the sprite in. Reference the world actor's PaletteFrom* traits. |
-| SelectionBoxColor | FFFFFF | Color (RRGGBB[AA] notation) | |
-
 
 ### ActorLostNotification
 
@@ -5736,6 +5697,18 @@ Manages AI base construction.
 | BuildingDelays |  | Dictionary with Key: String, Value Integer | When should the AI start building specific buildings. |
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
+### DefensiveSupportPowerBotModule
+Manages bot defensive support power handling.
+
+Requires trait: [`SupportPowerManager`](#supportpowermanager).
+
+| Property | Default Value | Type | Description |
+| -------- | --------------| ---- | ----------- |
+| OrderName | *(required)* | String | Which support power to use. |
+| Range | 3c0 | 1D World Distance | Range used to find actors with AI ownership. |
+| MinimumTargets | 4 | Integer | How many friendlies should at least be affected? |
+| RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
+
 ### DeployDetectorBotModule
 Manages AI cloak detector deployment logic. For use with the regular `SquadManagerBotModule`.
 
@@ -5827,25 +5800,6 @@ This actor can spawn actors.
 | RespawnTicks | 150 | Integer | Spawn regeneration delay, in ticks |
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
-### CollectScrapCrateAction
-Gives cash to the collector.
-
-Requires trait: [`ScrapValue`](#scrapvalue).
-
-| Property | Default Value | Type | Description |
-| -------- | --------------| ---- | ----------- |
-| UseCashTick | True | Boolean | Should the collected amount be displayed as a cash tick? |
-| SelectionShares | 10 | Integer | Chance of getting this crate, assuming the collector is compatible. |
-| Image | crate-effects | String | Image containing the crate effect animation sequence. |
-| Sequence |  | String | Animation sequence played when collected. Leave empty for no effect. |
-| Palette | effect | String | Palette to draw the animation in. |
-| Sound |  | String | Audio clip to play when the crate is collected. |
-| Notification |  | String | Notification to play when the crate is collected. |
-| TimeDelay | 0 | Integer | The earliest time (in ticks) that this crate action can occur on. |
-| Prerequisites |  | Collection of String | Only allow this crate action when the collector has these prerequisites |
-| ExcludedActorTypes |  | Collection of String | Actor types that this crate action will not occur for. |
-| RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
-
 ### GrantConditionInsideEnemyBuildRadius
 Grants a condition when the actor enters an enemy build radius.
 
@@ -5888,6 +5842,46 @@ Grants an external condition to the owner player's actor.
 | Property | Default Value | Type | Description |
 | -------- | --------------| ---- | ----------- |
 | Condition | *(required)* | String | |
+| RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
+
+### CollectScrapCrateAction
+Gives cash to the collector.
+
+Requires trait: [`ScrapValue`](#scrapvalue).
+
+| Property | Default Value | Type | Description |
+| -------- | --------------| ---- | ----------- |
+| UseCashTick | True | Boolean | Should the collected amount be displayed as a cash tick? |
+| SelectionShares | 10 | Integer | Chance of getting this crate, assuming the collector is compatible. |
+| Image | crate-effects | String | Image containing the crate effect animation sequence. |
+| Sequence |  | String | Animation sequence played when collected. Leave empty for no effect. |
+| Palette | effect | String | Palette to draw the animation in. |
+| Sound |  | String | Audio clip to play when the crate is collected. |
+| Notification |  | String | Notification to play when the crate is collected. |
+| TimeDelay | 0 | Integer | The earliest time (in ticks) that this crate action can occur on. |
+| Prerequisites |  | Collection of String | Only allow this crate action when the collector has these prerequisites |
+| ExcludedActorTypes |  | Collection of String | Actor types that this crate action will not occur for. |
+| RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
+
+### SpawnUnitCrateAction
+Spawns units when collected and optionally plays an effect overlay.
+
+| Property | Default Value | Type | Description |
+| -------- | --------------| ---- | ----------- |
+| Units | *(required)* | Collection of String | The list of units to spawn. |
+| ValidFactions |  | Set of String | Factions that are allowed to trigger this action. |
+| Owner |  | String | Override the owner of the newly spawned unit: e.g. Creeps or Neutral |
+| AppearImage | energyball | String | Image used to overlay the spawned actor. |
+| AppearSequence | appear | String | Animation overlay played when spawning the actor. |
+| SelectionShares | 10 | Integer | Chance of getting this crate, assuming the collector is compatible. |
+| Image | crate-effects | String | Image containing the crate effect animation sequence. |
+| Sequence |  | String | Animation sequence played when collected. Leave empty for no effect. |
+| Palette | effect | String | Palette to draw the animation in. |
+| Sound |  | String | Audio clip to play when the crate is collected. |
+| Notification |  | String | Notification to play when the crate is collected. |
+| TimeDelay | 0 | Integer | The earliest time (in ticks) that this crate action can occur on. |
+| Prerequisites |  | Collection of String | Only allow this crate action when the collector has these prerequisites |
+| ExcludedActorTypes |  | Collection of String | Actor types that this crate action will not occur for. |
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### DebugOffsetOverlay
@@ -6404,6 +6398,15 @@ Can move actors instantly to primary designated teleport network canal actor.
 | EnterCursor | enter | String | |
 | EnterBlockedCursor | enter-blocked | String | |
 
+### VariedCostMultiplier
+Modifies the production cost of this actor for a specific queue or when a prerequisite is granted. Requires VariedCostManager on the World actor.
+
+| Property | Default Value | Type | Description |
+| -------- | --------------| ---- | ----------- |
+| Prerequisites |  | Collection of String | Only apply this cost change if the owner has these prerequisites. |
+| Queues |  | Set of String | Production queues that this cost will apply to. |
+| Group |  | String | Set this if items should get the same random pricing. |
+
 ### CloudSpawner
 
 | Property | Default Value | Type | Description |
@@ -6516,6 +6519,43 @@ Allows resources below actors. Attach this to the world actor.
 | -------- | --------------| ---- | ----------- |
 | ResourceTypes |  | Dictionary with Key: String, Value ResourceTypeInfo | |
 
+### VariedCostManager
+Keeps cost variations in sync. Attach this to the world actor.
+
+| Property | Default Value | Type | Description |
+| -------- | --------------| ---- | ----------- |
+| AdjustmentDelay | 1000 | Integer | Interval between new pricings measured in ticks. |
+| Multiplier | 100,125 | 2D Integer | Range of percentage modifiers to apply. |
+
+
+### EmptySelectionDecorations
+Requires trait: [`Interactable`](#interactable).
+
+| Property | Default Value | Type | Description |
+| -------- | --------------| ---- | ----------- |
+| SelectionBoxColor | FFFFFF | Color (RRGGBB[AA] notation) | |
+
+### OutlinedSelectionDecorations
+Displays thick and outlined healthbars as well as sprite based selection boxes.
+
+Requires trait: [`Interactable`](#interactable).
+
+| Property | Default Value | Type | Description |
+| -------- | --------------| ---- | ----------- |
+| Image | outline | String | Image used for the undamaged decoration. |
+| DamagedImage | outline-yellow | String | |
+| CriticallyDamagedImage | outline-red | String | |
+| TopLeftSequence | top-left | String | |
+| TopRightSequence | top-right | String | |
+| BottomLeftSequence | bottom-left | String | |
+| BottomRightSequence | bottom-right | String | |
+| Spacers | False | Boolean | Render left, bottom, right and top as well. |
+| LeftSequence | left | String | |
+| BottomSequence | bottom | String | |
+| RightSequence | right | String | |
+| TopSequence | top | String | |
+| Palette | cursor | String | Palette to render the sprite in. Reference the world actor's PaletteFrom* traits. |
+| SelectionBoxColor | FFFFFF | Color (RRGGBB[AA] notation) | |
 
 ### WithCarrierHatchAnimation
 This actor displays an open/close animation when child actors leave/enter.

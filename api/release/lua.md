@@ -1,4 +1,4 @@
-This is an automatically generated listing of the Lua map scripting API for version 20220102 of OpenHV.
+This is an automatically generated listing of the Lua map scripting API for version 20220128 of OpenHV.
 
 OpenHV allows custom maps and missions to be scripted using Lua 5.1.
 These scripts run in a sandbox that prevents access to unsafe functions (e.g. OS or file access), and limits the memory and CPU usage of the scripts.
@@ -301,8 +301,10 @@ For a basic guide about map scripts see the [`Map Scripting` wiki page](https://
 | Function | Description |
 |---------:|-------------|
 | **void Capture(Actor target)** | Captures the target actor.<br />**Requires Trait:** CaptureManager |
+| **void DeliverCarryable(CPos target)**<br />*Queued Activity* | Drop the actor being carried at the target location.<br />**Requires Trait:** Carryall |
 | **void DeliverCash(Actor target)**<br />*Queued Activity* | Deliver cash to the target actor.<br />**Requires Traits:** IMove, DeliversCash |
 | **void DeliverExperience(Actor target)**<br />*Queued Activity* | Deliver experience to the target actor.<br />**Requires Traits:** IMove, DeliversExperience |
+| **void PickupCarryable(Actor target)**<br />*Queued Activity* | Pick up the target actor.<br />**Requires Trait:** Carryall |
 
 ### AmmoPool
 
