@@ -1,4 +1,4 @@
-This documentation is aimed at modders. It displays all traits with default values and developer commentary. Please do not edit it directly, but add new `[Desc("String")]` tags to the source code. This file has been automatically generated for version 20220128 of OpenHV.
+This documentation is aimed at modders. It displays all traits with default values and developer commentary. Please do not edit it directly, but add new `[Desc("String")]` tags to the source code. This file has been automatically generated for version 20220221 of OpenHV.
 
 
 
@@ -3426,6 +3426,8 @@ Adds capacity to a player's harvested resource limit.
 | ValidRelationships | Ally | PlayerRelationship | Player relationships which condition can be applied to. |
 | Sequence | active | String | Sequence to play for granting actor when activated. This requires the actor to have the WithSpriteBody trait or one of its derivatives. |
 | BlockedCursor | move-blocked | String | Cursor to display when there are no units to apply the condition in range. |
+| FootprintImage | overlay | String | |
+| FootprintSequence | target-select | String | |
 | ChargeInterval | 0 | Integer | Measured in ticks. |
 | IconImage | icon | String | |
 | Icon |  | String | Icon sprite displayed in the support power palette. |
@@ -4587,6 +4589,7 @@ Requires trait: [`DetectCloaked`](#detectcloaked).
 | Width | 1 | Real Number | Range circle line width. |
 | BorderColor | 00000060 | Color (RRGGBB[AA] notation) | Border color of the circle and scanner update line. |
 | BorderWidth | 3 | Real Number | Range circle border width. |
+| Visible | WhenSelected | DetectionCircleVisibility | When to show the detection circle. Valid values are `Always`, and `WhenSelected` |
 
 ### RenderRangeCircle
 Draw a circle indicating my weapon's range.
@@ -5697,18 +5700,6 @@ Manages AI base construction.
 | BuildingDelays |  | Dictionary with Key: String, Value Integer | When should the AI start building specific buildings. |
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
-### DefensiveSupportPowerBotModule
-Manages bot defensive support power handling.
-
-Requires trait: [`SupportPowerManager`](#supportpowermanager).
-
-| Property | Default Value | Type | Description |
-| -------- | --------------| ---- | ----------- |
-| OrderName | *(required)* | String | Which support power to use. |
-| Range | 3c0 | 1D World Distance | Range used to find actors with AI ownership. |
-| MinimumTargets | 4 | Integer | How many friendlies should at least be affected? |
-| RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
-
 ### DeployDetectorBotModule
 Manages AI cloak detector deployment logic. For use with the regular `SquadManagerBotModule`.
 
@@ -5716,6 +5707,17 @@ Manages AI cloak detector deployment logic. For use with the regular `SquadManag
 | -------- | --------------| ---- | ----------- |
 | DeployableActorTypes | *(required)* | Set of String | Actor types that can deploy. |
 | MinimumScanDelay | 20 | Integer | Minimum delay (in ticks) between trying to deploy with DeployableActorTypes. |
+| RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
+
+### ExternalConditionPowerBotModule
+Manages bot defensive support power handling.
+
+Requires trait: [`SupportPowerManager`](#supportpowermanager).
+
+| Property | Default Value | Type | Description |
+| -------- | --------------| ---- | ----------- |
+| OrderName | *(required)* | String | Which support power to use. |
+| MinimumTargets | 4 | Integer | How many friendlies should at least be affected? |
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### MinerBotModule
