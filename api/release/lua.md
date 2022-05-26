@@ -1,4 +1,4 @@
-This is an automatically generated listing of the Lua map scripting API for version 20220221 of OpenHV.
+This is an automatically generated listing of the Lua map scripting API for version 20220526 of OpenHV.
 
 OpenHV allows custom maps and missions to be scripted using Lua 5.1.
 These scripts run in a sandbox that prevents access to unsafe functions (e.g. OS or file access), and limits the memory and CPU usage of the scripts.
@@ -356,7 +356,7 @@ For a basic guide about map scripts see the [`Map Scripting` wiki page](https://
 | **void Destroy()**<br />*Queued Activity* | Remove the actor from the game, without triggering any death notification. |
 | **Player EffectiveOwner { get; }** | The effective owner of the actor. |
 | **WAngle Facing { get; }** | The direction that the actor is facing. |
-| **void Flash(int duration = 4, Player asPlayer = nil)** | Render a target flash on the actor. If set, 'asPlayer'<br />defines which player palette to use. Duration is in ticks. |
+| **void Flash(Color color, int count = 2, int interval = 2, int delay = 0)** | Render a target flash on the actor. |
 | **int GrantCondition(string condition, int duration = 0)** | Grant an external condition on this actor and return the revocation token.<br />Conditions must be defined on an ExternalConditions trait on the actor.<br />If duration > 0 the condition will be automatically revoked after the defined number of ticks.<br />**Requires Trait:** ExternalCondition |
 | **bool HasProperty(string name)** | Test whether an actor has a specific property. |
 | **bool HasTag(string tag)** | Specifies whether or not the actor has a particular tag. |

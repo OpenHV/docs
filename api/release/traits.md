@@ -1,4 +1,4 @@
-This documentation is aimed at modders. It displays all traits with default values and developer commentary. Please do not edit it directly, but add new `[Desc("String")]` tags to the source code. This file has been automatically generated for version 20220221 of OpenHV.
+This documentation is aimed at modders. It displays all traits with default values and developer commentary. Please do not edit it directly, but add new `[Desc("String")]` tags to the source code. This file has been automatically generated for version 20220526 of OpenHV.
 
 
 
@@ -25,7 +25,8 @@ Requires traits: [`ResourceCollector`](#resourcecollector), [`WithSpriteBody`](#
 
 | Property | Default Value | Type | Description |
 | -------- | --------------| ---- | ----------- |
-| Sequence | active | String | Sequence name to use |
+| Sequence | active | String | Sequence name to use when mining a full resource spot. |
+| DecreasedVolumeSequence | depleted | String | Sequence name to use when resources are getting exhausted |
 | Body | body | String | Which sprite body to play the animation on. |
 
 
@@ -280,7 +281,6 @@ Unit got to face the target
 
 | Property | Default Value | Type | Description |
 | -------- | --------------| ---- | ----------- |
-| FacingTolerance | 0 | 1D World Angle | Tolerance for attack angle. Range [0, 512], 512 covers 360 degrees. |
 | Armaments | primary, secondary | Collection of String | Armament names |
 | Cursor |  | String | Cursor to display when hovering over a valid target. |
 | OutsideRangeCursor |  | String | Cursor to display when hovering over a valid target that is outside of range. |
@@ -290,7 +290,7 @@ Unit got to face the target
 | ForceFireIgnoresActors | False | Boolean | Force-fire mode ignores actors and targets the ground instead. |
 | OutsideRangeRequiresForceFire | False | Boolean | Force-fire mode is required to enable targeting against targets outside of range. |
 | Voice | Action | String | |
-| FacingTolerance | 0 | 1D World Angle | Tolerance for attack angle. Range [0, 512], 512 covers 360 degrees. |
+| FacingTolerance | 512 | 1D World Angle | Tolerance for attack angle. Range [0, 512], 512 covers 360 degrees. |
 | PauseOnCondition |  | BooleanExpression | Boolean expression defining the condition to pause this trait. |
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
@@ -1216,8 +1216,16 @@ This unit can cloak and uncloak in specific situations.
 | UncloakSound |  | String | |
 | Palette | cloak | String | |
 | IsPlayerPalette | False | Boolean | |
-| CloakTypes | Cloak | Collection of CloakType | |
+| DetectionTypes | Cloak | Collection of DetectionType | |
 | CloakedCondition |  | String | The condition to grant to self while cloaked. |
+| CloakType |  | String | The type of cloak. Same type of cloaks won't trigger cloaking and uncloaking sound and effect. |
+| EffectImage |  | String | Which image to use for the effect played when cloaking or uncloaking. |
+| CloakEffectSequence |  | String | Which effect sequence to play when cloaking. |
+| UncloakEffectSequence |  | String | Which effect sequence to play when uncloaking. |
+| EffectPalette | effect | String | |
+| EffectPaletteIsPlayerPalette | False | Boolean | |
+| EffectOffset | 0,0,0 | 3D World Vector | Offset for the effect played when cloaking or uncloaking. |
+| EffectTracksActor | True | Boolean | Should the effect track the actor. |
 | PauseOnCondition |  | BooleanExpression | Boolean expression defining the condition to pause this trait. |
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
@@ -1474,6 +1482,17 @@ Applies a condition to actors within a specified range.
 | AffectsParent | False | Boolean | Condition is applied permanently to this actor. |
 | EnableSound |  | String | |
 | DisableSound |  | String | |
+| RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
+
+### SpreadsCondition
+Any actor with this trait enabled has a chance to affect others with this trait.
+
+| Property | Default Value | Type | Description |
+| -------- | --------------| ---- | ----------- |
+| Probability | 5 | Integer | The chance this actor is going to affect an adjacent actor. |
+| Range | 3c0 | 1D World Distance | How far the condition can spread from one actor to another. |
+| SpreadCondition | spreading | String | Condition to grant onto another actor in range with the same trait. |
+| Delay | 5 | Integer | Time in ticks to wait between spreading further. |
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### ToggleConditionOnOrder
@@ -1816,7 +1835,7 @@ Actor can reveal Cloak actors in a specified range.
 
 | Property | Default Value | Type | Description |
 | -------- | --------------| ---- | ----------- |
-| CloakTypes | Cloak | Collection of CloakType | Specific cloak classifications I can reveal. |
+| DetectionTypes | Cloak | Collection of DetectionType | Specific cloak classifications I can reveal. |
 | Range | 5c0 | 1D World Distance | |
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
@@ -2167,6 +2186,8 @@ Unit is able to move.
 | TargetLineColor | 008000 | Color (RRGGBB[AA] notation) | Color to use for the target line for regular move orders. |
 | PreviewFacing | 384 | 1D World Angle | Facing to use for actor previews (map editor, color picker, etc) |
 | EditorFacingDisplayOrder | 3 | Integer | Display order for the facing slider in the map editor |
+| CanMoveBackward | False | Boolean | Can move backward if possible |
+| BackwardDuration | 40 | Integer | After how many ticks the actor will turn forward during backoff |
 | RequireForceMoveCondition |  | BooleanExpression | Boolean expression defining the condition under which the regular (non-force) move cursor is disabled. |
 | ImmovableCondition |  | BooleanExpression | Boolean expression defining the condition under which this actor cannot be nudged by other actors. |
 | TerrainOrientationAdjustmentMargin | -0c1 | 1D World Distance | The distance from the edge of a cell over which the actor will adjust its tilt when moving between cells with different ramp types. -1 means that the actor does not tilt on slopes. |
@@ -2647,6 +2668,7 @@ Requires traits: [`PlayerResources`](#playerresources), [`TechTree`](#techtree).
 | ReadyAudio |  | String | Notification played when production is complete. The filename of the audio is defined per faction in notifications.yaml. |
 | BlockedAudio |  | String | Notification played when you can't train another actor when the build limit exceeded or the exit is jammed. The filename of the audio is defined per faction in notifications.yaml. |
 | LimitedAudio |  | String | Notification played when you can't queue another actor when the queue length limit is exceeded. The filename of the audio is defined per faction in notifications.yaml. |
+| CannotPlaceAudio |  | String | Notification played when you can't place a building. Overrides PlaceBuilding.CannotPlaceNotification for this queue. The filename of the audio is defined per faction in notifications.yaml. |
 | QueuedAudio |  | String | Notification played when user clicks on the build palette icon. The filename of the audio is defined per faction in notifications.yaml. |
 | OnHoldAudio |  | String | Notification played when player right-clicks on the build palette icon. The filename of the audio is defined per faction in notifications.yaml. |
 | CancelledAudio |  | String | Notification played when player right-clicks on a build palette icon that is already on hold. The filename of the audio is defined per faction in notifications.yaml. |
@@ -2676,6 +2698,7 @@ Requires traits: [`PlayerResources`](#playerresources), [`TechTree`](#techtree).
 | ReadyAudio |  | String | Notification played when production is complete. The filename of the audio is defined per faction in notifications.yaml. |
 | BlockedAudio |  | String | Notification played when you can't train another actor when the build limit exceeded or the exit is jammed. The filename of the audio is defined per faction in notifications.yaml. |
 | LimitedAudio |  | String | Notification played when you can't queue another actor when the queue length limit is exceeded. The filename of the audio is defined per faction in notifications.yaml. |
+| CannotPlaceAudio |  | String | Notification played when you can't place a building. Overrides PlaceBuilding.CannotPlaceNotification for this queue. The filename of the audio is defined per faction in notifications.yaml. |
 | QueuedAudio |  | String | Notification played when user clicks on the build palette icon. The filename of the audio is defined per faction in notifications.yaml. |
 | OnHoldAudio |  | String | Notification played when player right-clicks on the build palette icon. The filename of the audio is defined per faction in notifications.yaml. |
 | CancelledAudio |  | String | Notification played when player right-clicks on a build palette icon that is already on hold. The filename of the audio is defined per faction in notifications.yaml. |
@@ -2806,6 +2829,7 @@ Bot that uses BotModules.
 | ReadyAudio |  | String | Notification played when production is complete. The filename of the audio is defined per faction in notifications.yaml. |
 | BlockedAudio |  | String | Notification played when you can't train another actor when the build limit exceeded or the exit is jammed. The filename of the audio is defined per faction in notifications.yaml. |
 | LimitedAudio |  | String | Notification played when you can't queue another actor when the queue length limit is exceeded. The filename of the audio is defined per faction in notifications.yaml. |
+| CannotPlaceAudio |  | String | Notification played when you can't place a building. Overrides PlaceBuilding.CannotPlaceNotification for this queue. The filename of the audio is defined per faction in notifications.yaml. |
 | QueuedAudio |  | String | Notification played when user clicks on the build palette icon. The filename of the audio is defined per faction in notifications.yaml. |
 | OnHoldAudio |  | String | Notification played when player right-clicks on the build palette icon. The filename of the audio is defined per faction in notifications.yaml. |
 | CancelledAudio |  | String | Notification played when player right-clicks on a build palette icon that is already on hold. The filename of the audio is defined per faction in notifications.yaml. |
@@ -2894,6 +2918,7 @@ at the same time. Will only work together with the Production: trait.
 | ReadyAudio |  | String | Notification played when production is complete. The filename of the audio is defined per faction in notifications.yaml. |
 | BlockedAudio |  | String | Notification played when you can't train another actor when the build limit exceeded or the exit is jammed. The filename of the audio is defined per faction in notifications.yaml. |
 | LimitedAudio |  | String | Notification played when you can't queue another actor when the queue length limit is exceeded. The filename of the audio is defined per faction in notifications.yaml. |
+| CannotPlaceAudio |  | String | Notification played when you can't place a building. Overrides PlaceBuilding.CannotPlaceNotification for this queue. The filename of the audio is defined per faction in notifications.yaml. |
 | QueuedAudio |  | String | Notification played when user clicks on the build palette icon. The filename of the audio is defined per faction in notifications.yaml. |
 | OnHoldAudio |  | String | Notification played when player right-clicks on the build palette icon. The filename of the audio is defined per faction in notifications.yaml. |
 | CancelledAudio |  | String | Notification played when player right-clicks on a build palette icon that is already on hold. The filename of the audio is defined per faction in notifications.yaml. |
@@ -5645,6 +5670,17 @@ Manages the initial base.
 | -------- | --------------| ---- | ----------- |
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
+### BuilderBotModule
+Manages AI builders.
+
+| Property | Default Value | Type | Description |
+| -------- | --------------| ---- | ----------- |
+| BuilderTypes |  | Set of String | Actor types that can deploy into outposts. |
+| ScanForNewBuilderInterval | 20 | Integer | Delay (in ticks) between looking for and giving out orders to new builders. |
+| MinimumBaseRadius | 0 | Integer | Minimum distance in cells from center of the base when checking for builder deployment location. |
+| MaximumBaseRadius | 50 | Integer | Maximum distance in cells from center of the base when checking for builder deployment location. |
+| RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
+
 ### CubePickupBotModule
 Put this on the Player actor. Manages cube collection.
 
@@ -5666,7 +5702,6 @@ Manages AI base construction.
 | ConstructionYardTypes |  | Set of String | Tells the AI what building types are considered construction yards. |
 | VehiclesFactoryTypes |  | Set of String | Tells the AI what building types are considered vehicle production facilities. |
 | RefineryTypes |  | Set of String | Tells the AI what building types are considered refineries. |
-| MinerTypes |  | Set of String | Tells the AI what building types are considered miners. |
 | PowerTypes |  | Set of String | Tells the AI what building types are considered power plants. |
 | BarracksTypes |  | Set of String | Tells the AI what building types are considered infantry production facilities. |
 | ProductionTypes |  | Set of String | Tells the AI what building types are considered production facilities. |
@@ -5687,6 +5722,7 @@ Manages AI base construction.
 | StructureProductionRandomBonusDelay | 10 | Integer | A random delay (in ticks) of up to this is added to active/inactive production delays. |
 | StructureProductionResumeDelay | 1500 | Integer | Delay (in ticks) until retrying to build structure after the last 3 consecutive attempts failed. |
 | MaximumFailedPlacementAttempts | 3 | Integer | After how many failed attempts to place a structure should AI give up and wait for StructureProductionResumeDelay before retrying. |
+| MaximumResourceCellsToCheck | 3 | Integer | How many randomly chosen cells with resources to check when deciding refinery placement. |
 | CheckForNewBasesDelay | 1500 | Integer | Delay (in ticks) until rechecking for new BaseProviders. |
 | PlaceDefenseTowardsEnemyChance | 100 | Integer | Chance that the AI will place the defenses in the direction of the closest enemy building. |
 | MinimumDefenseRadius | 5 | Integer | Minimum range at which to build defensive structures near a combat hotspot. |
@@ -5833,6 +5869,13 @@ Requires trait: [`Building`](#building).
 
 ### GrantConditionOnNeutralOwner
 Grants a condition if the owner is the Neutral player.
+
+| Property | Default Value | Type | Description |
+| -------- | --------------| ---- | ----------- |
+| Condition |  | String | The condition to grant. |
+
+### GrantConditionOnSell
+Grants a condition when the actor is being sold.
 
 | Property | Default Value | Type | Description |
 | -------- | --------------| ---- | ----------- |
@@ -6138,6 +6181,9 @@ Requires trait: [`Building`](#building).
 | Capacity | 1000 | Integer | How much can be temporarily stored. |
 | DeliveryVehicleType |  | Collection of String | |
 | Deposits |  | Dictionary with Key: String, Value Integer | How much can be mined in total before depletion. |
+| DepletionModifier | 10 | Integer | Reduce payout by this percentage when resources are depleted. |
+| MinimumReserves | 900 | Integer | How many resources to keep at all times. |
+| MinimumDensity | 1 | Integer | Lowest number of resource denseness to keep at all times. |
 | DisplayRelationships | Ally | PlayerRelationship | Defines to which players the bar is to be shown. |
 | Colors |  | Dictionary with Key: String, Value Color (RRGGBB[AA] notation) | Defines to which players the bar is to be shown. |
 | DepletionNotification |  | String | The audio notification type to play when the resources are exhausted. |
@@ -6470,17 +6516,6 @@ Attach this to the world actor.
 | TransformedTerrain | *(required)* | Collection of String | Terrain types a tree can change into. |
 | CrushedTiles | *(required)* | Dictionary with Key: UInt16, Value UInt16 | Which tile ID to replace with which munched variant |
 | BurnedTiles | *(required)* | Dictionary with Key: UInt16, Value UInt16 | Which tile ID to replace with which scorched variant |
-
-### LimitedResources
-
-| Property | Default Value | Type | Description |
-| -------- | --------------| ---- | ----------- |
-| CheckboxLabel | Limited Resources | String | Descriptive label for the limited resources checkbox in the lobby. |
-| CheckboxDescription | Resources will deplete. | String | Tooltip description for the limited resources checkbox in the lobby. |
-| CheckboxEnabled | True | Boolean | Default value of the limited resources checkbox in the lobby. |
-| CheckboxLocked | False | Boolean | Prevent the limited resources state from being changed in the lobby. |
-| CheckboxVisible | True | Boolean | Whether to display the limited resources checkbox in the lobby. |
-| CheckboxDisplayOrder | 0 | Integer | Display order for the limited resources checkbox in the lobby. |
 
 ### LiquidEdgeRenderer
 Used to render the border of liquids.
