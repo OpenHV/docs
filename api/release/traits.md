@@ -1,4 +1,4 @@
-This documentation is aimed at modders. It displays all traits with default values and developer commentary. Please do not edit it directly, but add new `[Desc("String")]` tags to the source code. This file has been automatically generated for version 20220526 of OpenHV.
+This documentation is aimed at modders. It displays all traits with default values and developer commentary. Please do not edit it directly, but add new `[Desc("String")]` tags to the source code. This file has been automatically generated for version 20220807 of OpenHV.
 
 
 
@@ -493,6 +493,7 @@ Manages AI base construction.
 | ProductionTypes |  | Set of String | Tells the AI what building types are considered production facilities. |
 | NavalProductionTypes |  | Set of String | Tells the AI what building types are considered naval production facilities. |
 | SiloTypes |  | Set of String | Tells the AI what building types are considered silos (resource storage). |
+| DefenseTypes |  | Set of String | Tells the AI what building types are considered defenses. |
 | BuildingQueues | Building | Set of String | Production queues AI uses for buildings. |
 | DefenseQueues | Defense | Set of String | Production queues AI uses for defenses. |
 | MinBaseRadius | 2 | Integer | Minimum distance in cells from center of the base when checking for building placement. |
@@ -844,6 +845,7 @@ Requires traits: [`Buildable`](#buildable), [`Building`](#building).
 | Property | Default Value | Type | Description |
 | -------- | --------------| ---- | ----------- |
 | Actors | *(required)* | Collection of String | Variant actors that can be cycled between when placing a structure. |
+| Facings |  | Collection of 1D World Angle | Facing of the non-variant actor, followed by facings for each variant actor. The length equals the length of Actors + 1. |
 
 ### PrimaryBuilding
 Used together with ClassicProductionQueue.
@@ -851,7 +853,8 @@ Used together with ClassicProductionQueue.
 | Property | Default Value | Type | Description |
 | -------- | --------------| ---- | ----------- |
 | PrimaryCondition |  | String | The condition to grant to self while this is the primary building. |
-| SelectionNotification |  | String | The speech notification to play when selecting a primary building. |
+| SelectionNotification |  | String | Speech notification to play when selecting a primary building. |
+| SelectionTextNotification |  | String | Text notification to display when selecting a primary building. |
 | ProductionQueues |  | Collection of String | List of production queues for which the primary flag should be set. If empty, the list given in the `Produces` property of the `Production` trait will be used. |
 | Cursor | deploy | String | Cursor to display when setting the primary building. |
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
@@ -861,7 +864,8 @@ Deliver the unit in production via skylift.
 
 | Property | Default Value | Type | Description |
 | -------- | --------------| ---- | ----------- |
-| ReadyAudio | Reinforce | String | |
+| ReadyAudio | Reinforce | String | Speech notification to play when a unit is delivered. |
+| ReadyTextNotification |  | String | Text notification to display when a unit is delivered. |
 | ActorType | *(required)* | String | Cargo aircraft used for delivery. Must have the `Aircraft` trait. |
 | BaselineSpawn | False | Boolean | The cargo aircraft will spawn at the player baseline (map edge closest to the player spawn) |
 | Facing | 256 | 1D World Angle | Direction the aircraft should face to land. |
@@ -882,7 +886,8 @@ Used to waypoint units after production or repair is finished.
 | Palette | player | String | Custom indicator palette name |
 | IsPlayerPalette | True | Boolean | Custom palette is a player palette BaseName |
 | Path |  | Collection of 2D Cell Vector | A list of 0 or more offsets defining the initial rally point path. |
-| Notification |  | String | The speech notification to play when setting a new rallypoint. |
+| Notification |  | String | Speech notification to play when setting a new rallypoint. |
+| TextNotification |  | String | Text notification to display when setting a new rallypoint. |
 | ForceSetType |  | String | Used to group equivalent actors to allow force-setting a rallypoint (e.g. for Primary production). |
 
 ### Refinery
@@ -916,6 +921,7 @@ Building can be repaired by the repair button.
 | PlayerExperience | 0 | Integer | Experience gained by a player for repairing structures of allied players. |
 | RepairCondition |  | String | The condition to grant to self while being repaired. |
 | RepairingNotification |  | String | |
+| RepairingTextNotification |  | String | |
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### RequiresBuildableArea
@@ -1504,8 +1510,10 @@ Toggles a condition on and off when a specified order type is received.
 | OrderName | *(required)* | String | Order name that toggles the condition. |
 | EnabledSound |  | String | |
 | EnabledSpeech |  | String | |
+| EnabledTextNotification |  | String | |
 | DisabledSound |  | String | |
 | DisabledSpeech |  | String | |
+| DisabledTextNotification |  | String | |
 | PauseOnCondition |  | BooleanExpression | Boolean expression defining the condition to pause this trait. |
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
@@ -1527,7 +1535,8 @@ Requires trait: [`RenderSprites`](#rendersprites).
 | Sequence |  | String | Animation sequence played when collected. Leave empty for no effect. |
 | Palette | effect | String | Palette to draw the animation in. |
 | Sound |  | String | Audio clip to play when the crate is collected. |
-| Notification |  | String | Notification to play when the crate is collected. |
+| Notification |  | String | Speech notification to play when the crate is collected. |
+| TextNotification |  | String | Text notification to display when the crate is collected. |
 | TimeDelay | 0 | Integer | The earliest time (in ticks) that this crate action can occur on. |
 | Prerequisites |  | Collection of String | Only allow this crate action when the collector has these prerequisites |
 | ExcludedActorTypes |  | Collection of String | Actor types that this crate action will not occur for. |
@@ -1550,7 +1559,8 @@ Creates duplicates of the actor that collects the crate.
 | Sequence |  | String | Animation sequence played when collected. Leave empty for no effect. |
 | Palette | effect | String | Palette to draw the animation in. |
 | Sound |  | String | Audio clip to play when the crate is collected. |
-| Notification |  | String | Notification to play when the crate is collected. |
+| Notification |  | String | Speech notification to play when the crate is collected. |
+| TextNotification |  | String | Text notification to display when the crate is collected. |
 | TimeDelay | 0 | Integer | The earliest time (in ticks) that this crate action can occur on. |
 | Prerequisites |  | Collection of String | Only allow this crate action when the collector has these prerequisites |
 | ExcludedActorTypes |  | Collection of String | Actor types that this crate action will not occur for. |
@@ -1567,7 +1577,8 @@ Fires a weapon at the location when collected.
 | Sequence |  | String | Animation sequence played when collected. Leave empty for no effect. |
 | Palette | effect | String | Palette to draw the animation in. |
 | Sound |  | String | Audio clip to play when the crate is collected. |
-| Notification |  | String | Notification to play when the crate is collected. |
+| Notification |  | String | Speech notification to play when the crate is collected. |
+| TextNotification |  | String | Text notification to display when the crate is collected. |
 | TimeDelay | 0 | Integer | The earliest time (in ticks) that this crate action can occur on. |
 | Prerequisites |  | Collection of String | Only allow this crate action when the collector has these prerequisites |
 | ExcludedActorTypes |  | Collection of String | Actor types that this crate action will not occur for. |
@@ -1585,7 +1596,8 @@ Gives cash to the collector.
 | Sequence |  | String | Animation sequence played when collected. Leave empty for no effect. |
 | Palette | effect | String | Palette to draw the animation in. |
 | Sound |  | String | Audio clip to play when the crate is collected. |
-| Notification |  | String | Notification to play when the crate is collected. |
+| Notification |  | String | Speech notification to play when the crate is collected. |
+| TextNotification |  | String | Text notification to display when the crate is collected. |
 | TimeDelay | 0 | Integer | The earliest time (in ticks) that this crate action can occur on. |
 | Prerequisites |  | Collection of String | Only allow this crate action when the collector has these prerequisites |
 | ExcludedActorTypes |  | Collection of String | Actor types that this crate action will not occur for. |
@@ -1606,7 +1618,8 @@ Adjust selection shares when player has no base.
 | Sequence |  | String | Animation sequence played when collected. Leave empty for no effect. |
 | Palette | effect | String | Palette to draw the animation in. |
 | Sound |  | String | Audio clip to play when the crate is collected. |
-| Notification |  | String | Notification to play when the crate is collected. |
+| Notification |  | String | Speech notification to play when the crate is collected. |
+| TextNotification |  | String | Text notification to display when the crate is collected. |
 | TimeDelay | 0 | Integer | The earliest time (in ticks) that this crate action can occur on. |
 | Prerequisites |  | Collection of String | Only allow this crate action when the collector has these prerequisites |
 | ExcludedActorTypes |  | Collection of String | Actor types that this crate action will not occur for. |
@@ -1625,7 +1638,8 @@ Spawns units when collected.
 | Sequence |  | String | Animation sequence played when collected. Leave empty for no effect. |
 | Palette | effect | String | Palette to draw the animation in. |
 | Sound |  | String | Audio clip to play when the crate is collected. |
-| Notification |  | String | Notification to play when the crate is collected. |
+| Notification |  | String | Speech notification to play when the crate is collected. |
+| TextNotification |  | String | Text notification to display when the crate is collected. |
 | TimeDelay | 0 | Integer | The earliest time (in ticks) that this crate action can occur on. |
 | Prerequisites |  | Collection of String | Only allow this crate action when the collector has these prerequisites |
 | ExcludedActorTypes |  | Collection of String | Actor types that this crate action will not occur for. |
@@ -1646,7 +1660,8 @@ Grants a condition on the collector.
 | Sequence |  | String | Animation sequence played when collected. Leave empty for no effect. |
 | Palette | effect | String | Palette to draw the animation in. |
 | Sound |  | String | Audio clip to play when the crate is collected. |
-| Notification |  | String | Notification to play when the crate is collected. |
+| Notification |  | String | Speech notification to play when the crate is collected. |
+| TextNotification |  | String | Text notification to display when the crate is collected. |
 | TimeDelay | 0 | Integer | The earliest time (in ticks) that this crate action can occur on. |
 | Prerequisites |  | Collection of String | Only allow this crate action when the collector has these prerequisites |
 | ExcludedActorTypes |  | Collection of String | Actor types that this crate action will not occur for. |
@@ -1663,7 +1678,8 @@ Heals all actors that belong to the owner of the collector.
 | Sequence |  | String | Animation sequence played when collected. Leave empty for no effect. |
 | Palette | effect | String | Palette to draw the animation in. |
 | Sound |  | String | Audio clip to play when the crate is collected. |
-| Notification |  | String | Notification to play when the crate is collected. |
+| Notification |  | String | Speech notification to play when the crate is collected. |
+| TextNotification |  | String | Text notification to display when the crate is collected. |
 | TimeDelay | 0 | Integer | The earliest time (in ticks) that this crate action can occur on. |
 | Prerequisites |  | Collection of String | Only allow this crate action when the collector has these prerequisites |
 | ExcludedActorTypes |  | Collection of String | Actor types that this crate action will not occur for. |
@@ -1680,7 +1696,8 @@ Hides the entire map in shroud.
 | Sequence |  | String | Animation sequence played when collected. Leave empty for no effect. |
 | Palette | effect | String | Palette to draw the animation in. |
 | Sound |  | String | Audio clip to play when the crate is collected. |
-| Notification |  | String | Notification to play when the crate is collected. |
+| Notification |  | String | Speech notification to play when the crate is collected. |
+| TextNotification |  | String | Text notification to display when the crate is collected. |
 | TimeDelay | 0 | Integer | The earliest time (in ticks) that this crate action can occur on. |
 | Prerequisites |  | Collection of String | Only allow this crate action when the collector has these prerequisites |
 | ExcludedActorTypes |  | Collection of String | Actor types that this crate action will not occur for. |
@@ -1699,7 +1716,8 @@ Gives experience levels to the collector.
 | Sequence |  | String | Animation sequence played when collected. Leave empty for no effect. |
 | Palette | effect | String | Palette to draw the animation in. |
 | Sound |  | String | Audio clip to play when the crate is collected. |
-| Notification |  | String | Notification to play when the crate is collected. |
+| Notification |  | String | Speech notification to play when the crate is collected. |
+| TextNotification |  | String | Text notification to display when the crate is collected. |
 | TimeDelay | 0 | Integer | The earliest time (in ticks) that this crate action can occur on. |
 | Prerequisites |  | Collection of String | Only allow this crate action when the collector has these prerequisites |
 | ExcludedActorTypes |  | Collection of String | Actor types that this crate action will not occur for. |
@@ -1716,7 +1734,8 @@ Reveals the entire map.
 | Sequence |  | String | Animation sequence played when collected. Leave empty for no effect. |
 | Palette | effect | String | Palette to draw the animation in. |
 | Sound |  | String | Audio clip to play when the crate is collected. |
-| Notification |  | String | Notification to play when the crate is collected. |
+| Notification |  | String | Speech notification to play when the crate is collected. |
+| TextNotification |  | String | Text notification to display when the crate is collected. |
 | TimeDelay | 0 | Integer | The earliest time (in ticks) that this crate action can occur on. |
 | Prerequisites |  | Collection of String | Only allow this crate action when the collector has these prerequisites |
 | ExcludedActorTypes |  | Collection of String | Actor types that this crate action will not occur for. |
@@ -1733,7 +1752,8 @@ Gives a supportpower to the collector.
 | Sequence |  | String | Animation sequence played when collected. Leave empty for no effect. |
 | Palette | effect | String | Palette to draw the animation in. |
 | Sound |  | String | Audio clip to play when the crate is collected. |
-| Notification |  | String | Notification to play when the crate is collected. |
+| Notification |  | String | Speech notification to play when the crate is collected. |
+| TextNotification |  | String | Text notification to display when the crate is collected. |
 | TimeDelay | 0 | Integer | The earliest time (in ticks) that this crate action can occur on. |
 | Prerequisites |  | Collection of String | Only allow this crate action when the collector has these prerequisites |
 | ExcludedActorTypes |  | Collection of String | Actor types that this crate action will not occur for. |
@@ -1948,6 +1968,7 @@ This actor's experience increases when it has killed a GivesExperience actor.
 | ExperienceModifier | -1 | Integer | Multiplier to apply to the Conditions keys. Defaults to the actor's value. |
 | SuppressLevelupAnimation | True | Boolean | Should the level-up animation be suppressed when actor is created? |
 | LevelUpNotification |  | String | |
+| LevelUpTextNotification |  | String | |
 
 ### GivesBounty
 When killed, this actor causes the attacking player to receive money.
@@ -2450,7 +2471,7 @@ Create a color picker palette from another palette.
 | -------- | --------------| ---- | ----------- |
 | Name | *(required)* | String | Internal palette name. |
 | BasePalette | *(required)* | String | The name of the palette to base off. |
-| RemapIndex | *(required)* | Collection of Integer | Remap these indices to player colors. |
+| RemapIndex |  | Collection of Integer | Remap these indices to player colors. |
 | AllowModifiers | True | Boolean | Allow palette modifiers to change the palette. |
 
 ### FixedColorPalette
@@ -2501,7 +2522,7 @@ Load VGA palette (.pal) registers.
 
 | Property | Default Value | Type | Description |
 | -------- | --------------| ---- | ----------- |
-| Name | *(required)* | String | internal palette name |
+| Name | *(required)* | String | Internal palette name |
 | Tileset |  | String | If defined, load the palette only for this tileset. |
 | Filename | *(required)* | String | filename to load |
 | TransparentIndex | 0 | Collection of Integer | Map listed indices to transparent. Ignores previous color. |
@@ -2522,6 +2543,16 @@ Load a GIMP .gpl or JASC .pal palette file. Supports per-color alpha.
 | AllowModifiers | True | Boolean | |
 | TransparentIndex | 0 | Integer | Index set to be fully transparent/invisible. |
 | CursorPalette | False | Boolean | Whether this palette is available for cursors. |
+
+### PaletteFromGrayscale
+Creates a greyscale palette without any base palette file.
+
+| Property | Default Value | Type | Description |
+| -------- | --------------| ---- | ----------- |
+| Name | *(required)* | String | Internal palette name |
+| Tileset |  | String | If defined, load the palette only for this tileset. |
+| AllowModifiers | True | Boolean | |
+| TransparentIndex | 0 | Integer | Index set to be fully transparent/invisible. |
 
 ### PaletteFromPaletteWithAlpha
 Create a palette by applying alpha transparency to another palette.
@@ -2562,7 +2593,7 @@ Creates a single color palette without any base palette file.
 
 | Property | Default Value | Type | Description |
 | -------- | --------------| ---- | ----------- |
-| Name | *(required)* | String | internal palette name |
+| Name | *(required)* | String | Internal palette name |
 | Tileset |  | String | If defined, load the palette only for this tileset. |
 | R | 0 | Integer | red color component |
 | G | 0 | Integer | green color component |
@@ -2638,8 +2669,10 @@ Attach this to the player actor.
 | NotifyInterval | 30000 | Integer | Minimum duration (in milliseconds) between notification events. |
 | RadarPingColor | FF0000 | Color (RRGGBB[AA] notation) | |
 | RadarPingDuration | 250 | Integer | Length of time (in ticks) to display a location ping in the minimap. |
-| Notification | BaseAttack | String | The audio notification type to play. |
-| AllyNotification |  | String | The audio notification to play to allies when under attack. Won't play a notification to allies if this is null. |
+| Notification | BaseAttack | String | Speech notification type to play. |
+| TextNotification |  | String | Text notification to display. |
+| AllyNotification |  | String | Speech notification to play to allies when under attack. Won't play a notification to allies if this is null. |
+| AllyTextNotification |  | String | Text notification to display to allies when under attack. |
 
 ### ClassicParallelProductionQueue
 Attach this to the player actor (not a building!) to define a new shared build queue.
@@ -2666,12 +2699,18 @@ Requires traits: [`PlayerResources`](#playerresources), [`TechTree`](#techtree).
 | LowPowerModifier | 100 | Integer | The build time is multiplied with this percentage on low power. |
 | InfiniteBuildLimit | -1 | Integer | Production items that have more than this many items in the queue will be produced in a loop. |
 | ReadyAudio |  | String | Notification played when production is complete. The filename of the audio is defined per faction in notifications.yaml. |
+| ReadyTextNotification |  | String | Notification displayed when production is complete. |
 | BlockedAudio |  | String | Notification played when you can't train another actor when the build limit exceeded or the exit is jammed. The filename of the audio is defined per faction in notifications.yaml. |
+| BlockedTextNotification |  | String | Notification displayed when you can't train another actor when the build limit exceeded or the exit is jammed. |
 | LimitedAudio |  | String | Notification played when you can't queue another actor when the queue length limit is exceeded. The filename of the audio is defined per faction in notifications.yaml. |
+| LimitedTextNotification |  | String | Notification displayed when you can't queue another actor when the queue length limit is exceeded. |
 | CannotPlaceAudio |  | String | Notification played when you can't place a building. Overrides PlaceBuilding.CannotPlaceNotification for this queue. The filename of the audio is defined per faction in notifications.yaml. |
 | QueuedAudio |  | String | Notification played when user clicks on the build palette icon. The filename of the audio is defined per faction in notifications.yaml. |
+| QueuedTextNotification |  | String | Notification displayed when user clicks on the build palette icon. |
 | OnHoldAudio |  | String | Notification played when player right-clicks on the build palette icon. The filename of the audio is defined per faction in notifications.yaml. |
+| OnHoldTextNotification |  | String | Notification displayed when player right-clicks on the build palette icon. |
 | CancelledAudio |  | String | Notification played when player right-clicks on a build palette icon that is already on hold. The filename of the audio is defined per faction in notifications.yaml. |
+| CancelledTextNotification |  | String | Notification displayed when player right-clicks on a build palette icon that is already on hold. |
 
 ### ClassicProductionQueue
 Attach this to the player actor (not a building!) to define a new shared build queue.
@@ -2696,12 +2735,18 @@ Requires traits: [`PlayerResources`](#playerresources), [`TechTree`](#techtree).
 | LowPowerModifier | 100 | Integer | The build time is multiplied with this percentage on low power. |
 | InfiniteBuildLimit | -1 | Integer | Production items that have more than this many items in the queue will be produced in a loop. |
 | ReadyAudio |  | String | Notification played when production is complete. The filename of the audio is defined per faction in notifications.yaml. |
+| ReadyTextNotification |  | String | Notification displayed when production is complete. |
 | BlockedAudio |  | String | Notification played when you can't train another actor when the build limit exceeded or the exit is jammed. The filename of the audio is defined per faction in notifications.yaml. |
+| BlockedTextNotification |  | String | Notification displayed when you can't train another actor when the build limit exceeded or the exit is jammed. |
 | LimitedAudio |  | String | Notification played when you can't queue another actor when the queue length limit is exceeded. The filename of the audio is defined per faction in notifications.yaml. |
+| LimitedTextNotification |  | String | Notification displayed when you can't queue another actor when the queue length limit is exceeded. |
 | CannotPlaceAudio |  | String | Notification played when you can't place a building. Overrides PlaceBuilding.CannotPlaceNotification for this queue. The filename of the audio is defined per faction in notifications.yaml. |
 | QueuedAudio |  | String | Notification played when user clicks on the build palette icon. The filename of the audio is defined per faction in notifications.yaml. |
+| QueuedTextNotification |  | String | Notification displayed when user clicks on the build palette icon. |
 | OnHoldAudio |  | String | Notification played when player right-clicks on the build palette icon. The filename of the audio is defined per faction in notifications.yaml. |
+| OnHoldTextNotification |  | String | Notification displayed when player right-clicks on the build palette icon. |
 | CancelledAudio |  | String | Notification played when player right-clicks on a build palette icon that is already on hold. The filename of the audio is defined per faction in notifications.yaml. |
+| CancelledTextNotification |  | String | Notification displayed when player right-clicks on a build palette icon that is already on hold. |
 
 ### ConquestVictoryConditions
 Requires trait: [`MissionObjectives`](#missionobjectives).
@@ -2765,7 +2810,8 @@ Attach this to the player actor.
 | NotifyInterval | 30000 | Integer | Minimum duration (in milliseconds) between notification events. |
 | RadarPingColor | FF0000 | Color (RRGGBB[AA] notation) | |
 | RadarPingDuration | 250 | Integer | Length of time (in ticks) to display a location ping in the minimap. |
-| Notification | HarvesterAttack | String | The audio notification type to play. |
+| Notification | HarvesterAttack | String | Speech notification type to play. |
+| TextNotification |  | String | Text notification to display. |
 
 ### LobbyPrerequisiteCheckbox
 Enables defined prerequisites at game start for all players if the checkbox is enabled.
@@ -2789,8 +2835,11 @@ Enables defined prerequisites at game start for all players if the checkbox is e
 | EarlyGameOver | False | Boolean | If set to true, this setting causes the game to end immediately once the first player (or team of cooperative players) fails or completes his objectives.  If set to false, players that fail their objectives will stick around and become observers. |
 | GameOverDelay | 1500 | Integer | Delay between the game over condition being met, and the game actually ending, in milliseconds. |
 | WinNotification |  | String | |
+| WinTextNotification |  | String | |
 | LoseNotification |  | String | |
+| LoseTextNotification |  | String | |
 | LeaveNotification |  | String | |
+| LeaveTextNotification |  | String | |
 
 ### ObjectivesPanel
 Provides game mode progress information for players.
@@ -2827,12 +2876,18 @@ Bot that uses BotModules.
 | LowPowerModifier | 100 | Integer | The build time is multiplied with this percentage on low power. |
 | InfiniteBuildLimit | -1 | Integer | Production items that have more than this many items in the queue will be produced in a loop. |
 | ReadyAudio |  | String | Notification played when production is complete. The filename of the audio is defined per faction in notifications.yaml. |
+| ReadyTextNotification |  | String | Notification displayed when production is complete. |
 | BlockedAudio |  | String | Notification played when you can't train another actor when the build limit exceeded or the exit is jammed. The filename of the audio is defined per faction in notifications.yaml. |
+| BlockedTextNotification |  | String | Notification displayed when you can't train another actor when the build limit exceeded or the exit is jammed. |
 | LimitedAudio |  | String | Notification played when you can't queue another actor when the queue length limit is exceeded. The filename of the audio is defined per faction in notifications.yaml. |
+| LimitedTextNotification |  | String | Notification displayed when you can't queue another actor when the queue length limit is exceeded. |
 | CannotPlaceAudio |  | String | Notification played when you can't place a building. Overrides PlaceBuilding.CannotPlaceNotification for this queue. The filename of the audio is defined per faction in notifications.yaml. |
 | QueuedAudio |  | String | Notification played when user clicks on the build palette icon. The filename of the audio is defined per faction in notifications.yaml. |
+| QueuedTextNotification |  | String | Notification displayed when user clicks on the build palette icon. |
 | OnHoldAudio |  | String | Notification played when player right-clicks on the build palette icon. The filename of the audio is defined per faction in notifications.yaml. |
+| OnHoldTextNotification |  | String | Notification displayed when player right-clicks on the build palette icon. |
 | CancelledAudio |  | String | Notification played when player right-clicks on a build palette icon that is already on hold. The filename of the audio is defined per faction in notifications.yaml. |
+| CancelledTextNotification |  | String | Notification displayed when player right-clicks on a build palette icon that is already on hold. |
 
 ### PlaceBeacon
 A beacon that is constructed from a circle sprite that is animated once and a moving arrow sprite.
@@ -2856,8 +2911,10 @@ Allows the player to execute build orders.
 | Property | Default Value | Type | Description |
 | -------- | --------------| ---- | ----------- |
 | NewOptionsNotificationDelay | 10 | Integer | Play NewOptionsNotification this many ticks after building placement. |
-| NewOptionsNotification |  | String | Notification to play after building placement if new construction options are available. |
-| CannotPlaceNotification |  | String | |
+| NewOptionsNotification |  | String | Speech notification to play after building placement if new construction options are available. |
+| NewOptionsTextNotification |  | String | Text notification to display after building placement if new construction options are available. |
+| CannotPlaceNotification |  | String | Speech notification to play if building placement is not possible. |
+| CannotPlaceTextNotification |  | String | Text notification to display if building placement is not possible. |
 | ToggleVariantKey | OpenRA.HotkeyReference | HotkeyReference | Hotkey to toggle between PlaceBuildingVariants when placing a structure. |
 
 ### PlayerExperience
@@ -2880,6 +2937,7 @@ Requires trait: [`Shroud`](#shroud).
 | DefaultCashDropdownVisible | True | Boolean | Whether to display the DefaultCash option in the lobby. |
 | DefaultCashDropdownDisplayOrder | 0 | Integer | Display order for the DefaultCash option. |
 | InsufficientFundsNotification |  | String | Speech notification to play when the player does not have any funds. |
+| InsufficientFundsTextNotification |  | String | Text notification to display when the player does not have any funds. |
 | InsufficientFundsNotificationInterval | 30000 | Integer | Delay (in ticks) during which warnings will be muted. |
 | CashTickUpNotification |  | String | |
 | CashTickDownNotification |  | String | |
@@ -2916,12 +2974,18 @@ at the same time. Will only work together with the Production: trait.
 | LowPowerModifier | 100 | Integer | The build time is multiplied with this percentage on low power. |
 | InfiniteBuildLimit | -1 | Integer | Production items that have more than this many items in the queue will be produced in a loop. |
 | ReadyAudio |  | String | Notification played when production is complete. The filename of the audio is defined per faction in notifications.yaml. |
+| ReadyTextNotification |  | String | Notification displayed when production is complete. |
 | BlockedAudio |  | String | Notification played when you can't train another actor when the build limit exceeded or the exit is jammed. The filename of the audio is defined per faction in notifications.yaml. |
+| BlockedTextNotification |  | String | Notification displayed when you can't train another actor when the build limit exceeded or the exit is jammed. |
 | LimitedAudio |  | String | Notification played when you can't queue another actor when the queue length limit is exceeded. The filename of the audio is defined per faction in notifications.yaml. |
+| LimitedTextNotification |  | String | Notification displayed when you can't queue another actor when the queue length limit is exceeded. |
 | CannotPlaceAudio |  | String | Notification played when you can't place a building. Overrides PlaceBuilding.CannotPlaceNotification for this queue. The filename of the audio is defined per faction in notifications.yaml. |
 | QueuedAudio |  | String | Notification played when user clicks on the build palette icon. The filename of the audio is defined per faction in notifications.yaml. |
+| QueuedTextNotification |  | String | Notification displayed when user clicks on the build palette icon. |
 | OnHoldAudio |  | String | Notification played when player right-clicks on the build palette icon. The filename of the audio is defined per faction in notifications.yaml. |
+| OnHoldTextNotification |  | String | Notification displayed when player right-clicks on the build palette icon. |
 | CancelledAudio |  | String | Notification played when player right-clicks on a build palette icon that is already on hold. The filename of the audio is defined per faction in notifications.yaml. |
+| CancelledTextNotification |  | String | Notification displayed when player right-clicks on a build palette icon that is already on hold. |
 
 ### ProvidesPrerequisite
 
@@ -2950,7 +3014,8 @@ Requires trait: [`PlayerResources`](#playerresources).
 | -------- | --------------| ---- | ----------- |
 | AdviceInterval | 20000 | Integer | Interval (in milliseconds) at which to check if more storage is needed. |
 | Threshold | 80 | Integer | The percentage threshold above which a warning is played. |
-| Notification | SilosNeeded | String | The speech to play for the warning. |
+| Notification | SilosNeeded | String | Speech to play for the warning. |
+| TextNotification |  | String | Text to display for the warning. |
 
 ### StrategicPoint
 Used to mark a place that needs to be in possession for StrategicVictoryConditions.
@@ -3007,6 +3072,7 @@ Requires trait: [`DeveloperMode`](#developermode).
 | -------- | --------------| ---- | ----------- |
 | AdviceInterval | 10000 | Integer | Interval (in milliseconds) at which to warn the player of low power. |
 | SpeechNotification |  | String | |
+| TextNotification |  | String | |
 
 ### Power
 
@@ -3063,7 +3129,8 @@ Requires trait: [`Exit`](#exit).
 | -------- | --------------| ---- | ----------- |
 | ActorType | badr | String | Cargo aircraft used. Must have Aircraft trait. |
 | ChuteSound |  | String | Sound to play when dropping the unit. |
-| ReadyAudio |  | String | Notification to play when dropping the unit. |
+| ReadyAudio |  | String | Speech notification to play when dropping the unit. |
+| ReadyTextNotification |  | String | Text notification to display when dropping the unit. |
 | Produces | *(required)* | Collection of String | e.g. Infantry, Vehicles, Aircraft, Buildings |
 | PauseOnCondition |  | BooleanExpression | Boolean expression defining the condition to pause this trait. |
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
@@ -3217,6 +3284,7 @@ Can enter a BridgeHut or LegacyBridgeHut to trigger a repair.
 | TargetCursor | goldwrench | String | Cursor to display when targeting an unrepaired bridge. |
 | TargetBlockedCursor | goldwrench-blocked | String | Cursor to display when repairing is denied. |
 | RepairNotification |  | String | Speech notification to play when a bridge is repaired. |
+| RepairTextNotification |  | String | Text notification to display when a bridge is repaired. |
 
 ### RepairsUnits
 
@@ -3226,8 +3294,10 @@ Can enter a BridgeHut or LegacyBridgeHut to trigger a repair.
 | HpPerStep | 10 | Integer | |
 | Interval | 24 | Integer | Time (in ticks) between two repair steps. |
 | RepairDamageTypes |  | Collection of DamageType | Damage types used for the repair. |
-| StartRepairingNotification |  | String | The sound played when starting to repair a unit. |
-| FinishRepairingNotification |  | String | The sound played when repairing a unit is done. |
+| StartRepairingNotification |  | String | Speech notification played when starting to repair a unit. |
+| StartRepairingTextNotification |  | String | Text notification displayed when starting to repair a unit. |
+| FinishRepairingNotification |  | String | Speech notification played when repairing a unit is done. |
+| FinishRepairingTextNotification |  | String | Text notification displayed when repairing a unit is done. |
 | PlayerExperience | 0 | Integer | Experience gained by the player owning this actor for repairing an allied unit. |
 | PauseOnCondition |  | BooleanExpression | Boolean expression defining the condition to pause this trait. |
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
@@ -3330,7 +3400,8 @@ Actor can be sold
 | -------- | --------------| ---- | ----------- |
 | RefundPercent | 50 | Integer | Percentage of units value to give back after selling. |
 | SellSounds |  | Collection of String | List of audio clips to play when the actor is being sold. |
-| Notification |  | String | The audio notification type to play. |
+| Notification |  | String | Speech notification to play. |
+| TextNotification |  | String | Text notification to display. |
 | ShowTicks | True | Boolean | Whether to show the cash tick indicators rising from the actor. |
 | ShowTooltipText | True | Boolean | Whether to show the refund text on the tooltip, when actor is hovered over with sell order. |
 | SkipMakeAnimation | False | Boolean | Skip playing (reversed) make animation. |
@@ -3408,18 +3479,25 @@ Adds capacity to a player's harvested resource limit.
 | Prerequisites |  | Collection of String | |
 | DetectedSound |  | String | |
 | DetectedSpeechNotification |  | String | |
+| DetectedTextNotification |  | String | |
 | BeginChargeSound |  | String | |
 | BeginChargeSpeechNotification |  | String | |
+| BeginChargeTextNotification |  | String | |
 | EndChargeSound |  | String | |
 | EndChargeSpeechNotification |  | String | |
+| EndChargeTextNotification |  | String | |
 | SelectTargetSound |  | String | |
 | SelectTargetSpeechNotification |  | String | |
+| SelectTargetTextNotification |  | String | |
 | InsufficientPowerSound |  | String | |
 | InsufficientPowerSpeechNotification |  | String | |
+| InsufficientPowerTextNotification |  | String | |
 | LaunchSound |  | String | |
 | LaunchSpeechNotification |  | String | |
+| LaunchTextNotification |  | String | |
 | IncomingSound |  | String | |
 | IncomingSpeechNotification |  | String | |
+| IncomingTextNotification |  | String | |
 | DisplayTimerRelationships | None | PlayerRelationship | Defines to which players the timer is shown. |
 | DisplayBeacon | False | Boolean | Beacons are only supported on the Airstrike, Paratroopers, and Nuke powers |
 | BeaconPaletteIsPlayerPalette | True | Boolean | |
@@ -3466,18 +3544,25 @@ Adds capacity to a player's harvested resource limit.
 | Prerequisites |  | Collection of String | |
 | DetectedSound |  | String | |
 | DetectedSpeechNotification |  | String | |
+| DetectedTextNotification |  | String | |
 | BeginChargeSound |  | String | |
 | BeginChargeSpeechNotification |  | String | |
+| BeginChargeTextNotification |  | String | |
 | EndChargeSound |  | String | |
 | EndChargeSpeechNotification |  | String | |
+| EndChargeTextNotification |  | String | |
 | SelectTargetSound |  | String | |
 | SelectTargetSpeechNotification |  | String | |
+| SelectTargetTextNotification |  | String | |
 | InsufficientPowerSound |  | String | |
 | InsufficientPowerSpeechNotification |  | String | |
+| InsufficientPowerTextNotification |  | String | |
 | LaunchSound |  | String | |
 | LaunchSpeechNotification |  | String | |
+| LaunchTextNotification |  | String | |
 | IncomingSound |  | String | |
 | IncomingSpeechNotification |  | String | |
+| IncomingTextNotification |  | String | |
 | DisplayTimerRelationships | None | PlayerRelationship | Defines to which players the timer is shown. |
 | DisplayBeacon | False | Boolean | Beacons are only supported on the Airstrike, Paratroopers, and Nuke powers |
 | BeaconPaletteIsPlayerPalette | True | Boolean | |
@@ -3501,8 +3586,9 @@ Adds capacity to a player's harvested resource limit.
 
 | Property | Default Value | Type | Description |
 | -------- | --------------| ---- | ----------- |
-| MissileWeapon | *(required)* | String | Weapon to use for the impact. Also image to use for the missile. |
+| MissileWeapon | *(required)* | String | Weapon to use for the impact. |
 | MissileDelay | 0 | Integer | Delay (in ticks) after launch until the missile is spawned. |
+| MissileImage |  | String | Image to use for the missile. |
 | MissileUp | up | String | Sprite sequence for the ascending missile. |
 | MissileDown | down | String | Sprite sequence for the descending missile. |
 | SpawnOffset | 0,0,0 | 3D World Vector | Offset from the actor the missile spawns on. |
@@ -3543,18 +3629,25 @@ Adds capacity to a player's harvested resource limit.
 | Prerequisites |  | Collection of String | |
 | DetectedSound |  | String | |
 | DetectedSpeechNotification |  | String | |
+| DetectedTextNotification |  | String | |
 | BeginChargeSound |  | String | |
 | BeginChargeSpeechNotification |  | String | |
+| BeginChargeTextNotification |  | String | |
 | EndChargeSound |  | String | |
 | EndChargeSpeechNotification |  | String | |
+| EndChargeTextNotification |  | String | |
 | SelectTargetSound |  | String | |
 | SelectTargetSpeechNotification |  | String | |
+| SelectTargetTextNotification |  | String | |
 | InsufficientPowerSound |  | String | |
 | InsufficientPowerSpeechNotification |  | String | |
+| InsufficientPowerTextNotification |  | String | |
 | LaunchSound |  | String | |
 | LaunchSpeechNotification |  | String | |
+| LaunchTextNotification |  | String | |
 | IncomingSound |  | String | |
 | IncomingSpeechNotification |  | String | |
+| IncomingTextNotification |  | String | |
 | DisplayTimerRelationships | None | PlayerRelationship | Defines to which players the timer is shown. |
 | DisplayBeacon | False | Boolean | Beacons are only supported on the Airstrike, Paratroopers, and Nuke powers |
 | BeaconPaletteIsPlayerPalette | True | Boolean | |
@@ -3581,7 +3674,8 @@ Adds capacity to a player's harvested resource limit.
 | UnitType | badr | String | |
 | SquadSize | 1 | Integer | |
 | SquadOffset | -1536,1536,0 | 3D World Vector | |
-| ReinforcementsArrivedSpeechNotification |  | String | Notification to play when entering the drop zone. |
+| ReinforcementsArrivedSpeechNotification |  | String | Speech notification to play when entering the drop zone. |
+| ReinforcementsArrivedTextNotification |  | String | Text notification to display when entering the drop zone. |
 | QuantizedFacings | 32 | Integer | Number of facings that the delivery aircraft may approach from. |
 | Cordon | 5c0 | 1D World Distance | Spawn and remove the plane this far outside the map. |
 | DropItems |  | Collection of String | Troops to be delivered.  They will be distributed between the planes if SquadSize > 1. |
@@ -3605,18 +3699,25 @@ Adds capacity to a player's harvested resource limit.
 | Prerequisites |  | Collection of String | |
 | DetectedSound |  | String | |
 | DetectedSpeechNotification |  | String | |
+| DetectedTextNotification |  | String | |
 | BeginChargeSound |  | String | |
 | BeginChargeSpeechNotification |  | String | |
+| BeginChargeTextNotification |  | String | |
 | EndChargeSound |  | String | |
 | EndChargeSpeechNotification |  | String | |
+| EndChargeTextNotification |  | String | |
 | SelectTargetSound |  | String | |
 | SelectTargetSpeechNotification |  | String | |
+| SelectTargetTextNotification |  | String | |
 | InsufficientPowerSound |  | String | |
 | InsufficientPowerSpeechNotification |  | String | |
+| InsufficientPowerTextNotification |  | String | |
 | LaunchSound |  | String | |
 | LaunchSpeechNotification |  | String | |
+| LaunchTextNotification |  | String | |
 | IncomingSound |  | String | |
 | IncomingSpeechNotification |  | String | |
+| IncomingTextNotification |  | String | |
 | DisplayTimerRelationships | None | PlayerRelationship | Defines to which players the timer is shown. |
 | DisplayBeacon | False | Boolean | Beacons are only supported on the Airstrike, Paratroopers, and Nuke powers |
 | BeaconPaletteIsPlayerPalette | True | Boolean | |
@@ -3643,8 +3744,10 @@ Produces an actor without using the standard production queue.
 | -------- | --------------| ---- | ----------- |
 | Actors | *(required)* | Collection of String | Actors to produce. |
 | Type | *(required)* | String | Production queue type to use |
-| ReadyAudio |  | String | Notification played when production is activated. The filename of the audio is defined per faction in notifications.yaml. |
-| BlockedAudio |  | String | Notification played when the exit is jammed. The filename of the audio is defined per faction in notifications.yaml. |
+| ReadyAudio |  | String | Speech notification played when production is activated. The filename of the audio is defined per faction in notifications.yaml. |
+| ReadyTextNotification |  | String | Text notification displayed when production is activated. |
+| BlockedAudio |  | String | Speech notification played when the exit is jammed. The filename of the audio is defined per faction in notifications.yaml. |
+| BlockedTextNotification |  | String | Text notification displayed when the exit is jammed. |
 | ChargeInterval | 0 | Integer | Measured in ticks. |
 | IconImage | icon | String | |
 | Icon |  | String | Icon sprite displayed in the support power palette. |
@@ -3658,18 +3761,25 @@ Produces an actor without using the standard production queue.
 | Prerequisites |  | Collection of String | |
 | DetectedSound |  | String | |
 | DetectedSpeechNotification |  | String | |
+| DetectedTextNotification |  | String | |
 | BeginChargeSound |  | String | |
 | BeginChargeSpeechNotification |  | String | |
+| BeginChargeTextNotification |  | String | |
 | EndChargeSound |  | String | |
 | EndChargeSpeechNotification |  | String | |
+| EndChargeTextNotification |  | String | |
 | SelectTargetSound |  | String | |
 | SelectTargetSpeechNotification |  | String | |
+| SelectTargetTextNotification |  | String | |
 | InsufficientPowerSound |  | String | |
 | InsufficientPowerSpeechNotification |  | String | |
+| InsufficientPowerTextNotification |  | String | |
 | LaunchSound |  | String | |
 | LaunchSpeechNotification |  | String | |
+| LaunchTextNotification |  | String | |
 | IncomingSound |  | String | |
 | IncomingSpeechNotification |  | String | |
+| IncomingTextNotification |  | String | |
 | DisplayTimerRelationships | None | PlayerRelationship | Defines to which players the timer is shown. |
 | DisplayBeacon | False | Boolean | Beacons are only supported on the Airstrike, Paratroopers, and Nuke powers |
 | BeaconPaletteIsPlayerPalette | True | Boolean | |
@@ -3716,18 +3826,25 @@ Spawns an actor that stays for a limited amount of time.
 | Prerequisites |  | Collection of String | |
 | DetectedSound |  | String | |
 | DetectedSpeechNotification |  | String | |
+| DetectedTextNotification |  | String | |
 | BeginChargeSound |  | String | |
 | BeginChargeSpeechNotification |  | String | |
+| BeginChargeTextNotification |  | String | |
 | EndChargeSound |  | String | |
 | EndChargeSpeechNotification |  | String | |
+| EndChargeTextNotification |  | String | |
 | SelectTargetSound |  | String | |
 | SelectTargetSpeechNotification |  | String | |
+| SelectTargetTextNotification |  | String | |
 | InsufficientPowerSound |  | String | |
 | InsufficientPowerSpeechNotification |  | String | |
+| InsufficientPowerTextNotification |  | String | |
 | LaunchSound |  | String | |
 | LaunchSpeechNotification |  | String | |
+| LaunchTextNotification |  | String | |
 | IncomingSound |  | String | |
 | IncomingSpeechNotification |  | String | |
+| IncomingTextNotification |  | String | |
 | DisplayTimerRelationships | None | PlayerRelationship | Defines to which players the timer is shown. |
 | DisplayBeacon | False | Boolean | Beacons are only supported on the Airstrike, Paratroopers, and Nuke powers |
 | BeaconPaletteIsPlayerPalette | True | Boolean | |
@@ -3865,8 +3982,10 @@ Actor becomes a specified actor type when this trait is triggered.
 | Facing | 384 | 1D World Angle | Facing that the actor must face before transforming. |
 | TransformSounds |  | Collection of String | Sounds to play when transforming. |
 | NoTransformSounds |  | Collection of String | Sounds to play when the transformation is blocked. |
-| TransformNotification |  | String | Notification to play when transforming. |
-| NoTransformNotification |  | String | Notification to play when the transformation is blocked. |
+| TransformNotification |  | String | Speech notification to play when transforming. |
+| TransformTextNotification |  | String | Text notification to display when transforming. |
+| NoTransformNotification |  | String | Speech notification to play when the transformation is blocked. |
+| NoTransformTextNotification |  | String | Text notification to display when the transformation is blocked. |
 | DeployCursor | deploy | String | Cursor to display when able to (un)deploy the actor. |
 | DeployBlockedCursor | deploy-blocked | String | Cursor to display when unable to (un)deploy the actor. |
 | Voice | Action | String | |
@@ -3972,6 +4091,14 @@ If 2 values are provided they are used as a range from which a value is randomly
 | Sequence | build-invalid | String | Sequence to use for unbuildable area. |
 | Alpha | 1 | Real Number | Custom opacity to apply to the overlay sprite. |
 
+### CellTriggerOverlay
+Renders a debug overlay showing the script triggers. Attach this to the world actor.
+
+| Property | Default Value | Type | Description |
+| -------- | --------------| ---- | ----------- |
+| Font | BigBold | String | |
+| Color | FF0000 | Color (RRGGBB[AA] notation) | |
+
 ### CliffBackImpassabilityLayer
 Sets a custom terrain type for cells that are obscured by back-facing cliffs.
 This trait replicates the default CliffBackImpassability=2 behaviour from the TS/RA2 rules.ini.
@@ -4026,10 +4153,6 @@ Configuration options for the lobby player color picker. Attach this to the worl
 ### CreateMapPlayers
 Attach this to the world actor.
 
-### DomainIndex
-Identify untraversable regions of the map for faster pathfinding, especially with AI.
-This trait is required. Every mod needs it attached to the world actor.
-
 ### EditorActionManager
 
 ### EditorActorLayer
@@ -4068,7 +4191,6 @@ Required for the map editor to work. Attach this to the world actor.
 | PasteSequence | paste | String | Sequence to use for the paste overlay. |
 
 ### ElevatedBridgeLayer
-Requires trait: [`DomainIndex`](#domainindex).
 
 | Property | Default Value | Type | Description |
 | -------- | --------------| ---- | ----------- |
@@ -4093,6 +4215,19 @@ Requires trait: [`ElevatedBridgeLayer`](#elevatedbridgelayer).
 | Property | Default Value | Type | Description |
 | -------- | --------------| ---- | ----------- |
 | Font | TinyBold | String | The font used to draw cell vectors. Should match the value as-is in the Fonts section of the mod manifest (do not convert to lowercase). |
+
+### HierarchicalPathFinderOverlay
+Renders a debug overlay showing the abstract graph of the hierarchical pathfinder. Attach this to the world actor.
+
+Requires trait: [`PathFinder`](#pathfinder).
+
+| Property | Default Value | Type | Description |
+| -------- | --------------| ---- | ----------- |
+| Font | TinyBold | String | |
+| GroundLayerColor | FF8C00 | Color (RRGGBB[AA] notation) | |
+| CustomLayerColor | 0000FF | Color (RRGGBB[AA] notation) | |
+| GroundToCustomLayerColor | 800080 | Color (RRGGBB[AA] notation) | |
+| AbstractNodeColor | FF0000 | Color (RRGGBB[AA] notation) | |
 
 ### JumpjetActorLayer
 
@@ -4272,10 +4407,25 @@ Renders an effect at the order target locations.
 | ActorFlashInterval | 2 | Integer | Number of ticks between (frozen) actor flashes. |
 
 ### PathFinder
-Calculates routes for mobile units based on the A* search algorithm.
+Calculates routes for mobile units with locomotors based on the A* search algorithm.
  Attach this to the world actor.
 
 Requires trait: [`Locomotor`](#locomotor).
+
+### PathFinderOverlay
+Renders a visualization overlay showing how the pathfinder searches for paths. Attach this to the world actor.
+
+Requires trait: [`PathFinder`](#pathfinder).
+
+| Property | Default Value | Type | Description |
+| -------- | --------------| ---- | ----------- |
+| Font | TinyBold | String | |
+| TargetLineColor | FF0000 | Color (RRGGBB[AA] notation) | |
+| AbstractColor1 | 00FF00 | Color (RRGGBB[AA] notation) | |
+| AbstractColor2 | 98FB98 | Color (RRGGBB[AA] notation) | |
+| LocalColor1 | FFFF00 | Color (RRGGBB[AA] notation) | |
+| LocalColor2 | FFFFE0 | Color (RRGGBB[AA] notation) | |
+| ShowCosts | True | Boolean | |
 
 ### RadarPings
 
@@ -4377,8 +4527,11 @@ Requires trait: [`StartingUnits`](#startingunits).
 | Property | Default Value | Type | Description |
 | -------- | --------------| ---- | ----------- |
 | Notification | StartGame | String | |
+| TextNotification |  | String | |
 | LoadedNotification | GameLoaded | String | |
+| LoadedTextNotification |  | String | |
 | SavedNotification | GameSaved | String | |
+| SavedTextNotification |  | String | |
 
 ### SubterraneanActorLayer
 
@@ -4435,7 +4588,6 @@ Requires trait: [`TerrainTunnelLayer`](#terraintunnellayer).
 | TerrainType | *(required)* | String | Terrain type of the tunnel floor. |
 
 ### TerrainTunnelLayer
-Requires trait: [`DomainIndex`](#domainindex).
 
 | Property | Default Value | Type | Description |
 | -------- | --------------| ---- | ----------- |
@@ -5527,7 +5679,8 @@ Requires traits: [`Building`](#building), [`RenderSprites`](#rendersprites).
 
 | Property | Default Value | Type | Description |
 | -------- | --------------| ---- | ----------- |
-| Notification | UnitLost | String | |
+| Notification | UnitLost | String | Speech notification to play. |
+| TextNotification |  | String | Text notification to display. |
 | NotifyAll | False | Boolean | |
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
@@ -5556,7 +5709,8 @@ Requires the 'EnemyWatcher' trait on the player actor.
 | Property | Default Value | Type | Description |
 | -------- | --------------| ---- | ----------- |
 | PingRadar | False | Boolean | Should there be a radar ping on enemies' radar at the actor's location when they see him |
-| Notification |  | String | |
+| Notification |  | String | Speech notification to play. |
+| TextNotification |  | String | Text notification to display. |
 | AnnounceNeutrals | False | Boolean | |
 
 ### AttackSounds
@@ -5573,9 +5727,11 @@ Played when preparing for an attack or attacking.
 
 | Property | Default Value | Type | Description |
 | -------- | --------------| ---- | ----------- |
-| Notification | BuildingCaptured | String | The speech notification to play to the new owner. |
+| Notification | BuildingCaptured | String | Speech notification to play to the new owner. |
+| TextNotification |  | String | Text notification to display to the new owner. |
 | NewOwnerVoice | True | Boolean | Specifies if Notification is played with the voice of the new owners faction. |
-| LoseNotification |  | String | The speech notification to play to the old owner. |
+| LoseNotification |  | String | Speech notification to play to the old owner. |
+| LoseTextNotification |  | String | Text notification to display to the old owner. |
 | LoseNewOwnerVoice | False | Boolean | Specifies if LoseNotification is played with the voice of the new owners faction. |
 
 ### DeathSounds
@@ -5707,6 +5863,7 @@ Manages AI base construction.
 | ProductionTypes |  | Set of String | Tells the AI what building types are considered production facilities. |
 | NavalProductionTypes |  | Set of String | Tells the AI what building types are considered naval production facilities. |
 | SiloTypes |  | Set of String | Tells the AI what building types are considered silos (resource storage). |
+| DefenseTypes |  | Set of String | Tells the AI what building types are considered defenses. |
 | BuildingQueues | Building | Set of String | Production queues AI uses for buildings. |
 | DefenseQueues | Defense | Set of String | Production queues AI uses for defenses. |
 | MinimumBaseRadius | 2 | Integer | Minimum distance in cells from center of the base when checking for building placement. |
@@ -5736,13 +5893,13 @@ Manages AI base construction.
 | BuildingDelays |  | Dictionary with Key: String, Value Integer | When should the AI start building specific buildings. |
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
-### DeployDetectorBotModule
-Manages AI cloak detector deployment logic. For use with the regular `SquadManagerBotModule`.
+### DeployActorBotModule
+Deploys units when idle.
 
 | Property | Default Value | Type | Description |
 | -------- | --------------| ---- | ----------- |
 | DeployableActorTypes | *(required)* | Set of String | Actor types that can deploy. |
-| MinimumScanDelay | 20 | Integer | Minimum delay (in ticks) between trying to deploy with DeployableActorTypes. |
+| MinimumScanDelay | 100 | Integer | Minimum delay (in ticks) between trying to deploy with DeployableActorTypes. |
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### ExternalConditionPowerBotModule
@@ -5838,6 +5995,14 @@ This actor can spawn actors.
 | RespawnTicks | 150 | Integer | Spawn regeneration delay, in ticks |
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
+### ChangesOwner
+Change the owner on condition and revert back when it isn't met anymore.
+
+| Property | Default Value | Type | Description |
+| -------- | --------------| ---- | ----------- |
+| Owner | *(required)* | String | The new owner. |
+| RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
+
 ### GrantConditionInsideEnemyBuildRadius
 Grants a condition when the actor enters an enemy build radius.
 
@@ -5874,6 +6039,14 @@ Grants a condition if the owner is the Neutral player.
 | -------- | --------------| ---- | ----------- |
 | Condition |  | String | The condition to grant. |
 
+### GrantConditionOnProximity
+Grants a condition by units in a specified proximity.
+
+| Property | Default Value | Type | Description |
+| -------- | --------------| ---- | ----------- |
+| Range | 5c0 | 1D World Distance | Maximum range at which a actor can initiate the condition. |
+| Condition |  | String | The condition to grant. |
+
 ### GrantConditionOnSell
 Grants a condition when the actor is being sold.
 
@@ -5902,7 +6075,8 @@ Requires trait: [`ScrapValue`](#scrapvalue).
 | Sequence |  | String | Animation sequence played when collected. Leave empty for no effect. |
 | Palette | effect | String | Palette to draw the animation in. |
 | Sound |  | String | Audio clip to play when the crate is collected. |
-| Notification |  | String | Notification to play when the crate is collected. |
+| Notification |  | String | Speech notification to play when the crate is collected. |
+| TextNotification |  | String | Text notification to display when the crate is collected. |
 | TimeDelay | 0 | Integer | The earliest time (in ticks) that this crate action can occur on. |
 | Prerequisites |  | Collection of String | Only allow this crate action when the collector has these prerequisites |
 | ExcludedActorTypes |  | Collection of String | Actor types that this crate action will not occur for. |
@@ -5923,7 +6097,8 @@ Spawns units when collected and optionally plays an effect overlay.
 | Sequence |  | String | Animation sequence played when collected. Leave empty for no effect. |
 | Palette | effect | String | Palette to draw the animation in. |
 | Sound |  | String | Audio clip to play when the crate is collected. |
-| Notification |  | String | Notification to play when the crate is collected. |
+| Notification |  | String | Speech notification to play when the crate is collected. |
+| TextNotification |  | String | Text notification to display when the crate is collected. |
 | TimeDelay | 0 | Integer | The earliest time (in ticks) that this crate action can occur on. |
 | Prerequisites |  | Collection of String | Only allow this crate action when the collector has these prerequisites |
 | ExcludedActorTypes |  | Collection of String | Actor types that this crate action will not occur for. |
@@ -6055,6 +6230,23 @@ Dispenses a weapon at the actor's position when enabled.Reload/BurstDelays are u
 | ResetReloadWhenEnabled | True | Boolean | |
 | AmmoPoolName |  | String | Which limited ammo pool (if present) should this weapon be assigned to. |
 | LocalOffset | 0,0,0 | 3D World Vector | Explosion offset relative to actor's position. |
+| RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
+
+### PeriodicProducer
+Produces an actor without using the standard production queue.
+
+| Property | Default Value | Type | Description |
+| -------- | --------------| ---- | ----------- |
+| Actors | *(required)* | Collection of String | Random actors to choose from. |
+| Type | *(required)* | String | Production queue type to use |
+| ReadyAudio |  | String | Notification played when production is activated. The filename of the audio is defined per faction in notifications.yaml. |
+| BlockedAudio |  | String | Notification played when the exit is jammed. The filename of the audio is defined per faction in notifications.yaml. |
+| ChargeDuration | 1000 | Integer | Duration between productions. |
+| ResetTraitOnEnable | False | Boolean | Reset the countdown when the traits gets enabled. |
+| ShowSelectionBar | False | Boolean | |
+| ChargeColor | 87CEEB | Color (RRGGBB[AA] notation) | |
+| SelectionBarDisplayRelationships | Ally | PlayerRelationship | Defines to which players the bar is to be shown. |
+| PauseOnCondition |  | BooleanExpression | Boolean expression defining the condition to pause this trait. |
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### BuildingAttackNotifier
@@ -6274,18 +6466,25 @@ Requires trait: [`AttackBase`](#attackbase).
 | Prerequisites |  | Collection of String | |
 | DetectedSound |  | String | |
 | DetectedSpeechNotification |  | String | |
+| DetectedTextNotification |  | String | |
 | BeginChargeSound |  | String | |
 | BeginChargeSpeechNotification |  | String | |
+| BeginChargeTextNotification |  | String | |
 | EndChargeSound |  | String | |
 | EndChargeSpeechNotification |  | String | |
+| EndChargeTextNotification |  | String | |
 | SelectTargetSound |  | String | |
 | SelectTargetSpeechNotification |  | String | |
+| SelectTargetTextNotification |  | String | |
 | InsufficientPowerSound |  | String | |
 | InsufficientPowerSpeechNotification |  | String | |
+| InsufficientPowerTextNotification |  | String | |
 | LaunchSound |  | String | |
 | LaunchSpeechNotification |  | String | |
+| LaunchTextNotification |  | String | |
 | IncomingSound |  | String | |
 | IncomingSpeechNotification |  | String | |
+| IncomingTextNotification |  | String | |
 | DisplayTimerRelationships | None | PlayerRelationship | Defines to which players the timer is shown. |
 | DisplayBeacon | False | Boolean | Beacons are only supported on the Airstrike, Paratroopers, and Nuke powers |
 | BeaconPaletteIsPlayerPalette | True | Boolean | |
@@ -6328,18 +6527,25 @@ Requires trait: [`AttackBase`](#attackbase).
 | Prerequisites |  | Collection of String | |
 | DetectedSound |  | String | |
 | DetectedSpeechNotification |  | String | |
+| DetectedTextNotification |  | String | |
 | BeginChargeSound |  | String | |
 | BeginChargeSpeechNotification |  | String | |
+| BeginChargeTextNotification |  | String | |
 | EndChargeSound |  | String | |
 | EndChargeSpeechNotification |  | String | |
+| EndChargeTextNotification |  | String | |
 | SelectTargetSound |  | String | |
 | SelectTargetSpeechNotification |  | String | |
+| SelectTargetTextNotification |  | String | |
 | InsufficientPowerSound |  | String | |
 | InsufficientPowerSpeechNotification |  | String | |
+| InsufficientPowerTextNotification |  | String | |
 | LaunchSound |  | String | |
 | LaunchSpeechNotification |  | String | |
+| LaunchTextNotification |  | String | |
 | IncomingSound |  | String | |
 | IncomingSpeechNotification |  | String | |
+| IncomingTextNotification |  | String | |
 | DisplayTimerRelationships | None | PlayerRelationship | Defines to which players the timer is shown. |
 | DisplayBeacon | False | Boolean | Beacons are only supported on the Airstrike, Paratroopers, and Nuke powers |
 | BeaconPaletteIsPlayerPalette | True | Boolean | |
@@ -6386,18 +6592,25 @@ Requires trait: [`AttackBase`](#attackbase).
 | Prerequisites |  | Collection of String | |
 | DetectedSound |  | String | |
 | DetectedSpeechNotification |  | String | |
+| DetectedTextNotification |  | String | |
 | BeginChargeSound |  | String | |
 | BeginChargeSpeechNotification |  | String | |
+| BeginChargeTextNotification |  | String | |
 | EndChargeSound |  | String | |
 | EndChargeSpeechNotification |  | String | |
+| EndChargeTextNotification |  | String | |
 | SelectTargetSound |  | String | |
 | SelectTargetSpeechNotification |  | String | |
+| SelectTargetTextNotification |  | String | |
 | InsufficientPowerSound |  | String | |
 | InsufficientPowerSpeechNotification |  | String | |
+| InsufficientPowerTextNotification |  | String | |
 | LaunchSound |  | String | |
 | LaunchSpeechNotification |  | String | |
+| LaunchTextNotification |  | String | |
 | IncomingSound |  | String | |
 | IncomingSpeechNotification |  | String | |
+| IncomingTextNotification |  | String | |
 | DisplayTimerRelationships | None | PlayerRelationship | Defines to which players the timer is shown. |
 | DisplayBeacon | False | Boolean | Beacons are only supported on the Airstrike, Paratroopers, and Nuke powers |
 | BeaconPaletteIsPlayerPalette | True | Boolean | |
@@ -6509,10 +6722,10 @@ Attach this to the world actor.
 | CrushClasses | Tree | Collection of CrushClass | Who should be allowed to crush a tree. |
 | Hitpoints | 100000 | Integer | Initial max amount per tile. |
 | DamagedHitpoints | 75000 | Integer | At which health level to display flames. |
-| Image | *(required)* | String | Animation image. |
-| Sequence |  | String | Animation to play when damaged. |
-| Interval | 8 | Integer | Time in ticks to spawn a new flame and to apply damage. |
+| Interval | 8 | Integer | Time in ticks to apply damage. |
 | Damage | 10 | Integer | How much damage to apply to neighboring tiles when on fire. |
+| FlameOwner | Creeps | String | Player that spawns the flame actors. |
+| FlameActor | *(required)* | String | Fake actor required for targeting. |
 | TransformedTerrain | *(required)* | Collection of String | Terrain types a tree can change into. |
 | CrushedTiles | *(required)* | Dictionary with Key: UInt16, Value UInt16 | Which tile ID to replace with which munched variant |
 | BurnedTiles | *(required)* | Dictionary with Key: UInt16, Value UInt16 | Which tile ID to replace with which scorched variant |

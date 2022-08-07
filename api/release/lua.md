@@ -1,4 +1,4 @@
-This is an automatically generated listing of the Lua map scripting API for version 20220526 of OpenHV.
+This is an automatically generated listing of the Lua map scripting API for version 20220807 of OpenHV.
 
 OpenHV allows custom maps and missions to be scripted using Lua 5.1.
 These scripts run in a sandbox that prevents access to unsafe functions (e.g. OS or file access), and limits the memory and CPU usage of the scripts.
@@ -128,18 +128,14 @@ For a basic guide about map scripts see the [`Map Scripting` wiki page](https://
 | **int TimeLimit { get; set; }** | Return or set the time limit (in ticks). When setting, the time limit will count from now. Setting the time limit to 0 will disable it. |
 | **string TimeLimitNotification { get; set; }** | The notification string used for custom time limit warnings. See the TimeLimitManager trait documentation for details. |
 
-### Facing
+### Forest
 
 | Function | Description |
 |---------:|-------------|
-| **int East { get; }** |  |
-| **int North { get; }** |  |
-| **int NorthEast { get; }** |  |
-| **int NorthWest { get; }** |  |
-| **int South { get; }** |  |
-| **int SouthEast { get; }** |  |
-| **int SouthWest { get; }** |  |
-| **int West { get; }** |  |
+| **void Hit(CPos cell, int damage)** | Damage an individual tree cell. |
+| **int TotalTrees { get; }** | How many trees when the map was initially loaded. |
+| **int TreesBurning { get; }** | Trees that are on fire. |
+| **int TreesLeft { get; }** | Remaining trees alive. |
 
 ### Lighting
 
@@ -419,9 +415,6 @@ For a basic guide about map scripts see the [`Map Scripting` wiki page](https://
 | Function | Description |
 |---------:|-------------|
 | **void ActivateNukePower(CPos target)** | Activate the actor's NukePower.<br />**Requires Trait:** NukePower |
-| **Actor[] ActivateParatroopers(WPos target, int facing = -1)** | Activate the actor's Paratroopers Power. Returns the aircraft that will drop the reinforcements. DEPRECATED! Will be removed.<br />**Requires Trait:** ParatroopersPower |
-| **void SendAirstrike(WPos target, bool randomize = True, int facing = 0)** | Activate the actor's Airstrike Power. DEPRECATED! Will be removed.<br />**Requires Trait:** AirstrikePower |
-| **void SendAirstrikeFrom(CPos from, CPos to)** | Activate the actor's Airstrike Power. DEPRECATED! Will be removed.<br />**Requires Trait:** AirstrikePower |
 | **Actor[] TargetAirstrike(WPos target, WAngle? facing = nil)** | Activate the actor's Airstrike Power. Returns the aircraft that will attack.<br />**Requires Trait:** AirstrikePower |
 | **Actor[] TargetParatroopers(WPos target, WAngle? facing = nil)** | Activate the actor's Paratroopers Power. Returns the aircraft that will drop the reinforcements.<br />**Requires Trait:** ParatroopersPower |
 
