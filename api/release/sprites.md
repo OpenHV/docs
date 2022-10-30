@@ -1,6 +1,6 @@
 # Sprite sequences
 
-This documentation is aimed at modders and has been automatically generated for version `20220918` of OpenHV. Please do not edit it directly, but instead add new `[Desc("String")]` tags to the source code.
+This documentation is aimed at modders and has been automatically generated for version `20221030` of OpenHV. Please do not edit it directly, but instead add new `[Desc("String")]` tags to the source code.
 
 Listed below are all sprite sequence types with their properties and their default values plus developer commentary.
 Related types with their possible values are listed [at the bottom](#related-value-types-enums).
@@ -40,7 +40,8 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 ### TilesetSpecificSpriteSequence
 **A sprite sequence that can have tileset-specific variants.**
-###### Inherits from: [`DefaultSpriteSequence`](#defaultspritesequence).
+
+> Inherits from: [`DefaultSpriteSequence`](#defaultspritesequence).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |

@@ -1,6 +1,6 @@
 # Traits
 
-This documentation is aimed at modders and has been automatically generated for version `20220918` of OpenHV. Please do not edit it directly, but instead add new `[Desc("String")]` tags to the source code.
+This documentation is aimed at modders and has been automatically generated for version `20221030` of OpenHV. Please do not edit it directly, but instead add new `[Desc("String")]` tags to the source code.
 
 Listed below are all traits with their properties and their default values plus developer commentary.
 Related types with their possible values are listed [at the bottom](#related-value-types-enums).
@@ -24,7 +24,8 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 ### WithDrillingAnimation
 **Replaces the building animation when resources are mined.**
-###### Requires trait(s): [`ResourceCollector`](#resourcecollector), [`WithSpriteBody`](#withspritebody).
+
+> Requires trait(s): [`ResourceCollector`](#resourcecollector), [`WithSpriteBody`](#withspritebody).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -35,7 +36,8 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 ### LuaScript
 **Part of the new Lua API.**
-###### Requires trait(s): [`SpawnMapActors`](#spawnmapactors).
+
+> Requires trait(s): [`SpawnMapActors`](#spawnmapactors).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -56,7 +58,8 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 ### AcceptsDeliveredExperience
 **Tag trait for actors with `DeliversExperience`.**
-###### Requires trait(s): [`GainsExperience`](#gainsexperience).
+
+> Requires trait(s): [`GainsExperience`](#gainsexperience).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -71,7 +74,8 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 ### ActorPreviewPlaceBuildingPreview
 **Creates a building placement preview based on the map editor actor preview.**
-###### Inherits from: [`FootprintPlaceBuildingPreview`](#footprintplacebuildingpreview).
+
+> Inherits from: [`FootprintPlaceBuildingPreview`](#footprintplacebuildingpreview).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -85,7 +89,8 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 ### ActorSpawner
 **An actor with this trait indicates a valid spawn point for actors of ActorSpawnManager.**
-###### Inherits from: `ConditionalTrait`.
+
+> Inherits from: `ConditionalTrait`.
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -94,8 +99,10 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 ### ActorSpawnManager
 **Controls the spawning of specified actor types. Attach this to the world actor.**
-###### Inherits from: `ConditionalTrait`.
-###### Requires trait(s): [`MapCreeps`](#mapcreeps).
+
+> Inherits from: `ConditionalTrait`.
+
+> Requires trait(s): [`MapCreeps`](#mapcreeps).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -109,7 +116,8 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 ### AffectedByPowerOutage
 **Disables the actor when a power outage is triggered (see `InfiltrateForPowerOutage` for more information).**
-###### Inherits from: `ConditionalTrait`.
+
+> Inherits from: `ConditionalTrait`.
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -117,7 +125,8 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### Aircraft
-###### Inherits from: `PausableConditionalTrait`, `ConditionalTrait`.
+
+> Inherits from: `PausableConditionalTrait`, `ConditionalTrait`.
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -171,7 +180,8 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### AirstrikePower
-###### Inherits from: `SupportPower`, `PausableConditionalTrait`, `ConditionalTrait`.
+
+> Inherits from: `SupportPower`, `PausableConditionalTrait`, `ConditionalTrait`.
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -267,8 +277,10 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 ### Armament
 **Allows you to attach weapons to the unit (use @IdentifierSuffix for > 1)**
-###### Inherits from: `PausableConditionalTrait`, `ConditionalTrait`.
-###### Requires trait(s): `AttackBase`.
+
+> Inherits from: `PausableConditionalTrait`, `ConditionalTrait`.
+
+> Requires trait(s): `AttackBase`.
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -293,7 +305,8 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 ### Armor
 **Used to define weapon efficiency modifiers with different percentages per Type.**
-###### Inherits from: `ConditionalTrait`.
+
+> Inherits from: `ConditionalTrait`.
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -301,8 +314,10 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### AttackAircraft
-###### Inherits from: [`AttackFollow`](#attackfollow), `AttackBase`, `PausableConditionalTrait`, `ConditionalTrait`.
-###### Requires trait(s): [`Aircraft`](#aircraft).
+
+> Inherits from: [`AttackFollow`](#attackfollow), `AttackBase`, `PausableConditionalTrait`, `ConditionalTrait`.
+
+> Requires trait(s): [`Aircraft`](#aircraft).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -326,7 +341,8 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### AttackBomber
-###### Inherits from: `AttackBase`, `PausableConditionalTrait`, `ConditionalTrait`.
+
+> Inherits from: `AttackBase`, `PausableConditionalTrait`, `ConditionalTrait`.
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -345,7 +361,8 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 ### AttackCharges
 **Actor must charge up its armaments before firing.**
-###### Inherits from: [`AttackOmni`](#attackomni), `AttackBase`, `PausableConditionalTrait`, `ConditionalTrait`.
+
+> Inherits from: [`AttackOmni`](#attackomni), `AttackBase`, `PausableConditionalTrait`, `ConditionalTrait`.
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -368,7 +385,8 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 ### AttackFollow
 **Actor will follow units until in range to attack them.**
-###### Inherits from: `AttackBase`, `PausableConditionalTrait`, `ConditionalTrait`.
+
+> Inherits from: `AttackBase`, `PausableConditionalTrait`, `ConditionalTrait`.
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -390,7 +408,8 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 ### AttackFrontal
 **Unit got to face the target**
-###### Inherits from: `AttackBase`, `PausableConditionalTrait`, `ConditionalTrait`.
+
+> Inherits from: `AttackBase`, `PausableConditionalTrait`, `ConditionalTrait`.
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -409,8 +428,10 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 ### AttackGarrisoned
 **Cargo can fire their weapons out of fire ports.**
-###### Inherits from: [`AttackFollow`](#attackfollow), `AttackBase`, `PausableConditionalTrait`, `ConditionalTrait`.
-###### Requires trait(s): [`Cargo`](#cargo).
+
+> Inherits from: [`AttackFollow`](#attackfollow), `AttackBase`, `PausableConditionalTrait`, `ConditionalTrait`.
+
+> Requires trait(s): [`Cargo`](#cargo).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -450,7 +471,8 @@ Related types with their possible values are listed [at the bottom](#related-val
 | AssaultMoveBlockedCursor | assaultmove-blocked | String |  |
 
 ### AttackOmni
-###### Inherits from: `AttackBase`, `PausableConditionalTrait`, `ConditionalTrait`.
+
+> Inherits from: `AttackBase`, `PausableConditionalTrait`, `ConditionalTrait`.
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -469,8 +491,10 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 ### AttackTurreted
 **Actor has a visual turret used to attack.**
-###### Inherits from: [`AttackFollow`](#attackfollow), `AttackBase`, `PausableConditionalTrait`, `ConditionalTrait`.
-###### Requires trait(s): [`Turreted`](#turreted).
+
+> Inherits from: [`AttackFollow`](#attackfollow), `AttackBase`, `PausableConditionalTrait`, `ConditionalTrait`.
+
+> Requires trait(s): [`Turreted`](#turreted).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -493,8 +517,10 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 ### AttackWander
 **Will AttackMove to a random location within MoveRadius when idle. This conflicts with player orders and should only be added to animal creeps.**
-###### Inherits from: [`Wanders`](#wanders), `ConditionalTrait`.
-###### Requires trait(s): [`AttackMove`](#attackmove).
+
+> Inherits from: [`Wanders`](#wanders), `ConditionalTrait`.
+
+> Requires trait(s): [`AttackMove`](#attackmove).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -507,7 +533,8 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 ### AutoCarryable
 **Can be carried by units with the trait `Carryall`.**
-###### Inherits from: [`Carryable`](#carryable), `ConditionalTrait`.
+
+> Inherits from: [`Carryable`](#carryable), `ConditionalTrait`.
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -520,8 +547,10 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 ### AutoCarryall
 **Automatically transports harvesters with the Carryable trait between resource fields and refineries.**
-###### Inherits from: [`Carryall`](#carryall).
-###### Requires trait(s): [`Aircraft`](#aircraft), [`BodyOrientation`](#bodyorientation).
+
+> Inherits from: [`Carryall`](#carryall).
+
+> Requires trait(s): [`Aircraft`](#aircraft), [`BodyOrientation`](#bodyorientation).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -543,8 +572,10 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 ### AutoTarget
 **The actor will automatically engage the enemy when it is in range.**
-###### Inherits from: `ConditionalTrait`.
-###### Requires trait(s): `AttackBase`.
+
+> Inherits from: `ConditionalTrait`.
+
+> Requires trait(s): `AttackBase`.
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -566,8 +597,10 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 ### AutoTargetPriority
 **Specifies the target types and relative priority used by AutoTarget to decide what to target.**
-###### Inherits from: `ConditionalTrait`.
-###### Requires trait(s): [`AutoTarget`](#autotarget).
+
+> Inherits from: `ConditionalTrait`.
+
+> Requires trait(s): [`AutoTarget`](#autotarget).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -590,7 +623,8 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 ### BaseBuilderBotModule
 **Manages AI base construction.**
-###### Inherits from: `ConditionalTrait`.
+
+> Inherits from: `ConditionalTrait`.
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -637,7 +671,8 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 ### BaseProvider
 **Limits the zone where buildings can be constructed to a radius around this actor.**
-###### Inherits from: `PausableConditionalTrait`, `ConditionalTrait`.
+
+> Inherits from: `PausableConditionalTrait`, `ConditionalTrait`.
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -654,7 +689,8 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 ### BlocksProjectiles
 **This actor blocks bullets and missiles with 'Blockable' property.**
-###### Inherits from: `ConditionalTrait`.
+
+> Inherits from: `ConditionalTrait`.
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -682,7 +718,8 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RequireForceAttackForHeal | False | Boolean | Hide the repair cursor if the bridge is only damaged (not destroyed) |
 
 ### Bridge
-###### Requires trait(s): [`Building`](#building), [`Health`](#health).
+
+> Requires trait(s): [`Building`](#building), [`Health`](#health).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -761,7 +798,8 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 ### BuildingRepairBotModule
 **Manages AI repairing base buildings.**
-###### Inherits from: `ConditionalTrait`.
+
+> Inherits from: `ConditionalTrait`.
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -769,8 +807,10 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 ### Capturable
 **This actor can be captured by a unit with Captures: trait. This trait should not be disabled if the actor also uses FrozenUnderFog.**
-###### Inherits from: `ConditionalTrait`.
-###### Requires trait(s): [`CaptureManager`](#capturemanager).
+
+> Inherits from: `ConditionalTrait`.
+
+> Requires trait(s): [`CaptureManager`](#capturemanager).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -781,8 +821,10 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 ### CapturableProgressBar
 **Visualize capture progress.**
-###### Inherits from: `ConditionalTrait`.
-###### Requires trait(s): [`Capturable`](#capturable).
+
+> Inherits from: `ConditionalTrait`.
+
+> Requires trait(s): [`Capturable`](#capturable).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -791,8 +833,10 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 ### CapturableProgressBlink
 **Blinks the actor and captor when it is being captured.**
-###### Inherits from: `ConditionalTrait`.
-###### Requires trait(s): [`Capturable`](#capturable).
+
+> Inherits from: `ConditionalTrait`.
+
+> Requires trait(s): [`Capturable`](#capturable).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -801,7 +845,8 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 ### CaptureManagerBotModule
 **Manages AI capturing logic.**
-###### Inherits from: `ConditionalTrait`.
+
+> Inherits from: `ConditionalTrait`.
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -824,8 +869,10 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 ### CaptureProgressBar
 **Visualize the progress of this actor being captured.**
-###### Inherits from: `ConditionalTrait`.
-###### Requires trait(s): [`Captures`](#captures).
+
+> Inherits from: `ConditionalTrait`.
+
+> Requires trait(s): [`Captures`](#captures).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -834,8 +881,10 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 ### Captures
 **This actor can capture other actors which have the Capturable: trait.**
-###### Inherits from: `ConditionalTrait`.
-###### Requires trait(s): [`CaptureManager`](#capturemanager).
+
+> Inherits from: `ConditionalTrait`.
+
+> Requires trait(s): [`CaptureManager`](#capturemanager).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -881,7 +930,8 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 ### Carryable
 **Can be carried by actors with the `Carryall` trait.**
-###### Inherits from: `ConditionalTrait`.
+
+> Inherits from: `ConditionalTrait`.
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -893,7 +943,8 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 ### Carryall
 **Transports actors with the `Carryable` trait.**
-###### Requires trait(s): [`Aircraft`](#aircraft), [`BodyOrientation`](#bodyorientation).
+
+> Requires trait(s): [`Aircraft`](#aircraft), [`BodyOrientation`](#bodyorientation).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -915,7 +966,8 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 ### CashTrickler
 **Lets the actor generate cash in a set periodic time.**
-###### Inherits from: `PausableConditionalTrait`, `ConditionalTrait`.
+
+> Inherits from: `PausableConditionalTrait`, `ConditionalTrait`.
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -930,8 +982,10 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 ### CashTricklerMultiplier
 **Modifies the cash given by cash tricker traits of this actor.**
-###### Inherits from: `ConditionalTrait`.
-###### Requires trait(s): [`CashTrickler`](#cashtrickler).
+
+> Inherits from: `ConditionalTrait`.
+
+> Requires trait(s): [`CashTrickler`](#cashtrickler).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -948,7 +1002,8 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 ### ChangesHealth
 **Attach this to actors which should regenerate or lose health points over time.**
-###### Inherits from: `ConditionalTrait`.
+
+> Inherits from: `ConditionalTrait`.
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -962,7 +1017,8 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 ### ChangesTerrain
 **Modifies the terrain type underneath the actors location.**
-###### Requires trait(s): [`Immobile`](#immobile).
+
+> Requires trait(s): [`Immobile`](#immobile).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -970,8 +1026,10 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 ### ClassicParallelProductionQueue
 **Attach this to the player actor (not a building!) to define a new shared build queue. Will only work together with the Production: trait on the actor that actually does the production. You will also want to add PrimaryBuildings: to let the user choose where new units should exit. The production speed depends on the number of production buildings and units queued at the same time.**
-###### Inherits from: [`ProductionQueue`](#productionqueue).
-###### Requires trait(s): [`PlayerResources`](#playerresources), [`TechTree`](#techtree).
+
+> Inherits from: [`ProductionQueue`](#productionqueue).
+
+> Requires trait(s): [`PlayerResources`](#playerresources), [`TechTree`](#techtree).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -1005,8 +1063,10 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 ### ClassicProductionQueue
 **Attach this to the player actor (not a building!) to define a new shared build queue. Will only work together with the Production: trait on the actor that actually does the production. You will also want to add PrimaryBuildings: to let the user choose where new units should exit.**
-###### Inherits from: [`ProductionQueue`](#productionqueue).
-###### Requires trait(s): [`PlayerResources`](#playerresources), [`TechTree`](#techtree).
+
+> Inherits from: [`ProductionQueue`](#productionqueue).
+
+> Requires trait(s): [`PlayerResources`](#playerresources), [`TechTree`](#techtree).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -1046,7 +1106,8 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 ### Cloak
 **This unit can cloak and uncloak in specific situations.**
-###### Inherits from: `PausableConditionalTrait`, `ConditionalTrait`.
+
+> Inherits from: `PausableConditionalTrait`, `ConditionalTrait`.
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -1107,7 +1168,8 @@ Related types with their possible values are listed [at the bottom](#related-val
 | DisableWaypointMode | True | Boolean | Disable the 'Waypoint Mode' button for this actor. |
 
 ### ConquestVictoryConditions
-###### Requires trait(s): [`MissionObjectives`](#missionobjectives).
+
+> Requires trait(s): [`MissionObjectives`](#missionobjectives).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -1117,17 +1179,24 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 ### Contrail
 **Draw a colored contrail behind this actor when they move.**
-###### Inherits from: `ConditionalTrait`.
-###### Requires trait(s): [`BodyOrientation`](#bodyorientation).
+
+> Inherits from: `ConditionalTrait`.
+
+> Requires trait(s): [`BodyOrientation`](#bodyorientation).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
 | Offset | 0,0,0 | 3D World Vector | Position relative to body |
-| ZOffset | 0 | Integer | Offset for Z sorting. |
-| TrailLength | 25 | Integer | Length of the trail (in ticks). |
-| TrailWidth | 0c64 | 1D World Distance | Width of the trail. |
-| Color | FFFFFF | Color (RRGGBB[AA] notation) | RGB color of the contrail. |
-| UsePlayerColor | True | Boolean | Use player remap color instead of a custom color? |
+| ZOffset | 0 | Integer | Equivalent to sequence ZOffset. Controls Z sorting. |
+| TrailLength | 25 | Integer | When set, display a line behind the actor. Length is measured in ticks after appearing. |
+| TrailDelay | 0 | Integer | Time (in ticks) after which the line should appear. Controls the distance to the actor. |
+| TrailWidth | 0c64 | 1D World Distance | Thickness of the emitted line. |
+| StartColor | FFFFFF | Color (RRGGBB[AA] notation) | RGB color at the contrail start. |
+| StartColorUsePlayerColor | True | Boolean | Use player remap color instead of a custom color at the contrail the start. |
+| StartColorAlpha | 255 | Integer | The alpha value [from 0 to 255] of color at the contrail the start. |
+| EndColor |  | Color (RRGGBB[AA] notation) (optional) | RGB color at the contrail end. Set to start color if undefined |
+| EndColorUsePlayerColor | False | Boolean | Use player remap color instead of a custom color at the contrail end. |
+| EndColorAlpha | 0 | Integer | The alpha value [from 0 to 255] of color at the contrail end. |
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### ControlGroups
@@ -1137,7 +1206,8 @@ Related types with their possible values are listed [at the bottom](#related-val
 | Groups | 1, 2, 3, 4, 5, 6, 7, 8, 9, 0 | Collection of String |  |
 
 ### CrateAction
-###### Inherits from: `ConditionalTrait`.
+
+> Inherits from: `ConditionalTrait`.
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -1154,7 +1224,8 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### Crate
-###### Requires trait(s): [`RenderSprites`](#rendersprites).
+
+> Requires trait(s): [`RenderSprites`](#rendersprites).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -1189,7 +1260,8 @@ Related types with their possible values are listed [at the bottom](#related-val
 **Attach this to the world actor.**
 
 ### CreatesShroud
-###### Inherits from: `AffectsShroud`, `ConditionalTrait`.
+
+> Inherits from: `AffectsShroud`, `ConditionalTrait`.
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -1203,7 +1275,8 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 ### CreatesShroudMultiplier
 **Modifies the shroud range created by this actor.**
-###### Inherits from: `ConditionalTrait`.
+
+> Inherits from: `ConditionalTrait`.
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -1212,7 +1285,8 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 ### Crushable
 **This actor is crushable.**
-###### Inherits from: `ConditionalTrait`.
+
+> Inherits from: `ConditionalTrait`.
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -1238,7 +1312,8 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 ### DamagedByTerrain
 **This actor receives damage from the given weapon when on the specified terrain type.**
-###### Inherits from: `ConditionalTrait`.
+
+> Inherits from: `ConditionalTrait`.
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -1250,7 +1325,8 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 ### DamageMultiplier
 **Modifies the damage applied to this actor. Use 0 to make actor invulnerable.**
-###### Inherits from: `ConditionalTrait`.
+
+> Inherits from: `ConditionalTrait`.
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -1272,7 +1348,8 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 ### DeliversExperience
 **This actor can grant experience levels equal to it's own current level via entering to other actors with the `AcceptsDeliveredExperience` trait.**
-###### Requires trait(s): [`GainsExperience`](#gainsexperience).
+
+> Requires trait(s): [`GainsExperience`](#gainsexperience).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -1284,7 +1361,8 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 ### Demolishable
 **Handle demolitions from C4 explosives.**
-###### Inherits from: `ConditionalTrait`.
+
+> Inherits from: `ConditionalTrait`.
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -1292,6 +1370,8 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### Demolition
+
+> Inherits from: `ConditionalTrait`.
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -1306,10 +1386,12 @@ Related types with their possible values are listed [at the bottom](#related-val
 | TargetRelationships | Enemy, Neutral | [`PlayerRelationship`](#playerrelationship) |  |
 | ForceTargetRelationships | Enemy, Neutral, Ally | [`PlayerRelationship`](#playerrelationship) |  |
 | Cursor | c4 | String | Cursor to display when hovering over a demolishable target. |
+| RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### DetectCloaked
 **Actor can reveal Cloak actors in a specified range.**
-###### Inherits from: `ConditionalTrait`.
+
+> Inherits from: `ConditionalTrait`.
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -1319,7 +1401,8 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 ### DetectCloakedMultiplier
 **Modifies the cloak detection range of this actor.**
-###### Inherits from: `ConditionalTrait`.
+
+> Inherits from: `ConditionalTrait`.
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -1367,7 +1450,8 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 ### DuplicateUnitCrateAction
 **Creates duplicates of the actor that collects the crate.**
-###### Inherits from: [`CrateAction`](#crateaction), `ConditionalTrait`.
+
+> Inherits from: [`CrateAction`](#crateaction), `ConditionalTrait`.
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -1401,7 +1485,8 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 ### EditorCursorLayer
 **Required for the map editor to work. Attach this to the world actor.**
-###### Requires trait(s): [`EditorActorLayer`](#editoractorlayer).
+
+> Requires trait(s): [`EditorActorLayer`](#editoractorlayer).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -1409,7 +1494,8 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 ### EditorOnlyTooltip
 **Shown in map editor.**
-###### Inherits from: `TooltipInfoBase`, `ConditionalTrait`.
+
+> Inherits from: `TooltipInfoBase`, `ConditionalTrait`.
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -1437,7 +1523,8 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 ### EjectOnDeath
 **Eject a ground soldier or a paratrooper while in the air.**
-###### Inherits from: `ConditionalTrait`.
+
+> Inherits from: `ConditionalTrait`.
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -1457,7 +1544,8 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 ### ElevatedBridgePlaceholder
 **Placeholder to make static elevated bridges work. Define individual trait instances for each elevated bridge footprint in the map.**
-###### Requires trait(s): [`ElevatedBridgeLayer`](#elevatedbridgelayer).
+
+> Requires trait(s): [`ElevatedBridgeLayer`](#elevatedbridgelayer).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -1485,7 +1573,8 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 ### EngineerRepairable
 **Eligible for instant repair.**
-###### Inherits from: `ConditionalTrait`.
+
+> Inherits from: `ConditionalTrait`.
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -1494,7 +1583,8 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 ### EngineerRepair
 **Can instantly repair other actors, but gets consumed afterwards.**
-###### Inherits from: `ConditionalTrait`.
+
+> Inherits from: `ConditionalTrait`.
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -1521,7 +1611,8 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 ### Exit
 **Where the unit should leave the building. Multiples are allowed if IDs are added: Exit@2, ...**
-###### Inherits from: `ConditionalTrait`.
+
+> Inherits from: `ConditionalTrait`.
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -1535,7 +1626,8 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 ### ExitsDebugOverlay
 **Displays `Exit` data for factories.**
-###### Requires trait(s): [`Exit`](#exit).
+
+> Requires trait(s): [`Exit`](#exit).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -1551,8 +1643,10 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 ### ExperienceTrickler
 **Lets the actor gain experience in a set periodic time.**
-###### Inherits from: `PausableConditionalTrait`, `ConditionalTrait`.
-###### Requires trait(s): [`GainsExperience`](#gainsexperience).
+
+> Inherits from: `PausableConditionalTrait`, `ConditionalTrait`.
+
+> Requires trait(s): [`GainsExperience`](#gainsexperience).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -1564,7 +1658,8 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 ### ExplodeCrateAction
 **Fires a weapon at the location when collected.**
-###### Inherits from: [`CrateAction`](#crateaction), `ConditionalTrait`.
+
+> Inherits from: [`CrateAction`](#crateaction), `ConditionalTrait`.
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -1583,7 +1678,8 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 ### Explodes
 **This actor explodes when killed.**
-###### Inherits from: `ConditionalTrait`.
+
+> Inherits from: `ConditionalTrait`.
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -1600,7 +1696,8 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 ### ExplosionOnDamageTransition
 **This actor triggers an explosion on itself when transitioning to a specific damage state.**
-###### Inherits from: `ConditionalTrait`.
+
+> Inherits from: `ConditionalTrait`.
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -1620,7 +1717,8 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 ### FallsToEarth
 **Causes aircraft husks that are spawned in the air to crash to the ground.**
-###### Requires trait(s): [`Aircraft`](#aircraft).
+
+> Requires trait(s): [`Aircraft`](#aircraft).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -1631,7 +1729,8 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 ### FirepowerMultiplier
 **Modifies the damage applied by this actor.**
-###### Inherits from: `ConditionalTrait`.
+
+> Inherits from: `ConditionalTrait`.
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -1670,7 +1769,8 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 ### FreeActor
 **Player receives a unit for free once the building is placed. This also works for structures. If you want more than one unit to appear copy this section and assign IDs like FreeActor@2, ...**
-###### Inherits from: `ConditionalTrait`.
+
+> Inherits from: `ConditionalTrait`.
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -1683,7 +1783,8 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 ### FreeActorWithDelivery
 **Player receives a unit for free once the building is placed. If you want more than one unit to be delivered, copy this section and assign IDs like FreeActorWithDelivery@2, ...**
-###### Inherits from: [`FreeActor`](#freeactor), `ConditionalTrait`.
+
+> Inherits from: [`FreeActor`](#freeactor), `ConditionalTrait`.
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -1700,7 +1801,8 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 ### FrozenUnderFog
 **This actor will remain visible (but not updated visually) under fog, once discovered.**
-###### Requires trait(s): [`Building`](#building).
+
+> Requires trait(s): [`Building`](#building).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -1722,7 +1824,8 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 ### GainsExperienceMultiplier
 **Modifies the experience gathered by this actor.**
-###### Inherits from: `ConditionalTrait`.
+
+> Inherits from: `ConditionalTrait`.
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -1733,8 +1836,10 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 ### Gate
 **Will open and be passable for actors that appear friendly when there are no enemies in range.**
-###### Inherits from: `PausableConditionalTrait`, `ConditionalTrait`.
-###### Requires trait(s): [`Building`](#building).
+
+> Inherits from: `PausableConditionalTrait`, `ConditionalTrait`.
+
+> Requires trait(s): [`Building`](#building).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -1749,7 +1854,8 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 ### GiveCashCrateAction
 **Gives cash to the collector.**
-###### Inherits from: [`CrateAction`](#crateaction), `ConditionalTrait`.
+
+> Inherits from: [`CrateAction`](#crateaction), `ConditionalTrait`.
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -1769,7 +1875,8 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 ### GiveMcvCrateAction
 **Spawns units when collected. Adjust selection shares when player has no base.**
-###### Inherits from: [`GiveUnitCrateAction`](#giveunitcrateaction), [`CrateAction`](#crateaction), `ConditionalTrait`.
+
+> Inherits from: [`GiveUnitCrateAction`](#giveunitcrateaction), [`CrateAction`](#crateaction), `ConditionalTrait`.
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -1791,7 +1898,8 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 ### GivesBounty
 **When killed, this actor causes the attacking player to receive money.**
-###### Inherits from: `ConditionalTrait`.
+
+> Inherits from: `ConditionalTrait`.
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -1803,7 +1911,8 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 ### GivesBuildableArea
 **This actor allows placement of other actors with 'RequiresBuildableArea' trait around it.**
-###### Inherits from: `ConditionalTrait`.
+
+> Inherits from: `ConditionalTrait`.
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -1812,7 +1921,8 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 ### GivesCashOnCapture
 **Lets the actor grant cash when captured.**
-###### Inherits from: `ConditionalTrait`.
+
+> Inherits from: `ConditionalTrait`.
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -1834,7 +1944,8 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 ### GivesExperienceMultiplier
 **Modifies the experience given by this actor.**
-###### Inherits from: `ConditionalTrait`.
+
+> Inherits from: `ConditionalTrait`.
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -1843,7 +1954,8 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 ### GiveUnitCrateAction
 **Spawns units when collected.**
-###### Inherits from: [`CrateAction`](#crateaction), `ConditionalTrait`.
+
+> Inherits from: [`CrateAction`](#crateaction), `ConditionalTrait`.
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -1876,7 +1988,8 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 ### GrantCondition
 **Grants a condition while the trait is active.**
-###### Inherits from: `ConditionalTrait`.
+
+> Inherits from: `ConditionalTrait`.
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -1885,7 +1998,8 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### GrantConditionOnAttack
-###### Inherits from: `PausableConditionalTrait`, `ConditionalTrait`.
+
+> Inherits from: `PausableConditionalTrait`, `ConditionalTrait`.
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -1928,7 +2042,8 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 ### GrantConditionOnDeploy
 **Grants a condition when a deploy order is issued.Can be paused with the granted condition to disable undeploying.**
-###### Inherits from: `PausableConditionalTrait`, `ConditionalTrait`.
+
+> Inherits from: `PausableConditionalTrait`, `ConditionalTrait`.
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -1951,7 +2066,8 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 ### GrantConditionOnFaction
 **Grants a condition while the trait is active.**
-###### Inherits from: `ConditionalTrait`.
+
+> Inherits from: `ConditionalTrait`.
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -1973,7 +2089,8 @@ Related types with their possible values are listed [at the bottom](#related-val
 | GrantPermanently | False | Boolean | Is the condition irrevocable once it has been granted? |
 
 ### GrantConditionOnJumpjetLayer
-###### Inherits from: `GrantConditionOnLayer`, `ConditionalTrait`.
+
+> Inherits from: `GrantConditionOnLayer`, `ConditionalTrait`.
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -1981,7 +2098,8 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### GrantConditionOnLineBuildDirection
-###### Requires trait(s): [`LineBuild`](#linebuild).
+
+> Requires trait(s): [`LineBuild`](#linebuild).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -1989,7 +2107,8 @@ Related types with their possible values are listed [at the bottom](#related-val
 | Direction | X | [`LineBuildDirection`](#linebuilddirection) | Line build direction to trigger the condition. |
 
 ### GrantConditionOnMovement
-###### Inherits from: `ConditionalTrait`.
+
+> Inherits from: `ConditionalTrait`.
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -2007,7 +2126,8 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 ### GrantConditionOnPowerState
 **Grants condition as long as a valid power state is maintained.**
-###### Inherits from: `ConditionalTrait`.
+
+> Inherits from: `ConditionalTrait`.
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -2025,7 +2145,8 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 ### GrantConditionOnPrerequisiteManager
 **Attach this to the player actor.**
-###### Requires trait(s): [`TechTree`](#techtree).
+
+> Requires trait(s): [`TechTree`](#techtree).
 
 ### GrantConditionOnProduction
 **Grants a condition when this actor produces a specific actor.**
@@ -2040,7 +2161,8 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 ### GrantConditionOnSubterraneanLayer
 **Grants Condition on subterranean layer. Also plays transition audio-visuals.**
-###### Inherits from: `GrantConditionOnLayer`, `ConditionalTrait`.
+
+> Inherits from: `GrantConditionOnLayer`, `ConditionalTrait`.
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -2066,7 +2188,8 @@ Related types with their possible values are listed [at the bottom](#related-val
 | TileSets | *(required)* | Collection of String | Tile set IDs to trigger the condition. |
 
 ### GrantConditionOnTunnelLayer
-###### Inherits from: `GrantConditionOnLayer`, `ConditionalTrait`.
+
+> Inherits from: `GrantConditionOnLayer`, `ConditionalTrait`.
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -2081,7 +2204,8 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 ### GrantExternalConditionCrateAction
 **Grants a condition on the collector.**
-###### Inherits from: [`CrateAction`](#crateaction), `ConditionalTrait`.
+
+> Inherits from: [`CrateAction`](#crateaction), `ConditionalTrait`.
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -2103,7 +2227,8 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### GrantExternalConditionPower
-###### Inherits from: `SupportPower`, `PausableConditionalTrait`, `ConditionalTrait`.
+
+> Inherits from: `SupportPower`, `PausableConditionalTrait`, `ConditionalTrait`.
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -2180,7 +2305,8 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 ### GrantExternalConditionToProduced
 **Grants a condition to actors produced by this actor.**
-###### Inherits from: `ConditionalTrait`.
+
+> Inherits from: `ConditionalTrait`.
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -2190,7 +2316,8 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 ### GroundLevelBridge
 **Bridge actor that can't be passed underneath.**
-###### Requires trait(s): [`Building`](#building).
+
+> Requires trait(s): [`Building`](#building).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -2236,7 +2363,8 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 ### HarvesterBotModule
 **Put this on the Player actor. Manages bot harvesters to ensure they always continue harvesting as long as there are resources on the map.**
-###### Inherits from: `ConditionalTrait`.
+
+> Inherits from: `ConditionalTrait`.
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -2247,8 +2375,10 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### Harvester
-###### Inherits from: `ConditionalTrait`.
-###### Requires trait(s): [`Mobile`](#mobile).
+
+> Inherits from: `ConditionalTrait`.
+
+> Requires trait(s): [`Mobile`](#mobile).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -2282,7 +2412,8 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 ### HealActorsCrateAction
 **Heals all actors that belong to the owner of the collector.**
-###### Inherits from: [`CrateAction`](#crateaction), `ConditionalTrait`.
+
+> Inherits from: [`CrateAction`](#crateaction), `ConditionalTrait`.
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -2309,7 +2440,8 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 ### HiddenUnderFog
 **The actor stays invisible under fog of war.**
-###### Inherits from: [`HiddenUnderShroud`](#hiddenundershroud).
+
+> Inherits from: [`HiddenUnderShroud`](#hiddenundershroud).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -2326,7 +2458,8 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 ### HideMapCrateAction
 **Hides the entire map in shroud.**
-###### Inherits from: [`CrateAction`](#crateaction), `ConditionalTrait`.
+
+> Inherits from: [`CrateAction`](#crateaction), `ConditionalTrait`.
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -2345,7 +2478,8 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 ### HierarchicalPathFinderOverlay
 **Renders a debug overlay showing the abstract graph of the hierarchical pathfinder. Attach this to the world actor.**
-###### Requires trait(s): [`PathFinder`](#pathfinder).
+
+> Requires trait(s): [`PathFinder`](#pathfinder).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -2357,8 +2491,10 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 ### HitShape
 **Shape of actor for targeting and damage calculations.**
-###### Inherits from: `ConditionalTrait`.
-###### Requires trait(s): [`BodyOrientation`](#bodyorientation).
+
+> Inherits from: `ConditionalTrait`.
+
+> Requires trait(s): [`BodyOrientation`](#bodyorientation).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -2394,7 +2530,8 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 ### InaccuracyMultiplier
 **Modifies the inaccuracy of weapons fired by this actor.**
-###### Inherits from: `ConditionalTrait`.
+
+> Inherits from: `ConditionalTrait`.
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -2433,7 +2570,8 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 ### IsometricSelectable
 **This actor is selectable. Defines bounds of selectable area, selection class, selection priority and selection priority modifiers.**
-###### Requires trait(s): [`Building`](#building).
+
+> Requires trait(s): [`Building`](#building).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -2448,7 +2586,8 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 ### JamsMissiles
 **This actor deflects missiles.**
-###### Inherits from: `ConditionalTrait`.
+
+> Inherits from: `ConditionalTrait`.
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -2467,7 +2606,8 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 ### JumpjetLocomotor
 **Used by Mobile. Required for jumpjet actors. Attach these to the world actor. You can have multiple variants by adding @suffixes.**
-###### Inherits from: [`Locomotor`](#locomotor).
+
+> Inherits from: [`Locomotor`](#locomotor).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -2484,7 +2624,8 @@ Related types with their possible values are listed [at the bottom](#related-val
 | TerrainSpeeds |  | Dictionary with Key: String, Value: TerrainInfo | Lower the value on rough terrain. Leave out entries for impassable terrain. |
 
 ### KillsSelf
-###### Inherits from: `ConditionalTrait`.
+
+> Inherits from: `ConditionalTrait`.
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -2505,7 +2646,8 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 ### LevelUpCrateAction
 **Gives experience levels to the collector.**
-###### Inherits from: [`CrateAction`](#crateaction), `ConditionalTrait`.
+
+> Inherits from: [`CrateAction`](#crateaction), `ConditionalTrait`.
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -2544,8 +2686,10 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 ### LineBuildSegmentExternalCondition
 **Applies a condition to connected line build segments.**
-###### Inherits from: `ConditionalTrait`.
-###### Requires trait(s): [`LineBuild`](#linebuild).
+
+> Inherits from: `ConditionalTrait`.
+
+> Requires trait(s): [`LineBuild`](#linebuild).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -2667,7 +2811,8 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 ### McvManagerBotModule
 **Manages AI MCVs.**
-###### Inherits from: `ConditionalTrait`.
+
+> Inherits from: `ConditionalTrait`.
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -2718,7 +2863,8 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 ### Mobile
 **Unit is able to move.**
-###### Inherits from: `PausableConditionalTrait`, `ConditionalTrait`.
+
+> Inherits from: `PausableConditionalTrait`, `ConditionalTrait`.
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -2771,7 +2917,8 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RequiredForShortGame | False | Boolean | In a short game only actors that have this value set to true need to be destroyed. |
 
 ### NukePower
-###### Inherits from: `SupportPower`, `PausableConditionalTrait`, `ConditionalTrait`.
+
+> Inherits from: `SupportPower`, `PausableConditionalTrait`, `ConditionalTrait`.
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -2881,7 +3028,8 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 ### OwnerLostAction
 **Perform an action when the actor's owner is defeated.**
-###### Inherits from: `ConditionalTrait`.
+
+> Inherits from: `ConditionalTrait`.
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -3005,7 +3153,8 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 ### ParaDrop
 **This unit can spawn and eject other actors while flying.**
-###### Requires trait(s): [`Cargo`](#cargo).
+
+> Requires trait(s): [`Cargo`](#cargo).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -3014,7 +3163,8 @@ Related types with their possible values are listed [at the bottom](#related-val
 | ChuteSound |  | String | Sound to play when dropping. |
 
 ### ParallelProductionQueue
-###### Inherits from: [`ProductionQueue`](#productionqueue).
+
+> Inherits from: [`ProductionQueue`](#productionqueue).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -3044,7 +3194,8 @@ Related types with their possible values are listed [at the bottom](#related-val
 | CancelledTextNotification |  | String | Notification displayed when player right-clicks on a build palette icon that is already on hold. |
 
 ### ParatroopersPower
-###### Inherits from: `SupportPower`, `PausableConditionalTrait`, `ConditionalTrait`.
+
+> Inherits from: `SupportPower`, `PausableConditionalTrait`, `ConditionalTrait`.
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -3132,11 +3283,13 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 ### PathFinder
 **Calculates routes for mobile actors with locomotors based on the A* search algorithm.  Attach this to the world actor.**
-###### Requires trait(s): [`ActorMap`](#actormap), [`Locomotor`](#locomotor).
+
+> Requires trait(s): [`ActorMap`](#actormap), [`Locomotor`](#locomotor).
 
 ### PathFinderOverlay
 **Renders a visualization overlay showing how the pathfinder searches for paths. Attach this to the world actor.**
-###### Requires trait(s): [`PathFinder`](#pathfinder).
+
+> Requires trait(s): [`PathFinder`](#pathfinder).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -3177,7 +3330,8 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 ### PlaceBuildingVariants
 **Place a different building when PlaceBuilding's ToggleVariantKey hotkey is pressed while the PlaceBuildingOrderGenerator is active.**
-###### Requires trait(s): [`Buildable`](#buildable), [`Building`](#building).
+
+> Requires trait(s): [`Buildable`](#buildable), [`Building`](#building).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -3198,7 +3352,8 @@ Related types with their possible values are listed [at the bottom](#related-val
 **This trait can be used to track player experience based on units killed with the `GivesExperience` trait. It can also be used as a point score system in scripted maps, for example. Attach this to the player actor.**
 
 ### PlayerRadarTerrain
-###### Requires trait(s): [`Shroud`](#shroud).
+
+> Requires trait(s): [`Shroud`](#shroud).
 
 ### PlayerResources
 
@@ -3239,7 +3394,8 @@ Related types with their possible values are listed [at the bottom](#related-val
 | Type | *(required)* | String | Plug type (matched against Conditions in Pluggable) |
 
 ### Power
-###### Inherits from: `ConditionalTrait`.
+
+> Inherits from: `ConditionalTrait`.
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -3248,7 +3404,8 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 ### PowerManager
 **Attach this to the player actor.**
-###### Requires trait(s): [`DeveloperMode`](#developermode).
+
+> Requires trait(s): [`DeveloperMode`](#developermode).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -3258,7 +3415,8 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 ### PowerMultiplier
 **Modifies the power usage/output of this actor.**
-###### Inherits from: `ConditionalTrait`.
+
+> Inherits from: `ConditionalTrait`.
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -3270,7 +3428,8 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 ### PrimaryBuilding
 **Used together with ClassicProductionQueue.**
-###### Inherits from: `ConditionalTrait`.
+
+> Inherits from: `ConditionalTrait`.
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -3283,7 +3442,8 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 ### ProduceActorPower
 **Produces an actor without using the standard production queue.**
-###### Inherits from: `SupportPower`, `PausableConditionalTrait`, `ConditionalTrait`.
+
+> Inherits from: `SupportPower`, `PausableConditionalTrait`, `ConditionalTrait`.
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -3346,7 +3506,8 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 ### ProducibleWithLevel
 **Actors possessing this trait should define the GainsExperience trait. When the prerequisites are fulfilled,  this trait grants a level-up to newly spawned actors.**
-###### Requires trait(s): [`GainsExperience`](#gainsexperience).
+
+> Requires trait(s): [`GainsExperience`](#gainsexperience).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -3356,7 +3517,8 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 ### ProductionAirdrop
 **Deliver the unit in production via skylift.**
-###### Inherits from: [`Production`](#production), `PausableConditionalTrait`, `ConditionalTrait`.
+
+> Inherits from: [`Production`](#production), `PausableConditionalTrait`, `ConditionalTrait`.
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -3380,7 +3542,8 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 ### ProductionFromMapEdge
 **Produce a unit on the closest map edge cell and move into the world.**
-###### Inherits from: [`Production`](#production), `PausableConditionalTrait`, `ConditionalTrait`.
+
+> Inherits from: [`Production`](#production), `PausableConditionalTrait`, `ConditionalTrait`.
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -3390,7 +3553,8 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 ### Production
 **This unit has access to build queues.**
-###### Inherits from: `PausableConditionalTrait`, `ConditionalTrait`.
+
+> Inherits from: `PausableConditionalTrait`, `ConditionalTrait`.
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -3400,8 +3564,10 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 ### ProductionParadrop
 **Deliver the unit in production via paradrop.**
-###### Inherits from: [`Production`](#production), `PausableConditionalTrait`, `ConditionalTrait`.
-###### Requires trait(s): [`Exit`](#exit).
+
+> Inherits from: [`Production`](#production), `PausableConditionalTrait`, `ConditionalTrait`.
+
+> Requires trait(s): [`Exit`](#exit).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -3460,7 +3626,8 @@ Related types with their possible values are listed [at the bottom](#related-val
 | Queue |  | Set of String | Queues that this time will apply. |
 
 ### ProvidesPrerequisite
-###### Inherits from: `ConditionalTrait`.
+
+> Inherits from: `ConditionalTrait`.
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -3498,7 +3665,8 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 ### ProximityExternalCondition
 **Applies a condition to actors within a specified range.**
-###### Inherits from: `ConditionalTrait`.
+
+> Inherits from: `ConditionalTrait`.
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -3513,8 +3681,10 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 ### QuantizeFacingsFromSequence
 **Derive facings from sprite body sequence.**
-###### Inherits from: `ConditionalTrait`.
-###### Requires trait(s): [`RenderSprites`](#rendersprites).
+
+> Inherits from: `ConditionalTrait`.
+
+> Requires trait(s): [`RenderSprites`](#rendersprites).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -3549,7 +3719,8 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 ### RangeMultiplier
 **Modifies the range of weapons fired by this actor.**
-###### Inherits from: `ConditionalTrait`.
+
+> Inherits from: `ConditionalTrait`.
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -3564,7 +3735,8 @@ Related types with their possible values are listed [at the bottom](#related-val
 | AmmoPools | primary | Set of String | Name(s) of AmmoPool(s) that use this trait to rearm. |
 
 ### Refinery
-###### Requires trait(s): [`WithSpriteBody`](#withspritebody).
+
+> Requires trait(s): [`WithSpriteBody`](#withspritebody).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -3582,7 +3754,8 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 ### RejectsOrders
 **Can be used to make a unit partly uncontrollable by the player.**
-###### Inherits from: `ConditionalTrait`.
+
+> Inherits from: `ConditionalTrait`.
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -3592,7 +3765,8 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 ### ReloadAmmoDelayMultiplier
 **Modifies the reload time of ammo pools on this actor.**
-###### Inherits from: `ConditionalTrait`.
+
+> Inherits from: `ConditionalTrait`.
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -3601,7 +3775,8 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 ### ReloadAmmoPool
 **Reloads an ammo pool.**
-###### Inherits from: `PausableConditionalTrait`, `ConditionalTrait`.
+
+> Inherits from: `PausableConditionalTrait`, `ConditionalTrait`.
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -3615,7 +3790,8 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 ### ReloadDelayMultiplier
 **Modifies the reload time of weapons fired by this actor.**
-###### Inherits from: `ConditionalTrait`.
+
+> Inherits from: `ConditionalTrait`.
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -3642,7 +3818,8 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 ### RepairableBuilding
 **Building can be repaired by the repair button.**
-###### Inherits from: `ConditionalTrait`.
+
+> Inherits from: `ConditionalTrait`.
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -3695,7 +3872,8 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RepairTextNotification |  | String | Text notification to display when a bridge is repaired. |
 
 ### RepairsUnits
-###### Inherits from: `PausableConditionalTrait`, `ConditionalTrait`.
+
+> Inherits from: `PausableConditionalTrait`, `ConditionalTrait`.
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -3712,7 +3890,8 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### Replaceable
-###### Inherits from: `ConditionalTrait`.
+
+> Inherits from: `ConditionalTrait`.
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -3727,7 +3906,8 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 ### RequiresBuildableArea
 **This actor requires another actor with 'GivesBuildableArea' trait around to be placed.**
-###### Requires trait(s): [`Building`](#building).
+
+> Requires trait(s): [`Building`](#building).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -3749,7 +3929,8 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 ### ResourceLayer
 **Attach this to the world actor.**
-###### Requires trait(s): [`BuildingInfluence`](#buildinginfluence).
+
+> Requires trait(s): [`BuildingInfluence`](#buildinginfluence).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -3765,7 +3946,8 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 ### ResourceStorageWarning
 **Provides the player with an audible warning when their storage is nearing full.**
-###### Requires trait(s): [`PlayerResources`](#playerresources).
+
+> Requires trait(s): [`PlayerResources`](#playerresources).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -3776,7 +3958,8 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 ### ResourceValueMultiplier
 **Modifies the value of resources delivered to this actor.**
-###### Inherits from: `ConditionalTrait`.
+
+> Inherits from: `ConditionalTrait`.
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -3785,7 +3968,8 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 ### RevealMapCrateAction
 **Reveals the entire map.**
-###### Inherits from: [`CrateAction`](#crateaction), `ConditionalTrait`.
+
+> Inherits from: [`CrateAction`](#crateaction), `ConditionalTrait`.
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -3804,7 +3988,8 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 ### RevealOnDeath
 **Reveal this actor's last position when killed.**
-###### Inherits from: `ConditionalTrait`.
+
+> Inherits from: `ConditionalTrait`.
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -3817,7 +4002,8 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 ### RevealOnFire
 **Reveal this actor to the target's owner when attacking.**
-###### Inherits from: `ConditionalTrait`.
+
+> Inherits from: `ConditionalTrait`.
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -3830,7 +4016,8 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 ### RevealsMap
 **Reveals shroud and fog across the whole map while active.**
-###### Inherits from: `ConditionalTrait`.
+
+> Inherits from: `ConditionalTrait`.
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -3839,7 +4026,8 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### RevealsShroud
-###### Inherits from: `AffectsShroud`, `ConditionalTrait`.
+
+> Inherits from: `AffectsShroud`, `ConditionalTrait`.
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -3854,7 +4042,8 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 ### RevealsShroudMultiplier
 **Modifies the shroud range revealed by this actor.**
-###### Inherits from: `ConditionalTrait`.
+
+> Inherits from: `ConditionalTrait`.
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -3876,11 +4065,13 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 ### ScalePowerWithHealth
 **Scale power amount with the current health.**
-###### Requires trait(s): [`Power`](#power).
+
+> Requires trait(s): [`Power`](#power).
 
 ### ScaredyCat
 **Makes the unit automatically run around when taking damage.**
-###### Requires trait(s): [`Mobile`](#mobile).
+
+> Requires trait(s): [`Mobile`](#mobile).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -3910,7 +4101,8 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 ### SeedsResource
 **Lets the actor spread resources around it in a circle.**
-###### Inherits from: `ConditionalTrait`.
+
+> Inherits from: `ConditionalTrait`.
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -3921,7 +4113,8 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 ### Selectable
 **This actor is selectable. Defines bounds of selectable area, selection class, selection priority and selection priority modifiers.**
-###### Inherits from: [`Interactable`](#interactable).
+
+> Inherits from: [`Interactable`](#interactable).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -3936,7 +4129,8 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 ### Sellable
 **Actor can be sold**
-###### Inherits from: `ConditionalTrait`.
+
+> Inherits from: `ConditionalTrait`.
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -3951,8 +4145,10 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 ### SequencePlaceBuildingPreview
 **Creates a building placement preview based on a defined sequence.**
-###### Inherits from: [`FootprintPlaceBuildingPreview`](#footprintplacebuildingpreview).
-###### Requires trait(s): [`RenderSprites`](#rendersprites).
+
+> Inherits from: [`FootprintPlaceBuildingPreview`](#footprintplacebuildingpreview).
+
+> Requires trait(s): [`RenderSprites`](#rendersprites).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -4005,7 +4201,8 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 ### SpawnActorOnDeath
 **Spawn another actor immediately upon death.**
-###### Inherits from: `ConditionalTrait`.
+
+> Inherits from: `ConditionalTrait`.
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -4023,7 +4220,8 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 ### SpawnActorPower
 **Spawns an actor that stays for a limited amount of time.**
-###### Inherits from: `SupportPower`, `PausableConditionalTrait`, `ConditionalTrait`.
+
+> Inherits from: `SupportPower`, `PausableConditionalTrait`, `ConditionalTrait`.
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -4089,7 +4287,8 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 ### SpawnActorsOnSell
 **Spawn new actors when sold.**
-###### Inherits from: `ConditionalTrait`.
+
+> Inherits from: `ConditionalTrait`.
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -4104,7 +4303,8 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 ### SpawnStartingUnits
 **Spawn base actor at the spawnpoint and support units in an annulus around the base actor. Both are defined at MPStartUnits. Attach this to the world actor.**
-###### Requires trait(s): [`StartingUnits`](#startingunits).
+
+> Requires trait(s): [`StartingUnits`](#startingunits).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -4117,7 +4317,8 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 ### SpeedMultiplier
 **Modifies the movement speed of this actor.**
-###### Inherits from: `ConditionalTrait`.
+
+> Inherits from: `ConditionalTrait`.
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -4126,7 +4327,8 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 ### SpreadsCondition
 **Any actor with this trait enabled has a chance to affect others with this trait.**
-###### Inherits from: `ConditionalTrait`.
+
+> Inherits from: `ConditionalTrait`.
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -4138,7 +4340,8 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 ### SquadManagerBotModule
 **Manages AI squads.**
-###### Inherits from: `ConditionalTrait`.
+
+> Inherits from: `ConditionalTrait`.
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -4203,7 +4406,8 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 ### StrategicVictoryConditions
 **Allows King of the Hill (KotH) style gameplay.**
-###### Requires trait(s): [`MissionObjectives`](#missionobjectives).
+
+> Requires trait(s): [`MissionObjectives`](#missionobjectives).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -4224,7 +4428,8 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 ### SubterraneanLocomotor
 **Used by Mobile. Required for subterranean actors. Attach these to the world actor. You can have multiple variants by adding @suffixes.**
-###### Inherits from: [`Locomotor`](#locomotor).
+
+> Inherits from: [`Locomotor`](#locomotor).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -4243,8 +4448,10 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 ### SupportPowerBotModule
 **Manages bot support power handling.**
-###### Inherits from: `ConditionalTrait`.
-###### Requires trait(s): [`SupportPowerManager`](#supportpowermanager).
+
+> Inherits from: `ConditionalTrait`.
+
+> Requires trait(s): [`SupportPowerManager`](#supportpowermanager).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -4253,7 +4460,8 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 ### SupportPowerCrateAction
 **Gives a supportpower to the collector.**
-###### Inherits from: [`CrateAction`](#crateaction), `ConditionalTrait`.
+
+> Inherits from: [`CrateAction`](#crateaction), `ConditionalTrait`.
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -4272,12 +4480,15 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 ### SupportPowerManager
 **Attach this to the player actor.**
-###### Requires trait(s): [`DeveloperMode`](#developermode), [`TechTree`](#techtree).
+
+> Requires trait(s): [`DeveloperMode`](#developermode), [`TechTree`](#techtree).
 
 ### TakeCover
 **Make the unit go prone when under attack, in an attempt to reduce damage.**
-###### Inherits from: [`Turreted`](#turreted), `PausableConditionalTrait`, `ConditionalTrait`.
-###### Requires trait(s): [`BodyOrientation`](#bodyorientation).
+
+> Inherits from: [`Turreted`](#turreted), `PausableConditionalTrait`, `ConditionalTrait`.
+
+> Requires trait(s): [`BodyOrientation`](#bodyorientation).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -4298,7 +4509,8 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 ### Targetable
 **Actor can be targeted.**
-###### Inherits from: `ConditionalTrait`.
+
+> Inherits from: `ConditionalTrait`.
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -4352,7 +4564,8 @@ Related types with their possible values are listed [at the bottom](#related-val
 ### TerrainRenderer
 
 ### TerrainTunnel
-###### Requires trait(s): [`TerrainTunnelLayer`](#terraintunnellayer).
+
+> Requires trait(s): [`TerrainTunnelLayer`](#terraintunnellayer).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -4369,7 +4582,8 @@ Related types with their possible values are listed [at the bottom](#related-val
 | ImpassableTerrainType | Impassable | String | Terrain type used by cells outside any tunnel footprint. |
 
 ### ThrowsParticle
-###### Requires trait(s): [`BodyOrientation`](#bodyorientation), [`WithSpriteBody`](#withspritebody).
+
+> Requires trait(s): [`BodyOrientation`](#bodyorientation), [`WithSpriteBody`](#withspritebody).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -4384,7 +4598,8 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 ### ThrowsShrapnel
 **Throws particles when the actor is destroyed that do damage on impact.**
-###### Inherits from: `ConditionalTrait`.
+
+> Inherits from: `ConditionalTrait`.
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -4420,7 +4635,8 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 ### ToggleConditionOnOrder
 **Toggles a condition on and off when a specified order type is received.**
-###### Inherits from: `PausableConditionalTrait`, `ConditionalTrait`.
+
+> Inherits from: `PausableConditionalTrait`, `ConditionalTrait`.
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -4437,7 +4653,8 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 ### TooltipDescription
 **Additional info shown in the battlefield tooltip.**
-###### Inherits from: `ConditionalTrait`.
+
+> Inherits from: `ConditionalTrait`.
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -4447,7 +4664,8 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 ### Tooltip
 **Shown in the build palette widget.**
-###### Inherits from: `TooltipInfoBase`, `ConditionalTrait`.
+
+> Inherits from: `TooltipInfoBase`, `ConditionalTrait`.
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -4482,7 +4700,8 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 ### Transforms
 **Actor becomes a specified actor type when this trait is triggered.**
-###### Inherits from: `PausableConditionalTrait`, `ConditionalTrait`.
+
+> Inherits from: `PausableConditionalTrait`, `ConditionalTrait`.
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -4503,8 +4722,10 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 ### TransformsIntoAircraft
 **Add to a building to expose a move cursor that triggers Transforms and issues a move order to the transformed actor.**
-###### Inherits from: `ConditionalTrait`.
-###### Requires trait(s): [`Transforms`](#transforms).
+
+> Inherits from: `ConditionalTrait`.
+
+> Requires trait(s): [`Transforms`](#transforms).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -4521,8 +4742,10 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 ### TransformsIntoEntersTunnels
 **Add to a building to expose a move cursor that triggers Transforms and issues an enter tunnel order to the transformed actor.**
-###### Inherits from: `ConditionalTrait`.
-###### Requires trait(s): [`Transforms`](#transforms).
+
+> Inherits from: `ConditionalTrait`.
+
+> Requires trait(s): [`Transforms`](#transforms).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -4535,8 +4758,10 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 ### TransformsIntoMobile
 **Add to a building to expose a move cursor that triggers Transforms and issues a move order to the transformed actor.**
-###### Inherits from: `ConditionalTrait`.
-###### Requires trait(s): [`Transforms`](#transforms).
+
+> Inherits from: `ConditionalTrait`.
+
+> Requires trait(s): [`Transforms`](#transforms).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -4551,8 +4776,10 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 ### TransformsIntoPassenger
 **Add to a building to expose a move cursor that triggers Transforms and issues an EnterTransport order to the transformed actor.**
-###### Inherits from: `ConditionalTrait`.
-###### Requires trait(s): [`Transforms`](#transforms).
+
+> Inherits from: `ConditionalTrait`.
+
+> Requires trait(s): [`Transforms`](#transforms).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -4567,8 +4794,10 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 ### TransformsIntoRepairable
 **Add to a building to expose a move cursor that triggers Transforms and issues a repair order to the transformed actor.**
-###### Inherits from: `ConditionalTrait`.
-###### Requires trait(s): [`Transforms`](#transforms).
+
+> Inherits from: `ConditionalTrait`.
+
+> Requires trait(s): [`Transforms`](#transforms).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -4582,8 +4811,10 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 ### TransformsIntoTransforms
 **Add to a building to allow queued transform orders while undeploying.**
-###### Inherits from: `ConditionalTrait`.
-###### Requires trait(s): [`Transforms`](#transforms).
+
+> Inherits from: `ConditionalTrait`.
+
+> Requires trait(s): [`Transforms`](#transforms).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -4601,8 +4832,10 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 ### TurnOnIdle
 **Turns actor randomly when idle.**
-###### Inherits from: `ConditionalTrait`.
-###### Requires trait(s): [`Mobile`](#mobile).
+
+> Inherits from: `ConditionalTrait`.
+
+> Requires trait(s): [`Mobile`](#mobile).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -4611,8 +4844,10 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### Turreted
-###### Inherits from: `PausableConditionalTrait`, `ConditionalTrait`.
-###### Requires trait(s): [`BodyOrientation`](#bodyorientation).
+
+> Inherits from: `PausableConditionalTrait`, `ConditionalTrait`.
+
+> Requires trait(s): [`BodyOrientation`](#bodyorientation).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -4627,7 +4862,8 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 ### UnitBuilderBotModule
 **Controls AI unit production.**
-###### Inherits from: `ConditionalTrait`.
+
+> Inherits from: `ConditionalTrait`.
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -4670,7 +4906,8 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 ### Wanders
 **Wanders around aimlessly while idle.**
-###### Inherits from: `ConditionalTrait`.
+
+> Inherits from: `ConditionalTrait`.
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -4710,7 +4947,8 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 ### WithColoredOverlay
 **Display a colored overlay when a timed condition is active.**
-###### Inherits from: `ConditionalTrait`.
+
+> Inherits from: `ConditionalTrait`.
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -4727,7 +4965,8 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 
 ### AppearsOnRadar
-###### Inherits from: `ConditionalTrait`.
+
+> Inherits from: `ConditionalTrait`.
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -4737,7 +4976,8 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 ### ProvidesRadar
 **This actor enables the radar minimap.**
-###### Inherits from: `ConditionalTrait`.
+
+> Inherits from: `ConditionalTrait`.
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -4752,7 +4992,8 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 ### CashTricklerBar
 **Display the time remaining until the next cash is given by actor's CashTrickler trait.**
-###### Requires trait(s): [`CashTrickler`](#cashtrickler).
+
+> Requires trait(s): [`CashTrickler`](#cashtrickler).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -4761,7 +5002,8 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 ### Hovers
 **Changes the visual Z position periodically.**
-###### Inherits from: `ConditionalTrait`.
+
+> Inherits from: `ConditionalTrait`.
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -4774,8 +5016,10 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### IsometricSelectionDecorations
-###### Inherits from: `SelectionDecorationsBase`.
-###### Requires trait(s): [`IsometricSelectable`](#isometricselectable).
+
+> Inherits from: `SelectionDecorationsBase`.
+
+> Requires trait(s): [`IsometricSelectable`](#isometricselectable).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -4783,7 +5027,8 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 ### LeavesTrails
 **Renders a sprite effect when leaving a cell.**
-###### Inherits from: `ConditionalTrait`.
+
+> Inherits from: `ConditionalTrait`.
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -4804,8 +5049,10 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 ### ProductionBar
 **Visualizes the remaining build time of actor produced here.**
-###### Inherits from: `ConditionalTrait`.
-###### Requires trait(s): [`Production`](#production).
+
+> Inherits from: `ConditionalTrait`.
+
+> Requires trait(s): [`Production`](#production).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -4815,7 +5062,8 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 ### ProductionIconOverlayManager
 **Attach this to the player actor. Required for WithProductionIconOverlay trait on actors to work.**
-###### Requires trait(s): [`TechTree`](#techtree).
+
+> Requires trait(s): [`TechTree`](#techtree).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -4840,7 +5088,8 @@ Related types with their possible values are listed [at the bottom](#related-val
 | Font | TinyBold | String |  |
 
 ### RenderDetectionCircle
-###### Requires trait(s): [`DetectCloaked`](#detectcloaked).
+
+> Requires trait(s): [`DetectCloaked`](#detectcloaked).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -4854,7 +5103,8 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 ### RenderRangeCircle
 **Draw a circle indicating my weapon's range.**
-###### Requires trait(s): `AttackBase`.
+
+> Requires trait(s): `AttackBase`.
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -4868,7 +5118,8 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 ### RenderSpritesEditorOnly
 **Invisible during games.**
-###### Inherits from: [`RenderSprites`](#rendersprites).
+
+> Inherits from: [`RenderSprites`](#rendersprites).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -4888,7 +5139,8 @@ Related types with their possible values are listed [at the bottom](#related-val
 | PlayerPalette | player | String | Custom PlayerColorPalette: BaseName |
 
 ### RenderVoxels
-###### Requires trait(s): [`BodyOrientation`](#bodyorientation).
+
+> Requires trait(s): [`BodyOrientation`](#bodyorientation).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -4904,8 +5156,10 @@ Related types with their possible values are listed [at the bottom](#related-val
 | LightDiffuseColor | 0.4, 0.4, 0.4 | Collection of Real Number |  |
 
 ### SelectionDecorations
-###### Inherits from: `SelectionDecorationsBase`.
-###### Requires trait(s): [`Interactable`](#interactable).
+
+> Inherits from: `SelectionDecorationsBase`.
+
+> Requires trait(s): [`Interactable`](#interactable).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -4913,7 +5167,8 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 ### SupportPowerChargeBar
 **Display the time remaining until the super weapon attached to the actor is ready.**
-###### Inherits from: `ConditionalTrait`.
+
+> Inherits from: `ConditionalTrait`.
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -4931,8 +5186,10 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 ### WithAcceptDeliveredCashAnimation
 **Replaces the building animation when it accepts a cash delivery unit.**
-###### Inherits from: `ConditionalTrait`.
-###### Requires trait(s): [`WithSpriteBody`](#withspritebody).
+
+> Inherits from: `ConditionalTrait`.
+
+> Requires trait(s): [`WithSpriteBody`](#withspritebody).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -4941,8 +5198,10 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### WithAimAnimation
-###### Inherits from: `ConditionalTrait`.
-###### Requires trait(s): [`WithSpriteBody`](#withspritebody), `AttackBase`.
+
+> Inherits from: `ConditionalTrait`.
+
+> Requires trait(s): [`WithSpriteBody`](#withspritebody), `AttackBase`.
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -4953,7 +5212,8 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 ### WithAircraftLandingEffect
 **Plays an animation on the ground position when the actor lands.**
-###### Inherits from: `ConditionalTrait`.
+
+> Inherits from: `ConditionalTrait`.
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -4966,8 +5226,10 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### WithAmmoPipsDecoration
-###### Inherits from: `WithDecorationBase`, `ConditionalTrait`.
-###### Requires trait(s): [`AmmoPool`](#ammopool).
+
+> Inherits from: `WithDecorationBase`, `ConditionalTrait`.
+
+> Requires trait(s): [`AmmoPool`](#ammopool).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -4989,8 +5251,10 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### WithAttackAnimation
-###### Inherits from: `ConditionalTrait`.
-###### Requires trait(s): [`Armament`](#armament), [`WithSpriteBody`](#withspritebody), `AttackBase`.
+
+> Inherits from: `ConditionalTrait`.
+
+> Requires trait(s): [`Armament`](#armament), [`WithSpriteBody`](#withspritebody), `AttackBase`.
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -5003,7 +5267,8 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 ### WithAttackOverlay
 **Rendered together with an attack.**
-###### Requires trait(s): [`RenderSprites`](#rendersprites).
+
+> Requires trait(s): [`RenderSprites`](#rendersprites).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -5014,8 +5279,10 @@ Related types with their possible values are listed [at the bottom](#related-val
 | DelayRelativeTo | Preparation | [`AttackDelayType`](#attackdelaytype) | Should the overlay be delayed relative to preparation or actual attack? |
 
 ### WithBridgeSpriteBody
-###### Inherits from: [`WithSpriteBody`](#withspritebody), `PausableConditionalTrait`, `ConditionalTrait`.
-###### Requires trait(s): [`RenderSprites`](#rendersprites).
+
+> Inherits from: [`WithSpriteBody`](#withspritebody), `PausableConditionalTrait`, `ConditionalTrait`.
+
+> Requires trait(s): [`RenderSprites`](#rendersprites).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -5037,8 +5304,10 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 ### WithBuildingPlacedAnimation
 **Changes the animation when the actor constructed a building.**
-###### Inherits from: `ConditionalTrait`.
-###### Requires trait(s): [`WithSpriteBody`](#withspritebody).
+
+> Inherits from: `ConditionalTrait`.
+
+> Requires trait(s): [`WithSpriteBody`](#withspritebody).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -5048,8 +5317,10 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 ### WithBuildingPlacedOverlay
 **Rendered when the actor constructed a building.**
-###### Inherits from: `ConditionalTrait`.
-###### Requires trait(s): [`BodyOrientation`](#bodyorientation), [`RenderSprites`](#rendersprites).
+
+> Inherits from: `ConditionalTrait`.
+
+> Requires trait(s): [`BodyOrientation`](#bodyorientation), [`RenderSprites`](#rendersprites).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -5061,8 +5332,10 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 ### WithBuildingRepairDecoration
 **Displays a custom UI overlay relative to the actor's mouseover bounds.**
-###### Inherits from: [`WithDecoration`](#withdecoration), `WithDecorationBase`, `ConditionalTrait`.
-###### Requires trait(s): [`RepairableBuilding`](#repairablebuilding).
+
+> Inherits from: [`WithDecoration`](#withdecoration), `WithDecorationBase`, `ConditionalTrait`.
+
+> Requires trait(s): [`RepairableBuilding`](#repairablebuilding).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -5081,8 +5354,10 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### WithCargoPipsDecoration
-###### Inherits from: `WithDecorationBase`, `ConditionalTrait`.
-###### Requires trait(s): [`Cargo`](#cargo).
+
+> Inherits from: `WithDecorationBase`, `ConditionalTrait`.
+
+> Requires trait(s): [`Cargo`](#cargo).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -5105,8 +5380,10 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 ### WithChargeOverlay
 **Render overlay that varies the animation frame based on the AttackCharges trait's charge level.**
-###### Inherits from: `PausableConditionalTrait`, `ConditionalTrait`.
-###### Requires trait(s): [`RenderSprites`](#rendersprites), [`WithSpriteBody`](#withspritebody).
+
+> Inherits from: `PausableConditionalTrait`, `ConditionalTrait`.
+
+> Requires trait(s): [`RenderSprites`](#rendersprites), [`WithSpriteBody`](#withspritebody).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -5118,8 +5395,10 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 ### WithChargeSpriteBody
 **Render trait that varies the sprite body frame based on the AttackCharges trait's charge level.**
-###### Inherits from: [`WithSpriteBody`](#withspritebody), `PausableConditionalTrait`, `ConditionalTrait`.
-###### Requires trait(s): [`AttackCharges`](#attackcharges), [`RenderSprites`](#rendersprites).
+
+> Inherits from: [`WithSpriteBody`](#withspritebody), `PausableConditionalTrait`, `ConditionalTrait`.
+
+> Requires trait(s): [`AttackCharges`](#attackcharges), [`RenderSprites`](#rendersprites).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -5134,7 +5413,8 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 ### WithCrateBody
 **Renders crates with both water and land variants.**
-###### Requires trait(s): [`RenderSprites`](#rendersprites).
+
+> Requires trait(s): [`RenderSprites`](#rendersprites).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -5146,7 +5426,8 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 ### WithDamageOverlay
 **Renders an overlay when the actor is taking heavy damage.**
-###### Requires trait(s): [`RenderSprites`](#rendersprites).
+
+> Requires trait(s): [`RenderSprites`](#rendersprites).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -5161,8 +5442,10 @@ Related types with their possible values are listed [at the bottom](#related-val
 | MaximumDamageState | Dead | [`DamageState`](#damagestate) |  |
 
 ### WithDeadBridgeSpriteBody
-###### Inherits from: [`WithSpriteBody`](#withspritebody), `PausableConditionalTrait`, `ConditionalTrait`.
-###### Requires trait(s): [`RenderSprites`](#rendersprites).
+
+> Inherits from: [`WithSpriteBody`](#withspritebody), `PausableConditionalTrait`, `ConditionalTrait`.
+
+> Requires trait(s): [`RenderSprites`](#rendersprites).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -5185,8 +5468,10 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 ### WithDeathAnimation
 **This actor has a death animation.**
-###### Inherits from: `ConditionalTrait`.
-###### Requires trait(s): [`RenderSprites`](#rendersprites).
+
+> Inherits from: `ConditionalTrait`.
+
+> Requires trait(s): [`RenderSprites`](#rendersprites).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -5204,7 +5489,8 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 ### WithDecoration
 **Displays a custom UI overlay relative to the actor's mouseover bounds.**
-###### Inherits from: `WithDecorationBase`, `ConditionalTrait`.
+
+> Inherits from: `WithDecorationBase`, `ConditionalTrait`.
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -5224,8 +5510,10 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 ### WithDeliveryAnimation
 **Building animation to play when ProductionAirdrop is used to deliver units.**
-###### Inherits from: `ConditionalTrait`.
-###### Requires trait(s): [`WithSpriteBody`](#withspritebody).
+
+> Inherits from: `ConditionalTrait`.
+
+> Requires trait(s): [`WithSpriteBody`](#withspritebody).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -5235,8 +5523,10 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 ### WithDockedOverlay
 **Rendered when a harvester is docked.**
-###### Inherits from: `PausableConditionalTrait`, `ConditionalTrait`.
-###### Requires trait(s): [`BodyOrientation`](#bodyorientation), [`RenderSprites`](#rendersprites).
+
+> Inherits from: `PausableConditionalTrait`, `ConditionalTrait`.
+
+> Requires trait(s): [`BodyOrientation`](#bodyorientation), [`RenderSprites`](#rendersprites).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -5248,7 +5538,8 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### WithDockingAnimation
-###### Requires trait(s): [`Harvester`](#harvester), [`WithSpriteBody`](#withspritebody).
+
+> Requires trait(s): [`Harvester`](#harvester), [`WithSpriteBody`](#withspritebody).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -5256,8 +5547,10 @@ Related types with their possible values are listed [at the bottom](#related-val
 | DockLoopSequence | dock-loop | String | Looped while unloading at refinery. |
 
 ### WithFacingSpriteBody
-###### Inherits from: [`WithSpriteBody`](#withspritebody), `PausableConditionalTrait`, `ConditionalTrait`.
-###### Requires trait(s): [`BodyOrientation`](#bodyorientation), [`RenderSprites`](#rendersprites).
+
+> Inherits from: [`WithSpriteBody`](#withspritebody), `PausableConditionalTrait`, `ConditionalTrait`.
+
+> Requires trait(s): [`BodyOrientation`](#bodyorientation), [`RenderSprites`](#rendersprites).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -5272,8 +5565,10 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 ### WithGateSpriteBody
 **This actor visually connects to walls and changes appearance when actors walk through it.**
-###### Inherits from: [`WithSpriteBody`](#withspritebody), `PausableConditionalTrait`, `ConditionalTrait`.
-###### Requires trait(s): [`Gate`](#gate), [`RenderSprites`](#rendersprites).
+
+> Inherits from: [`WithSpriteBody`](#withspritebody), `PausableConditionalTrait`, `ConditionalTrait`.
+
+> Requires trait(s): [`Gate`](#gate), [`RenderSprites`](#rendersprites).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -5290,7 +5585,8 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### WithHarvestAnimation
-###### Requires trait(s): [`Harvester`](#harvester), [`WithSpriteBody`](#withspritebody).
+
+> Requires trait(s): [`Harvester`](#harvester), [`WithSpriteBody`](#withspritebody).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -5298,8 +5594,10 @@ Related types with their possible values are listed [at the bottom](#related-val
 | Body | body | String | Which sprite body to play the animation on. |
 
 ### WithHarvesterPipsDecoration
-###### Inherits from: `WithDecorationBase`, `ConditionalTrait`.
-###### Requires trait(s): [`Harvester`](#harvester).
+
+> Inherits from: `WithDecorationBase`, `ConditionalTrait`.
+
+> Requires trait(s): [`Harvester`](#harvester).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -5322,7 +5620,8 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 ### WithHarvestOverlay
 **Displays an overlay whenever resources are harvested by the actor.**
-###### Requires trait(s): [`BodyOrientation`](#bodyorientation), [`RenderSprites`](#rendersprites).
+
+> Requires trait(s): [`BodyOrientation`](#bodyorientation), [`RenderSprites`](#rendersprites).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -5332,8 +5631,10 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 ### WithIdleAnimation
 **Periodically plays an idle animation, replacing the default body animation.**
-###### Inherits from: `ConditionalTrait`.
-###### Requires trait(s): [`WithSpriteBody`](#withspritebody).
+
+> Inherits from: `ConditionalTrait`.
+
+> Requires trait(s): [`WithSpriteBody`](#withspritebody).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -5344,8 +5645,10 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 ### WithIdleOverlay
 **Renders a decorative animation on units and buildings.**
-###### Inherits from: `PausableConditionalTrait`, `ConditionalTrait`.
-###### Requires trait(s): [`BodyOrientation`](#bodyorientation), [`RenderSprites`](#rendersprites).
+
+> Inherits from: `PausableConditionalTrait`, `ConditionalTrait`.
+
+> Requires trait(s): [`BodyOrientation`](#bodyorientation), [`RenderSprites`](#rendersprites).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -5360,8 +5663,10 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### WithInfantryBody
-###### Inherits from: `ConditionalTrait`.
-###### Requires trait(s): [`RenderSprites`](#rendersprites).
+
+> Inherits from: `ConditionalTrait`.
+
+> Requires trait(s): [`RenderSprites`](#rendersprites).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -5378,7 +5683,8 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 ### WithMakeAnimation
 **Replaces the sprite during construction/deploy/undeploy.**
-###### Requires trait(s): [`WithSpriteBody`](#withspritebody).
+
+> Requires trait(s): [`WithSpriteBody`](#withspritebody).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -5396,8 +5702,10 @@ Related types with their possible values are listed [at the bottom](#related-val
 | IsPlayerPalette | False | Boolean | Custom palette is a player palette BaseName. |
 
 ### WithMoveAnimation
-###### Inherits from: `ConditionalTrait`.
-###### Requires trait(s): [`WithSpriteBody`](#withspritebody).
+
+> Inherits from: `ConditionalTrait`.
+
+> Requires trait(s): [`WithSpriteBody`](#withspritebody).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -5408,8 +5716,10 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 ### WithMuzzleOverlay
 **Renders the MuzzleSequence from the Armament trait.**
-###### Inherits from: `ConditionalTrait`.
-###### Requires trait(s): [`Armament`](#armament), [`RenderSprites`](#rendersprites), `AttackBase`.
+
+> Inherits from: `ConditionalTrait`.
+
+> Requires trait(s): [`Armament`](#armament), [`RenderSprites`](#rendersprites), `AttackBase`.
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -5418,7 +5728,8 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 ### WithNameTagDecoration
 **Displays the player name above the unit**
-###### Inherits from: `WithDecorationBase`, `ConditionalTrait`.
+
+> Inherits from: `WithDecorationBase`, `ConditionalTrait`.
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -5438,8 +5749,10 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 ### WithParachute
 **Renders a parachute on units.**
-###### Inherits from: `ConditionalTrait`.
-###### Requires trait(s): [`BodyOrientation`](#bodyorientation), [`RenderSprites`](#rendersprites).
+
+> Inherits from: `ConditionalTrait`.
+
+> Requires trait(s): [`BodyOrientation`](#bodyorientation), [`RenderSprites`](#rendersprites).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -5459,8 +5772,10 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 ### WithProductionDoorOverlay
 **Play an animation when a unit exits or blocks the exit after production finished.**
-###### Inherits from: `ConditionalTrait`.
-###### Requires trait(s): [`BodyOrientation`](#bodyorientation), [`Building`](#building), [`RenderSprites`](#rendersprites).
+
+> Inherits from: `ConditionalTrait`.
+
+> Requires trait(s): [`BodyOrientation`](#bodyorientation), [`Building`](#building), [`RenderSprites`](#rendersprites).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -5477,8 +5792,10 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 ### WithProductionOverlay
 **Renders an animation when the Production trait of the actor is activated. Works both with per player ClassicProductionQueue and per building ProductionQueue, but needs any of these.**
-###### Inherits from: `PausableConditionalTrait`, `ConditionalTrait`.
-###### Requires trait(s): [`BodyOrientation`](#bodyorientation), [`Production`](#production), [`RenderSprites`](#rendersprites).
+
+> Inherits from: `PausableConditionalTrait`, `ConditionalTrait`.
+
+> Requires trait(s): [`BodyOrientation`](#bodyorientation), [`Production`](#production), [`RenderSprites`](#rendersprites).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -5492,7 +5809,8 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 ### WithRangeCircle
 **Renders an arbitrary circle when selected or placing a structure**
-###### Inherits from: `ConditionalTrait`.
+
+> Inherits from: `ConditionalTrait`.
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -5509,8 +5827,10 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 ### WithRepairOverlay
 **Displays an overlay when the building is being repaired by the player.**
-###### Inherits from: `PausableConditionalTrait`, `ConditionalTrait`.
-###### Requires trait(s): [`BodyOrientation`](#bodyorientation), [`RenderSprites`](#rendersprites).
+
+> Inherits from: `PausableConditionalTrait`, `ConditionalTrait`.
+
+> Requires trait(s): [`BodyOrientation`](#bodyorientation), [`RenderSprites`](#rendersprites).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -5525,8 +5845,10 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 ### WithResourceLevelOverlay
 **Displays the fill status of PlayerResources with an extra sprite overlay on the actor.**
-###### Inherits from: `ConditionalTrait`.
-###### Requires trait(s): [`RenderSprites`](#rendersprites), [`WithSpriteBody`](#withspritebody).
+
+> Inherits from: `ConditionalTrait`.
+
+> Requires trait(s): [`RenderSprites`](#rendersprites), [`WithSpriteBody`](#withspritebody).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -5537,8 +5859,10 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 ### WithResourceLevelSpriteBody
 **Render trait for buildings that change the sprite according to the remaining resource storage capacity across all depots.**
-###### Inherits from: [`WithSpriteBody`](#withspritebody), `PausableConditionalTrait`, `ConditionalTrait`.
-###### Requires trait(s): [`RenderSprites`](#rendersprites).
+
+> Inherits from: [`WithSpriteBody`](#withspritebody), `PausableConditionalTrait`, `ConditionalTrait`.
+
+> Requires trait(s): [`RenderSprites`](#rendersprites).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -5553,7 +5877,8 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### WithResourceStoragePipsDecoration
-###### Inherits from: `WithDecorationBase`, `ConditionalTrait`.
+
+> Inherits from: `WithDecorationBase`, `ConditionalTrait`.
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -5575,8 +5900,10 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 ### WithResupplyAnimation
 **Replaces the default animation when actor resupplies a unit.**
-###### Inherits from: `ConditionalTrait`.
-###### Requires trait(s): [`WithSpriteBody`](#withspritebody).
+
+> Inherits from: `ConditionalTrait`.
+
+> Requires trait(s): [`WithSpriteBody`](#withspritebody).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -5587,7 +5914,8 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 ### WithShadow
 **Clones the actor sprite with another palette below it.**
-###### Inherits from: `ConditionalTrait`.
+
+> Inherits from: `ConditionalTrait`.
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -5598,8 +5926,10 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 ### WithSpriteBarrel
 **Renders barrels for units with the Turreted trait.**
-###### Inherits from: `ConditionalTrait`.
-###### Requires trait(s): [`Armament`](#armament), [`BodyOrientation`](#bodyorientation), [`RenderSprites`](#rendersprites), [`Turreted`](#turreted).
+
+> Inherits from: `ConditionalTrait`.
+
+> Requires trait(s): [`Armament`](#armament), [`BodyOrientation`](#bodyorientation), [`RenderSprites`](#rendersprites), [`Turreted`](#turreted).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -5610,8 +5940,10 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 ### WithSpriteBody
 **Default trait for rendering sprite-based actors.**
-###### Inherits from: `PausableConditionalTrait`, `ConditionalTrait`.
-###### Requires trait(s): [`RenderSprites`](#rendersprites).
+
+> Inherits from: `PausableConditionalTrait`, `ConditionalTrait`.
+
+> Requires trait(s): [`RenderSprites`](#rendersprites).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -5637,8 +5969,10 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 ### WithSpriteTurret
 **Renders turrets for units with the Turreted trait.**
-###### Inherits from: `ConditionalTrait`.
-###### Requires trait(s): [`Armament`](#armament), [`BodyOrientation`](#bodyorientation), [`RenderSprites`](#rendersprites), [`Turreted`](#turreted).
+
+> Inherits from: `ConditionalTrait`.
+
+> Requires trait(s): [`Armament`](#armament), [`BodyOrientation`](#bodyorientation), [`RenderSprites`](#rendersprites), [`Turreted`](#turreted).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -5651,8 +5985,10 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 ### WithSupportPowerActivationAnimation
 **Replaces the building animation when a support power is triggered.**
-###### Inherits from: `ConditionalTrait`.
-###### Requires trait(s): [`WithSpriteBody`](#withspritebody).
+
+> Inherits from: `ConditionalTrait`.
+
+> Requires trait(s): [`WithSpriteBody`](#withspritebody).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -5662,8 +5998,10 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 ### WithSupportPowerActivationOverlay
 **Displays an overlay when a support power is triggered.**
-###### Inherits from: `ConditionalTrait`.
-###### Requires trait(s): [`BodyOrientation`](#bodyorientation), [`RenderSprites`](#rendersprites).
+
+> Inherits from: `ConditionalTrait`.
+
+> Requires trait(s): [`BodyOrientation`](#bodyorientation), [`RenderSprites`](#rendersprites).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -5686,7 +6024,8 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 ### WithTextDecoration
 **Displays a text overlay relative to the selection box.**
-###### Inherits from: `WithDecorationBase`, `ConditionalTrait`.
+
+> Inherits from: `WithDecorationBase`, `ConditionalTrait`.
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -5705,8 +6044,10 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### WithTurretAimAnimation
-###### Inherits from: `ConditionalTrait`.
-###### Requires trait(s): [`WithSpriteTurret`](#withspriteturret), `AttackBase`.
+
+> Inherits from: `ConditionalTrait`.
+
+> Requires trait(s): [`WithSpriteTurret`](#withspriteturret), `AttackBase`.
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -5716,8 +6057,10 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### WithTurretAttackAnimation
-###### Inherits from: `ConditionalTrait`.
-###### Requires trait(s): [`Armament`](#armament), [`WithSpriteTurret`](#withspriteturret).
+
+> Inherits from: `ConditionalTrait`.
+
+> Requires trait(s): [`Armament`](#armament), [`WithSpriteTurret`](#withspriteturret).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -5729,8 +6072,10 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### WithVoxelBarrel
-###### Inherits from: `ConditionalTrait`.
-###### Requires trait(s): [`Armament`](#armament), [`RenderVoxels`](#rendervoxels), [`Turreted`](#turreted).
+
+> Inherits from: `ConditionalTrait`.
+
+> Requires trait(s): [`Armament`](#armament), [`RenderVoxels`](#rendervoxels), [`Turreted`](#turreted).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -5743,8 +6088,10 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 ### WithVoxelBody
 **Also returns a default selection size that is calculated automatically from the voxel dimensions.**
-###### Inherits from: `ConditionalTrait`.
-###### Requires trait(s): [`RenderVoxels`](#rendervoxels).
+
+> Inherits from: `ConditionalTrait`.
+
+> Requires trait(s): [`RenderVoxels`](#rendervoxels).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -5753,8 +6100,10 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### WithVoxelTurret
-###### Inherits from: `ConditionalTrait`.
-###### Requires trait(s): [`RenderVoxels`](#rendervoxels), [`Turreted`](#turreted).
+
+> Inherits from: `ConditionalTrait`.
+
+> Requires trait(s): [`RenderVoxels`](#rendervoxels), [`Turreted`](#turreted).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -5765,8 +6114,10 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 ### WithWallSpriteBody
 **Render trait for actors that change sprites if neighbors with the same trait are present.**
-###### Inherits from: [`WithSpriteBody`](#withspritebody), `PausableConditionalTrait`, `ConditionalTrait`.
-###### Requires trait(s): [`Building`](#building), [`RenderSprites`](#rendersprites).
+
+> Inherits from: [`WithSpriteBody`](#withspritebody), `PausableConditionalTrait`, `ConditionalTrait`.
+
+> Requires trait(s): [`Building`](#building), [`RenderSprites`](#rendersprites).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -5782,7 +6133,8 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 
 ### ActorLostNotification
-###### Inherits from: `ConditionalTrait`.
+
+> Inherits from: `ConditionalTrait`.
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -5793,7 +6145,8 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 ### AmbientSound
 **Plays a looping audio file at the actor position. Attach this to the `World` actor to cover the whole map.**
-###### Inherits from: `ConditionalTrait`.
+
+> Inherits from: `ConditionalTrait`.
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -5822,7 +6175,8 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 ### AttackSounds
 **Played when preparing for an attack or attacking.**
-###### Inherits from: `ConditionalTrait`.
+
+> Inherits from: `ConditionalTrait`.
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -5844,7 +6198,8 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 ### DeathSounds
 **Sounds to play when killed.**
-###### Inherits from: `ConditionalTrait`.
+
+> Inherits from: `ConditionalTrait`.
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -5863,7 +6218,8 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 ### VoiceAnnouncement
 **Plays a voice clip when the trait is enabled.**
-###### Inherits from: `ConditionalTrait`.
+
+> Inherits from: `ConditionalTrait`.
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -5885,8 +6241,10 @@ Related types with their possible values are listed [at the bottom](#related-val
 | DeliveryVehicleType |  | Collection of String |  |
 
 ### AttackOrderPower
-###### Inherits from: `SupportPower`, `PausableConditionalTrait`, `ConditionalTrait`.
-###### Requires trait(s): `AttackBase`.
+
+> Inherits from: `SupportPower`, `PausableConditionalTrait`, `ConditionalTrait`.
+
+> Requires trait(s): `AttackBase`.
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -5970,7 +6328,8 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 ### BaseBotModule
 **Manages the initial base.**
-###### Inherits from: `ConditionalTrait`.
+
+> Inherits from: `ConditionalTrait`.
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -5987,7 +6346,8 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 ### BaseSpawnerParent
 **This actor can spawn actors.**
-###### Inherits from: `ConditionalTrait`.
+
+> Inherits from: `ConditionalTrait`.
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -6006,7 +6366,8 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 ### BuilderBotModule
 **Manages AI builders.**
-###### Inherits from: `ConditionalTrait`.
+
+> Inherits from: `ConditionalTrait`.
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -6027,7 +6388,8 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 ### CarrierChild
 **Can be bound to a spawner.**
-###### Inherits from: [`BaseSpawnerChild`](#basespawnerchild).
+
+> Inherits from: [`BaseSpawnerChild`](#basespawnerchild).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -6038,7 +6400,8 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 ### CarrierParent
 **This actor can spawn actors.**
-###### Inherits from: [`BaseSpawnerParent`](#basespawnerparent), `ConditionalTrait`.
+
+> Inherits from: [`BaseSpawnerParent`](#basespawnerparent), `ConditionalTrait`.
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -6059,7 +6422,8 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 ### ChangesOwner
 **Change the owner on condition and revert back when it isn't met anymore.**
-###### Inherits from: `ConditionalTrait`.
+
+> Inherits from: `ConditionalTrait`.
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -6084,8 +6448,10 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 ### CollectScrapCrateAction
 **Gives cash to the collector.**
-###### Inherits from: [`CrateAction`](#crateaction), `ConditionalTrait`.
-###### Requires trait(s): [`ScrapValue`](#scrapvalue).
+
+> Inherits from: [`CrateAction`](#crateaction), `ConditionalTrait`.
+
+> Requires trait(s): [`ScrapValue`](#scrapvalue).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -6103,7 +6469,8 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 ### CubePickupBotModule
 **Put this on the Player actor. Manages cube collection.**
-###### Inherits from: `ConditionalTrait`.
+
+> Inherits from: `ConditionalTrait`.
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -6135,7 +6502,8 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 ### CustomBaseBuilderBotModule
 **Manages AI base construction.**
-###### Inherits from: `ConditionalTrait`.
+
+> Inherits from: `ConditionalTrait`.
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -6191,7 +6559,8 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 ### DeployActorBotModule
 **Deploys units when idle.**
-###### Inherits from: `ConditionalTrait`.
+
+> Inherits from: `ConditionalTrait`.
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -6200,7 +6569,8 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### DropPodsPower
-###### Inherits from: `SupportPower`, `PausableConditionalTrait`, `ConditionalTrait`.
+
+> Inherits from: `SupportPower`, `PausableConditionalTrait`, `ConditionalTrait`.
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -6265,8 +6635,10 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 ### ExternalConditionPowerBotModule
 **Manages bot defensive support power handling.**
-###### Inherits from: `ConditionalTrait`.
-###### Requires trait(s): [`SupportPowerManager`](#supportpowermanager).
+
+> Inherits from: `ConditionalTrait`.
+
+> Requires trait(s): [`SupportPowerManager`](#supportpowermanager).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -6276,7 +6648,8 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 ### Floods
 **Lets the actor spread liquid tiles around it in straight lines.**
-###### Inherits from: `ConditionalTrait`.
+
+> Inherits from: `ConditionalTrait`.
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -6306,7 +6679,8 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 ### FreeActorWithEffect
 **Player receives a unit for free once the building is placed with a sprite effect. If you want more than one unit to be spawned, copy this section and assign IDs like FreeActorWithDelay@2, ...**
-###### Inherits from: [`FreeActor`](#freeactor), `ConditionalTrait`.
+
+> Inherits from: [`FreeActor`](#freeactor), `ConditionalTrait`.
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -6330,7 +6704,8 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 ### GrantConditionOnBurstComplete
 **Grants a condition when this actor finishes a burst.**
-###### Inherits from: `PausableConditionalTrait`, `ConditionalTrait`.
+
+> Inherits from: `PausableConditionalTrait`, `ConditionalTrait`.
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -6342,7 +6717,8 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 ### GrantConditionOnLineBuildConnection
 **Grants a condition when this actor is connected to a wall.**
-###### Requires trait(s): [`Building`](#building).
+
+> Requires trait(s): [`Building`](#building).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -6373,7 +6749,8 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 ### GrantExternalConditionToOwner
 **Grants an external condition to the owner player's actor.**
-###### Inherits from: `ConditionalTrait`.
+
+> Inherits from: `ConditionalTrait`.
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -6381,7 +6758,8 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### LaysTerrain
-###### Requires trait(s): [`Building`](#building).
+
+> Requires trait(s): [`Building`](#building).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -6391,7 +6769,8 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 ### LiquidEdgeRenderer
 **Used to render the border of liquids. Attach this to the world actor**
-###### Requires trait(s): [`LiquidTerrainLayer`](#liquidterrainlayer).
+
+> Requires trait(s): [`LiquidTerrainLayer`](#liquidterrainlayer).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -6421,7 +6800,8 @@ Related types with their possible values are listed [at the bottom](#related-val
 | DetonateClasses |  | Collection of CrushClass |  |
 
 ### Minelayer
-###### Requires trait(s): [`Rearmable`](#rearmable).
+
+> Requires trait(s): [`Rearmable`](#rearmable).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -6450,7 +6830,8 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 ### MinerBotModule
 **Manages AI miner deployment logic.**
-###### Inherits from: `ConditionalTrait`.
+
+> Inherits from: `ConditionalTrait`.
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -6476,7 +6857,8 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 ### MissileSpawnerChild
 **This unit is launched by a missile spawner parent.**
-###### Inherits from: [`BaseSpawnerChild`](#basespawnerchild).
+
+> Inherits from: [`BaseSpawnerChild`](#basespawnerchild).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -6486,7 +6868,8 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 ### MissileSpawnerParent
 **This actor can spawn missile actors.**
-###### Inherits from: [`BaseSpawnerParent`](#basespawnerparent), `ConditionalTrait`.
+
+> Inherits from: [`BaseSpawnerParent`](#basespawnerparent), `ConditionalTrait`.
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -6506,7 +6889,8 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 ### PeriodicDischarge
 **Dispenses a weapon at the actor's position when enabled.Reload/BurstDelays are used as release intervals.**
-###### Inherits from: `ConditionalTrait`.
+
+> Inherits from: `ConditionalTrait`.
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -6518,7 +6902,8 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 ### PeriodicProducer
 **Produces an actor without using the standard production queue.**
-###### Inherits from: `PausableConditionalTrait`, `ConditionalTrait`.
+
+> Inherits from: `PausableConditionalTrait`, `ConditionalTrait`.
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -6536,7 +6921,8 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 ### PowerDownBotModule
 **Manages AI powerdown.**
-###### Inherits from: `ConditionalTrait`.
+
+> Inherits from: `ConditionalTrait`.
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -6545,7 +6931,8 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 ### PriorityCaptureManagerBotModule
 **Manages AI capturing logic.**
-###### Inherits from: `ConditionalTrait`.
+
+> Inherits from: `ConditionalTrait`.
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -6561,8 +6948,10 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### ProductionSound
-###### Inherits from: `ConditionalTrait`.
-###### Requires trait(s): [`RenderSprites`](#rendersprites).
+
+> Inherits from: `ConditionalTrait`.
+
+> Requires trait(s): [`RenderSprites`](#rendersprites).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -6570,7 +6959,8 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### RailgunPower
-###### Inherits from: `SupportPower`, `PausableConditionalTrait`, `ConditionalTrait`.
+
+> Inherits from: `SupportPower`, `PausableConditionalTrait`, `ConditionalTrait`.
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -6637,8 +7027,10 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 ### ResourceCollector
 **Lets the actor generate resources in a set periodic time.**
-###### Inherits from: `PausableConditionalTrait`, `ConditionalTrait`.
-###### Requires trait(s): [`Building`](#building).
+
+> Inherits from: `PausableConditionalTrait`, `ConditionalTrait`.
+
+> Requires trait(s): [`Building`](#building).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -6664,7 +7056,8 @@ Related types with their possible values are listed [at the bottom](#related-val
 | Font | TinyBold | String |  |
 
 ### ResourceTransporter
-###### Requires trait(s): [`Mobile`](#mobile).
+
+> Requires trait(s): [`Mobile`](#mobile).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -6678,7 +7071,8 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 ### ScoutBotModule
 **Manages AI random scouting. Exclude from `SquadManagerBotModule`.**
-###### Inherits from: `ConditionalTrait`.
+
+> Inherits from: `ConditionalTrait`.
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -6708,7 +7102,8 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 ### SpawnedExplodes
 **This actor explodes when killed and the kill XP goes to the Spawner.**
-###### Inherits from: [`Explodes`](#explodes), `ConditionalTrait`.
+
+> Inherits from: [`Explodes`](#explodes), `ConditionalTrait`.
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -6725,7 +7120,8 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 ### SpawnScrapOnDeath
 **Spawn an actor of the same value immediately upon death when the 'Scrap' trait is enabled.**
-###### Inherits from: `ConditionalTrait`.
+
+> Inherits from: `ConditionalTrait`.
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -6738,7 +7134,8 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 ### SpawnsShrapnel
 **Spawns shrapnel weapons after a periodic interval.**
-###### Inherits from: `PausableConditionalTrait`, `ConditionalTrait`.
+
+> Inherits from: `PausableConditionalTrait`, `ConditionalTrait`.
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -6755,7 +7152,8 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 ### SpawnUnitCrateAction
 **Spawns units when collected and optionally plays an effect overlay.**
-###### Inherits from: [`CrateAction`](#crateaction), `ConditionalTrait`.
+
+> Inherits from: [`CrateAction`](#crateaction), `ConditionalTrait`.
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -6784,7 +7182,8 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 ### TeleportNetworkPrimaryExit
 **Used with TeleportNetwork trait for primary exit designation.**
-###### Requires trait(s): [`TeleportNetwork`](#teleportnetwork).
+
+> Requires trait(s): [`TeleportNetwork`](#teleportnetwork).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -6844,8 +7243,10 @@ Related types with their possible values are listed [at the bottom](#related-val
 | Group |  | String | Set this if items should get the same random pricing. |
 
 ### WithCarrierParentPipsDecoration
-###### Inherits from: `WithDecorationBase`, `ConditionalTrait`.
-###### Requires trait(s): [`CarrierParent`](#carrierparent).
+
+> Inherits from: `WithDecorationBase`, `ConditionalTrait`.
+
+> Requires trait(s): [`CarrierParent`](#carrierparent).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -6866,8 +7267,10 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### WithMissileSpawnerParentPipsDecoration
-###### Inherits from: `WithDecorationBase`, `ConditionalTrait`.
-###### Requires trait(s): [`MissileSpawnerParent`](#missilespawnerparent).
+
+> Inherits from: `WithDecorationBase`, `ConditionalTrait`.
+
+> Requires trait(s): [`MissileSpawnerParent`](#missilespawnerparent).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -6889,8 +7292,10 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 
 ### EmptySelectionDecorations
-###### Inherits from: `SelectionDecorationsBase`.
-###### Requires trait(s): [`Interactable`](#interactable).
+
+> Inherits from: `SelectionDecorationsBase`.
+
+> Requires trait(s): [`Interactable`](#interactable).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -6898,8 +7303,10 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 ### OutlinedSelectionDecorations
 **Displays thick and outlined healthbars as well as sprite based selection boxes.**
-###### Inherits from: `SelectionDecorationsBase`.
-###### Requires trait(s): [`Interactable`](#interactable).
+
+> Inherits from: `SelectionDecorationsBase`.
+
+> Requires trait(s): [`Interactable`](#interactable).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -6920,7 +7327,8 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 ### WithCarrierHatchAnimation
 **This actor displays an open/close animation when child actors leave/enter.**
-###### Requires trait(s): [`CarrierParent`](#carrierparent), [`RenderSprites`](#rendersprites), [`WithSpriteBody`](#withspritebody).
+
+> Requires trait(s): [`CarrierParent`](#carrierparent), [`RenderSprites`](#rendersprites), [`WithSpriteBody`](#withspritebody).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -6929,8 +7337,10 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 ### WithConstructionBeamOverlay
 **Rendered after the "make" animation.**
-###### Inherits from: `ConditionalTrait`.
-###### Requires trait(s): [`RenderSprites`](#rendersprites).
+
+> Inherits from: `ConditionalTrait`.
+
+> Requires trait(s): [`RenderSprites`](#rendersprites).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -6942,8 +7352,10 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 ### WithConstructionOverlay
 **Rendered together with the "make" animation.**
-###### Inherits from: `ConditionalTrait`.
-###### Requires trait(s): [`BodyOrientation`](#bodyorientation), [`RenderSprites`](#rendersprites).
+
+> Inherits from: `ConditionalTrait`.
+
+> Requires trait(s): [`BodyOrientation`](#bodyorientation), [`RenderSprites`](#rendersprites).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -6954,7 +7366,8 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 ### WithDamagedOverlay
 **Renders an overlay when the actor is taking heavy damage.**
-###### Requires trait(s): [`RenderSprites`](#rendersprites).
+
+> Requires trait(s): [`RenderSprites`](#rendersprites).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -6968,8 +7381,10 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 ### WithIdleOverlayOnGround
 **Plays an idle overlay on the ground position under the actor (regardless of it's actual height).**
-###### Inherits from: [`WithIdleOverlay`](#withidleoverlay), `PausableConditionalTrait`, `ConditionalTrait`.
-###### Requires trait(s): [`BodyOrientation`](#bodyorientation), [`RenderSprites`](#rendersprites).
+
+> Inherits from: [`WithIdleOverlay`](#withidleoverlay), `PausableConditionalTrait`, `ConditionalTrait`.
+
+> Requires trait(s): [`BodyOrientation`](#bodyorientation), [`RenderSprites`](#rendersprites).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -6984,7 +7399,8 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### WithLandingAnimation
-###### Requires trait(s): [`WithSpriteBody`](#withspritebody).
+
+> Requires trait(s): [`WithSpriteBody`](#withspritebody).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -6995,7 +7411,8 @@ Related types with their possible values are listed [at the bottom](#related-val
 | Body | body | String | Which sprite body to play the animation on. |
 
 ### WithLandingUnloadAnimation
-###### Requires trait(s): [`Aircraft`](#aircraft), [`WithSpriteBody`](#withspritebody).
+
+> Requires trait(s): [`Aircraft`](#aircraft), [`WithSpriteBody`](#withspritebody).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -7006,7 +7423,8 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 ### WithMissileLaunchAnimation
 **This actor displays a sprite sequence when spawning a missile.**
-###### Requires trait(s): [`BodyOrientation`](#bodyorientation), [`RenderSprites`](#rendersprites).
+
+> Requires trait(s): [`BodyOrientation`](#bodyorientation), [`RenderSprites`](#rendersprites).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -7014,8 +7432,10 @@ Related types with their possible values are listed [at the bottom](#related-val
 | Body | body | String | Which sprite body to play the animation on. |
 
 ### WithMissileSpriteBody
-###### Inherits from: [`WithSpriteBody`](#withspritebody), `PausableConditionalTrait`, `ConditionalTrait`.
-###### Requires trait(s): [`BallisticMissile`](#ballisticmissile), [`BodyOrientation`](#bodyorientation), [`RenderSprites`](#rendersprites).
+
+> Inherits from: [`WithSpriteBody`](#withspritebody), `PausableConditionalTrait`, `ConditionalTrait`.
+
+> Requires trait(s): [`BallisticMissile`](#ballisticmissile), [`BodyOrientation`](#bodyorientation), [`RenderSprites`](#rendersprites).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -7030,8 +7450,10 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 ### WithProductionDoorAnimation
 **Play an animation when a unit exits after production finished.**
-###### Inherits from: `ConditionalTrait`.
-###### Requires trait(s): [`WithSpriteBody`](#withspritebody).
+
+> Inherits from: `ConditionalTrait`.
+
+> Requires trait(s): [`WithSpriteBody`](#withspritebody).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -7043,8 +7465,10 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 ### WithProductionExitOverlay
 **Rendered when an actor finishes production on the used exit cell.**
-###### Inherits from: `ConditionalTrait`.
-###### Requires trait(s): [`RenderSprites`](#rendersprites).
+
+> Inherits from: `ConditionalTrait`.
+
+> Requires trait(s): [`RenderSprites`](#rendersprites).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -7056,8 +7480,10 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 ### WithRandomFacingSpriteBody
 **Picks sprites from a random actor.**
-###### Inherits from: [`WithFacingSpriteBody`](#withfacingspritebody), [`WithSpriteBody`](#withspritebody), `PausableConditionalTrait`, `ConditionalTrait`.
-###### Requires trait(s): [`BodyOrientation`](#bodyorientation), [`RenderSprites`](#rendersprites).
+
+> Inherits from: [`WithFacingSpriteBody`](#withfacingspritebody), [`WithSpriteBody`](#withspritebody), `PausableConditionalTrait`, `ConditionalTrait`.
+
+> Requires trait(s): [`BodyOrientation`](#bodyorientation), [`RenderSprites`](#rendersprites).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -7073,8 +7499,10 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 ### WithResourceCollectorOverlay
 **Renders the fillness state.**
-###### Inherits from: `PausableConditionalTrait`, `ConditionalTrait`.
-###### Requires trait(s): [`RenderSprites`](#rendersprites), [`ResourceCollector`](#resourcecollector).
+
+> Inherits from: `PausableConditionalTrait`, `ConditionalTrait`.
+
+> Requires trait(s): [`RenderSprites`](#rendersprites), [`ResourceCollector`](#resourcecollector).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -7087,8 +7515,10 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 ### WithSupportPowerChargedAnimation
 **Displays an overlay when `SupportPower` is fully charged.**
-###### Inherits from: `ConditionalTrait`.
-###### Requires trait(s): [`BodyOrientation`](#bodyorientation), [`RenderSprites`](#rendersprites).
+
+> Inherits from: `ConditionalTrait`.
+
+> Requires trait(s): [`BodyOrientation`](#bodyorientation), [`RenderSprites`](#rendersprites).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -7100,7 +7530,8 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 ### WithTeleportChargeAnimation
 **This actor displays a charge-up animation when it receives a teleported unit.**
-###### Requires trait(s): [`RenderSprites`](#rendersprites), [`WithSpriteBody`](#withspritebody).
+
+> Requires trait(s): [`RenderSprites`](#rendersprites), [`WithSpriteBody`](#withspritebody).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -7109,7 +7540,8 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 ### WithTeleportEnergyOverlay
 **This actor display an overlay upon arrival.**
-###### Requires trait(s): [`BodyOrientation`](#bodyorientation), [`RenderSprites`](#rendersprites).
+
+> Requires trait(s): [`BodyOrientation`](#bodyorientation), [`RenderSprites`](#rendersprites).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -7140,7 +7572,8 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 ### FrozenActorLayer
 **Required for FrozenUnderFog to work. Attach this to the player actor.**
-###### Requires trait(s): [`Shroud`](#shroud).
+
+> Requires trait(s): [`Shroud`](#shroud).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
