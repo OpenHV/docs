@@ -1,6 +1,6 @@
 # Weapons
 
-This documentation is aimed at modders and has been automatically generated for version `20221030` of OpenHV. Please do not edit it directly, but instead add new `[Desc("String")]` tags to the source code.
+This documentation is aimed at modders and has been automatically generated for version `20221119` of OpenHV. Please do not edit it directly, but instead add new `[Desc("String")]` tags to the source code.
 
 Listed below are a template for weapon definitions and the types it can use (warheads and projectiles) with default values and developer commentary.
 Related types with their possible values are listed [at the bottom](#related-value-types-enums).
@@ -40,6 +40,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | Width | 0c512 | 1D World Distance | The width of the beam. |
 | Shape | Cylindrical | [`BeamRenderableShape`](#beamrenderableshape) | The shape of the beam.  Accepts values Cylindrical or Flat. |
 | BeyondTargetRange | 0c0 | 1D World Distance | How far beyond the target the projectile keeps on travelling. |
+| MinDistance | 0c0 | 1D World Distance | The minimum distance the beam travels. |
 | Falloff | 100, 100 | Collection of Integer | Damage modifier applied at each range step. |
 | Range | 0c0, 2097151c1023 | Collection of 1D World Distance | Ranges at which each Falloff step is defined. |
 | Inaccuracy | 0c0 | 1D World Distance | The maximum/constant/incremental inaccuracy used in conjunction with the InaccuracyType property. |

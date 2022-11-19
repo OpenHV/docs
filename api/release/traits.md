@@ -1,6 +1,6 @@
 # Traits
 
-This documentation is aimed at modders and has been automatically generated for version `20221030` of OpenHV. Please do not edit it directly, but instead add new `[Desc("String")]` tags to the source code.
+This documentation is aimed at modders and has been automatically generated for version `20221119` of OpenHV. Please do not edit it directly, but instead add new `[Desc("String")]` tags to the source code.
 
 Listed below are all traits with their properties and their default values plus developer commentary.
 Related types with their possible values are listed [at the bottom](#related-value-types-enums).
@@ -6527,7 +6527,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | MinimumRefineryCount | 1 | Integer | Number of refineries to build before building a barracks. |
 | ResourceDistance | 5 | Integer | Minimum distance in cells for resource patches when checking for building placement. |
 | StructureProductionInactiveDelay | 125 | Integer | Additional delay (in ticks) between structure production checks when there is no active production. StructureProductionRandomBonusDelay is added to this. |
-| StructureProductionActiveDelay | 0 | Integer | Additional delay (in ticks) added between structure production checks when actively building things. Note: The total delay is gamespeed OrderLatency x 4 + this + StructureProductionRandomBonusDelay. |
+| StructureProductionActiveDelay | 25 | Integer | Additional delay (in ticks) added between structure production checks when actively building things. Note: The total delay is gamespeed OrderLatency x 4 + this + StructureProductionRandomBonusDelay. |
 | StructureProductionRandomBonusDelay | 10 | Integer | A random delay (in ticks) of up to this is added to active/inactive production delays. |
 | StructureProductionResumeDelay | 1500 | Integer | Delay (in ticks) until retrying to build structure after the last 3 consecutive attempts failed. |
 | MaximumFailedPlacementAttempts | 3 | Integer | After how many failed attempts to place a structure should AI give up and wait for StructureProductionResumeDelay before retrying. |
@@ -7099,6 +7099,8 @@ Related types with their possible values are listed [at the bottom](#related-val
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
 | Percentage | 10 | Integer | Percentage of the killed actor's value. |
+| MinimumFallbackAmount | 40 | Integer | How much the scrap is worth when pre-placed with the map editor. |
+| MaximumFallbackAmount | 200 | Integer |  |
 
 ### SpawnedExplodes
 **This actor explodes when killed and the kill XP goes to the Spawner.**
