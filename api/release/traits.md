@@ -1,6 +1,6 @@
 # Traits
 
-This documentation is aimed at modders and has been automatically generated for version `20221119` of OpenHV. Please do not edit it directly, but instead add new `[Desc("String")]` tags to the source code.
+This documentation is aimed at modders and has been automatically generated for version `20221204` of OpenHV. Please do not edit it directly, but instead add new `[Desc("String")]` tags to the source code.
 
 Listed below are all traits with their properties and their default values plus developer commentary.
 Related types with their possible values are listed [at the bottom](#related-value-types-enums).
@@ -6446,6 +6446,16 @@ Related types with their possible values are listed [at the bottom](#related-val
 | CloseEnough | 0c128 | 1D World Distance | Distance margin where the cloud can be removed. |
 | ShouldPrespawn | True | Boolean | Should we pre-spawn clouds covers the map? |
 
+### Collectible
+
+> Requires trait(s): [`RenderSprites`](#rendersprites).
+
+| Property | Default Value | Type | Description |
+| -------- | ------------- | ---- | ----------- |
+| Duration | 0 | Integer | Length of time (in ticks) until the crate gets removed automatically. A value of zero disables auto-removal. |
+| TerrainTypes |  | Set of String | Allowed to land on. |
+| CrushClass | crate | String | Define actors that can collect crates by setting this into the Crushes field from the Mobile trait. |
+
 ### CollectScrapCrateAction
 **Gives cash to the collector.**
 
@@ -6716,13 +6726,14 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### GrantConditionOnLineBuildConnection
-**Grants a condition when this actor is connected to a wall.**
+**Grants a condition when this actor is next to two walls.**
 
 > Requires trait(s): [`Building`](#building).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
-| Condition | *(required)* | String | The condition to grant. |
+| FirstCondition | *(required)* | String | The condition to grant when left/top is connected. |
+| LastCondition | *(required)* | String | The condition to grant when right/bottom is connected. |
 | Edges |  | Collection of 2D Cell Vector | Possible connections left/right or top/bottom from top left origin. |
 
 ### GrantConditionOnNeutralOwner
