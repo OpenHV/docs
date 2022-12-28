@@ -1,6 +1,6 @@
 # Traits
 
-This documentation is aimed at modders and has been automatically generated for version `20221204` of OpenHV. Please do not edit it directly, but instead add new `[Desc("String")]` tags to the source code.
+This documentation is aimed at modders and has been automatically generated for version `20221228` of OpenHV. Please do not edit it directly, but instead add new `[Desc("String")]` tags to the source code.
 
 Listed below are all traits with their properties and their default values plus developer commentary.
 Related types with their possible values are listed [at the bottom](#related-value-types-enums).
@@ -6810,6 +6810,25 @@ Related types with their possible values are listed [at the bottom](#related-val
 | BlockFriendly | True | Boolean |  |
 | DetonateClasses |  | Collection of CrushClass |  |
 
+### MinelayerBotModule
+**Manages AI minelayer unit related with Minelayer traits. When enemy damage AI's actors, the location of conflict will be recorded, If a location is a valid spot, it will add/merge to favorite location for usage later**
+
+> Inherits from: `ConditionalTrait`.
+
+| Property | Default Value | Type | Description |
+| -------- | ------------- | ---- | ----------- |
+| IgnoredEnemyTargetTypes |  | Collection of TargetableType | Enemy target types to ignore when add the minefield location to conflict location. |
+| UseEnemyLocationTargetTypes |  | Collection of TargetableType | Victim target types that considering conflict location as enemy location instead of victim location. |
+| MinelayingActorTypes |  | Set of String | Actors with Minelayertrait. |
+| MaxPerAssign | 1 | Integer | Find this amount of suitable actors and lay mine to a location. |
+| ScanTick | 320 | Integer | Scan suitable actors and target in this interval. |
+| MineFieldRadius | 1 | Integer | Radius per mine laying order. |
+| AwayFromAlliedTargetTypes |  | Collection of TargetableType | Minefield location is cancelled if those whose target type belong to allied nearby. |
+| AwayFromEnemyTargetTypes |  | Collection of TargetableType | Minefield location is cancelled if those whose target type belong to enemy nearby. |
+| AwayFromCellDistance | 9 | Integer | Minefield location check distance to AwayFromAlliedTargettype and AwayFromEnemyTargettype. In addition, if any emeny actor within this range and minefield location is not cancelled, minelayer will try lay mines at the 3/4 path to minefield location |
+| FavoritePositionDistance | 6 | Integer | Merge conflict point minefield position to a favorite minefield position if within this range and closest. If favorite minefield positions is at the max of 5, we always merge it to closest regardless of this |
+| RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
+
 ### Minelayer
 
 > Requires trait(s): [`Rearmable`](#rearmable).
@@ -7421,6 +7440,18 @@ Related types with their possible values are listed [at the bottom](#related-val
 | LandingSequence | landing | String |  |
 | TouchdownSequence | touchdown | String |  |
 | LiftoffSequence | liftoff | String |  |
+| Body | body | String | Which sprite body to play the animation on. |
+
+### WithLandingCraftAnimation
+
+> Requires trait(s): [`Cargo`](#cargo), [`WithSpriteBody`](#withspritebody).
+
+| Property | Default Value | Type | Description |
+| -------- | ------------- | ---- | ----------- |
+| OpenTerrainTypes | *(required)* | Set of String |  |
+| OpenSequence | open | String |  |
+| CloseSequence | close | String |  |
+| UnloadSequence | unload | String |  |
 | Body | body | String | Which sprite body to play the animation on. |
 
 ### WithLandingUnloadAnimation
