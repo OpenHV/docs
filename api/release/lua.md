@@ -1,4 +1,4 @@
-This is an automatically generated listing of the Lua map scripting API for version 20230212 of OpenHV.
+This is an automatically generated listing of the Lua map scripting API for version 20230305 of OpenHV.
 
 OpenHV allows custom maps and missions to be scripted using Lua 5.1.
 These scripts run in a sandbox that prevents access to unsafe functions (e.g. OS or file access), and limits the memory and CPU usage of the scripts.
@@ -178,9 +178,9 @@ For a basic guide about map scripts see the [`Map Scripting` wiki page](https://
 | **void DisplayMessage(string text, string prefix = Mission, Color? color = nil)** | Display a text message to the player. |
 | **void DisplaySystemMessage(string text, string prefix = nil)** | Display a system message to the player. If 'prefix' is nil the default system prefix is used. |
 | **void FloatingText(string text, WPos position, int duration = 30, Color? color = nil)** | Display a text message at the specified location. |
-| **void PlayMovieFullscreen(string movie, LuaFunction func = nil)** | Play a VQA video fullscreen. File name has to include the file extension. |
-| **bool PlayMovieInRadar(string movie, LuaFunction playComplete = nil)** | Play a VQA video in the radar window. File name has to include the file extension. Returns true on success, if the movie wasn't found the function returns false and the callback is executed. |
-| **void PlayMusic(string track = nil, LuaFunction func = nil)** | Play track defined in music.yaml or map.yaml, or keep track empty for playing a random song. |
+| **void PlayMovieFullscreen(string videoFileName, LuaFunction onPlayComplete = nil)** | Play a video fullscreen. File name has to include the file extension. |
+| **void PlayMovieInRadar(string videoFileName, LuaFunction onPlayComplete = nil)** | Play a video in the radar window. File name has to include the file extension. |
+| **void PlayMusic(string track = nil, LuaFunction onPlayComplete = nil)** | Play track defined in music.yaml or map.yaml, or keep track empty for playing a random song. |
 | **void PlaySound(string file)** | Play a sound file |
 | **void PlaySoundNotification(Player player, string notification)** | Play a sound listed in notifications.yaml |
 | **void PlaySpeechNotification(Player player, string notification)** | Play an announcer voice listed in notifications.yaml |
@@ -296,6 +296,7 @@ For a basic guide about map scripts see the [`Map Scripting` wiki page](https://
 
 | Function | Description |
 |---------:|-------------|
+| **bool CanCapture(Actor target)** | Checks if the target actor can be catured.<br />**Requires Trait:** CaptureManager |
 | **void Capture(Actor target)** | Captures the target actor.<br />**Requires Trait:** CaptureManager |
 | **void DeliverCarryable(CPos target)**<br />*Queued Activity* | Drop the actor being carried at the target location.<br />**Requires Trait:** Carryall |
 | **void DeliverCash(Actor target)**<br />*Queued Activity* | Deliver cash to the target actor.<br />**Requires Traits:** IMove, DeliversCash |
