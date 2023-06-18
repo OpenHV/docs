@@ -1,6 +1,6 @@
 # Weapons
 
-This documentation is aimed at modders and has been automatically generated for version `20230416` of OpenHV. Please do not edit it directly, but instead add new `[Desc("String")]` tags to the source code.
+This documentation is aimed at modders and has been automatically generated for version `20230618` of OpenHV. Please do not edit it directly, but instead add new `[Desc("String")]` tags to the source code.
 
 Listed below are a template for weapon definitions and the types it can use (warheads and projectiles) with default values and developer commentary.
 Related types with their possible values are listed [at the bottom](#related-value-types-enums).
@@ -19,6 +19,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | AfterFireSoundDelay | 0 | Integer | Delay in ticks to play reloading sound. |
 | ReloadDelay | 1 | Integer | Delay in ticks between reloading ammo magazines. |
 | Burst | 1 | Integer | Number of shots in a single ammo magazine. |
+| CanTargetSelf | False | Boolean | Can this weapon target the attacker itself? |
 | ValidTargets | Ground, Water | Collection of TargetableType | What types of targets are affected. |
 | InvalidTargets |  | Collection of TargetableType | What types of targets are unaffected. Overrules ValidTargets. |
 | AirThreshold | 0c128 | 1D World Distance | If weapon is not directly targeting an actor and targeted position is above this altitude, the weapon will ignore terrain target types and only check TargetTypeAir for validity. |
@@ -84,11 +85,12 @@ Related types with their possible values are listed [at the bottom](#related-val
 | ContrailLength | 0 | Integer | When set, display a line behind the actor. Length is measured in ticks after appearing. |
 | ContrailDelay | 1 | Integer | Time (in ticks) after which the line should appear. Controls the distance to the actor. |
 | ContrailZOffset | 2047 | Integer | Equivalent to sequence ZOffset. Controls Z sorting. |
-| ContrailWidth | 0c64 | 1D World Distance | Thickness of the emitted line. |
+| ContrailStartWidth | 0c64 | 1D World Distance | Thickness of the emitted line at the start of the contrail. |
+| ContrailEndWidth |  | 1D World Distance (optional) | Thickness of the emitted line at the end of the contrail. Will default to ContrailStartWidth if left undefined |
 | ContrailStartColor | FFFFFF | Color (RRGGBB[AA] notation) | RGB color at the contrail start. |
 | ContrailStartColorUsePlayerColor | False | Boolean | Use player remap color instead of a custom color at the contrail the start. |
 | ContrailStartColorAlpha | 255 | Integer | The alpha value [from 0 to 255] of color at the contrail the start. |
-| ContrailEndColor |  | Color (RRGGBB[AA] notation) (optional) | RGB color at the contrail end. Set to start color if undefined |
+| ContrailEndColor |  | Color (RRGGBB[AA] notation) (optional) | RGB color at the contrail end. Will default to ContrailStartColor if left undefined |
 | ContrailEndColorUsePlayerColor | False | Boolean | Use player remap color instead of a custom color at the contrail end. |
 | ContrailEndColorAlpha | 0 | Integer | The alpha value [from 0 to 255] of color at the contrail end. |
 
@@ -190,11 +192,12 @@ Related types with their possible values are listed [at the bottom](#related-val
 | ContrailLength | 0 | Integer | When set, display a line behind the actor. Length is measured in ticks after appearing. |
 | ContrailDelay | 1 | Integer | Time (in ticks) after which the line should appear. Controls the distance to the actor. |
 | ContrailZOffset | 2047 | Integer | Equivalent to sequence ZOffset. Controls Z sorting. |
-| ContrailWidth | 0c64 | 1D World Distance | Thickness of the emitted line. |
+| ContrailStartWidth | 0c64 | 1D World Distance | Thickness of the emitted line at the start of the contrail. |
+| ContrailEndWidth |  | 1D World Distance (optional) | Thickness of the emitted line at the end of the contrail. Will default to ContrailStartWidth if left undefined |
 | ContrailStartColor | FFFFFF | Color (RRGGBB[AA] notation) | RGB color at the contrail start. |
 | ContrailStartColorUsePlayerColor | False | Boolean | Use player remap color instead of a custom color at the contrail the start. |
 | ContrailStartColorAlpha | 255 | Integer | The alpha value [from 0 to 255] of color at the contrail the start. |
-| ContrailEndColor |  | Color (RRGGBB[AA] notation) (optional) | RGB color at the contrail end. Set to start color if undefined |
+| ContrailEndColor |  | Color (RRGGBB[AA] notation) (optional) | RGB color at the contrail end. Will default to ContrailStartColor if left undefined |
 | ContrailEndColorUsePlayerColor | False | Boolean | Use player remap color instead of a custom color at the contrail end. |
 | ContrailEndColorAlpha | 0 | Integer | The alpha value [from 0 to 255] of color at the contrail end. |
 | Jammable | True | Boolean | Should missile targeting be thrown off by nearby actors with JamsMissiles. |
@@ -250,7 +253,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 
 ### ChangeOwnerWarhead
-**Interacts with the TemporaryOwnerManager trait.**
+**Interacts with the `TemporaryOwnerManager` trait.**
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
