@@ -1,6 +1,6 @@
 # Traits
 
-This documentation is aimed at modders and has been automatically generated for version `20230618` of OpenHV. Please do not edit it directly, but instead add new `[Desc("String")]` tags to the source code.
+This documentation is aimed at modders and has been automatically generated for version `20230717` of OpenHV. Please do not edit it directly, but instead add new `[Desc("String")]` tags to the source code.
 
 Listed below are all traits with their properties and their default values plus developer commentary.
 Related types with their possible values are listed [at the bottom](#related-value-types-enums).
@@ -2839,6 +2839,40 @@ Related types with their possible values are listed [at the bottom](#related-val
 | Effect | None | [`EffectType`](#effecttype) | Effect style to fade to during gameplay. Accepts values of None or Desaturated. |
 | MenuEffect | None | [`EffectType`](#effecttype) | Effect style to fade to when opening the in-game menu. Accepts values of None, Black or Desaturated. |
 
+### MineImmune
+**Tag trait for stuff that should not trigger mines.**
+
+### Mine
+
+| Property | Default Value | Type | Description |
+| -------- | ------------- | ---- | ----------- |
+| CrushClasses |  | Collection of CrushClass |  |
+| AvoidFriendly | True | Boolean |  |
+| BlockFriendly | True | Boolean |  |
+| DetonateClasses |  | Collection of CrushClass |  |
+
+### Minelayer
+
+> Requires trait(s): [`Rearmable`](#rearmable).
+
+| Property | Default Value | Type | Description |
+| -------- | ------------- | ---- | ----------- |
+| Mine | minv | String |  |
+| AmmoPoolName | primary | String |  |
+| MinefieldDepth | 1c512 | 1D World Distance |  |
+| Voice | Action | String | Voice to use when ordered to lay a minefield. |
+| TargetLineColor | DC143C | Color (RRGGBB[AA] notation) | Color to use for the target line when laying mines. |
+| TileValidName | build-valid | String | Sprite overlay to use for valid minefield cells. |
+| TileInvalidName | build-invalid | String | Sprite overlay to use for invalid minefield cells. |
+| TileUnknownName | build-unknown | String | Sprite overlay to use for minefield cells hidden behind fog or shroud. |
+| TerrainTypes |  | Set of String | Only allow laying mines on listed terrain types. Leave empty to allow all terrain types. |
+| DeployCursor | deploy | String | Cursor to display when able to lay a mine. |
+| DeployBlockedCursor | deploy-blocked | String | Cursor to display when unable to lay a mine. |
+| AbilityCursor | ability | String | Cursor to display when able to lay a mine. |
+| AmmoUsage | 1 | Integer | Ammo the minelayer consumes per mine. |
+| PreLayDelay | 0 | Integer | Number of ticks it takes to lay a mine. |
+| AfterLayingDelay | 20 | Integer | Number of ticks for the minelayer to wait after laying a mine. The wait can be interrupted by a player order. |
+
 ### MissionData
 **Defines the FMVs that can be played by missions.**
 
@@ -4913,10 +4947,13 @@ Related types with their possible values are listed [at the bottom](#related-val
 ### Voiced
 **This actor has a voice.**
 
+> Inherits from: `ConditionalTrait`.
+
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
 | VoiceSet | *(required)* | String | Which voice set to use. |
 | Volume | 1 | Real Number | Multiply volume with this factor. |
+| RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### Wanders
 **Wanders around aimlessly while idle.**
@@ -6728,7 +6765,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | Image |  | String |  |
 | Sequence |  | String | Sequence to use for overlay animation. |
 | Palette |  | String | Custom palette name |
-| Delay | 0 | Integer | Start after this duration of miliseconds. |
+| Delay | 0 | Integer | Start after this duration in ticks. |
 | Actor | *(required)* | String | Name of the actor. |
 | SpawnOffset | 0,0 | 2D Cell Vector | Offset relative to the top-left cell of the building. |
 | Facing | 0 | 1D World Angle | Which direction the unit should face. |
@@ -6830,18 +6867,6 @@ Related types with their possible values are listed [at the bottom](#related-val
 | -------- | ------------- | ---- | ----------- |
 | Palette | terrain | String | Palette to render the layer sprites in. |
 
-### MineImmune
-**Tag trait for stuff that should not trigger mines.**
-
-### Mine
-
-| Property | Default Value | Type | Description |
-| -------- | ------------- | ---- | ----------- |
-| CrushClasses |  | Collection of CrushClass |  |
-| AvoidFriendly | True | Boolean |  |
-| BlockFriendly | True | Boolean |  |
-| DetonateClasses |  | Collection of CrushClass |  |
-
 ### MinelayerBotModule
 **Manages AI minelayer unit related with Minelayer traits. When enemy damage AI's actors, the location of conflict will be recorded, If a location is a valid spot, it will add/merge to favorite location for usage later**
 
@@ -6860,28 +6885,6 @@ Related types with their possible values are listed [at the bottom](#related-val
 | AwayFromCellDistance | 9 | Integer | Minefield location check distance to AwayFromAlliedTargettype and AwayFromEnemyTargettype. In addition, if any emeny actor within this range and minefield location is not cancelled, minelayer will try lay mines at the 3/4 path to minefield location |
 | FavoritePositionDistance | 6 | Integer | Merge conflict point minefield position to a favorite minefield position if within this range and closest. If favorite minefield positions is at the max of 5, we always merge it to closest regardless of this |
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
-
-### Minelayer
-
-> Requires trait(s): [`Rearmable`](#rearmable).
-
-| Property | Default Value | Type | Description |
-| -------- | ------------- | ---- | ----------- |
-| Mines | *(required)* | Collection of String |  |
-| AmmoPoolName | primary | String |  |
-| MinefieldDepth | 1c512 | 1D World Distance |  |
-| Voice | Action | String | Voice to use when ordered to lay a minefield. |
-| TileImage | overlay | String | Sprite image used for overlays. |
-| TileValidName | target-valid | String | Sprite overlay to use for valid minefield cells. |
-| TileInvalidName | target-invalid | String | Sprite overlay to use for invalid minefield cells. |
-| TileUnknownName | target-unknown | String | Sprite overlay to use for minefield cells hidden behind fog or shroud. |
-| Cursor | ability | String | Cursor to display when able to (un)deploy the actor. |
-| TargetLineColor | DC143C | Color (RRGGBB[AA] notation) | Color to use for the target line when laying mines. |
-| TerrainTypes |  | Set of String | Only allow laying mines on listed terrain types. Leave empty to allow all terrain types. |
-| DeployCursor | deploy | String | Cursor to display when able to lay a mine. |
-| DeployBlockedCursor | deploy-blocked | String | Cursor to display when unable to lay a mine. |
-| AbilityCursor | ability | String | Cursor to display when able to lay a mine. |
-| AmmoUsage | 1 | Integer | Ammo the minelayer consumes per mine. |
 
 ### MinerAttackNotifier
 **Plays an audio notification and shows a radar ping when a miner is attacked. Attach this to the player actor.**
@@ -7575,6 +7578,25 @@ Related types with their possible values are listed [at the bottom](#related-val
 | PauseOnCondition |  | BooleanExpression | Boolean expression defining the condition to pause this trait. |
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
+### WithRandomSpriteBody
+**Picks sprites from a random actor.**
+
+> Inherits from: [`WithSpriteBody`](#withspritebody), `PausableConditionalTrait`, `ConditionalTrait`.
+
+> Requires trait(s): [`RenderSprites`](#rendersprites).
+
+| Property | Default Value | Type | Description |
+| -------- | ------------- | ---- | ----------- |
+| Images | *(required)* | Collection of String | The sequence names that define the actor sprites. |
+| StartSequence |  | String | Animation to play when the actor is created. |
+| Sequence | idle | String | Animation to play when the actor is idle. |
+| Name | body | String | Identifier used to assign modifying traits to this sprite body. |
+| ForceToGround | False | Boolean | Forces sprite body to be rendered on ground regardless of actor altitude (for example for custom shadow sprites). |
+| Palette |  | String | Custom palette name. |
+| IsPlayerPalette | False | Boolean | Palette is a player palette BaseName. |
+| PauseOnCondition |  | BooleanExpression | Boolean expression defining the condition to pause this trait. |
+| RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
+
 ### WithResourceCollectorOverlay
 **Renders the fillness state.**
 
@@ -7816,7 +7838,7 @@ Possible values: `Cell`, `CenterPosition`
 Referenced by: [`LeavesTrails`](#leavestrails)
 
 ### UncloakType
-Possible values: `None`, `Attack`, `Move`, `Unload`, `Infiltrate`, `Demolish`, `Damage`, `Heal`, `SelfHeal`, `Dock`, `SupportPower`
+Possible values: `None`, `Attack`, `Move`, `Load`, `Unload`, `Infiltrate`, `Demolish`, `Damage`, `Heal`, `SelfHeal`, `Dock`, `SupportPower`
 
 Referenced by: [`Cloak`](#cloak)
 
