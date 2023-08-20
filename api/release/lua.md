@@ -1,4 +1,4 @@
-This is an automatically generated listing of the Lua map scripting API for version 20230717 of OpenHV.
+This is an automatically generated listing of the Lua map scripting API for version 20230820 of OpenHV.
 
 OpenHV allows custom maps and missions to be scripted using Lua 5.1.
 These scripts run in a sandbox that prevents access to unsafe functions (e.g. OS or file access), and limits the memory and CPU usage of the scripts.
@@ -329,7 +329,7 @@ For a basic guide about map scripts see the [`Map Scripting` wiki page](https://
 | **bool CanTarget(Actor targetActor)** | Checks if the targeted actor is a valid target for this actor.<br />**Requires Trait:** AttackBase |
 | **void Demolish(Actor target)**<br />*Queued Activity* | Demolish the target actor.<br />**Requires Traits:** IMove, Demolition |
 | **void Guard(Actor targetActor)**<br />*Queued Activity* | Guard the target actor.<br />**Requires Traits:** Guard, IMove |
-| **void Hunt()**<br />*Queued Activity* | Seek out and attack nearby targets.<br />**Requires Traits:** AttackBase, IMove |
+| **void Hunt()**<br />*Queued Activity* | Ignoring visibility, find the closest hostile target and attack move to within 2 cells of it.<br />**Requires Traits:** AttackBase, IMove |
 | **void Patrol(CPos[] waypoints, bool loop = True, int wait = 0)**<br />*Queued Activity* | Patrol along a set of given waypoints. The action is repeated by default, and the actor will wait for `wait` ticks at each waypoint.<br />**Requires Traits:** AttackBase, IMove |
 | **void PatrolUntil(CPos[] waypoints, LuaFunction func, int wait = 0)**<br />*Queued Activity* | Patrol along a set of given waypoints until a condition becomes true. The actor will wait for `wait` ticks at each waypoint.<br />**Requires Traits:** AttackBase, IMove |
 

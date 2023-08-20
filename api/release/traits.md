@@ -1,6 +1,6 @@
 # Traits
 
-This documentation is aimed at modders and has been automatically generated for version `20230717` of OpenHV. Please do not edit it directly, but instead add new `[Desc("String")]` tags to the source code.
+This documentation is aimed at modders and has been automatically generated for version `20230820` of OpenHV. Please do not edit it directly, but instead add new `[Desc("String")]` tags to the source code.
 
 Listed below are all traits with their properties and their default values plus developer commentary.
 Related types with their possible values are listed [at the bottom](#related-value-types-enums).
@@ -138,6 +138,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | InitialFacing | 0 | 1D World Angle |  |
 | TurnSpeed | 512 | 1D World Angle | Speed at which the actor turns. |
 | IdleTurnSpeed |  | 1D World Angle (optional) | Turn speed to apply when aircraft flies in circles while idle. Defaults to TurnSpeed if undefined. |
+| TurnDeadzone | 2 | 1D World Angle | When flying if the difference between current facing and desired facing is less than this value, don't turn. This prevents visual jitter. |
 | Speed | 1 | Integer | Maximum flight speed when cruising. |
 | IdleSpeed | -1 | Integer | If non-negative, force the aircraft to move in circles at this speed when idle (a speed of 0 means don't move), ignoring CanHover. |
 | Pitch | 0 | 1D World Angle | Body pitch when flying forwards. Only relevant for voxel aircraft. |
@@ -341,6 +342,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### AttackBomber
+**Trait used for scripted actors or actors spawned by a support power.**
 
 > Inherits from: `AttackBase`, `PausableConditionalTrait`, `ConditionalTrait`.
 
@@ -1157,7 +1159,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | -------- | ------------- | ---- | ----------- |
 | HsvSaturationRange | 0.3, 0.95 | Collection of Real Number | Minimum and maximum saturation levels that are valid for use. |
 | HsvValueRange | 0.3, 0.95 | Collection of Real Number | Minimum and maximum value levels that are valid for use. |
-| SimilarityThreshold | 0.314 | Real Number | Perceptual color threshold for determining whether two colors are too similar. |
+| SimilarityThreshold | 80 | Integer | Perceptual color threshold for determining whether two colors are too similar. |
 | PresetColors |  | Collection of Color (RRGGBB[AA] notation) | List of colors to be displayed in the palette tab. |
 | PreviewActor |  | String | Actor type to show in the color picker. This can be overridden for specific factions with FactionPreviewActors. |
 | FactionPreviewActors |  | Dictionary with Key: String, Value: String | Actor type to show in the color picker for specific factions. Overrides PreviewActor. A dictionary of [faction name]: [actor name]. |
@@ -2110,6 +2112,17 @@ Related types with their possible values are listed [at the bottom](#related-val
 | Condition | *(required)* | String | Condition to grant. |
 | Direction | X | [`LineBuildDirection`](#linebuilddirection) | Line build direction to trigger the condition. |
 
+### GrantConditionOnMinelaying
+
+> Inherits from: `ConditionalTrait`.
+
+> Requires trait(s): [`Minelayer`](#minelayer).
+
+| Property | Default Value | Type | Description |
+| -------- | ------------- | ---- | ----------- |
+| Condition | *(required)* | String | Condition to grant. |
+| RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
+
 ### GrantConditionOnMovement
 
 > Inherits from: `ConditionalTrait`.
@@ -2207,7 +2220,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | Condition | *(required)* | String | The condition to grant while aiming. |
 
 ### GrantExternalConditionCrateAction
-**Grants a condition on the collector.**
+**Grants a condition to the collector and nearby units.**
 
 > Inherits from: [`CrateAction`](#crateaction), `ConditionalTrait`.
 
@@ -2920,7 +2933,8 @@ Related types with their possible values are listed [at the bottom](#related-val
 | PreviewFacing | 384 | 1D World Angle | Facing to use for actor previews (map editor, color picker, etc) |
 | EditorFacingDisplayOrder | 3 | Integer | Display order for the facing slider in the map editor |
 | CanMoveBackward | False | Boolean | Can move backward if possible |
-| BackwardDuration | 40 | Integer | After how many ticks the actor will turn forward during backoff |
+| BackwardDuration | 40 | Integer | After how many ticks the actor will turn forward during backoff. If set to -1 the unit will be allowed to move backwards without time limit. |
+| MaxBackwardCells | 15 | Integer | Actor will only try to move backwards when the path (in cells) is shorter than this value. If set to -1 the unit will be allowed to move backwards without range limit. |
 | RequireForceMoveCondition |  | BooleanExpression | Boolean expression defining the condition under which the regular (non-force) move cursor is disabled. |
 | ImmovableCondition |  | BooleanExpression | Boolean expression defining the condition under which this actor cannot be nudged by other actors. |
 | TerrainOrientationAdjustmentMargin | -0c1 | 1D World Distance | The distance from the edge of a cell over which the actor will adjust its tilt when moving between cells with different ramp types. -1 means that the actor does not tilt on slopes. |
@@ -6867,6 +6881,22 @@ Related types with their possible values are listed [at the bottom](#related-val
 | -------- | ------------- | ---- | ----------- |
 | Palette | terrain | String | Palette to render the layer sprites in. |
 
+### LoadCargoBotModule
+**Manages AI load unit related with Cargo and Passenger traits.**
+
+> Inherits from: `ConditionalTrait`.
+
+| Property | Default Value | Type | Description |
+| -------- | ------------- | ---- | ----------- |
+| TransportTypes |  | Set of String | Actor types that can be targeted for load, must have Cargo. |
+| PassengerTypes |  | Set of String | Actor types that used for loading, must have Passenger. |
+| OnlyEnterOwnerPlayer | True | Boolean | Allow enter allied transport. |
+| ScanTick | 317 | Integer | Scan suitable actors and target in this interval. |
+| ValidDamageState | Heavy | [`DamageState`](#damagestate) | Don't load passengers to this actor if damage state is worse than this. |
+| UnloadDamageState | Heavy | [`DamageState`](#damagestate) | Unload passengers to this actor if damage state is worse than this. |
+| MaxDistance | 20c0 | 1D World Distance | Don't load passengers that are further than this distance to this actor. |
+| RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
+
 ### MinelayerBotModule
 **Manages AI minelayer unit related with Minelayer traits. When enemy damage AI's actors, the location of conflict will be recorded, If a location is a valid spot, it will add/merge to favorite location for usage later**
 
@@ -6987,7 +7017,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### PowerDownBotModule
-**Manages AI powerdown.**
+**Manages AI temporary power shutdowns.**
 
 > Inherits from: `ConditionalTrait`.
 
@@ -7269,13 +7299,6 @@ Related types with their possible values are listed [at the bottom](#related-val
 | EnterCursor | enter | String |  |
 | EnterBlockedCursor | enter-blocked | String |  |
 
-### TerrainDebugOverlay
-**Displays terrain tile IDs colored by terrain type.**
-
-| Property | Default Value | Type | Description |
-| -------- | ------------- | ---- | ----------- |
-| Font | TinyBold | String |  |
-
 ### TerrainTileAnimation
 
 | Property | Default Value | Type | Description |
@@ -7286,6 +7309,13 @@ Related types with their possible values are listed [at the bottom](#related-val
 | Image | *(required)* | String | Which image to use. |
 | Sequence | *(required)* | String | Which sequence to use. |
 | Palette | *(required)* | String | Which palette to use. |
+
+### TerrainTypeOverlay
+**Displays terrain tile IDs colored by terrain type.**
+
+| Property | Default Value | Type | Description |
+| -------- | ------------- | ---- | ----------- |
+| Font | TinyBold | String |  |
 
 ### UndergroundResourceLayer
 **Allows resources below actors. Attach this to the world actor.**
@@ -7447,6 +7477,18 @@ Related types with their possible values are listed [at the bottom](#related-val
 | DamageTypes |  | Collection of DamageType | Damage types that this should be used for (defined on the warheads). Leave empty to disable all filtering. |
 | MinimumDamageState | Heavy | [`DamageState`](#damagestate) | Trigger when Undamaged, Light, Medium, Heavy, Critical or Dead. |
 | MaximumDamageState | Dead | [`DamageState`](#damagestate) |  |
+
+### WithDeployMineAnimation
+
+> Inherits from: `ConditionalTrait`.
+
+> Requires trait(s): [`Minelayer`](#minelayer), [`WithSpriteBody`](#withspritebody).
+
+| Property | Default Value | Type | Description |
+| -------- | ------------- | ---- | ----------- |
+| Sequence |  | String | Displayed while laying mine. |
+| Body | body | String | Which sprite body to modify. |
+| RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### WithIdleOverlayOnGround
 **Plays an idle overlay on the ground position under the actor (regardless of it's actual height).**
@@ -7740,7 +7782,7 @@ Referenced by: [`Explodes`](#explodes), [`SpawnedExplodes`](#spawnedexplodes)
 ### DamageState
 Possible values: `Undamaged`, `Light`, `Medium`, `Heavy`, `Critical`, `Dead`
 
-Referenced by: [`BridgePlaceholder`](#bridgeplaceholder), [`ExplosionOnDamageTransition`](#explosionondamagetransition), [`GrantConditionOnDamageState`](#grantconditionondamagestate), [`WithDamageOverlay`](#withdamageoverlay), [`WithDamagedOverlay`](#withdamagedoverlay)
+Referenced by: [`BridgePlaceholder`](#bridgeplaceholder), [`ExplosionOnDamageTransition`](#explosionondamagetransition), [`GrantConditionOnDamageState`](#grantconditionondamagestate), [`LoadCargoBotModule`](#loadcargobotmodule), [`WithDamageOverlay`](#withdamageoverlay), [`WithDamagedOverlay`](#withdamagedoverlay)
 
 ### DetectionCircleVisibility
 Possible values: `Always`, `WhenSelected`
