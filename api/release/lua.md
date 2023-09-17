@@ -1,4 +1,4 @@
-This is an automatically generated listing of the Lua map scripting API for version 20230820 of OpenHV.
+This is an automatically generated listing of the Lua map scripting API for version 20230917 of OpenHV.
 
 OpenHV allows custom maps and missions to be scripted using Lua 5.1.
 These scripts run in a sandbox that prevents access to unsafe functions (e.g. OS or file access), and limits the memory and CPU usage of the scripts.

@@ -1,6 +1,6 @@
 # Traits
 
-This documentation is aimed at modders and has been automatically generated for version `20230820` of OpenHV. Please do not edit it directly, but instead add new `[Desc("String")]` tags to the source code.
+This documentation is aimed at modders and has been automatically generated for version `20230917` of OpenHV. Please do not edit it directly, but instead add new `[Desc("String")]` tags to the source code.
 
 Listed below are all traits with their properties and their default values plus developer commentary.
 Related types with their possible values are listed [at the bottom](#related-value-types-enums).
@@ -4152,7 +4152,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | Label | *(required)* | String | Descriptive label for this option. |
 | Description |  | String | Tooltip description for this option. |
 | Default | *(required)* | String | Default option key in the `Values` list. |
-| Values | *(required)* | Dictionary with Key: String, Value: String | Difficulty levels supported by the map. |
+| Values | *(required)* | Dictionary with Key: String, Value: String | Options to choose from. |
 | Locked | False | Boolean | Prevent the option from being changed from its default value. |
 | Visible | True | Boolean | Whether to display the option in the lobby. |
 | DisplayOrder | 0 | Integer | Display order for the option in the lobby. |
@@ -7199,6 +7199,22 @@ Related types with their possible values are listed [at the bottom](#related-val
 | MinimumFallbackAmount | 40 | Integer | How much the scrap is worth when pre-placed with the map editor. |
 | MaximumFallbackAmount | 200 | Integer |  |
 
+### SendUnitToAttackBotModule
+**Bot logic for units that should not be sent with a regular squad, like suicide or subterranean units.**
+
+> Inherits from: `ConditionalTrait`.
+
+| Property | Default Value | Type | Description |
+| -------- | ------------- | ---- | ----------- |
+| ActorTypesAndAttackDesire |  | Dictionary with Key: String, Value: Integer | Actors used for attack, and their base desire provided for attack desire. When desire reach 100, AI will send them to attack. |
+| ValidTargets | Structure | Collection of TargetableType | Target types that can be targeted. |
+| InvalidTargets |  | Collection of TargetableType | Target types that can't be targeted. |
+| AttackDistance | Closest | [`AttackDistance`](#attackdistance) | Should attack the furthest or closest target. Possible values are Closest, Furthest, Random |
+| AttackOrderName | Attack | String | Attack order name. |
+| ScanTick | 463 | Integer | Find target and try attack target in this interval. |
+| AttackDesireIncreasedPerScan | 10 | Integer | The total attack desire increases by this amount per scan Note: When there is no attack unit, the total attack desire will return to 0. |
+| RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
+
 ### SpawnedExplodes
 **This actor explodes when killed and the kill XP goes to the Spawner.**
 
@@ -7390,7 +7406,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 
-### EmptySelectionDecorations
+### CustomSelectionDecorations
 
 > Inherits from: `SelectionDecorationsBase`.
 
@@ -7400,8 +7416,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | -------- | ------------- | ---- | ----------- |
 | SelectionBoxColor | FFFFFF | Color (RRGGBB[AA] notation) |  |
 
-### OutlinedSelectionDecorations
-**Displays thick and outlined healthbars as well as sprite based selection boxes.**
+### EmptySelectionDecorations
 
 > Inherits from: `SelectionDecorationsBase`.
 
@@ -7409,19 +7424,6 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
-| Image | outline | String | Image used for the undamaged decoration. |
-| DamagedImage | outline-yellow | String |  |
-| CriticallyDamagedImage | outline-red | String |  |
-| TopLeftSequence | top-left | String |  |
-| TopRightSequence | top-right | String |  |
-| BottomLeftSequence | bottom-left | String |  |
-| BottomRightSequence | bottom-right | String |  |
-| Spacers | False | Boolean | Render left, bottom, right and top as well. |
-| LeftSequence | left | String |  |
-| BottomSequence | bottom | String |  |
-| RightSequence | right | String |  |
-| TopSequence | top | String |  |
-| Palette | cursor | String | Palette to render the sprite in. Reference the world actor's PaletteFrom* traits. |
 | SelectionBoxColor | FFFFFF | Color (RRGGBB[AA] notation) |  |
 
 ### WithCarrierHatchAnimation
@@ -7768,6 +7770,11 @@ Referenced by: [`AttackAircraft`](#attackaircraft)
 Possible values: `Preparation`, `Attack`
 
 Referenced by: [`AttackSounds`](#attacksounds), [`WithAttackAnimation`](#withattackanimation), [`WithAttackOverlay`](#withattackoverlay), [`WithTurretAttackAnimation`](#withturretattackanimation)
+
+### AttackDistance
+Possible values: `Closest`, `Furthest`, `Random`
+
+Referenced by: [`SendUnitToAttackBotModule`](#sendunittoattackbotmodule)
 
 ### BlendMode
 Possible values: `None`, `Alpha`, `Additive`, `Subtractive`, `Multiply`, `Multiplicative`, `DoubleMultiplicative`, `LowAdditive`, `Screen`, `Translucent`
