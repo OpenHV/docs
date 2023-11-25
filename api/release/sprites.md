@@ -1,6 +1,6 @@
 # Sprite sequences
 
-This documentation is aimed at modders and has been automatically generated for version `20230917` of OpenHV. Please do not edit it directly, but instead add new `[Desc("String")]` tags to the source code.
+This documentation is aimed at modders and has been automatically generated for version `20231125` of OpenHV. Please do not edit it directly, but instead add new `[Desc("String")]` tags to the source code.
 
 Listed below are all sprite sequence types with their properties and their default values plus developer commentary.
 Related types with their possible values are listed [at the bottom](#related-value-types-enums).
@@ -12,6 +12,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
 | Filename |  | String | File name of the sprite to use for this sequence. |
+| FilenamePattern |  | String | File name pattern to build the sprite to use for this sequence. |
 | Start | 0 | Integer | Frame index to start from. |
 | Length | 1 | Integer | Number of frames to use. Does not have to be the total amount the sprite sheet has. |
 | Stride | -1 | Integer | Overrides Length if a different number of frames is defined between facings. |
@@ -46,6 +47,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
 | TilesetFilenames |  | Dictionary with Key: String, Value: String | Dictionary of <tileset name>: filename to override the Filename key. |
+| TilesetFilenamesPattern |  | Dictionary with Key: String, Value: String | Dictionary of <tileset name>: <filename pattern> to override the FilenamePattern key. |
 
 # Related value types (enums):
 

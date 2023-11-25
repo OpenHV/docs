@@ -1,4 +1,4 @@
-This is an automatically generated listing of the Lua map scripting API for version 20230917 of OpenHV.
+This is an automatically generated listing of the Lua map scripting API for version 20231125 of OpenHV.
 
 OpenHV allows custom maps and missions to be scripted using Lua 5.1.
 These scripts run in a sandbox that prevents access to unsafe functions (e.g. OS or file access), and limits the memory and CPU usage of the scripts.
@@ -121,8 +121,14 @@ For a basic guide about map scripts see the [`Map Scripting` wiki page](https://
 
 | Function | Description |
 |---------:|-------------|
+| **int CurrentDay { get; }** |  |
+| **int CurrentHour { get; }** |  |
+| **int CurrentMinute { get; }** |  |
+| **int CurrentMonth { get; }** |  |
+| **int CurrentSecond { get; }** |  |
+| **int CurrentYear { get; }** |  |
 | **int GameTime { get; }** | Get the current game time (in ticks). |
-| **bool IsHalloween { get; }** | True on the 31st of October. |
+| **<s>bool IsHalloween { get; }</s>** | True on the 31st of October.<br />**Deprecated: Use CurrentMonth and CurrentDay instead.** |
 | **int Minutes(int minutes)** | Converts the number of minutes into game time (ticks). |
 | **int Seconds(int seconds)** | Converts the number of seconds into game time (ticks). |
 | **int TimeLimit { get; set; }** | Return or set the time limit (in ticks). When setting, the time limit will count from now. Setting the time limit to 0 will disable it. |
@@ -143,7 +149,7 @@ For a basic guide about map scripts see the [`Map Scripting` wiki page](https://
 |---------:|-------------|
 | **Double Ambient { get; set; }** |  |
 | **Double Blue { get; set; }** |  |
-| **void Flash(string type = nil, int ticks = -1)** | Controls the `FlashPaletteEffect` trait. |
+| **void Flash(string type = nil, int ticks = -1)** | Controls the `FlashPostProcessEffect` trait. |
 | **Double Green { get; set; }** |  |
 | **Double Red { get; set; }** |  |
 
@@ -155,7 +161,7 @@ For a basic guide about map scripts see the [`Map Scripting` wiki page](https://
 | **Actor[] ActorsInCircle(WPos location, WDist radius, LuaFunction filter = nil)** | Returns a table of all actors within the requested region, filtered using the specified function. |
 | **Actor[] ActorsInWorld { get; }** | Returns a table of all the actors that are currently on the map/in the world. |
 | **Actor[] ActorsWithTag(string tag)** | Returns a table of all actors tagged with the given string. |
-| **WPos BottomRight { get; }** | Returns the location of the bottom-right corner of the map (assuming zero terrain height). |
+| **<s>WPos BottomRight { get; }</s>** | Returns the location of the bottom-right corner of the map (assuming zero terrain height).<br />**Deprecated: This function will be removed in future versions. Use Map.ActorsInWorld instead.** |
 | **WPos CenterOfCell(CPos cell)** | Returns the center of a cell in world coordinates. |
 | **CPos ClosestEdgeCell(CPos givenCell)** | Returns the closest cell on the visible border of the map from the given cell. |
 | **CPos ClosestMatchingEdgeCell(CPos givenCell, LuaFunction filter)** | Returns the first cell on the visible border of the map from the given cell,<br />matching the filter function called as function(CPos cell). |
@@ -169,7 +175,7 @@ For a basic guide about map scripts see the [`Map Scripting` wiki page](https://
 | **CPos RandomCell()** | Returns a random cell inside the visible region of the map. |
 | **CPos RandomEdgeCell()** | Returns a random cell on the visible border of the map. |
 | **string TerrainType(CPos cell)** | Returns the type of the terrain at the target cell. |
-| **WPos TopLeft { get; }** | Returns the location of the top-left corner of the map (assuming zero terrain height). |
+| **<s>WPos TopLeft { get; }</s>** | Returns the location of the top-left corner of the map (assuming zero terrain height).<br />**Deprecated: This function will be removed in future versions. Use Map.ActorsInWorld instead.** |
 
 ### Media
 
@@ -304,6 +310,7 @@ For a basic guide about map scripts see the [`Map Scripting` wiki page](https://
 | **void DeliverCarryable(CPos target)**<br />*Queued Activity* | Drop the actor being carried at the target location.<br />**Requires Trait:** Carryall |
 | **void DeliverCash(Actor target)**<br />*Queued Activity* | Deliver cash to the target actor.<br />**Requires Traits:** IMove, DeliversCash |
 | **void DeliverExperience(Actor target)**<br />*Queued Activity* | Deliver experience to the target actor.<br />**Requires Traits:** IMove, DeliversExperience |
+| **void InstantlyRepair(Actor target)**<br />*Queued Activity* | Enter the target actor to repair it instantly.<br />**Requires Traits:** IMove, InstantlyRepairs |
 | **void PickupCarryable(Actor target)**<br />*Queued Activity* | Pick up the target actor.<br />**Requires Trait:** Carryall |
 
 ### AmmoPool
