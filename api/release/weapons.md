@@ -1,6 +1,6 @@
 # Weapons
 
-This documentation is aimed at modders and has been automatically generated for version `20231125` of OpenHV. Please do not edit it directly, but instead add new `[Desc("String")]` tags to the source code.
+This documentation is aimed at modders and has been automatically generated for version `20240401` of OpenHV. Please do not edit it directly, but instead add new `[Desc("String")]` tags to the source code.
 
 Listed below are a template for weapon definitions and the types it can use (warheads and projectiles) with default values and developer commentary.
 Related types with their possible values are listed [at the bottom](#related-value-types-enums).
@@ -249,6 +249,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | Distortion | 0 | Integer | Distortion offset. |
 | DistortionAnimation | 0 | Integer | Distortion animation offset. |
 | SegmentLength | 0c0 | 1D World Distance | Maximum length per segment. |
+| FadeOut | False | Boolean | Fade the beams out during lifetime. |
 | ZOffset | 0 | Integer | Equivalent to sequence ZOffset. Controls Z sorting. |
 
 
@@ -344,6 +345,26 @@ Related types with their possible values are listed [at the bottom](#related-val
 | -------- | ------------- | ---- | ----------- |
 | FlashType |  | String | Corresponds to `Type` from `FlashPostProcessEffect` on the world actor. |
 | Duration | 0 | Integer | Duration of the flashing, measured in ticks. Set to -1 to default to the `Length` of the `FlashPostProcessEffect`. |
+| ValidTargets | Ground, Water | Collection of TargetableType | What types of targets are affected. |
+| InvalidTargets |  | Collection of TargetableType | What types of targets are unaffected. Overrules ValidTargets. |
+| ValidRelationships | Enemy, Neutral, Ally | [`PlayerRelationship`](#playerrelationship) | What player relationships are affected. |
+| AffectsParent | False | Boolean | Can this warhead affect the actor that fired it. |
+| AirThreshold | 0c128 | 1D World Distance | If impact is above this altitude, warheads that would affect terrain ignore terrain target types (and either do nothing or perform their own checks). |
+| Delay | 0 | Integer | Delay in ticks before applying the warhead effect. 0 = instant (old model). |
+| DebugOverlayColor | FF0000 | Color (RRGGBB[AA] notation) | The color used for this warhead's visualization in the world's `WarheadDebugOverlay` trait. |
+
+### FlashTargetsInRadiusWarhead
+**Trigger a flash effect on the targeted actor, or actors within a circle.**
+
+| Property | Default Value | Type | Description |
+| -------- | ------------- | ---- | ----------- |
+| ActorFlashOverlayColor | FFFFFF | Color (RRGGBB[AA] notation) | The overlay color to display when ActorFlashType is Overlay. |
+| ActorFlashOverlayAlpha | 0.5 | Real Number | The overlay transparency to display when ActorFlashType is Overlay. |
+| ActorFlashTint | 1.4,1.4,1.4 | float3 | The tint to apply when ActorFlashType is Tint. |
+| ActorFlashCount | 2 | Integer | Number of times to flash actors. |
+| ActorFlashInterval | 2 | Integer | Number of ticks between actor flashes. |
+| Radius | 0c0 | 1D World Distance | Radius of an area at which effect will be applied. If left default effect applies only to target actor. |
+| DamageCalculationType | HitShape | [`DamageCalculationType`](#damagecalculationtype) | Controls the way damage is calculated. Possible values are 'HitShape', 'ClosestTargetablePosition' and 'CenterPosition'. |
 | ValidTargets | Ground, Water | Collection of TargetableType | What types of targets are affected. |
 | InvalidTargets |  | Collection of TargetableType | What types of targets are unaffected. Overrules ValidTargets. |
 | ValidRelationships | Enemy, Neutral, Ally | [`PlayerRelationship`](#playerrelationship) | What player relationships are affected. |
@@ -471,6 +492,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | Weapon | *(required)* | String | Has to be defined in weapons.yaml as well. |
 | Amount | 1 | Collection of Integer | Amount of weapons fired. |
 | AroundTarget | False | Boolean | Should the weapons be fired around the intended target or at the explosion's epicenter. |
+| TransferAltitude | False | Boolean | Should the weapons be fired towards the same altitude of the original explosion. |
 | ImpactActors | True | Boolean | Whether to consider actors in determining whether the explosion should happen. If false, only terrain will be considered. |
 | ValidTargets | Ground, Water | Collection of TargetableType | What types of targets are affected. |
 | InvalidTargets |  | Collection of TargetableType | What types of targets are unaffected. Overrules ValidTargets. |
@@ -532,7 +554,7 @@ Referenced by: [`AreaBeam`](#areabeam), [`LaserZap`](#laserzap), [`Railgun`](#ra
 ### DamageCalculationType
 Possible values: `HitShape`, `ClosestTargetablePosition`, `CenterPosition`
 
-Referenced by: [`SpreadDamageWarhead`](#spreaddamagewarhead)
+Referenced by: [`FlashTargetsInRadiusWarhead`](#flashtargetsinradiuswarhead), [`SpreadDamageWarhead`](#spreaddamagewarhead)
 
 ### InaccuracyType
 Possible values: `Maximum`, `PerCellIncrement`, `Absolute`
@@ -542,5 +564,5 @@ Referenced by: [`AreaBeam`](#areabeam), [`Bullet`](#bullet), [`InstantHit`](#ins
 ### PlayerRelationship
 Possible values: `None`, `Enemy`, `Neutral`, `Ally`
 
-Referenced by: [`Bullet`](#bullet), [`ChangeOwnerWarhead`](#changeownerwarhead), [`CreateEffectWarhead`](#createeffectwarhead), [`CreateResourceWarhead`](#createresourcewarhead), [`DestroyResourceWarhead`](#destroyresourcewarhead), [`FireClusterWarhead`](#fireclusterwarhead), [`FireRadiusWarhead`](#fireradiuswarhead), [`FireShrapnelWarhead`](#fireshrapnelwarhead), [`FlashEffectWarhead`](#flasheffectwarhead), [`GrantExternalConditionWarhead`](#grantexternalconditionwarhead), [`HealthPercentageDamageWarhead`](#healthpercentagedamagewarhead), [`LeaveSmudgeWarhead`](#leavesmudgewarhead), [`ShakeScreenWarhead`](#shakescreenwarhead), [`SpreadDamageWarhead`](#spreaddamagewarhead), [`TargetDamageWarhead`](#targetdamagewarhead), [`TreeDamageWarhead`](#treedamagewarhead)
+Referenced by: [`Bullet`](#bullet), [`ChangeOwnerWarhead`](#changeownerwarhead), [`CreateEffectWarhead`](#createeffectwarhead), [`CreateResourceWarhead`](#createresourcewarhead), [`DestroyResourceWarhead`](#destroyresourcewarhead), [`FireClusterWarhead`](#fireclusterwarhead), [`FireRadiusWarhead`](#fireradiuswarhead), [`FireShrapnelWarhead`](#fireshrapnelwarhead), [`FlashEffectWarhead`](#flasheffectwarhead), [`FlashTargetsInRadiusWarhead`](#flashtargetsinradiuswarhead), [`GrantExternalConditionWarhead`](#grantexternalconditionwarhead), [`HealthPercentageDamageWarhead`](#healthpercentagedamagewarhead), [`LeaveSmudgeWarhead`](#leavesmudgewarhead), [`ShakeScreenWarhead`](#shakescreenwarhead), [`SpreadDamageWarhead`](#spreaddamagewarhead), [`TargetDamageWarhead`](#targetdamagewarhead), [`TreeDamageWarhead`](#treedamagewarhead)
 
