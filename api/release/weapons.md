@@ -1,6 +1,6 @@
 # Weapons
 
-This documentation is aimed at modders and has been automatically generated for version `20240401` of OpenHV. Please do not edit it directly, but instead add new `[Desc("String")]` tags to the source code.
+This documentation is aimed at modders and has been automatically generated for version `20240803` of OpenHV. Please do not edit it directly, but instead add new `[Desc("String")]` tags to the source code.
 
 Listed below are a template for weapon definitions and the types it can use (warheads and projectiles) with default values and developer commentary.
 Related types with their possible values are listed [at the bottom](#related-value-types-enums).
@@ -45,7 +45,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | Falloff | 100, 100 | Collection of Integer | Damage modifier applied at each range step. |
 | Range | 0c0, 2097151c1023 | Collection of 1D World Distance | Ranges at which each Falloff step is defined. |
 | Inaccuracy | 0c0 | 1D World Distance | The maximum/constant/incremental inaccuracy used in conjunction with the InaccuracyType property. |
-| InaccuracyType | Maximum | [`InaccuracyType`](#inaccuracytype) | Controls the way inaccuracy is calculated. Possible values are 'Maximum' - scale from 0 to max with range, 'PerCellIncrement' - scale from 0 with range and 'Absolute' - use set value regardless of range. |
+| InaccuracyType | Maximum | [`InaccuracyType`](#inaccuracytype) | Controls the way inaccuracy is calculated. Possible values are 'Maximum' - scale from 0 to max with range, 'PerCellIncrement' - scale from 0 with range, 'Absolute' - use set value regardless of range. |
 | Blockable | False | Boolean | Can this projectile be blocked when hitting actors with an IBlocksProjectiles trait. |
 | TrackTarget | False | Boolean | Does the beam follow the target. |
 | RenderBeam | True | Boolean | Should the beam be visually rendered? False = Beam is invisible. |
@@ -60,7 +60,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | -------- | ------------- | ---- | ----------- |
 | Speed | 0c17 | Collection of 1D World Distance | Projectile speed in WDist / tick, two values indicate variable velocity. |
 | Inaccuracy | 0c0 | 1D World Distance | The maximum/constant/incremental inaccuracy used in conjunction with the InaccuracyType property. |
-| InaccuracyType | Maximum | [`InaccuracyType`](#inaccuracytype) | Controls the way inaccuracy is calculated. Possible values are 'Maximum' - scale from 0 to max with range, 'PerCellIncrement' - scale from 0 with range and 'Absolute' - use set value regardless of range. |
+| InaccuracyType | Maximum | [`InaccuracyType`](#inaccuracytype) | Controls the way inaccuracy is calculated. Possible values are 'Maximum' - scale from 0 to max with range, 'PerCellIncrement' - scale from 0 with range, 'Absolute' - use set value regardless of range. |
 | Image |  | String | Image to display. |
 | Sequences | idle | Collection of String | Loop a randomly chosen sequence of Image from this list while this projectile is moving. |
 | Palette | effect | String | The palette used to draw this projectile. |
@@ -115,7 +115,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
 | Inaccuracy | 0c0 | 1D World Distance | The maximum/constant/incremental inaccuracy used in conjunction with the InaccuracyType property. |
-| InaccuracyType | Maximum | [`InaccuracyType`](#inaccuracytype) | Controls the way inaccuracy is calculated. Possible values are 'Maximum' - scale from 0 to max with range, 'PerCellIncrement' - scale from 0 with range and 'Absolute' - use set value regardless of range. |
+| InaccuracyType | Maximum | [`InaccuracyType`](#inaccuracytype) | Controls the way inaccuracy is calculated. Possible values are 'Maximum' - scale from 0 to max with range, 'PerCellIncrement' - scale from 0 with range, 'Absolute' - use set value regardless of range. |
 | Blockable | False | Boolean | Projectile can be blocked. |
 | Width | 0c1 | 1D World Distance | The width of the projectile. |
 | BlockerScanRadius | -0c1 | 1D World Distance | Scan radius for actors with projectile-blocking trait. If set to a negative value (default), it will automatically scale to the blocker with the largest health shape. Only set custom values if you know what you're doing. |
@@ -135,7 +135,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | Color | FF0000 | Color (RRGGBB[AA] notation) | Color of the beam. |
 | TrackTarget | True | Boolean | Beam follows the target. |
 | Inaccuracy | 0c0 | 1D World Distance | The maximum/constant/incremental inaccuracy used in conjunction with the InaccuracyType property. |
-| InaccuracyType | Maximum | [`InaccuracyType`](#inaccuracytype) | Controls the way inaccuracy is calculated. Possible values are 'Maximum' - scale from 0 to max with range, 'PerCellIncrement' - scale from 0 with range and 'Absolute' - use set value regardless of range. |
+| InaccuracyType | Maximum | [`InaccuracyType`](#inaccuracytype) | Controls the way inaccuracy is calculated. Possible values are 'Maximum' - scale from 0 to max with range, 'PerCellIncrement' - scale from 0 with range, 'Absolute' - use set value regardless of range. |
 | Blockable | False | Boolean | Beam can be blocked. |
 | SecondaryBeam | False | Boolean | Draw a second beam (for 'glow' effect). |
 | SecondaryBeamWidth | 0c86 | 1D World Distance | The width of the zap. |
@@ -172,7 +172,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | TerrainHeightAware | False | Boolean | Is the missile aware of terrain height levels. Only needed for mods with real, non-visual height levels. |
 | Width | 0c1 | 1D World Distance | Width of projectile (used for finding blocking actors). |
 | Inaccuracy | 0c0 | 1D World Distance | The maximum/constant/incremental inaccuracy used in conjunction with the InaccuracyType property. |
-| InaccuracyType | Absolute | [`InaccuracyType`](#inaccuracytype) | Controls the way inaccuracy is calculated. Possible values are 'Maximum' - scale from 0 to max with range, 'PerCellIncrement' - scale from 0 with range and 'Absolute' - use set value regardless of range. |
+| InaccuracyType | Absolute | [`InaccuracyType`](#inaccuracytype) | Controls the way inaccuracy is calculated. Possible values are 'Maximum' - scale from 0 to max with range, 'PerCellIncrement' - scale from 0 with range, 'Absolute' - use set value regardless of range. |
 | LockOnInaccuracy | -0c1 | 1D World Distance | Inaccuracy override when successfully locked onto target. Defaults to Inaccuracy if negative. |
 | LockOnProbability | 100 | Integer | Probability of locking onto and following target. |
 | HorizontalRateOfTurn | 20 | 1D World Angle | Horizontal rate of turn. |
@@ -213,7 +213,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | -------- | ------------- | ---- | ----------- |
 | DamageActorsInLine | False | Boolean | Damage all units hit by the beam instead of just the target? |
 | Inaccuracy | 0c0 | 1D World Distance | The maximum/constant/incremental inaccuracy used in conjunction with the InaccuracyType property. |
-| InaccuracyType | Maximum | [`InaccuracyType`](#inaccuracytype) | Controls the way inaccuracy is calculated. Possible values are 'Maximum' - scale from 0 to max with range, 'PerCellIncrement' - scale from 0 with range and 'Absolute' - use set value regardless of range. |
+| InaccuracyType | Maximum | [`InaccuracyType`](#inaccuracytype) | Controls the way inaccuracy is calculated. Possible values are 'Maximum' - scale from 0 to max with range, 'PerCellIncrement' - scale from 0 with range, 'Absolute' - use set value regardless of range. |
 | Blockable | False | Boolean | Can this projectile be blocked when hitting actors with an IBlocksProjectiles trait. |
 | Duration | 15 | Integer | Duration of the beam and helix |
 | ZOffset | 0 | Integer | Equivalent to sequence ZOffset. Controls Z sorting. |
@@ -251,6 +251,44 @@ Related types with their possible values are listed [at the bottom](#related-val
 | SegmentLength | 0c0 | 1D World Distance | Maximum length per segment. |
 | FadeOut | False | Boolean | Fade the beams out during lifetime. |
 | ZOffset | 0 | Integer | Equivalent to sequence ZOffset. Controls Z sorting. |
+
+### InstantExplode
+**Imminently explode the weapon directly at the firing position. Written with cases where the actor would attack everything around itself in an aura pattern, but without self-destructing.**
+
+### InstantHitWithTracers
+**Instant and usually direct-on-target projectile, with tracer ammunition.**
+
+| Property | Default Value | Type | Description |
+| -------- | ------------- | ---- | ----------- |
+| Inaccuracy | 0c0 | 1D World Distance | The maximum/constant/incremental inaccuracy used in conjunction with the InaccuracyType property. |
+| InaccuracyType | Maximum | [`InaccuracyType`](#inaccuracytype) | Controls the way inaccuracy is calculated. Possible values are 'Maximum' - scale from 0 to max with range, 'PerCellIncrement' - scale from 0 with range and 'Absolute' - use set value regardless of range. |
+| Blockable | False | Boolean | Projectile can be blocked. |
+| Width | 0c1 | 1D World Distance | The width of the projectile. |
+| BlockerScanRadius | -0c1 | 1D World Distance | Scan radius for actors with projectile-blocking trait. If set to a negative value (default), it will automatically scale to the blocker with the largest health shape. Only set custom values if you know what you're doing. |
+| TracerAmount | 0 | Integer | Amount of Tracers. |
+| TracerSpawnInterval | 3 | Integer | Tracer spawn interval. Only useful when Amount > 0 |
+| TracerSpeed | 1024 | Integer | Tracer speed |
+| TracerInaccuracy | 0c0 | 1D World Distance | Tracer inaccuracy, use set value regardless of range |
+| Image |  | String | Image to display. |
+| Sequence | idle | String | Loop sequence of Image from this list while this projectile is moving. |
+| Palette | effect | String | The palette used to draw this projectile. |
+| IsPlayerPalette | False | Boolean |  |
+| TrailImage |  | String | Trail animation. |
+| TrailSequence | idle | String | Loop sequence of TrailImage from this list while this projectile is moving. |
+| TrailInterval | 2 | Integer | Interval in ticks between each spawned Trail animation. |
+| TrailPalette | effect | String | Palette used to render the trail sequence. |
+| TrailUsePlayerPalette | False | Boolean | Use the Player Palette to render the trail sequence. |
+| ContrailLength | 0 | Integer | When set, display a line behind the tracer bullet. Length is measured in ticks after appearing. |
+| ContrailDelay | 1 | Integer | Time (in ticks) after which the line should appear. Controls the distance to the actor. |
+| ContrailZOffset | 2047 | Integer | Equivalent to sequence ZOffset. Controls Z sorting. |
+| ContrailStartWidth | 0c64 | 1D World Distance | Thickness of the emitted line at the start of the contrail. |
+| ContrailEndWidth |  | 1D World Distance (optional) | Thickness of the emitted line at the end of the contrail. Will default to ContrailStartWidth if left undefined |
+| ContrailStartColor | FFFFFF | Color (RRGGBB[AA] notation) | RGB color at the contrail start. |
+| ContrailStartColorUsePlayerColor | False | Boolean | Use player remap color instead of a custom color at the contrail the start. |
+| ContrailStartColorAlpha | 255 | Integer | The alpha value [from 0 to 255] of color at the contrail the start. |
+| ContrailEndColor |  | Color (RRGGBB[AA] notation) (optional) | RGB color at the contrail end. Will default to ContrailStartColor if left undefined |
+| ContrailEndColorUsePlayerColor | False | Boolean | Use player remap color instead of a custom color at the contrail end. |
+| ContrailEndColorAlpha | 0 | Integer | The alpha value [from 0 to 255] of color at the contrail end. |
 
 
 ### ChangeOwnerWarhead
@@ -524,6 +562,21 @@ Related types with their possible values are listed [at the bottom](#related-val
 | Delay | 0 | Integer | Delay in ticks before applying the warhead effect. 0 = instant (old model). |
 | DebugOverlayColor | FF0000 | Color (RRGGBB[AA] notation) | The color used for this warhead's visualization in the world's `WarheadDebugOverlay` trait. |
 
+### FlashPaletteEffectWarhead
+**Used to trigger a FlashPaletteEffect trait on the world actor.**
+
+| Property | Default Value | Type | Description |
+| -------- | ------------- | ---- | ----------- |
+| FlashType |  | String | Corresponds to `Type` from `FlashPaletteEffect` on the world actor. |
+| Duration | 0 | Integer | Duration of the flashing, measured in ticks. Set to -1 to default to the `Length` of the `FlashPaletteEffect`. |
+| ValidTargets | Ground, Water | Collection of TargetableType | What types of targets are affected. |
+| InvalidTargets |  | Collection of TargetableType | What types of targets are unaffected. Overrules ValidTargets. |
+| ValidRelationships | Enemy, Neutral, Ally | [`PlayerRelationship`](#playerrelationship) | What player relationships are affected. |
+| AffectsParent | False | Boolean | Can this warhead affect the actor that fired it. |
+| AirThreshold | 0c128 | 1D World Distance | If impact is above this altitude, warheads that would affect terrain ignore terrain target types (and either do nothing or perform their own checks). |
+| Delay | 0 | Integer | Delay in ticks before applying the warhead effect. 0 = instant (old model). |
+| DebugOverlayColor | FF0000 | Color (RRGGBB[AA] notation) | The color used for this warhead's visualization in the world's `WarheadDebugOverlay` trait. |
+
 ### TreeDamageWarhead
 **A simplified SpreadDamageWarhead that interacts with ForestLayer**
 
@@ -559,10 +612,10 @@ Referenced by: [`FlashTargetsInRadiusWarhead`](#flashtargetsinradiuswarhead), [`
 ### InaccuracyType
 Possible values: `Maximum`, `PerCellIncrement`, `Absolute`
 
-Referenced by: [`AreaBeam`](#areabeam), [`Bullet`](#bullet), [`InstantHit`](#instanthit), [`LaserZap`](#laserzap), [`Missile`](#missile), [`Railgun`](#railgun)
+Referenced by: [`AreaBeam`](#areabeam), [`Bullet`](#bullet), [`InstantHit`](#instanthit), [`InstantHitWithTracers`](#instanthitwithtracers), [`LaserZap`](#laserzap), [`Missile`](#missile), [`Railgun`](#railgun)
 
 ### PlayerRelationship
 Possible values: `None`, `Enemy`, `Neutral`, `Ally`
 
-Referenced by: [`Bullet`](#bullet), [`ChangeOwnerWarhead`](#changeownerwarhead), [`CreateEffectWarhead`](#createeffectwarhead), [`CreateResourceWarhead`](#createresourcewarhead), [`DestroyResourceWarhead`](#destroyresourcewarhead), [`FireClusterWarhead`](#fireclusterwarhead), [`FireRadiusWarhead`](#fireradiuswarhead), [`FireShrapnelWarhead`](#fireshrapnelwarhead), [`FlashEffectWarhead`](#flasheffectwarhead), [`FlashTargetsInRadiusWarhead`](#flashtargetsinradiuswarhead), [`GrantExternalConditionWarhead`](#grantexternalconditionwarhead), [`HealthPercentageDamageWarhead`](#healthpercentagedamagewarhead), [`LeaveSmudgeWarhead`](#leavesmudgewarhead), [`ShakeScreenWarhead`](#shakescreenwarhead), [`SpreadDamageWarhead`](#spreaddamagewarhead), [`TargetDamageWarhead`](#targetdamagewarhead), [`TreeDamageWarhead`](#treedamagewarhead)
+Referenced by: [`Bullet`](#bullet), [`ChangeOwnerWarhead`](#changeownerwarhead), [`CreateEffectWarhead`](#createeffectwarhead), [`CreateResourceWarhead`](#createresourcewarhead), [`DestroyResourceWarhead`](#destroyresourcewarhead), [`FireClusterWarhead`](#fireclusterwarhead), [`FireRadiusWarhead`](#fireradiuswarhead), [`FireShrapnelWarhead`](#fireshrapnelwarhead), [`FlashEffectWarhead`](#flasheffectwarhead), [`FlashPaletteEffectWarhead`](#flashpaletteeffectwarhead), [`FlashTargetsInRadiusWarhead`](#flashtargetsinradiuswarhead), [`GrantExternalConditionWarhead`](#grantexternalconditionwarhead), [`HealthPercentageDamageWarhead`](#healthpercentagedamagewarhead), [`LeaveSmudgeWarhead`](#leavesmudgewarhead), [`ShakeScreenWarhead`](#shakescreenwarhead), [`SpreadDamageWarhead`](#spreaddamagewarhead), [`TargetDamageWarhead`](#targetdamagewarhead), [`TreeDamageWarhead`](#treedamagewarhead)
 

@@ -1,4 +1,4 @@
-This is an automatically generated listing of the Lua map scripting API for version 20240401 of OpenHV.
+This is an automatically generated listing of the Lua map scripting API for version 20240803 of OpenHV.
 
 OpenHV allows custom maps and missions to be scripted using Lua 5.1.
 These scripts run in a sandbox that prevents access to unsafe functions (e.g. OS or file access), and limits the memory and CPU usage of the scripts.
@@ -428,6 +428,7 @@ For a basic guide about map scripts see the [`Map Scripting` wiki page](https://
 | **void ActivateNukePower(CPos target)** | Activate the actor's NukePower.<br />**Requires Trait:** NukePower |
 | **Actor[] TargetAirstrike(WPos target, WAngle? facing = nil)** | Activate the actor's Airstrike Power. Returns the aircraft that will attack.<br />**Requires Trait:** AirstrikePower |
 | **Actor[] TargetParatroopers(WPos target, WAngle? facing = nil)** | Activate the actor's Paratroopers Power. Returns the aircraft that will drop the reinforcements.<br />**Requires Trait:** ParatroopersPower |
+| **void Teleport(LuaTable unitLocationPairs)** | Teleport a group of actors.<br />**Requires Trait:** TeleportPower |
 
 ### Transports
 
