@@ -1,6 +1,6 @@
 # Weapons
 
-This documentation is aimed at modders and has been automatically generated for version `20240803` of OpenHV. Please do not edit it directly, but instead add new `[Desc("String")]` tags to the source code.
+This documentation is aimed at modders and has been automatically generated for version `20240908` of OpenHV. Please do not edit it directly, but instead add new `[Desc("String")]` tags to the source code.
 
 Listed below are a template for weapon definitions and the types it can use (warheads and projectiles) with default values and developer commentary.
 Related types with their possible values are listed [at the bottom](#related-value-types-enums).
@@ -235,6 +235,25 @@ Related types with their possible values are listed [at the bottom](#related-val
 | HitAnimSequence | idle | String | Sequence of impact animation to use. |
 | HitAnimPalette | effect | String |  |
 
+
+### ArcLaserZap
+**Not a sprite, but an engine effect.**
+
+| Property | Default Value | Type | Description |
+| -------- | ------------- | ---- | ----------- |
+| Width | 0c86 | 1D World Distance | The width of the zap. |
+| ZOffset | 0 | Integer | Equivalent to sequence ZOffset. Controls Z sorting. |
+| Duration | 10 | Integer |  |
+| Angle | 85 | 1D World Angle | The angle of the arc of the beam. |
+| QuantizedSegments | 32 | Integer | Controls how fine-grained the resulting arc should be. |
+| UsePlayerColor | False | Boolean |  |
+| Color | FF0000 | Color (RRGGBB[AA] notation) | Color of the beam. |
+| TrackTarget | True | Boolean | Beam follows the target. |
+| Inaccuracy | 0c0 | 1D World Distance | Maximum offset at the maximum range. |
+| Blockable | False | Boolean | Beam can be blocked. |
+| HitAnim |  | String | Impact animation. |
+| HitAnimSequence | idle | String | Sequence of impact animation to use. |
+| HitAnimPalette | effect | String |  |
 
 ### EnergyBolt
 **Renders an energy discharge.**
@@ -523,7 +542,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 ### FireRadiusWarhead
 **Fires a defined amount of weapons with their maximum range in a wave pattern.**
 
-> Inherits from: `ImpactAirWarhead`.
+> Inherits from: `ValidateTriggerWarhead`.
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -531,7 +550,6 @@ Related types with their possible values are listed [at the bottom](#related-val
 | Amount | 1 | Collection of Integer | Amount of weapons fired. |
 | AroundTarget | False | Boolean | Should the weapons be fired around the intended target or at the explosion's epicenter. |
 | TransferAltitude | False | Boolean | Should the weapons be fired towards the same altitude of the original explosion. |
-| ImpactActors | True | Boolean | Whether to consider actors in determining whether the explosion should happen. If false, only terrain will be considered. |
 | ValidTargets | Ground, Water | Collection of TargetableType | What types of targets are affected. |
 | InvalidTargets |  | Collection of TargetableType | What types of targets are unaffected. Overrules ValidTargets. |
 | ValidRelationships | Enemy, Neutral, Ally | [`PlayerRelationship`](#playerrelationship) | What player relationships are affected. |
@@ -542,7 +560,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 ### FireShrapnelWarhead
 
-> Inherits from: `ImpactAirWarhead`.
+> Inherits from: `ValidateTriggerWarhead`.
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -553,7 +571,6 @@ Related types with their possible values are listed [at the bottom](#related-val
 | ThrowWithoutTarget | True | Boolean | Allow this shrapnel to be thrown randomly when no targets found. |
 | AllowDirectHit | False | Boolean | Should the shrapnel hit the direct target? |
 | AroundTarget | False | Boolean | Should the weapons be fired around the intended target or at the explosion's epicenter. |
-| ImpactActors | True | Boolean | Whether to consider actors in determining whether the explosion should happen. If false, only terrain will be considered. |
 | ValidTargets | Ground, Water | Collection of TargetableType | What types of targets are affected. |
 | InvalidTargets |  | Collection of TargetableType | What types of targets are unaffected. Overrules ValidTargets. |
 | ValidRelationships | Enemy, Neutral, Ally | [`PlayerRelationship`](#playerrelationship) | What player relationships are affected. |
@@ -569,6 +586,29 @@ Related types with their possible values are listed [at the bottom](#related-val
 | -------- | ------------- | ---- | ----------- |
 | FlashType |  | String | Corresponds to `Type` from `FlashPaletteEffect` on the world actor. |
 | Duration | 0 | Integer | Duration of the flashing, measured in ticks. Set to -1 to default to the `Length` of the `FlashPaletteEffect`. |
+| ValidTargets | Ground, Water | Collection of TargetableType | What types of targets are affected. |
+| InvalidTargets |  | Collection of TargetableType | What types of targets are unaffected. Overrules ValidTargets. |
+| ValidRelationships | Enemy, Neutral, Ally | [`PlayerRelationship`](#playerrelationship) | What player relationships are affected. |
+| AffectsParent | False | Boolean | Can this warhead affect the actor that fired it. |
+| AirThreshold | 0c128 | 1D World Distance | If impact is above this altitude, warheads that would affect terrain ignore terrain target types (and either do nothing or perform their own checks). |
+| Delay | 0 | Integer | Delay in ticks before applying the warhead effect. 0 = instant (old model). |
+| DebugOverlayColor | FF0000 | Color (RRGGBB[AA] notation) | The color used for this warhead's visualization in the world's `WarheadDebugOverlay` trait. |
+
+### RobMoneyWarhead
+**Steals money from the target's owner.**
+
+> Inherits from: `ValidateTriggerWarhead`.
+
+| Property | Default Value | Type | Description |
+| -------- | ------------- | ---- | ----------- |
+| Amount | 0 | Integer | Amount to be taken away from the target. |
+| PercentageGranted | 100 | Integer | Percentage of the taken money granted to the firer. |
+| Range | 0c64 | 1D World Distance | Range of actors to be stolen from. |
+| RobbedNotification |  | String | Sound the victim will hear when they get robbed. |
+| RobbedTextNotification |  | String | Text notification the victim will see when they get robbed. |
+| RobNotification |  | String | Sound the perpetrator will hear after successful leeching. |
+| RobTextNotification |  | String | Text notification the perpetrator will see after successful leeching. |
+| ShowTicks | True | Boolean | Whether to show a floating text. |
 | ValidTargets | Ground, Water | Collection of TargetableType | What types of targets are affected. |
 | InvalidTargets |  | Collection of TargetableType | What types of targets are unaffected. Overrules ValidTargets. |
 | ValidRelationships | Enemy, Neutral, Ally | [`PlayerRelationship`](#playerrelationship) | What player relationships are affected. |
@@ -617,5 +657,5 @@ Referenced by: [`AreaBeam`](#areabeam), [`Bullet`](#bullet), [`InstantHit`](#ins
 ### PlayerRelationship
 Possible values: `None`, `Enemy`, `Neutral`, `Ally`
 
-Referenced by: [`Bullet`](#bullet), [`ChangeOwnerWarhead`](#changeownerwarhead), [`CreateEffectWarhead`](#createeffectwarhead), [`CreateResourceWarhead`](#createresourcewarhead), [`DestroyResourceWarhead`](#destroyresourcewarhead), [`FireClusterWarhead`](#fireclusterwarhead), [`FireRadiusWarhead`](#fireradiuswarhead), [`FireShrapnelWarhead`](#fireshrapnelwarhead), [`FlashEffectWarhead`](#flasheffectwarhead), [`FlashPaletteEffectWarhead`](#flashpaletteeffectwarhead), [`FlashTargetsInRadiusWarhead`](#flashtargetsinradiuswarhead), [`GrantExternalConditionWarhead`](#grantexternalconditionwarhead), [`HealthPercentageDamageWarhead`](#healthpercentagedamagewarhead), [`LeaveSmudgeWarhead`](#leavesmudgewarhead), [`ShakeScreenWarhead`](#shakescreenwarhead), [`SpreadDamageWarhead`](#spreaddamagewarhead), [`TargetDamageWarhead`](#targetdamagewarhead), [`TreeDamageWarhead`](#treedamagewarhead)
+Referenced by: [`Bullet`](#bullet), [`ChangeOwnerWarhead`](#changeownerwarhead), [`CreateEffectWarhead`](#createeffectwarhead), [`CreateResourceWarhead`](#createresourcewarhead), [`DestroyResourceWarhead`](#destroyresourcewarhead), [`FireClusterWarhead`](#fireclusterwarhead), [`FireRadiusWarhead`](#fireradiuswarhead), [`FireShrapnelWarhead`](#fireshrapnelwarhead), [`FlashEffectWarhead`](#flasheffectwarhead), [`FlashPaletteEffectWarhead`](#flashpaletteeffectwarhead), [`FlashTargetsInRadiusWarhead`](#flashtargetsinradiuswarhead), [`GrantExternalConditionWarhead`](#grantexternalconditionwarhead), [`HealthPercentageDamageWarhead`](#healthpercentagedamagewarhead), [`LeaveSmudgeWarhead`](#leavesmudgewarhead), [`RobMoneyWarhead`](#robmoneywarhead), [`ShakeScreenWarhead`](#shakescreenwarhead), [`SpreadDamageWarhead`](#spreaddamagewarhead), [`TargetDamageWarhead`](#targetdamagewarhead), [`TreeDamageWarhead`](#treedamagewarhead)
 
