@@ -1,6 +1,6 @@
 # Traits
 
-This documentation is aimed at modders and has been automatically generated for version `20240908` of OpenHV. Please do not edit it directly, but instead add new `[Desc("String")]` tags to the source code.
+This documentation is aimed at modders and has been automatically generated for version `20250209` of OpenHV. Please do not edit it directly, but instead add new `[Desc("String")]` tags to the source code.
 
 Listed below are all traits with their properties and their default values plus developer commentary.
 Related types with their possible values are listed [at the bottom](#related-value-types-enums).
@@ -183,19 +183,20 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### AirstrikePower
+**Support power that spawns a group of aircraft and orders them to deliver an airstrike.**
 
 > Inherits from: `DirectionalSupportPower`, `SupportPower`, `PausableConditionalTrait`, `ConditionalTrait`.
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
-| UnitType | badr.bomber | String |  |
-| SquadSize | 1 | Integer |  |
-| SquadOffset | -1536,1536,0 | 3D World Vector |  |
-| QuantizedFacings | 32 | Integer |  |
-| Cordon | 5c0 | 1D World Distance |  |
-| CameraActor |  | String | Actor to spawn when the aircraft start attacking |
-| CameraRemoveDelay | 25 | Integer | Amount of time to keep the camera alive after the aircraft have finished attacking |
-| BeaconDistanceOffset | 6c0 | 1D World Distance | Weapon range offset to apply during the beacon clock calculation |
+| UnitType | badr.bomber | String | Aircraft used to deliver the airstrike. |
+| SquadSize | 1 | Integer | Number of aircraft to use in an airstrike formation. |
+| SquadOffset | -1536,1536,0 | 3D World Vector | Offset vector between the aircraft in a formation. |
+| QuantizedFacings | 32 | Integer | Number of different possible facings of the aircraft (used only for choosing a random direction to spawn from.) |
+| Cordon | 5c0 | 1D World Distance | Additional distance from the map edge to spawn the aircraft. |
+| CameraActor |  | String | Actor to spawn when the aircraft start attacking. |
+| CameraRemoveDelay | 25 | Integer | Amount of time to keep the camera alive after the aircraft have finished attacking. |
+| BeaconDistanceOffset | 6c0 | 1D World Distance | Weapon range offset to apply during the beacon clock calculation. |
 | UseDirectionalTarget | False | Boolean | Enables the player directional targeting |
 | Arrows | arrow-t, arrow-tl, arrow-l, arrow-bl, arrow-b, arrow-br, arrow-r, arrow-tr | Collection of String |  |
 | DirectionArrowAnimation |  | String | Animation used to render the direction arrows. |
@@ -1505,6 +1506,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | -------- | ------------- | ---- | ----------- |
 | SearchForDockDelay | 125 | Integer | How long (in ticks) to wait until (re-)checking for a nearby available DockHost. |
 | OccupancyCostModifier | 12 | Integer | The pathfinding cost penalty applied for each dock client waiting to unload at a DockHost. |
+| RequireForceMoveCondition |  | BooleanExpression | Boolean expression defining the condition under which the regular (non-force) enter cursor is disabled. |
 | EnterCursor | enter | String | Cursor to display when able to dock at target actor. |
 | EnterBlockedCursor | enter-blocked | String | Cursor to display when unable to dock at target actor. |
 | Voice | Action | String | Voice to be played when ordered to dock. |
@@ -1581,16 +1583,13 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
-| BinSize | 250 | Integer | Size of partition bins (world pixels) |
+| BinSize | 250 | Integer | Size of partition bins (world pixels). |
+| DefaultActorFacing | 384 | 1D World Angle | Facing of new actors. |
 
 ### EditorCursorLayer
 **Required for the map editor to work. Attach this to the world actor.**
 
 > Requires trait(s): [`EditorActorLayer`](#editoractorlayer).
-
-| Property | Default Value | Type | Description |
-| -------- | ------------- | ---- | ----------- |
-| PreviewFacing | 384 | 1D World Angle |  |
 
 ### EditorOnlyTooltip
 **Shown in map editor.**
@@ -1609,19 +1608,6 @@ Related types with their possible values are listed [at the bottom](#related-val
 | -------- | ------------- | ---- | ----------- |
 | ResourceTypes |  | Dictionary with Key: String, Value: ResourceTypeInfo |  |
 | RecalculateResourceDensity | False | Boolean | Override the density saved in maps with values calculated based on the number of neighbouring resource cells. |
-
-### EditorSelectionLayer
-**Renders the selection grid in the editor.**
-
-> Requires trait(s): [`LoadWidgetAtGameStart`](#loadwidgetatgamestart).
-
-| Property | Default Value | Type | Description |
-| -------- | ------------- | ---- | ----------- |
-| MainColor | FFFFFF | Color (RRGGBB[AA] notation) | Main color of the selection grid. |
-| AltColor | 000000 | Color (RRGGBB[AA] notation) | Alternate color of the selection grid. |
-| PasteColor | 4CFF00 | Color (RRGGBB[AA] notation) | Main color of the paste grid. |
-| LineThickness | 1 | Integer | Thickness of the selection grid lines. |
-| AltPixelOffset | 1,1 | 2D Integer | Render offset of the secondary grid lines. |
 
 ### EjectOnDeath
 **Eject a ground soldier or a paratrooper while in the air.**
@@ -1664,6 +1650,10 @@ Related types with their possible values are listed [at the bottom](#related-val
 | Description |  | String | Explains the purpose in the in-game encyclopedia. |
 | Order | 0 | Integer | Number for ordering the list. |
 | Category |  | String | Group under this heading. |
+| Scale | 1 | Real Number | Scale the actor preview. |
+| PreviewOwner |  | String | Sets the player color of the actor preview to a player defined in the shellmap. |
+| HideBuildable | False | Boolean | Ignore the Buildable trait when listing information. |
+| BuildableQueue |  | String | Specifies a production queue type if the actor can be built from multiple queues. |
 
 ### EnemyWatcher
 **Tracks neutral and enemy actors' visibility and notifies the player. Attach this to the player actor. The actors to track need the 'AnnounceOnSeen' trait.**
@@ -1751,24 +1741,6 @@ Related types with their possible values are listed [at the bottom](#related-val
 | ExcludedActorTypes |  | Collection of String | Actor types that this crate action will not occur for. |
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
-### Explodes
-**This actor explodes when killed.**
-
-> Inherits from: `ConditionalTrait`.
-
-| Property | Default Value | Type | Description |
-| -------- | ------------- | ---- | ----------- |
-| Weapon | *(required)* | String | Default weapon to use for explosion if ammo/payload is loaded. |
-| EmptyWeapon | UnitExplode | String | Fallback weapon to use for explosion if empty (no ammo/payload). |
-| LoadedChance | 100 | Integer | Chance that the explosion will use Weapon instead of EmptyWeapon when exploding, provided the actor has ammo/payload. |
-| Chance | 100 | Integer | Chance that this actor will explode at all. |
-| DamageThreshold | 0 | Integer | Health level at which actor will explode. |
-| DeathTypes |  | Collection of DamageType | DeathType(s) that trigger the explosion. Leave empty to always trigger an explosion. |
-| DamageSource | Self | [`DamageSource`](#damagesource) | Who is counted as source of damage for explosion. Possible values are Self and Killer. |
-| Type | CenterPosition | [`ExplosionType`](#explosiontype) | Possible values are CenterPosition (explosion at the actors' center) and  Footprint (explosion on each occupied cell). |
-| Offset | 0,0,0 | 3D World Vector | Offset of the explosion from the center of the exploding actor (or cell). |
-| RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
-
 ### ExplosionOnDamageTransition
 **This actor triggers an explosion on itself when transitioning to a specific damage state.**
 
@@ -1812,6 +1784,18 @@ Related types with their possible values are listed [at the bottom](#related-val
 | Modifier | 100 | Integer | Percentage modifier to apply. |
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
+### FireProjectilesOnDeath
+**Throws particles when the actor is destroyed that do damage on impact.**
+
+> Inherits from: `ConditionalTrait`.
+
+| Property | Default Value | Type | Description |
+| -------- | ------------- | ---- | ----------- |
+| Weapons | *(required)* | Collection of String | The weapons used for shrapnel. |
+| Pieces | 3, 10 | Collection of Integer | The amount of pieces of shrapnel to expel. Two values indicate a range. |
+| Range | 2c0, 5c0 | Collection of 1D World Distance | The minimum and maximum distances the shrapnel may travel. |
+| RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
+
 ### FireWarheads
 **Detonate defined warheads at the current location at a set interval.**
 
@@ -1823,6 +1807,24 @@ Related types with their possible values are listed [at the bottom](#related-val
 | StartCooldown | 0 | Integer | How long (in ticks) to wait before the first detonation. |
 | Interval | 1 | Integer | How long (in ticks) to wait after a detonation. |
 | PauseOnCondition |  | BooleanExpression | Boolean expression defining the condition to pause this trait. |
+| RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
+
+### FireWarheadsOnDeath
+**This actor fires warheads when killed.**
+
+> Inherits from: `ConditionalTrait`.
+
+| Property | Default Value | Type | Description |
+| -------- | ------------- | ---- | ----------- |
+| Weapon | *(required)* | String | Default weapon to use for explosion if ammo/payload is loaded. |
+| EmptyWeapon | UnitExplode | String | Fallback weapon to use for explosion if empty (no ammo/payload). |
+| LoadedChance | 100 | Integer | Chance that the explosion will use Weapon instead of EmptyWeapon when exploding, provided the actor has ammo/payload. |
+| Chance | 100 | Integer | Chance that this actor will explode at all. |
+| DamageThreshold | 0 | Integer | Health level at which actor will explode. |
+| DeathTypes |  | Collection of DamageType | DeathType(s) that trigger the explosion. Leave empty to always trigger an explosion. |
+| DamageSource | Self | [`DamageSource`](#damagesource) | Who is counted as source of damage for explosion. Possible values are Self and Killer. |
+| Type | CenterPosition | [`ExplosionType`](#explosiontype) | Possible values are CenterPosition (explosion at the actors' center) and  Footprint (explosion on each occupied cell). |
+| Offset | 0,0,0 | 3D World Vector | Offset of the explosion from the center of the exploding actor (or cell). |
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### FixedColorPalette
@@ -2091,6 +2093,32 @@ Related types with their possible values are listed [at the bottom](#related-val
 | ExcludedActorTypes |  | Collection of String | Actor types that this crate action will not occur for. |
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
+### GrantChargedConditionOnToggle
+**Grant a condition via player orders for a specified amount of time.**
+
+> Inherits from: `PausableConditionalTrait`, `ConditionalTrait`.
+
+| Property | Default Value | Type | Description |
+| -------- | ------------- | ---- | ----------- |
+| ActivatedCondition | *(required)* | String | The condition to grant when enabled. |
+| ChargedCondition |  | String | The condition to grant when charge is above ChargeThreshhold. |
+| InitialCharge | -1 | Integer | Charge to start with. If set to -1 the unit will start with full charge. |
+| ChargeDuration | 500 | Integer | Cooldown (in ticks) to reach full charge. |
+| ChargeThreshhold | -1 | Integer | The amount of charge that needs to be present to turn on the condition. If set to -1, threshold is set to full charge. If activated without full charge ConditionDuration is percentally smaller. |
+| ConditionDuration | 1 | Integer | How long (in ticks) should the condition stay active? |
+| CanCancelCondition | False | Boolean | Can ActivatedCondition be turned off manually? |
+| CancelsCurrentActivity | False | Boolean | Should we interrupt the current activity |
+| Cursor | deploy | String | Cursor to display when able to trigger a state change. |
+| BlockedCursor | deploy-blocked | String | Cursor to display when unable to trigger a state change. |
+| ActivationSounds |  | Collection of String | Play a randomly selected sound from this list when turning on. |
+| DeactivattionSounds |  | Collection of String | Play a randomly selected sound from this list when turning off. |
+| Voice | Action | String |  |
+| DeactivatedColor | FF00FF | Color (RRGGBB[AA] notation) | Color of the charge bar when deactivated. |
+| ActivatedColor | 8B008B | Color (RRGGBB[AA] notation) | Color of the charge bar  when activated. |
+| DisplayBarWhenEmpty | True | Boolean | Should the charge bar be displayed when not charged or the trait is disabled? |
+| PauseOnCondition |  | BooleanExpression | Boolean expression defining the condition to pause this trait. |
+| RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
+
 ### GrantCondition
 **Grants a condition while the trait is active.**
 
@@ -2174,30 +2202,6 @@ Related types with their possible values are listed [at the bottom](#related-val
 | UndeployOnPickup | False | Boolean | Undeploy before the actor is picked up by a Carryall? |
 | Voice | Action | String |  |
 | EditorDeployedDisplayOrder | 4 | Integer | Display order for the deployed checkbox in the map editor |
-| PauseOnCondition |  | BooleanExpression | Boolean expression defining the condition to pause this trait. |
-| RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
-
-### GrantConditionOnDeployWithCharge
-**Allow deploying on specified charge to grant a condition for a specified duration.**
-
-> Inherits from: `PausableConditionalTrait`, `ConditionalTrait`.
-
-| Property | Default Value | Type | Description |
-| -------- | ------------- | ---- | ----------- |
-| DeployedCondition | *(required)* | String | The condition to grant after deploying. |
-| ChargedCondition |  | String | The condition to grant when charge is above ChargeThreshhold. |
-| InitialCharge | -1 | Integer | Charge to start with. If set to -1 the unit will start with full charge. |
-| ChargeDuration | 500 | Integer | Cooldown (in ticks) to reach full charge. |
-| ChargeThreshhold | -1 | Integer | The amount of charge that needs to be present for deploy to be issued. If set to -1, threshold is set to full charge. If activated without full charge ConditionDuration is percentally smaller. |
-| ConditionDuration | 1 | Integer | How long (in ticks) should the condition stay active? |
-| CanCancelCondition | False | Boolean | Can DeployedCondition be canceled by followup deploy order? |
-| DeployCursor | deploy | String | Cursor to display when able to (un)deploy the actor. |
-| DeployBlockedCursor | deploy-blocked | String | Cursor to display when unable to (un)deploy the actor. |
-| DeploySounds |  | Collection of String | Play a randomly selected sound from this list when deploying. |
-| UndeploySounds |  | Collection of String | Play a randomly selected sound from this list when undeploying. |
-| Voice | Action | String |  |
-| ChargingColor | FF00FF | Color (RRGGBB[AA] notation) |  |
-| DeployedColor | 8B008B | Color (RRGGBB[AA] notation) |  |
 | PauseOnCondition |  | BooleanExpression | Boolean expression defining the condition to pause this trait. |
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
@@ -2736,6 +2740,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | -------- | ------------- | ---- | ----------- |
 | Bounds |  | Collection of 1D World Distance | Defines a custom rectangle for mouse interaction with the actor. If null, the engine will guess an appropriate size based on the With*Body trait. The first two numbers define the width and height of the rectangle as a world distance. The (optional) second two numbers define an x and y offset from the actor center. |
 | DecorationBounds |  | Collection of 1D World Distance | Defines a custom rectangle for Decorations (e.g. the selection box). If null, Bounds will be used instead |
+| Polygon |  | Collection of 2D Integer | Defines a custom 2D polygon for mouse interaction with the actor. If null, Bounds will be used instead Each vertex has two components (so two numbers), which define an x and y offset from the actor center. |
 
 ### IsometricSelectable
 **This actor is selectable. Defines bounds of selectable area, selection class, selection priority and selection priority modifiers.**
@@ -3399,14 +3404,15 @@ Related types with their possible values are listed [at the bottom](#related-val
 | CancelledTextNotification |  | String | Notification displayed when player right-clicks on a build palette icon that is already on hold. |
 
 ### ParatroopersPower
+**Support power that spawns and delivers units to the desired location via aircraft.**
 
 > Inherits from: `DirectionalSupportPower`, `SupportPower`, `PausableConditionalTrait`, `ConditionalTrait`.
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
-| UnitType | badr | String |  |
-| SquadSize | 1 | Integer |  |
-| SquadOffset | -1536,1536,0 | 3D World Vector |  |
+| UnitType | badr | String | Aircraft used to deliver the drop. |
+| SquadSize | 1 | Integer | Number of aircraft to use in the formation. |
+| SquadOffset | -1536,1536,0 | 3D World Vector | Distance between the aircraft in a formation. |
 | ReinforcementsArrivedSpeechNotification |  | String | Speech notification to play when entering the drop zone. |
 | ReinforcementsArrivedTextNotification |  | String | Text notification to display when entering the drop zone. |
 | QuantizedFacings | 32 | Integer | Number of facings that the delivery aircraft may approach from. |
@@ -3751,6 +3757,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | WaitTickAfterProduce | 0 | Integer | Tick that aircraft should wait after producing. |
 | LandOffset | 0,0,0 | 3D World Vector | Offset the aircraft used for landing. |
 | Produces | *(required)* | Collection of String | e.g. Infantry, Vehicles, Aircraft, Buildings |
+| UpdateFactionOnOwnerChange | False | Boolean | When owner is changed, should the Faction be updated to the new owner's faction? |
 | PauseOnCondition |  | BooleanExpression | Boolean expression defining the condition to pause this trait. |
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
@@ -3771,6 +3778,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
 | Produces | *(required)* | Collection of String | e.g. Infantry, Vehicles, Aircraft, Buildings |
+| UpdateFactionOnOwnerChange | False | Boolean | When owner is changed, should the Faction be updated to the new owner's faction? |
 | PauseOnCondition |  | BooleanExpression | Boolean expression defining the condition to pause this trait. |
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
@@ -3782,6 +3790,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
 | Produces | *(required)* | Collection of String | e.g. Infantry, Vehicles, Aircraft, Buildings |
+| UpdateFactionOnOwnerChange | False | Boolean | When owner is changed, should the Faction be updated to the new owner's faction? |
 | PauseOnCondition |  | BooleanExpression | Boolean expression defining the condition to pause this trait. |
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
@@ -3799,6 +3808,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | ReadyAudio |  | String | Speech notification to play when dropping the unit. |
 | ReadyTextNotification |  | String | Text notification to display when dropping the unit. |
 | Produces | *(required)* | Collection of String | e.g. Infantry, Vehicles, Aircraft, Buildings |
+| UpdateFactionOnOwnerChange | False | Boolean | When owner is changed, should the Faction be updated to the new owner's faction? |
 | PauseOnCondition |  | BooleanExpression | Boolean expression defining the condition to pause this trait. |
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
@@ -4367,6 +4377,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | Voice | Select | String |  |
 | Bounds |  | Collection of 1D World Distance | Defines a custom rectangle for mouse interaction with the actor. If null, the engine will guess an appropriate size based on the With*Body trait. The first two numbers define the width and height of the rectangle as a world distance. The (optional) second two numbers define an x and y offset from the actor center. |
 | DecorationBounds |  | Collection of 1D World Distance | Defines a custom rectangle for Decorations (e.g. the selection box). If null, Bounds will be used instead |
+| Polygon |  | Collection of 2D Integer | Defines a custom 2D polygon for mouse interaction with the actor. If null, Bounds will be used instead Each vertex has two components (so two numbers), which define an x and y offset from the actor center. |
 
 ### Selection
 
@@ -4478,6 +4489,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | EffectImage |  | String |  |
 | EffectSequence |  | String |  |
 | EffectPalette |  | String |  |
+| EffectPaletteIsPlayerPalette | False | Boolean |  |
 | ChargeInterval | 0 | Integer | Measured in ticks. |
 | IconImage | icon | String |  |
 | Icon |  | String | Icon sprite displayed in the support power palette. |
@@ -4850,18 +4862,6 @@ Related types with their possible values are listed [at the bottom](#related-val
 | MaxThrowAngle | 170 | 1D World Angle | Maximum angle to throw the particle |
 | Velocity | 75 | Integer | Speed to throw the particle (horizontal WPos/tick) |
 | TurnSpeed | 60 | 1D World Angle | Speed at which the particle turns. |
-
-### ThrowsShrapnel
-**Throws particles when the actor is destroyed that do damage on impact.**
-
-> Inherits from: `ConditionalTrait`.
-
-| Property | Default Value | Type | Description |
-| -------- | ------------- | ---- | ----------- |
-| Weapons | *(required)* | Collection of String | The weapons used for shrapnel. |
-| Pieces | 3, 10 | Collection of Integer | The amount of pieces of shrapnel to expel. Two values indicate a range. |
-| Range | 2c0, 5c0 | Collection of 1D World Distance | The minimum and maximum distances the shrapnel may travel. |
-| RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### TimeLimitManager
 **This trait allows setting a time limit on matches. Attach this to the World actor.**
@@ -5392,6 +5392,15 @@ Related types with their possible values are listed [at the bottom](#related-val
 | BorderColor | 00000060 | Color (RRGGBB[AA] notation) | Border color of the circle and scanner update line. |
 | BorderWidth | 3 | Real Number | Range circle border width. |
 | Visible | WhenSelected | [`DetectionCircleVisibility`](#detectioncirclevisibility) | When to show the detection circle. Valid values are `Always`, and `WhenSelected` |
+
+### RenderMouseBounds
+**Renders polygon for mouse bounds (usually defined by Interactable or Selectable). Put on actor for which the polygon should be rendered.**
+
+> Requires trait(s): [`Interactable`](#interactable).
+
+| Property | Default Value | Type | Description |
+| -------- | ------------- | ---- | ----------- |
+| PolygonLineColor | 008000 | Color (RRGGBB[AA] notation) | Color to use for the polygon lines. |
 
 ### RenderRangeCircle
 **Draw a circle indicating my weapon's range.**
@@ -6540,6 +6549,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### AttackOrderPower
+**Launches an attack with the actors weapons.**
 
 > Inherits from: `SupportPower`, `PausableConditionalTrait`, `ConditionalTrait`.
 
@@ -6881,7 +6891,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | EffectLength | 60 | Integer | Measured in ticks. |
 
 ### DetonateWeaponPower
-**Support power for detonating a weapon at the target position.**
+**Detonates a weapon at the target position.**
 
 > Inherits from: `SupportPower`, `PausableConditionalTrait`, `ConditionalTrait`.
 
@@ -6954,6 +6964,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### DropPodsPower
+**Spawns aerial units at the target location.**
 
 > Inherits from: `SupportPower`, `PausableConditionalTrait`, `ConditionalTrait`.
 
@@ -7500,10 +7511,10 @@ Related types with their possible values are listed [at the bottom](#related-val
 | AttackDesireIncreasedPerScan | 10 | Integer | The total attack desire increases by this amount per scan Note: When there is no attack unit, the total attack desire will return to 0. |
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
-### SpawnedExplodes
-**This actor explodes when killed and the kill XP goes to the Spawner.**
+### SpawnedFireWarheadsOnDeath
+**This actor explodes when killed and the experience goes to the spawner.**
 
-> Inherits from: [`Explodes`](#explodes), `ConditionalTrait`.
+> Inherits from: [`FireWarheadsOnDeath`](#firewarheadsondeath), `ConditionalTrait`.
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -7625,6 +7636,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | EnterBlockedCursor | enter-blocked | String |  |
 
 ### TeleportPower
+**Changes the location of a group of units.**
 
 > Inherits from: `SupportPower`, `PausableConditionalTrait`, `ConditionalTrait`.
 
@@ -7637,8 +7649,8 @@ Related types with their possible values are listed [at the bottom](#related-val
 | ValidFootprintSequence | target-valid | String |  |
 | InvalidFootprintSequence | target-invalid | String |  |
 | SourceFootprintSequence | target-select | String |  |
-| SelectionCursor | select | String | Cursor to display when selecting targets for the Teleport. |
-| TargetCursor | move | String | Cursor to display when targeting an area for the Teleport. |
+| SelectionCursor | select | String | Cursor to display when selecting targets for the teleport. |
+| TargetCursor | move | String | Cursor to display when targeting an area for the teleport. |
 | TargetBlockedCursor | move-blocked | String | Cursor to display when the targeted area is blocked. |
 | ChargeInterval | 0 | Integer | Measured in ticks. |
 | IconImage | icon | String |  |
@@ -8240,7 +8252,7 @@ Referenced by: [`Cloak`](#cloak)
 ### DamageSource
 Possible values: `Self`, `Killer`
 
-Referenced by: [`Explodes`](#explodes), [`SpawnedExplodes`](#spawnedexplodes)
+Referenced by: [`FireWarheadsOnDeath`](#firewarheadsondeath), [`SpawnedFireWarheadsOnDeath`](#spawnedfirewarheadsondeath)
 
 ### DamageState
 Possible values: `Undamaged`, `Light`, `Medium`, `Heavy`, `Critical`, `Dead`
@@ -8270,7 +8282,7 @@ Referenced by: [`Demolition`](#demolition), [`InstantlyRepairs`](#instantlyrepai
 ### ExplosionType
 Possible values: `Footprint`, `CenterPosition`
 
-Referenced by: [`Explodes`](#explodes), [`SpawnedExplodes`](#spawnedexplodes)
+Referenced by: [`FireWarheadsOnDeath`](#firewarheadsondeath), [`SpawnedFireWarheadsOnDeath`](#spawnedfirewarheadsondeath)
 
 ### IdleBehaviorType
 Possible values: `None`, `Land`, `ReturnToBase`, `LeaveMap`, `LeaveMapAtClosestEdge`

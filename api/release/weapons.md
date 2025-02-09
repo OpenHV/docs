@@ -1,6 +1,6 @@
 # Weapons
 
-This documentation is aimed at modders and has been automatically generated for version `20240908` of OpenHV. Please do not edit it directly, but instead add new `[Desc("String")]` tags to the source code.
+This documentation is aimed at modders and has been automatically generated for version `20250209` of OpenHV. Please do not edit it directly, but instead add new `[Desc("String")]` tags to the source code.
 
 Listed below are a template for weapon definitions and the types it can use (warheads and projectiles) with default values and developer commentary.
 Related types with their possible values are listed [at the bottom](#related-value-types-enums).
@@ -280,7 +280,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
 | Inaccuracy | 0c0 | 1D World Distance | The maximum/constant/incremental inaccuracy used in conjunction with the InaccuracyType property. |
-| InaccuracyType | Maximum | [`InaccuracyType`](#inaccuracytype) | Controls the way inaccuracy is calculated. Possible values are 'Maximum' - scale from 0 to max with range, 'PerCellIncrement' - scale from 0 with range and 'Absolute' - use set value regardless of range. |
+| InaccuracyType | Maximum | [`InaccuracyType`](#inaccuracytype) | Controls the way inaccuracy is calculated.  Possible values are 'Maximum' - scale from 0 to max with range,  'PerCellIncrement' - scale from 0 with range and 'Absolute' - use set value regardless of range. |
 | Blockable | False | Boolean | Projectile can be blocked. |
 | Width | 0c1 | 1D World Distance | The width of the projectile. |
 | BlockerScanRadius | -0c1 | 1D World Distance | Scan radius for actors with projectile-blocking trait. If set to a negative value (default), it will automatically scale to the blocker with the largest health shape. Only set custom values if you know what you're doing. |
