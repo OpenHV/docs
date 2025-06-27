@@ -1,6 +1,6 @@
 # Traits
 
-This documentation is aimed at modders and has been automatically generated for version `20250413` of OpenHV. Please do not edit it directly, but instead add new `[Desc("String")]` tags to the source code.
+This documentation is aimed at modders and has been automatically generated for version `20250627` of OpenHV. Please do not edit it directly, but instead add new `[Desc("String")]` tags to the source code.
 
 Listed below are all traits with their properties and their default values plus developer commentary.
 Related types with their possible values are listed [at the bottom](#related-value-types-enums).
@@ -7942,16 +7942,15 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### WithIdleOverlayOnGround
-**Plays an idle overlay on the ground position under the actor (regardless of it's actual height).**
+**Renders a sprite on the ground position under the actor (regardless of it's actual height).**
 
-> Inherits from: [`WithIdleOverlay`](#withidleoverlay), `PausableConditionalTrait`, `ConditionalTrait`.
+> Inherits from: `PausableConditionalTrait`, `ConditionalTrait`.
 
 > Requires trait(s): [`BodyOrientation`](#bodyorientation), [`RenderSprites`](#rendersprites).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
 | Image |  | String | Image used for this decoration. Defaults to the actor's type. |
-| StartSequence |  | String | Animation to play when the actor is created. |
 | Sequence | idle-overlay | String | Sequence name to use |
 | Offset | 0,0,0 | 3D World Vector | Position relative to body |
 | Palette |  | String | Custom palette name |
