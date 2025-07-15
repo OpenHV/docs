@@ -1,4 +1,4 @@
-This is an automatically generated listing of the Lua map scripting API for version 20250628 of OpenHV.
+This is an automatically generated listing of the Lua map scripting API for version 20250715 of OpenHV.
 
 OpenHV allows custom maps and missions to be scripted using Lua 5.1.
 These scripts run in a sandbox that prevents access to unsafe functions (e.g. OS or file access), and limits the memory and CPU usage of the scripts.
@@ -215,6 +215,12 @@ For a basic guide about map scripts see the [`Map Scripting` wiki page](https://
 |---------:|-------------|
 | **Actor[] Reinforce(Player owner, String[] actorTypes, CPos[] entryPath, int interval = 25, LuaFunction actionFunc = nil)** | Send reinforcements consisting of multiple units. Supports ground-based, naval and air units. The first member of the entryPath array will be the units' spawnpoint, while the last one will be their destination. If actionFunc is given, it will be executed once a unit has reached its destination. actionFunc will be called as actionFunc(a: actor). Returns a table containing the deployed units. |
 | **LuaTable ReinforceWithTransport(Player owner, string actorType, String[] cargoTypes, CPos[] entryPath, CPos[] exitPath = nil, LuaFunction actionFunc = nil, LuaFunction exitFunc = nil, int dropRange = 3)** | Send reinforcements in a transport. A transport can be a ground unit (APC etc.), ships and aircraft. The first member of the entryPath array will be the spawnpoint for the transport, while the last one will be its destination. The last member of the exitPath array is be the place where the transport will be removed from the game. When the transport has reached the destination, it will unload its cargo unless a custom actionFunc has been supplied. Afterwards, the transport will follow the exitPath and leave the map, unless a custom exitFunc has been supplied. actionFunc will be called as actionFunc(transport: actor, cargo: actor[]). exitFunc will be called as exitFunc(transport: actor). dropRange determines how many cells away the transport will try to land if the actual destination is blocked (if the transport is an aircraft). Returns a table in which the first value is the transport, and the second a table containing the deployed units. |
+
+### Resource
+
+| Function | Description |
+|---------:|-------------|
+| **int TotalResourceCells { get; }** | How many resource deposits are on the map. |
 
 ### Trigger
 
