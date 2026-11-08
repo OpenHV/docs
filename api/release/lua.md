@@ -1,4 +1,4 @@
-This is an automatically generated listing of the Lua map scripting API for version 20250725 of OpenHV.
+This is an automatically generated listing of the Lua map scripting API for version 20261108 of OpenHV.
 
 OpenHV allows custom maps and missions to be scripted using Lua 5.1.
 These scripts run in a sandbox that prevents access to unsafe functions (e.g. OS or file access), and limits the memory and CPU usage of the scripts.
@@ -235,6 +235,7 @@ For a basic guide about map scripts see the [`Map Scripting` wiki page](https://
 | **void OnAllRemovedFromWorld(Actor[] actors, LuaFunction func)** | Call a function when all of the actors in a group have been removed from the world. The callback function will be called as func(). |
 | **void OnAnyKilled(Actor[] actors, LuaFunction func)** | Call a function when one of the actors in a group is killed. This trigger is only called once. The callback function will be called as func(killed: actor). |
 | **void OnAnyProduction(LuaFunction func)** | Call a function when any actor produces another actor. The callback function will be called as func(producer: actor, produced: actor, productionType: string). |
+| **void OnBuildingPlaced(Player player, LuaFunction func)** | Call a function when this player places a building. The callback function will be called as func(p: player, placed: actor). |
 | **void OnCapture(Actor actor, LuaFunction func)** | Call a function when this actor is captured. The callback function will be called as func(self: actor, captor: actor, oldOwner: player, newOwner: player). |
 | **void OnDamaged(Actor actor, LuaFunction func)** | Call a function when the actor is damaged. Repairs or other negative damage can activate this trigger. The callback function will be called as func(self: actor, attacker: actor, damage: integer). |
 | **void OnDiscovered(Actor actor, LuaFunction func)** | Call a function when this actor is discovered by an enemy or a player with a Neutral stance. The callback function will be called as func(discovered: actor, discoverer: player). The player actor needs the 'EnemyWatcher' trait. The actors to discover need the 'AnnounceOnSeen' trait. |
@@ -257,6 +258,7 @@ For a basic guide about map scripts see the [`Map Scripting` wiki page](https://
 | **void OnProduction(Actor actor, LuaFunction func)** | Call a function when this actor produces another actor. The callback function will be called as func(producer: actor, produced: actor). |
 | **void OnRemovedFromWorld(Actor actor, LuaFunction func)** | Call a function when this actor is removed from the world. The callback function will be called as func(self: actor). |
 | **void OnSold(Actor actor, LuaFunction func)** | Call a function when this actor is sold. The callback function will be called as func(self: actor). |
+| **void OnSupportPowerActivated(Actor actor, LuaFunction func)** | Call a function when a Support Power is activated by this actor. The callback function will be called as func(self: actor, orderName: string). |
 | **void OnTimerExpired(LuaFunction func)** | Call a function when the game timer expires. The callback function will be called as func(). |
 | **void RemoveFootprintTrigger(int id)** | Removes a previously created footprint trigger. |
 | **void RemoveProximityTrigger(int id)** | Removes a previously created proximity trigger. |
@@ -514,7 +516,7 @@ For a basic guide about map scripts see the [`Map Scripting` wiki page](https://
 | **int PowerDrained { get; }** | Returns the power used by the player.<br />**Requires Trait:** PowerManager |
 | **int PowerProvided { get; }** | Returns the total of the power the player has.<br />**Requires Trait:** PowerManager |
 | **string PowerState { get; }** | Returns the player's power state ("Normal", "Low" or "Critical").<br />**Requires Trait:** PowerManager |
-| **void TriggerPowerOutage(int ticks)** | Triggers low power for the chosen amount of ticks.<br />**Requires Trait:** PowerManager |
+| **void TriggerPowerOutage(int ticks)** | Triggers an outage for the chosen amount of ticks. Of this player's actors, only those with the `AffectedByPowerOutage` trait are affected.<br />**Requires Trait:** PowerManager |
 
 
 ### Production

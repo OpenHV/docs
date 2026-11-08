@@ -1,31 +1,31 @@
 # Traits
 
-This documentation is aimed at modders and has been automatically generated for version `20250725` of OpenHV. Please do not edit it directly, but instead add new `[Desc("String")]` tags to the source code.
+This documentation is aimed at modders and has been automatically generated for version `20261108` of OpenHV. Please do not edit it directly, but instead add new `[Desc("String")]` tags to the source code.
 
 Listed below are all traits with their properties and their default values plus developer commentary.
 Related types with their possible values are listed [at the bottom](#related-value-types-enums).
 
 
 ### ChatCommands
-**Enables commands triggered by typing them into the chatbox. Attach this to the world actor.**
+**Enables commands triggered by typing them into the chatbox. Attach this to the world actor. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Commands/ChatCommands.cs)**
 
 ### DebugVisualizationCommands
-**Enables visualization commands via the chatbox. Attach this to the world actor.**
+**Enables visualization commands via the chatbox. Attach this to the world actor. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Commands/DebugVisualizationCommands.cs)**
 
 ### DevCommands
-**Enables developer cheats via the chatbox. Attach this to the world actor.**
+**Enables developer cheats via the chatbox. Attach this to the world actor. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Commands/DevCommands.cs)**
 
 ### HelpCommand
-**Shows a list of available commands in the chatbox. Attach this to the world actor.**
+**Shows a list of available commands in the chatbox. Attach this to the world actor. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Commands/HelpCommand.cs)**
 
 ### PlayerCommands
-**Allows the player to pause or surrender the game via the chatbox. Attach this to the world actor.**
+**Allows the player to pause or surrender the game via the chatbox. Attach this to the world actor. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Commands/PlayerCommands.cs)**
 
 
 ### WithDrillingAnimation
-**Replaces the building animation when resources are mined.**
+**Replaces the building animation when resources are mined. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.HV/Traits/Render/WithDrillingAnimation.cs)**
 
-> Requires trait(s): [`ResourceCollector`](#resourcecollector), [`WithSpriteBody`](#withspritebody).
+> Requires: [`ResourceCollector`](#resourcecollector), [`WithSpriteBody`](#withspritebody).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -35,20 +35,20 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 
 ### LuaScript
-**Part of the new Lua API.**
+**Part of the new Lua API. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Scripting/LuaScript.cs)**
 
-> Requires trait(s): [`SpawnMapActors`](#spawnmapactors).
+> Requires: [`SpawnMapActors`](#spawnmapactors).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
 | Scripts |  | Set of String | File names with location relative to the map. |
 
 ### ScriptTriggers
-**Allows map scripts to attach triggers to this actor via the Triggers global.**
+**Allows map scripts to attach triggers to this actor via the Triggers global. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Scripting/ScriptTriggers.cs)**
 
 
 ### AcceptsDeliveredCash
-**Tag trait for actors with `DeliversCash`.**
+**Tag trait for actors with `DeliversCash`. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/AcceptsDeliveredCash.cs)**
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -57,9 +57,9 @@ Related types with their possible values are listed [at the bottom](#related-val
 | Sounds |  | Collection of String | Play a randomly selected sound from this list when accepting cash. |
 
 ### AcceptsDeliveredExperience
-**Tag trait for actors with `DeliversExperience`.**
+**Tag trait for actors with `DeliversExperience`. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/AcceptsDeliveredExperience.cs)**
 
-> Requires trait(s): [`GainsExperience`](#gainsexperience).
+> Requires: [`GainsExperience`](#gainsexperience).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -67,13 +67,19 @@ Related types with their possible values are listed [at the bottom](#related-val
 | ValidRelationships | Ally | [`PlayerRelationship`](#playerrelationship) | Player relationships the owner of the delivering actor needs. |
 
 ### ActorMap
+** [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/World/ActorMap.cs)**
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
 | BinSize | 10 | Integer | Size of partition bins (cells) |
 
+### ActorMapOverlay
+**Renders a debug overlay showing the actor influence map. Attach this to the world actor. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/World/ActorMapOverlay.cs)**
+
+> Requires: [`ActorMap`](#actormap).
+
 ### ActorPreviewPlaceBuildingPreview
-**Creates a building placement preview based on the map editor actor preview.**
+**Creates a building placement preview based on the map editor actor preview. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/Buildings/ActorPreviewPlaceBuildingPreview.cs)**
 
 > Inherits from: [`FootprintPlaceBuildingPreview`](#footprintplacebuildingpreview).
 
@@ -89,7 +95,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | LineBuildFootprintAlpha | 1 | Real Number | Custom opacity to apply to the line-build placement sprite. |
 
 ### ActorSpawner
-**An actor with this trait indicates a valid spawn point for actors of ActorSpawnManager.**
+**An actor with this trait indicates a valid spawn point for actors of ActorSpawnManager. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/ActorSpawner.cs)**
 
 > Inherits from: `ConditionalTrait`.
 
@@ -99,11 +105,11 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### ActorSpawnManager
-**Controls the spawning of specified actor types. Attach this to the world actor.**
+**Controls the spawning of specified actor types. Attach this to the world actor. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/World/ActorSpawnManager.cs)**
 
 > Inherits from: `ConditionalTrait`.
 
-> Requires trait(s): [`MapCreeps`](#mapcreeps).
+> Requires: [`MapCreeps`](#mapcreeps).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -117,7 +123,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### AffectedByPowerOutage
-**Disables the actor when a power outage is triggered (see `InfiltrateForPowerOutage` for more information).**
+**Disables the actor when a power outage is triggered (see `InfiltrateForPowerOutage` for more information). [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/Power/AffectedByPowerOutage.cs)**
 
 > Inherits from: `ConditionalTrait`.
 
@@ -127,6 +133,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### Aircraft
+** [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/Air/Aircraft.cs)**
 
 > Inherits from: `PausableConditionalTrait`, `ConditionalTrait`.
 
@@ -183,7 +190,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### AirstrikePower
-**Support power that spawns a group of aircraft and orders them to deliver an airstrike.**
+**Support power that spawns a group of aircraft and orders them to deliver an airstrike. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/SupportPowers/AirstrikePower.cs)**
 
 > Inherits from: `DirectionalSupportPower`, `SupportPower`, `PausableConditionalTrait`, `ConditionalTrait`.
 
@@ -254,13 +261,10 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### AllyRepair
-**Attach this to the player actor to allow building repair by team mates.**
-
-### AlwaysVisible
-**The actor is always considered visible for targeting and rendering purposes.**
+**Attach this to the player actor to allow building repair by team mates. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/Player/AllyRepair.cs)**
 
 ### AmmoPool
-**Actor has a limited amount of ammo, after using it all the actor must reload in some way.**
+**Actor has a limited amount of ammo, after using it all the actor must reload in some way. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/AmmoPool.cs)**
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -274,7 +278,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | AmmoCondition |  | String | The condition to grant to self for each ammo point in this pool. |
 
 ### AppearsOnMapPreview
-**Render this actor when creating the minimap while saving the map.**
+**Render this actor when creating the minimap while saving the map. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/AppearsOnMapPreview.cs)**
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -282,11 +286,11 @@ Related types with their possible values are listed [at the bottom](#related-val
 | Terrain |  | String | Use this terrain color to render the actor, instead of owner player color. Overrides `Color` if both set. |
 
 ### Armament
-**Allows you to attach weapons to the unit (use @IdentifierSuffix for > 1)**
+**Allows you to attach weapons to the unit (use @IdentifierSuffix for > 1) [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/Armament.cs)**
 
 > Inherits from: `PausableConditionalTrait`, `ConditionalTrait`.
 
-> Requires trait(s): `AttackBase`.
+> Requires: `AttackBase`.
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -310,7 +314,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### Armor
-**Used to define weapon efficiency modifiers with different percentages per Type.**
+**Used to define weapon efficiency modifiers with different percentages per Type. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/Armor.cs)**
 
 > Inherits from: `ConditionalTrait`.
 
@@ -320,10 +324,11 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### AttackAircraft
+** [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/Air/AttackAircraft.cs)**
 
 > Inherits from: [`AttackFollow`](#attackfollow), `AttackBase`, `PausableConditionalTrait`, `ConditionalTrait`.
 
-> Requires trait(s): [`Aircraft`](#aircraft).
+> Requires: [`Aircraft`](#aircraft).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -348,7 +353,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### AttackBomber
-**Trait used for scripted actors or actors spawned by a support power.**
+**Trait used for scripted actors or actors spawned by a support power. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/Air/AttackBomber.cs)**
 
 > Inherits from: `AttackBase`, `PausableConditionalTrait`, `ConditionalTrait`.
 
@@ -369,7 +374,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### AttackCharges
-**Actor must charge up its armaments before firing.**
+**Actor must charge up its armaments before firing. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/Attack/AttackCharges.cs)**
 
 > Inherits from: [`AttackOmni`](#attackomni), `AttackBase`, `PausableConditionalTrait`, `ConditionalTrait`.
 
@@ -394,7 +399,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### AttackFollow
-**Actor will follow units until in range to attack them.**
+**Actor will follow units until in range to attack them. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/Attack/AttackFollow.cs)**
 
 > Inherits from: `AttackBase`, `PausableConditionalTrait`, `ConditionalTrait`.
 
@@ -419,7 +424,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### AttackFrontal
-**Unit got to face the target**
+**Unit got to face the target [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/Attack/AttackFrontal.cs)**
 
 > Inherits from: `AttackBase`, `PausableConditionalTrait`, `ConditionalTrait`.
 
@@ -440,11 +445,11 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### AttackGarrisoned
-**Cargo can fire their weapons out of fire ports.**
+**Cargo can fire their weapons out of fire ports. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/Attack/AttackGarrisoned.cs)**
 
 > Inherits from: [`AttackFollow`](#attackfollow), `AttackBase`, `PausableConditionalTrait`, `ConditionalTrait`.
 
-> Requires trait(s): [`Cargo`](#cargo).
+> Requires: [`Cargo`](#cargo).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -471,7 +476,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### AttackMove
-**Provides access to the attack-move command, which will make the actor automatically engage viable targets while moving to the destination.**
+**Provides access to the attack-move command, which will make the actor automatically engage viable targets while moving to the destination. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/AttackMove.cs)**
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -486,6 +491,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | AssaultMoveBlockedCursor | assaultmove-blocked | String |  |
 
 ### AttackOmni
+** [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/Attack/AttackOmni.cs)**
 
 > Inherits from: `AttackBase`, `PausableConditionalTrait`, `ConditionalTrait`.
 
@@ -506,11 +512,11 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### AttackTurreted
-**Actor has a visual turret used to attack.**
+**Actor has a visual turret used to attack. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/Attack/AttackTurreted.cs)**
 
 > Inherits from: [`AttackFollow`](#attackfollow), `AttackBase`, `PausableConditionalTrait`, `ConditionalTrait`.
 
-> Requires trait(s): [`Turreted`](#turreted).
+> Requires: [`Turreted`](#turreted).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -534,11 +540,11 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### AttackWander
-**Will AttackMove to a random location within MoveRadius when idle. This conflicts with player orders and should only be added to animal creeps.**
+**Will AttackMove to a random location within MoveRadius when idle. This conflicts with player orders and should only be added to animal creeps. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/AttackWander.cs)**
 
 > Inherits from: [`Wanders`](#wanders), `ConditionalTrait`.
 
-> Requires trait(s): [`AttackMove`](#attackmove).
+> Requires: [`AttackMove`](#attackmove).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -550,7 +556,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### AutoCarryable
-**Can be carried by units with the trait `Carryall`.**
+**Can be carried by units with the trait `Carryall`. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/AutoCarryable.cs)**
 
 > Inherits from: [`Carryable`](#carryable), `ConditionalTrait`.
 
@@ -564,11 +570,11 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### AutoCarryall
-**Automatically transports harvesters with the AutoCarryable and CarryableHarvester between resource fields and refineries.**
+**Automatically transports harvesters with the AutoCarryable and CarryableHarvester between resource fields and refineries. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/AutoCarryall.cs)**
 
 > Inherits from: [`Carryall`](#carryall), `ConditionalTrait`.
 
-> Requires trait(s): [`Aircraft`](#aircraft), [`BodyOrientation`](#bodyorientation).
+> Requires: [`Aircraft`](#aircraft), [`BodyOrientation`](#bodyorientation).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -591,6 +597,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### AutoCrusher
+** [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/AutoCrusher.cs)**
 
 > Inherits from: `PausableConditionalTrait`, `ConditionalTrait`.
 
@@ -604,12 +611,15 @@ Related types with their possible values are listed [at the bottom](#related-val
 | PauseOnCondition |  | BooleanExpression | Boolean expression defining the condition to pause this trait. |
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
+### AutoSave
+**Add this trait to the world actor to enable auto-save. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/World/AutoSave.cs)**
+
 ### AutoTarget
-**The actor will automatically engage the enemy when it is in range.**
+**The actor will automatically engage the enemy when it is in range. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/AutoTarget.cs)**
 
 > Inherits from: `ConditionalTrait`.
 
-> Requires trait(s): `AttackBase`.
+> Requires: `AttackBase`.
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -630,11 +640,11 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### AutoTargetPriority
-**Specifies the target types and relative priority used by AutoTarget to decide what to target.**
+**Specifies the target types and relative priority used by AutoTarget to decide what to target. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/AutoTargetPriority.cs)**
 
 > Inherits from: `ConditionalTrait`.
 
-> Requires trait(s): [`AutoTarget`](#autotarget).
+> Requires: [`AutoTarget`](#autotarget).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -644,32 +654,18 @@ Related types with their possible values are listed [at the bottom](#related-val
 | Priority | 1 | Integer | ValidTargets with larger priorities will be AutoTargeted before lower priorities. |
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
-### BaseAttackNotifier
-**Plays an audio notification and shows a radar ping when a building is attacked. Attach this to the player actor.**
-
-| Property | Default Value | Type | Description |
-| -------- | ------------- | ---- | ----------- |
-| NotifyInterval | 30000 | Integer | Minimum duration (in milliseconds) between notification events. |
-| RadarPingColor | FF0000 | Color (RRGGBB[AA] notation) |  |
-| RadarPingDuration | 250 | Integer | Length of time (in ticks) to display a location ping in the minimap. |
-| Notification | BaseAttack | String | Speech notification type to play. |
-| TextNotification |  | String | Text notification to display. |
-| AllyNotification |  | String | Speech notification to play to allies when under attack. Won't play a notification to allies if this is null. |
-| AllyTextNotification |  | String | Text notification to display to allies when under attack. |
-
 ### BaseBuilderBotModule
-**Manages AI base construction.**
+**Manages AI base construction. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/BotModules/BaseBuilderBotModule.cs)**
 
 > Inherits from: `ConditionalTrait`.
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
 | ConstructionYardTypes |  | Set of String | Tells the AI what building types are considered construction yards. |
-| VehiclesFactoryTypes |  | Set of String | Tells the AI what building types are considered vehicle production facilities. |
 | RefineryTypes |  | Set of String | Tells the AI what building types are considered refineries. |
 | PowerTypes |  | Set of String | Tells the AI what building types are considered power plants. |
-| BarracksTypes |  | Set of String | Tells the AI what building types are considered infantry production facilities. |
 | ProductionTypes |  | Set of String | Tells the AI what building types are considered production facilities. |
+| TechTypes |  | Set of String | Tells the AI what building types are considered tech buildings. |
 | NavalProductionTypes |  | Set of String | Tells the AI what building types are considered naval production facilities. |
 | SiloTypes |  | Set of String | Tells the AI what building types are considered silos (resource storage). |
 | DefenseTypes |  | Set of String | Tells the AI what building types are considered defenses. |
@@ -681,8 +677,8 @@ Related types with their possible values are listed [at the bottom](#related-val
 | MaximumExcessPower | 0 | Integer | The targeted excess power the AI tries to maintain cannot rise above this. |
 | ExcessPowerIncrement | 0 | Integer | Increase maintained excess power by this amount for every ExcessPowerIncreaseThreshold of base buildings. |
 | ExcessPowerIncreaseThreshold | 1 | Integer | Increase maintained excess power by ExcessPowerIncrement for every N base buildings. |
-| InititalMinimumRefineryCount | 1 | Integer | Number of refineries to build before building a barracks. |
-| AdditionalMinimumRefineryCount | 1 | Integer | Number of refineries to build additionally after building a barracks. |
+| InititalMinimumRefineryCount | 1 | Integer | Number of refineries to build before building any production building. |
+| AdditionalMinimumRefineryCount | 1 | Integer | Number of refineries to build additionally after building any production building. |
 | StructureProductionInactiveDelay | 125 | Integer | Additional delay (in ticks) between structure production checks when there is no active production. StructureProductionRandomBonusDelay is added to this. |
 | StructureProductionActiveDelay | 25 | Integer | Additional delay (in ticks) added between structure production checks when actively building things. Note: this should be at least as large as the typical order latency to avoid duplicated build choices. |
 | StructureProductionRandomBonusDelay | 10 | Integer | A random delay (in ticks) of up to this is added to active/inactive production delays. |
@@ -691,9 +687,9 @@ Related types with their possible values are listed [at the bottom](#related-val
 | MaxResourceCellsToCheck | 3 | Integer | How many randomly chosen cells with resources to check when deciding refinery placement. |
 | CheckForNewBasesDelay | 1500 | Integer | Delay (in ticks) until rechecking for new BaseProviders. |
 | PlaceDefenseTowardsEnemyChance | 100 | Integer | Chance that the AI will place the defenses in the direction of the closest enemy building. |
-| MinimumDefenseRadius | 5 | Integer | Minimum range at which to build defensive structures near a combat hotspot. |
-| MaximumDefenseRadius | 20 | Integer | Maximum range at which to build defensive structures near a combat hotspot. |
+| TryMaintainDefenseRange | 5 | Integer | Desired range at which to build defensive structures near a combat hotspot if possible. |
 | NewProductionCashThreshold | 5000 | Integer | Try to build another production building if there is too much cash. |
+| NewProductionChance | 50 | Integer | Chance to build another production building if there is too much cash. |
 | RallyPointScanRadius | 8 | Integer | Radius in cells around a factory scanned for rally points by the AI. |
 | CheckForWaterRadius | 8 | Integer | Radius in cells around each building with ProvideBuildableArea to check for a 3x3 area of water where naval structures can be built. Should match maximum adjacency of naval structures. |
 | WaterTerrainTypes | Water | Set of String | Terrain types which are considered water for base building purposes. |
@@ -702,13 +698,21 @@ Related types with their possible values are listed [at the bottom](#related-val
 | BuildingDelays |  | Dictionary with Key: String, Value: Integer | When should the AI start building specific buildings. |
 | ProductionMinCashRequirement | 500 | Integer | Only queue construction of a new structure when above this requirement. |
 | AssignRallyPointsInterval | 100 | Integer | Delay (in ticks) between reassigning rally points. |
+| CheckBestResourceLocationInterval | 151 | Integer | Delay (in ticks) for finding a good resource to place a refinery next to. |
+| SellRefineryInterval | 5000 | Integer | Interval (in ticks) between checking whether to sell a redundant refinery. Set to -1 to disable. |
+| SellRefineryTooCloseCellDistance | 6 | Integer | Distance (in cells) for refineries finding redundant refineries. |
+| SellRefineryNoResourceDistance | 12 | Integer | Maximum distance (in cells) from resources before refineries are eligible to be sold. |
+| MaxRefineryPerIndice | 2 | Integer | Maximum refinery count per area. Area size is defined in ResourceMapBotModule. |
+| ExpansionTolerate | 0, 1 | Collection of Integer | AI will move mcv when those numbers of refinery <= productions + tech - ExpansionTolerate. |
+| ForceExpansionTolerate | 2, 3 | Collection of Integer | AI will move the only mcv when those numbers of refinery <= productions + tech - ForceExpansionTolerate. |
+| PerExpansionTolerateOnCash | 12000 | Integer | Decrease the expansion tolerate by Cash / this. Used to prevent AI from expanding when it has enough cash. |
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### BaseBuilding
-**Tag trait for construction yard and MCVs. Used by the cycle bases hotkey to identify actors.**
+**Tag trait for construction yard and MCVs. Used by the cycle bases hotkey to identify actors. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/Buildings/BaseBuilding.cs)**
 
 ### BaseProvider
-**Limits the zone where buildings can be constructed to a radius around this actor.**
+**Limits the zone where buildings can be constructed to a radius around this actor. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/Buildings/BaseProvider.cs)**
 
 > Inherits from: `PausableConditionalTrait`, `ConditionalTrait`.
 
@@ -726,7 +730,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### BlocksProjectiles
-**This actor blocks bullets and missiles with 'Blockable' property.**
+**This actor blocks bullets and missiles with 'Blockable' property. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/BlocksProjectiles.cs)**
 
 > Inherits from: `ConditionalTrait`.
 
@@ -737,15 +741,16 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### BodyOrientation
+** [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/BodyOrientation.cs)**
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
-| QuantizedFacings | -1 | Integer | Number of facings for gameplay calculations. -1 indicates auto-detection from another trait. |
+| QuantizedFacings | -1 | Integer | Number of facings for gameplay calculations. -1 indicates auto-detection from another trait. 0 disables quantization. |
 | CameraPitch | 113 | 1D World Angle | Camera pitch for rotation calculations. |
 | UseClassicPerspectiveFudge | True | Boolean | Fudge the coordinate system angles to simulate non-top-down perspective in mods with square cells. |
 
 ### BridgeHut
-**Allows bridges to be targeted for demolition and repair.**
+**Allows bridges to be targeted for demolition and repair. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/Buildings/BridgeHut.cs)**
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -756,8 +761,9 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RequireForceAttackForHeal | False | Boolean | Hide the repair cursor if the bridge is only damaged (not destroyed) |
 
 ### Bridge
+** [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/Buildings/Bridge.cs)**
 
-> Requires trait(s): [`Building`](#building), [`Health`](#health).
+> Requires: [`Building`](#building), [`Health`](#health).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -776,9 +782,10 @@ Related types with their possible values are listed [at the bottom](#related-val
 | DamageTypes |  | Collection of DamageType | Types of damage that this bridge causes to units over/in path of it while being destroyed/repaired. Leave empty for no damage types. |
 
 ### BridgeLayer
+** [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/World/BridgeLayer.cs)**
 
 ### BridgePlaceholder
-**Placeholder actor used for dead segments and bridge end ramps.**
+**Placeholder actor used for dead segments and bridge end ramps. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/Buildings/BridgePlaceholder.cs)**
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -787,14 +794,8 @@ Related types with their possible values are listed [at the bottom](#related-val
 | ReplaceWithActor |  | String | Actor type to replace with on repair. |
 | NeighbourOffsets |  | Collection of 2D Cell Vector |  |
 
-### BridgeShadowRenderer
-**Used to render decorational shadows that can be manually placed without tooltips.**
-
-| Property | Default Value | Type | Description |
-| -------- | ------------- | ---- | ----------- |
-| BridgeShadowTypes |  | Dictionary with Key: String, Value: BridgeShadowTypeInfo |  |
-
 ### Buildable
+** [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/Buildable.cs)**
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -812,6 +813,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | Description |  | String | Text shown in the production tooltip. |
 
 ### BuildableTerrainOverlay
+** [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/World/BuildableTerrainOverlay.cs)**
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -822,9 +824,10 @@ Related types with their possible values are listed [at the bottom](#related-val
 | Alpha | 1 | Real Number | Custom opacity to apply to the overlay sprite. |
 
 ### BuildingInfluence
-**A dictionary of buildings placed on the map. Attach this to the world actor.**
+**A dictionary of buildings placed on the map. Attach this to the world actor. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/Buildings/BuildingInfluence.cs)**
 
 ### Building
+** [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/Buildings/Building.cs)**
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -834,7 +837,6 @@ Related types with their possible values are listed [at the bottom](#related-val
 | LocalCenterOffset | 0,0,0 | 3D World Vector | Shift center of the actor by this offset. |
 | RequiresBaseProvider | False | Boolean |  |
 | AllowInvalidPlacement | False | Boolean |  |
-| AllowPlacementOnResources | False | Boolean |  |
 | RemoveSmudgesOnBuild | True | Boolean | Clear smudges from underneath the building footprint. |
 | RemoveSmudgesOnSell | True | Boolean | Clear smudges from underneath the building footprint on sell. |
 | RemoveSmudgesOnTransform | True | Boolean | Clear smudges from underneath the building footprint on transform. |
@@ -842,20 +844,65 @@ Related types with their possible values are listed [at the bottom](#related-val
 | UndeploySounds |  | Collection of String |  |
 
 ### BuildingRepairBotModule
-**Manages AI repairing base buildings.**
+**Manages AI repairing base buildings. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/BotModules/BuildingRepairBotModule.cs)**
 
 > Inherits from: `ConditionalTrait`.
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
+| RepairAllBuildingsCoolDown | 107 | Integer | A delay (in ticks) of repair all actors with RepairableBuilding periodically. Set it to -1 to disable it. |
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
+### BulkProductionQueue
+**Attach this to the player actor (not a building!) to define a new shared build queue. Allows you to build multiple actors before delivery Will work together with the `ProductionBulkAirDrop` trait on the actor that actually does the production. You will also want to add `PrimaryBuilding` to let the user choose where new units should exit. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/Player/BulkProductionQueue.cs)**
+
+> Inherits from: [`ProductionQueue`](#productionqueue).
+
+> Requires: [`PlayerResources`](#playerresources), [`TechTree`](#techtree).
+
+| Property | Default Value | Type | Description |
+| -------- | ------------- | ---- | ----------- |
+| MaxCapacity | 6 | Integer | Maximum order capacity. |
+| DeliveryDelay | 1500 | Integer | Delivery delay in ticks. |
+| StartDeliveryNotification |  | String | Notification played when the delivery started. |
+| RefundUndeliveredActors | True | Boolean | Return funds if the delivery fails. |
+| StartDeliveryTextNotification |  | String | Notification displayed when the delivery started. |
+| DeliveryProgressNotifications |  | Collection of String | Notifications to play when the delivery actor is on its way. Last notification is played when the actors to deliver are spawned on the map. |
+| Type | *(required)* | String | What kind of production will be added (e.g. Building, Infantry, Vehicle, ...) |
+| DisplayOrder | 0 | Integer | The value used when ordering this for display (e.g. in the Spectator UI). |
+| Group |  | String | Group queues from separate buildings together into the same tab. |
+| Factions |  | Set of String | Only enable this queue for certain factions. |
+| Sticky | True | Boolean | Should the prerequisite remain enabled if the owner changes? |
+| PayUpFront | False | Boolean | Player must pay for item upfront |
+| DisallowPaused | False | Boolean | Should right clicking on the icon instantly cancel the production instead of putting it on hold? |
+| BuildDurationModifier | 100 | Integer | This percentage value is multiplied with actor cost to translate into build time (lower means faster). |
+| ItemLimit | 999 | Integer | Maximum number of a single actor type that can be queued (0 = infinite). |
+| QueueLimit | 0 | Integer | Maximum number of items that can be queued across all actor types (0 = infinite). |
+| LowPowerModifier | 100 | Integer | The build time is multiplied with this percentage on low power. |
+| InfiniteBuildLimit | -1 | Integer | Production items that have more than this many items in the queue will be produced in a loop. |
+| ReadyAudio |  | String | Notification played when production is complete. The filename of the audio is defined per faction in notifications.yaml. |
+| ReadyTextNotification |  | String | Notification displayed when production is complete. |
+| BlockedAudio |  | String | Notification played when you can't train another actor when the build limit exceeded or the exit is jammed. The filename of the audio is defined per faction in notifications.yaml. |
+| BlockedTextNotification |  | String | Notification displayed when you can't train another actor when the build limit exceeded or the exit is jammed. |
+| LimitedAudio |  | String | Notification played when you can't queue another actor when the queue length limit is exceeded. The filename of the audio is defined per faction in notifications.yaml. |
+| LimitedTextNotification |  | String | Notification displayed when you can't queue another actor when the queue length limit is exceeded. |
+| CannotPlaceAudio |  | String | Notification played when you can't place a building. Overrides PlaceBuilding.CannotPlaceNotification for this queue. The filename of the audio is defined per faction in notifications.yaml. |
+| QueuedAudio |  | String | Notification played when user clicks on the build palette icon. The filename of the audio is defined per faction in notifications.yaml. |
+| QueuedTextNotification |  | String | Notification displayed when user clicks on the build palette icon. |
+| OnHoldAudio |  | String | Notification played when player right-clicks on the build palette icon. The filename of the audio is defined per faction in notifications.yaml. |
+| OnHoldTextNotification |  | String | Notification displayed when player right-clicks on the build palette icon. |
+| CancelledAudio |  | String | Notification played when player right-clicks on a build palette icon that is already on hold. The filename of the audio is defined per faction in notifications.yaml. |
+| CancelledTextNotification |  | String | Notification displayed when player right-clicks on a build palette icon that is already on hold. |
+
+### CameraOvalMover
+**Moves the camera in an oval pattern around its starting position. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/World/CameraOvalMover.cs)**
+
 ### Capturable
-**This actor can be captured by a unit with Captures: trait. This trait should not be disabled if the actor also uses FrozenUnderFog.**
+**This actor can be captured by a unit with Captures: trait. This trait should not be disabled if the actor also uses FrozenUnderFog. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/Capturable.cs)**
 
 > Inherits from: `ConditionalTrait`.
 
-> Requires trait(s): [`CaptureManager`](#capturemanager).
+> Requires: [`CaptureManager`](#capturemanager).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -864,11 +911,11 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### CapturableProgressBar
-**Visualize capture progress.**
+**Visualize capture progress. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/CapturableProgressBar.cs)**
 
 > Inherits from: `ConditionalTrait`.
 
-> Requires trait(s): [`Capturable`](#capturable).
+> Requires: [`Capturable`](#capturable).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -876,19 +923,20 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### CapturableProgressBlink
-**Blinks the actor and captor when it is being captured.**
+**Blinks the actor and captor when it is being captured. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/CapturableProgressBlink.cs)**
 
 > Inherits from: `ConditionalTrait`.
 
-> Requires trait(s): [`Capturable`](#capturable).
+> Requires: [`Capturable`](#capturable).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
 | Interval | 50 | Integer | Number of ticks to wait between repeating blinks. |
+| Sound |  | String | Sound to play at the same time the actor blinks. |
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### CaptureManagerBotModule
-**Manages AI capturing logic.**
+**Manages AI capturing logic. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/BotModules/CaptureManagerBotModule.cs)**
 
 > Inherits from: `ConditionalTrait`.
 
@@ -903,7 +951,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### CaptureManager
-**Manages Captures and Capturable traits on an actor.**
+**Manages Captures and Capturable traits on an actor. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/CaptureManager.cs)**
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -912,11 +960,11 @@ Related types with their possible values are listed [at the bottom](#related-val
 | PreventsAutoTarget | True | Boolean | Should units friendly to the capturing actor auto-target this actor while it is being captured? |
 
 ### CaptureProgressBar
-**Visualize the progress of this actor being captured.**
+**Visualize the progress of this actor being captured. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/CaptureProgressBar.cs)**
 
 > Inherits from: `ConditionalTrait`.
 
-> Requires trait(s): [`Captures`](#captures).
+> Requires: [`Captures`](#captures).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -924,11 +972,11 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### Captures
-**This actor can capture other actors which have the Capturable: trait.**
+**This actor can capture other actors which have the Capturable: trait. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/Captures.cs)**
 
 > Inherits from: `ConditionalTrait`.
 
-> Requires trait(s): [`CaptureManager`](#capturemanager).
+> Requires: [`CaptureManager`](#capturemanager).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -949,7 +997,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### Cargo
-**This actor can transport Passenger actors.**
+**This actor can transport Passenger actors. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/Cargo.cs)**
 
 > Inherits from: `ConditionalTrait`.
 
@@ -967,6 +1015,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | AfterLoadDelay | 8 | Integer | Delay (in ticks) before continuing after loading a passenger. |
 | BeforeUnloadDelay | 8 | Integer | Delay (in ticks) before unloading the first passenger. |
 | AfterUnloadDelay | 25 | Integer | Delay (in ticks) before continuing after unloading a passenger. |
+| BetweenUnloadDelay | 0 | Integer | Delay (in ticks) before each passenger is unloaded. |
 | UnloadCursor | deploy | String | Cursor to display when able to unload the passengers. |
 | UnloadBlockedCursor | deploy-blocked | String | Cursor to display when unable to unload the passengers. |
 | LoadingCondition |  | String | The condition to grant to self while waiting for cargo to load. |
@@ -975,9 +1024,10 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### CarryableHarvester
+** [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/CarryableHarvester.cs)**
 
 ### Carryable
-**Can be carried by actors with the `Carryall` trait.**
+**Can be carried by actors with the `Carryall` trait. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/Carryable.cs)**
 
 > Inherits from: `ConditionalTrait`.
 
@@ -990,11 +1040,11 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### Carryall
-**Transports actors with the `Carryable` trait.**
+**Transports actors with the `Carryable` trait. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/Carryall.cs)**
 
 > Inherits from: `ConditionalTrait`.
 
-> Requires trait(s): [`Aircraft`](#aircraft), [`BodyOrientation`](#bodyorientation).
+> Requires: [`Aircraft`](#aircraft), [`BodyOrientation`](#bodyorientation).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -1016,7 +1066,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### CashTrickler
-**Lets the actor generate cash in a set periodic time.**
+**Lets the actor generate cash in a set periodic time. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/CashTrickler.cs)**
 
 > Inherits from: `PausableConditionalTrait`, `ConditionalTrait`.
 
@@ -1032,11 +1082,11 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### CashTricklerMultiplier
-**Modifies the cash given by cash tricker traits of this actor.**
+**Modifies the cash given by cash tricker traits of this actor. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/Multipliers/CashTricklerMultiplier.cs)**
 
 > Inherits from: `ConditionalTrait`.
 
-> Requires trait(s): [`CashTrickler`](#cashtrickler).
+> Requires: [`CashTrickler`](#cashtrickler).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -1044,7 +1094,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### CellTriggerOverlay
-**Renders a debug overlay showing the script triggers. Attach this to the world actor.**
+**Renders a debug overlay showing the script triggers. Attach this to the world actor. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/World/CellTriggerOverlay.cs)**
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -1052,7 +1102,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | Color | FF0000 | Color (RRGGBB[AA] notation) |  |
 
 ### ChangesHealth
-**Attach this to actors which should regenerate or lose health points over time.**
+**Attach this to actors which should regenerate or lose health points over time. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/ChangesHealth.cs)**
 
 > Inherits from: `ConditionalTrait`.
 
@@ -1067,20 +1117,34 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### ChangesTerrain
-**Modifies the terrain type underneath the actors location.**
-
-> Requires trait(s): [`Immobile`](#immobile).
+**Modifies the terrain type underneath the actor's location. Make sure that the actor doesn't move, as the terrain is changed only on actor creation. In other words using Mobile, Aircraft nor any other IMove-based trait is supported and can cause unintended side effects. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/ChangesTerrain.cs)**
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
 | TerrainType | *(required)* | String |  |
+| TerrainTypes |  | Set of String | Only change terrain, if the cell's original terrain type is in this list. By default, the terrain type is changed regardless of the original terrain type. |
+
+### ClassicMapGenerator
+** [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/World/ClassicMapGenerator.cs)**
+
+> Inherits from: `MapGeneratorBase`.
+
+| Property | Default Value | Type | Description |
+| -------- | ------------- | ---- | ----------- |
+| Type | *(required)* | String |  |
+| Name | *(required)* | String |  |
+| Tilesets | *(required)* | Collection of String | Tilesets that are compatible with this map generator. |
+| MapTitle | label-random-map | String | The title to use for generated maps. |
+| PanelWidget | MAP_GENERATOR_TOOL_PANEL | String | The widget tree to open when the tool is selected. |
+| FluentReferences |  | Collection of String |  |
+| Options |  | Collection of MapGeneratorOption |  |
 
 ### ClassicParallelProductionQueue
-**Attach this to the player actor (not a building!) to define a new shared build queue. Will only work together with the Production: trait on the actor that actually does the production. You will also want to add PrimaryBuildings: to let the user choose where new units should exit. The production speed depends on the number of production buildings and units queued at the same time.**
+**Attach this to the player actor (not a building!) to define a new shared build queue. Will only work together with the Production: trait on the actor that actually does the production. You will also want to add PrimaryBuildings: to let the user choose where new units should exit. The production speed depends on the number of production buildings and units queued at the same time. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/Player/ClassicParallelProductionQueue.cs)**
 
 > Inherits from: [`ProductionQueue`](#productionqueue).
 
-> Requires trait(s): [`PlayerResources`](#playerresources), [`TechTree`](#techtree).
+> Requires: [`PlayerResources`](#playerresources), [`TechTree`](#techtree).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -1114,11 +1178,11 @@ Related types with their possible values are listed [at the bottom](#related-val
 | CancelledTextNotification |  | String | Notification displayed when player right-clicks on a build palette icon that is already on hold. |
 
 ### ClassicProductionQueue
-**Attach this to the player actor (not a building!) to define a new shared build queue. Will only work together with the Production: trait on the actor that actually does the production. You will also want to add PrimaryBuildings: to let the user choose where new units should exit.**
+**Attach this to the player actor (not a building!) to define a new shared build queue. Will only work together with the Production: trait on the actor that actually does the production. You will also want to add PrimaryBuildings: to let the user choose where new units should exit. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/Player/ClassicProductionQueue.cs)**
 
 > Inherits from: [`ProductionQueue`](#productionqueue).
 
-> Requires trait(s): [`PlayerResources`](#playerresources), [`TechTree`](#techtree).
+> Requires: [`PlayerResources`](#playerresources), [`TechTree`](#techtree).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -1150,15 +1214,30 @@ Related types with their possible values are listed [at the bottom](#related-val
 | CancelledAudio |  | String | Notification played when player right-clicks on a build palette icon that is already on hold. The filename of the audio is defined per faction in notifications.yaml. |
 | CancelledTextNotification |  | String | Notification displayed when player right-clicks on a build palette icon that is already on hold. |
 
+### ClearMapGenerator
+**A map generator that clears a map. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/World/ClearMapGenerator.cs)**
+
+> Inherits from: `MapGeneratorBase`.
+
+| Property | Default Value | Type | Description |
+| -------- | ------------- | ---- | ----------- |
+| Type | *(required)* | String |  |
+| Name | *(required)* | String |  |
+| Tilesets | *(required)* | Collection of String | Tilesets that are compatible with this map generator. |
+| MapTitle | label-random-map | String | The title to use for generated maps. |
+| PanelWidget | MAP_GENERATOR_TOOL_PANEL | String | The widget tree to open when the tool is selected. |
+| FluentReferences |  | Collection of String |  |
+| Options |  | Collection of MapGeneratorOption |  |
+
 ### CliffBackImpassabilityLayer
-**Sets a custom terrain type for cells that are obscured by back-facing cliffs. This trait replicates the default CliffBackImpassability=2 behaviour from the TS/RA2 rules.ini.**
+**Sets a custom terrain type for cells that are obscured by back-facing cliffs. This trait replicates the default CliffBackImpassability=2 behaviour from the TS/RA2 rules.ini. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/World/CliffBackImpassabilityLayer.cs)**
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
 | TerrainType | Impassable | String |  |
 
 ### Cloak
-**This unit can cloak and uncloak in specific situations.**
+**This unit can cloak and uncloak in specific situations. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/Cloak.cs)**
 
 > Inherits from: `PausableConditionalTrait`, `ConditionalTrait`.
 
@@ -1188,9 +1267,10 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### CloakPaletteEffect
+** [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/PaletteEffects/CloakPaletteEffect.cs)**
 
 ### ColorPickerColorShift
-**Create a color picker palette from another palette.**
+**Create a color picker palette from another palette. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/Palettes/ColorPickerColorShift.cs)**
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -1202,7 +1282,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | ReferenceValue | 0.95 | Real Number | Value reference for the color shift. |
 
 ### ColorPickerManager
-**Configuration options for the lobby player color picker. Attach this to the world actor.**
+**Configuration options for the lobby player color picker. Attach this to the world actor. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/World/ColorPickerManager.cs)**
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -1214,7 +1294,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | FactionPreviewActors |  | Dictionary with Key: String, Value: String | Actor type to show in the color picker for specific factions. Overrides PreviewActor. A dictionary of [faction name]: [actor name]. |
 
 ### ColorPickerPalette
-**Create a color picker palette from another palette.**
+**Create a color picker palette from another palette. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/Palettes/ColorPickerPalette.cs)**
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -1224,10 +1304,10 @@ Related types with their possible values are listed [at the bottom](#related-val
 | AllowModifiers | True | Boolean | Allow palette modifiers to change the palette. |
 
 ### CombatDebugOverlay
-**Displays fireports, muzzle offsets, and hit areas in developer mode.**
+**Displays fireports, muzzle offsets, and hit areas in developer mode. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/CombatDebugOverlay.cs)**
 
 ### CommandBarBlacklist
-**Blacklist certain order types to disable on the command bar when this unit is selected.**
+**Blacklist certain order types to disable on the command bar when this unit is selected. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/CommandBarBlacklist.cs)**
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -1235,8 +1315,9 @@ Related types with their possible values are listed [at the bottom](#related-val
 | DisableWaypointMode | True | Boolean | Disable the 'Waypoint Mode' button for this actor. |
 
 ### ConquestVictoryConditions
+** [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/Player/ConquestVictoryConditions.cs)**
 
-> Requires trait(s): [`MissionObjectives`](#missionobjectives).
+> Requires: [`MissionObjectives`](#missionobjectives).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -1245,11 +1326,11 @@ Related types with their possible values are listed [at the bottom](#related-val
 | SuppressNotifications | False | Boolean | Disable the win/loss messages and audio notifications? |
 
 ### Contrail
-**Draw a colored contrail behind this actor when they move.**
+**Draw a colored contrail behind this actor when they move. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/Render/Contrail.cs)**
 
 > Inherits from: `ConditionalTrait`.
 
-> Requires trait(s): [`BodyOrientation`](#bodyorientation).
+> Requires: [`BodyOrientation`](#bodyorientation).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -1268,12 +1349,14 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### ControlGroups
+** [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/World/ControlGroups.cs)**
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
 | Groups | 1, 2, 3, 4, 5, 6, 7, 8, 9, 0 | Collection of String |  |
 
 ### CrateAction
+** [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/Crates/CrateAction.cs)**
 
 > Inherits from: `ConditionalTrait`.
 
@@ -1292,8 +1375,9 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### Crate
+** [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/Crates/Crate.cs)**
 
-> Requires trait(s): [`RenderSprites`](#rendersprites).
+> Requires: [`RenderSprites`](#rendersprites).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -1302,6 +1386,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | CrushClass | crate | String | Define actors that can collect crates by setting this into the Crushes field from the Mobile trait. |
 
 ### CrateSpawner
+** [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/World/CrateSpawner.cs)**
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -1325,9 +1410,10 @@ Related types with their possible values are listed [at the bottom](#related-val
 | Cordon | 5c0 | 1D World Distance | Spawn and remove the plane this far outside the map. |
 
 ### CreateMapPlayers
-**Attach this to the world actor.**
+**Attach this to the world actor. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/World/CreateMapPlayers.cs)**
 
 ### CreatesShroud
+** [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/CreatesShroud.cs)**
 
 > Inherits from: `AffectsShroud`, `ConditionalTrait`.
 
@@ -1342,7 +1428,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### CreatesShroudMultiplier
-**Modifies the shroud range created by this actor.**
+**Modifies the shroud range created by this actor. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/Multipliers/CreatesShroudMultiplier.cs)**
 
 > Inherits from: `ConditionalTrait`.
 
@@ -1352,7 +1438,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### Crushable
-**This actor is crushable.**
+**This actor is crushable. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/Crushable.cs)**
 
 > Inherits from: `ConditionalTrait`.
 
@@ -1365,21 +1451,21 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### CustomSellValue
-**Allow a non-standard sell/repair value to avoid buy-sell exploits.**
+**Allow a non-standard sell/repair value to avoid buy-sell exploits. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/CustomSellValue.cs)**
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
 | Value | 0 | Integer |  |
 
 ### CustomTerrainDebugOverlay
-**Displays custom terrain types.**
+**Displays custom terrain types. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/Render/CustomTerrainDebugOverlay.cs)**
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
 | Font | TinyBold | String |  |
 
 ### DamagedByTerrain
-**This actor receives damage from the given weapon when on the specified terrain type.**
+**This actor receives damage from the given weapon when on the specified terrain type. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/DamagedByTerrain.cs)**
 
 > Inherits from: `ConditionalTrait`.
 
@@ -1392,7 +1478,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### DamageMultiplier
-**Modifies the damage applied to this actor. Use 0 to make actor invulnerable.**
+**Modifies the damage applied to this actor. Use 0 to make actor invulnerable. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/Multipliers/DamageMultiplier.cs)**
 
 > Inherits from: `ConditionalTrait`.
 
@@ -1401,8 +1487,23 @@ Related types with their possible values are listed [at the bottom](#related-val
 | Modifier | 100 | Integer | Percentage modifier to apply. |
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
+### DamageNotifier
+**Plays an audio notification and shows a radar ping when attacked. Attach this to the player actor. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/Player/DamgeNotifier.cs)**
+
+| Property | Default Value | Type | Description |
+| -------- | ------------- | ---- | ----------- |
+| ValidTargets |  | Collection of TargetableType | Target types to notify about. Leave empty to notify about all target types. |
+| InvalidTargets |  | Collection of TargetableType | Target types to ignore. This overrides ValidTargets. Leave empty to notify about all target types. |
+| NotifyInterval | 30000 | Integer | Minimum duration (in milliseconds) between notification events. Set to -1 to make notifications to play only once. |
+| RadarPingColor | FF0000 | Color (RRGGBB[AA] notation) |  |
+| RadarPingDuration | 250 | Integer | Length of time (in ticks) to display a location ping in the minimap. |
+| Notification |  | String | Speech notification type to play. |
+| TextNotification |  | String | Text notification to display. |
+| AllyNotification |  | String | Speech notification to play to allies when under attack. Won't play a notification to allies if this is null. |
+| AllyTextNotification |  | String | Text notification to display to allies when under attack. |
+
 ### DeliversCash
-**Donate money to actors with the `AcceptsDeliveredCash` trait.**
+**Donate money to actors with the `AcceptsDeliveredCash` trait. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/DeliversCash.cs)**
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -1415,9 +1516,9 @@ Related types with their possible values are listed [at the bottom](#related-val
 | TargetLineColor | FFFF00 | Color (RRGGBB[AA] notation) | Color to use for the target line. |
 
 ### DeliversExperience
-**This actor can grant experience levels equal to it's own current level via entering to other actors with the `AcceptsDeliveredExperience` trait.**
+**This actor can grant experience levels equal to it's own current level via entering to other actors with the `AcceptsDeliveredExperience` trait. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/DeliversExperience.cs)**
 
-> Requires trait(s): [`GainsExperience`](#gainsexperience).
+> Requires: [`GainsExperience`](#gainsexperience).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -1428,7 +1529,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | TargetLineColor | FFFF00 | Color (RRGGBB[AA] notation) | Color to use for the target line. |
 
 ### Demolishable
-**Handle demolitions from C4 explosives.**
+**Handle demolitions from C4 explosives. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/Demolishable.cs)**
 
 > Inherits from: `ConditionalTrait`.
 
@@ -1438,6 +1539,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### Demolition
+** [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/Demolition.cs)**
 
 > Inherits from: `ConditionalTrait`.
 
@@ -1457,7 +1559,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### DetectCloaked
-**Actor can reveal Cloak actors in a specified range.**
+**Actor can reveal Cloak actors in a specified range. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/DetectCloaked.cs)**
 
 > Inherits from: `ConditionalTrait`.
 
@@ -1468,7 +1570,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### DetectCloakedMultiplier
-**Modifies the cloak detection range of this actor.**
+**Modifies the cloak detection range of this actor. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/Multipliers/DetectCloakedMultiplier.cs)**
 
 > Inherits from: `ConditionalTrait`.
 
@@ -1478,7 +1580,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### DeveloperMode
-**Attach this to the player actor.**
+**Attach this to the player actor. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/Player/DeveloperMode.cs)**
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -1498,7 +1600,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | PathDebug | False | Boolean | Enable the path debug overlay by default. |
 
 ### DockClientManager
-**Manages DockClients on the actor.**
+**Manages DockClients on the actor. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/DockClientManager.cs)**
 
 > Inherits from: `ConditionalTrait`.
 
@@ -1507,14 +1609,15 @@ Related types with their possible values are listed [at the bottom](#related-val
 | SearchForDockDelay | 125 | Integer | How long (in ticks) to wait until (re-)checking for a nearby available DockHost. |
 | OccupancyCostModifier | 12 | Integer | The pathfinding cost penalty applied for each dock client waiting to unload at a DockHost. |
 | RequireForceMoveCondition |  | BooleanExpression | Boolean expression defining the condition under which the regular (non-force) enter cursor is disabled. |
-| EnterCursor | enter | String | Cursor to display when able to dock at target actor. |
+| EnterCursor | enter | String | Default cursor to display when able to dock at target actor. Can be overriden using EnterCursorOverrides. |
+| EnterCursorOverrides |  | Dictionary with Key: String, Value: String | Cursor to display when able to dock at target actor. Overrides the default cursor specified in EnterCursor A dictionary of [DockType]: [cursor name]. |
 | EnterBlockedCursor | enter-blocked | String | Cursor to display when unable to dock at target actor. |
 | Voice | Action | String | Voice to be played when ordered to dock. |
 | DockLineColor | 008000 | Color (RRGGBB[AA] notation) | Color to use for the target line of docking orders. |
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### DockHost
-**A generic dock that services DockClients.**
+**A generic dock that services DockClients. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/DockHost.cs)**
 
 > Inherits from: `ConditionalTrait`.
 
@@ -1531,7 +1634,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### DrawLineToTarget
-**Renders target lines between order waypoints.**
+**Renders target lines between order waypoints. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/Render/DrawLineToTarget.cs)**
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -1543,15 +1646,15 @@ Related types with their possible values are listed [at the bottom](#related-val
 | Palette | terrain | String | Palette used for rendering sprites. |
 
 ### DummyBot
-**A placeholder bot that doesn't do anything.**
+**A placeholder bot that doesn't do anything. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/Player/DummyBot.cs)**
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
-| Name | Unnamed Bot | String | Human-readable name this bot uses. |
+| Name | *(required)* | String | Human-readable name this bot uses. |
 | Type | *(required)* | String | Internal id for this bot. |
 
 ### DuplicateUnitCrateAction
-**Creates duplicates of the actor that collects the crate.**
+**Creates duplicates of the actor that collects the crate. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/Crates/DuplicateUnitCrateAction.cs)**
 
 > Inherits from: [`CrateAction`](#crateaction), `ConditionalTrait`.
 
@@ -1577,9 +1680,10 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### EditorActionManager
+** [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/World/EditorActionManager.cs)**
 
 ### EditorActorLayer
-**Required for the map editor to work. Attach this to the world actor.**
+**Required for the map editor to work. Attach this to the world actor. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/World/EditorActorLayer.cs)**
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -1587,12 +1691,12 @@ Related types with their possible values are listed [at the bottom](#related-val
 | DefaultActorFacing | 384 | 1D World Angle | Facing of new actors. |
 
 ### EditorCursorLayer
-**Required for the map editor to work. Attach this to the world actor.**
+**Required for the map editor to work. Attach this to the world actor. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/World/EditorCursorLayer.cs)**
 
-> Requires trait(s): [`EditorActorLayer`](#editoractorlayer).
+> Requires: [`EditorActorLayer`](#editoractorlayer).
 
 ### EditorOnlyTooltip
-**Shown in map editor.**
+**Shown in map editor. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/Tooltip.cs)**
 
 > Inherits from: `TooltipInfoBase`, `ConditionalTrait`.
 
@@ -1602,7 +1706,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### EditorResourceLayer
-**Required for the map editor to work. Attach this to the world actor.**
+**Required for the map editor to work. Attach this to the world actor. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/World/EditorResourceLayer.cs)**
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -1610,7 +1714,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RecalculateResourceDensity | False | Boolean | Override the density saved in maps with values calculated based on the number of neighbouring resource cells. |
 
 ### EjectOnDeath
-**Eject a ground soldier or a paratrooper while in the air.**
+**Eject a ground soldier or a paratrooper while in the air. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/EjectOnDeath.cs)**
 
 > Inherits from: `ConditionalTrait`.
 
@@ -1625,15 +1729,16 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### ElevatedBridgeLayer
+** [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/World/ElevatedBridgeLayer.cs)**
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
 | ImpassableTerrainType | Impassable | String | Terrain type used by cells outside any elevated bridge footprint. |
 
 ### ElevatedBridgePlaceholder
-**Placeholder to make static elevated bridges work. Define individual trait instances for each elevated bridge footprint in the map.**
+**Placeholder to make static elevated bridges work. Define individual trait instances for each elevated bridge footprint in the map. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/World/ElevatedBridgePlaceholder.cs)**
 
-> Requires trait(s): [`ElevatedBridgeLayer`](#elevatedbridgelayer).
+> Requires: [`ElevatedBridgeLayer`](#elevatedbridgelayer).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -1644,6 +1749,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | TerrainType | Road | String | Terrain type of the bridge. |
 
 ### Encyclopedia
+** [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/Encyclopedia.cs)**
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -1656,7 +1762,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | BuildableQueue |  | String | Specifies a production queue type if the actor can be built from multiple queues. |
 
 ### EnemyWatcher
-**Tracks neutral and enemy actors' visibility and notifies the player. Attach this to the player actor. The actors to track need the 'AnnounceOnSeen' trait.**
+**Tracks neutral and enemy actors' visibility and notifies the player. Attach this to the player actor. The actors to track need the 'AnnounceOnSeen' trait. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/Player/EnemyWatcher.cs)**
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -1664,7 +1770,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | NotificationInterval | 750 | Integer | Minimal ticks in-between notifications. |
 
 ### EntersTunnels
-**This actor can interact with TunnelEntrances to move through TerrainTunnels.**
+**This actor can interact with TunnelEntrances to move through TerrainTunnels. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/EntersTunnels.cs)**
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -1675,7 +1781,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RequireForceMoveCondition |  | BooleanExpression | Boolean expression defining the condition under which the regular (non-force) enter cursor is disabled. |
 
 ### Exit
-**Where the unit should leave the building. Multiples are allowed if IDs are added: Exit@2, ...**
+**Where the unit should leave the building. Multiples are allowed if IDs are added: Exit@2, ... [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/Buildings/Exit.cs)**
 
 > Inherits from: `ConditionalTrait`.
 
@@ -1690,9 +1796,9 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### ExitsDebugOverlay
-**Displays `Exit` data for factories.**
+**Displays `Exit` data for factories. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/ExitsDebugOverlay.cs)**
 
-> Requires trait(s): [`Exit`](#exit).
+> Requires: [`Exit`](#exit).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -1701,17 +1807,18 @@ Related types with their possible values are listed [at the bottom](#related-val
 | DrawSpawnOffsetLines | True | Boolean | Should lines be drawn for each exit (from spawn offset to the center of the exit cell)? |
 
 ### ExitsDebugOverlayManager
+** [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/World/ExitsDebugOverlayManager.cs)**
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
 | Font | TinyBold | String | The font used to draw cell vectors. Should match the value as-is in the Fonts section of the mod manifest (do not convert to lowercase). |
 
 ### ExperienceTrickler
-**Lets the actor gain experience in a set periodic time.**
+**Lets the actor gain experience in a set periodic time. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/ExperienceTrickler.cs)**
 
 > Inherits from: `PausableConditionalTrait`, `ConditionalTrait`.
 
-> Requires trait(s): [`GainsExperience`](#gainsexperience).
+> Requires: [`GainsExperience`](#gainsexperience).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -1722,7 +1829,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### ExplodeCrateAction
-**Fires a weapon at the location when collected.**
+**Fires a weapon at the location when collected. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/Crates/ExplodeCrateAction.cs)**
 
 > Inherits from: [`CrateAction`](#crateaction), `ConditionalTrait`.
 
@@ -1742,7 +1849,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### ExplosionOnDamageTransition
-**This actor triggers an explosion on itself when transitioning to a specific damage state.**
+**This actor triggers an explosion on itself when transitioning to a specific damage state. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/ExplosionOnDamageTransition.cs)**
 
 > Inherits from: `ConditionalTrait`.
 
@@ -1754,7 +1861,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### ExternalCondition
-**Allows a condition to be granted from an external source (Lua, warheads, etc).**
+**Allows a condition to be granted from an external source (Lua, warheads, etc). [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/Conditions/ExternalCondition.cs)**
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -1763,9 +1870,9 @@ Related types with their possible values are listed [at the bottom](#related-val
 | TotalCap | 0 | Integer | If > 0, restrict the number of times that this condition can be granted by any source. |
 
 ### FallsToEarth
-**Causes aircraft husks that are spawned in the air to crash to the ground.**
+**Causes aircraft husks that are spawned in the air to crash to the ground. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/Air/FallsToEarth.cs)**
 
-> Requires trait(s): [`Aircraft`](#aircraft).
+> Requires: [`Aircraft`](#aircraft).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -1775,7 +1882,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | Velocity | 0c43 | 1D World Distance | Velocity (per tick) at which aircraft falls to ground. |
 
 ### FirepowerMultiplier
-**Modifies the damage applied by this actor.**
+**Modifies the damage applied by this actor. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/Multipliers/FirepowerMultiplier.cs)**
 
 > Inherits from: `ConditionalTrait`.
 
@@ -1785,19 +1892,22 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### FireProjectilesOnDeath
-**Throws particles when the actor is destroyed that do damage on impact.**
+**Throws particles when the actor is destroyed that do damage on impact. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/FireProjectilesOnDeath.cs)**
 
 > Inherits from: `ConditionalTrait`.
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
 | Weapons | *(required)* | Collection of String | The weapons used for shrapnel. |
+| DeathTypes |  | Collection of DamageType | What damage type needs to kill the actor to trigger the firing of projectiles? Leave empty to ignore damage types. |
+| MinimumDamage | 0 | Integer | The minimal amount of health loss required to trigger projectiles. |
+| MaximumDamage | 2147483647 | Integer | The maximum amount of health loss required to trigger projectiles. |
 | Pieces | 3, 10 | Collection of Integer | The amount of pieces of shrapnel to expel. Two values indicate a range. |
 | Range | 2c0, 5c0 | Collection of 1D World Distance | The minimum and maximum distances the shrapnel may travel. |
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### FireWarheads
-**Detonate defined warheads at the current location at a set interval.**
+**Detonate defined warheads at the current location at a set interval. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/FireWarheads.cs)**
 
 > Inherits from: `PausableConditionalTrait`, `ConditionalTrait`.
 
@@ -1810,7 +1920,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### FireWarheadsOnDeath
-**This actor fires warheads when killed.**
+**This actor fires warheads when killed. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/FireWarheadsOnDeath.cs)**
 
 > Inherits from: `ConditionalTrait`.
 
@@ -1822,13 +1932,13 @@ Related types with their possible values are listed [at the bottom](#related-val
 | Chance | 100 | Integer | Chance that this actor will explode at all. |
 | DamageThreshold | 0 | Integer | Health level at which actor will explode. |
 | DeathTypes |  | Collection of DamageType | DeathType(s) that trigger the explosion. Leave empty to always trigger an explosion. |
-| DamageSource | Self | [`DamageSource`](#damagesource) | Who is counted as source of damage for explosion. Possible values are Self and Killer. |
+| DamageSource | Self | [`DamageSource`](#damagesource) | Who is counted as source of damage for explosion. Possible values are Self, Parent and Killer. |
 | Type | CenterPosition | [`ExplosionType`](#explosiontype) | Possible values are CenterPosition (explosion at the actors' center) and  Footprint (explosion on each occupied cell). |
 | Offset | 0,0,0 | 3D World Vector | Offset of the explosion from the center of the exploding actor (or cell). |
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### FixedColorPalette
-**Add this to the World actor definition.**
+**Add this to the World actor definition. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/Palettes/FixedColorPalette.cs)**
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -1839,7 +1949,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | AllowModifiers | True | Boolean | Allow palette modifiers to change the palette. |
 
 ### FixedPlayerColorShift
-**Add fixed color shifts to player palettes. Use to add RGBA compatibility to IndexedPlayerPalette.**
+**Add fixed color shifts to player palettes. Use to add RGBA compatibility to IndexedPlayerPalette. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/Palettes/FixedPlayerColorShift.cs)**
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -1847,7 +1957,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | PlayerIndex |  | Dictionary with Key: String, Value: Collection of Real Number |  |
 
 ### FlashPostProcessEffect
-**Used for bursted one-colored whole screen effects. Add this to the world actor.**
+**Used for bursted one-colored whole screen effects. Add this to the world actor. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/PaletteEffects/FlashPostProcessEffect.cs)**
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -1856,7 +1966,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | Type |  | String | Set this when using multiple independent flash effects. |
 
 ### FloatingSpriteEmitter
-**Spawns moving sprite effects.**
+**Spawns moving sprite effects. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/Render/FloatingSpriteEmitter.cs)**
 
 > Inherits from: `ConditionalTrait`.
 
@@ -1864,6 +1974,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | -------- | ------------- | ---- | ----------- |
 | Lifetime | *(required)* | Collection of Integer | The time between individual particle creation. Two values mean actual lifetime will vary between them. |
 | Duration | -1 | Integer | The time in ticks until stop spawning. -1 means forever. |
+| ResetOnDamaged | True | Boolean | Should the duration been reset when taken damage |
 | Offset | 0,0,0 | Collection of 3D World Vector | Randomised offset for the particle emitter. |
 | Speed | 0c0 | Collection of 1D World Distance | Randomized particle forward movement. |
 | Gravity | 0c0 | Collection of 1D World Distance | Randomized particle gravity. |
@@ -1878,7 +1989,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### FootprintPlaceBuildingPreview
-**Creates a building placement preview showing only the building footprint.**
+**Creates a building placement preview showing only the building footprint. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/Buildings/FootprintPlaceBuildingPreview.cs)**
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -1887,7 +1998,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | LineBuildFootprintAlpha | 1 | Real Number | Custom opacity to apply to the line-build placement sprite. |
 
 ### FreeActor
-**Player receives a unit for free once the building is placed. This also works for structures. If you want more than one unit to appear copy this section and assign IDs like FreeActor@2, ...**
+**Player receives a unit for free once the building is placed. This also works for structures. If you want more than one unit to appear copy this section and assign IDs like FreeActor@2, ... [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/Buildings/FreeActor.cs)**
 
 > Inherits from: `ConditionalTrait`.
 
@@ -1901,7 +2012,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### FreeActorWithDelivery
-**Player receives a unit for free once the building is placed. If you want more than one unit to be delivered, copy this section and assign IDs like FreeActorWithDelivery@2, ...**
+**Player receives a unit for free once the building is placed. If you want more than one unit to be delivered, copy this section and assign IDs like FreeActorWithDelivery@2, ... [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/Buildings/FreeActorWithDelivery.cs)**
 
 > Inherits from: [`FreeActor`](#freeactor), `ConditionalTrait`.
 
@@ -1919,16 +2030,16 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### FrozenUnderFog
-**This actor will remain visible (but not updated visually) under fog, once discovered.**
+**This actor will remain visible (but not updated visually) under fog, once discovered. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/Modifiers/FrozenUnderFog.cs)**
 
-> Requires trait(s): [`Building`](#building).
+> Requires: [`Building`](#building).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
 | AlwaysVisibleRelationships | Ally | [`PlayerRelationship`](#playerrelationship) | Players with these relationships can always see the actor. |
 
 ### GainsExperience
-**This actor's experience increases when it has killed a GivesExperience actor.**
+**This actor's experience increases when it has killed a GivesExperience actor. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/GainsExperience.cs)**
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -1942,7 +2053,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | LevelUpTextNotification |  | String |  |
 
 ### GainsExperienceMultiplier
-**Modifies the experience gathered by this actor.**
+**Modifies the experience gathered by this actor. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/Multipliers/GainsExperienceMultiplier.cs)**
 
 > Inherits from: `ConditionalTrait`.
 
@@ -1952,13 +2063,14 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### GameSaveViewportManager
+** [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/Player/GameSaveViewportManager.cs)**
 
 ### Gate
-**Will open and be passable for actors that appear friendly when there are no enemies in range.**
+**Will open and be passable for actors that appear friendly when there are no enemies in range. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/Buildings/Gate.cs)**
 
 > Inherits from: `PausableConditionalTrait`, `ConditionalTrait`.
 
-> Requires trait(s): [`Building`](#building).
+> Requires: [`Building`](#building).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -1972,7 +2084,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### GiveBaseBuilderCrateAction
-**Spawns units when collected. Adjust selection shares when player has no base.**
+**Spawns units when collected. Adjust selection shares when player has no base. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/Crates/GiveBaseBuilderCrateAction.cs)**
 
 > Inherits from: [`GiveUnitCrateAction`](#giveunitcrateaction), [`CrateAction`](#crateaction), `ConditionalTrait`.
 
@@ -1995,7 +2107,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### GiveCashCrateAction
-**Gives cash to the collector.**
+**Gives cash to the collector. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/Crates/GiveCashCrateAction.cs)**
 
 > Inherits from: [`CrateAction`](#crateaction), `ConditionalTrait`.
 
@@ -2016,7 +2128,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### GivesBounty
-**When killed, this actor causes the attacking player to receive money.**
+**When killed, this actor causes the attacking player to receive money. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/GivesBounty.cs)**
 
 > Inherits from: `ConditionalTrait`.
 
@@ -2029,7 +2141,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### GivesBuildableArea
-**This actor allows placement of other actors with 'RequiresBuildableArea' trait around it.**
+**This actor allows placement of other actors with 'RequiresBuildableArea' trait around it. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/Buildings/GivesBuildableArea.cs)**
 
 > Inherits from: `ConditionalTrait`.
 
@@ -2039,7 +2151,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### GivesCashOnCapture
-**Lets the actor grant cash when captured.**
+**Lets the actor grant cash when captured. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/GivesCashOnCapture.cs)**
 
 > Inherits from: `ConditionalTrait`.
 
@@ -2052,7 +2164,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### GivesExperience
-**This actor gives experience to a GainsExperience actor when they are killed.**
+**This actor gives experience to a GainsExperience actor when they are killed. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/GivesExperience.cs)**
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -2062,7 +2174,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | PlayerExperienceModifier | 0 | Integer | Percentage of the `Experience` value that is being granted to the player owning the killing actor. |
 
 ### GivesExperienceMultiplier
-**Modifies the experience given by this actor.**
+**Modifies the experience given by this actor. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/Multipliers/GivesExperienceMultiplier.cs)**
 
 > Inherits from: `ConditionalTrait`.
 
@@ -2072,7 +2184,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### GiveUnitCrateAction
-**Spawns units when collected.**
+**Spawns units when collected. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/Crates/GiveUnitCrateAction.cs)**
 
 > Inherits from: [`CrateAction`](#crateaction), `ConditionalTrait`.
 
@@ -2094,7 +2206,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### GrantChargedConditionOnToggle
-**Grant a condition via player orders for a specified amount of time.**
+**Grant a condition via player orders for a specified amount of time. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/Conditions/GrantChargedConditionOnToggle.cs)**
 
 > Inherits from: `PausableConditionalTrait`, `ConditionalTrait`.
 
@@ -2104,7 +2216,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | ChargedCondition |  | String | The condition to grant when charge is above ChargeThreshhold. |
 | InitialCharge | -1 | Integer | Charge to start with. If set to -1 the unit will start with full charge. |
 | ChargeDuration | 500 | Integer | Cooldown (in ticks) to reach full charge. |
-| ChargeThreshhold | -1 | Integer | The amount of charge that needs to be present to turn on the condition. If set to -1, threshold is set to full charge. If activated without full charge ConditionDuration is percentally smaller. |
+| ChargeThreshhold | -1 | Integer | The amount of charge that needs to be present to turn on the condition. If set to -1, threshold is set to full charge. If activated without full charge ConditionDuration is proportionally smaller. |
 | ConditionDuration | 1 | Integer | How long (in ticks) should the condition stay active? |
 | CanCancelCondition | False | Boolean | Can ActivatedCondition be turned off manually? |
 | CancelsCurrentActivity | False | Boolean | Should we interrupt the current activity |
@@ -2120,7 +2232,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### GrantCondition
-**Grants a condition while the trait is active.**
+**Grants a condition while the trait is active. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/Conditions/GrantCondition.cs)**
 
 > Inherits from: `ConditionalTrait`.
 
@@ -2131,6 +2243,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### GrantConditionOnAttack
+** [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/Conditions/GrantConditionOnAttack.cs)**
 
 > Inherits from: `PausableConditionalTrait`, `ConditionalTrait`.
 
@@ -2148,7 +2261,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### GrantConditionOnBotOwner
-**Grants a condition to this actor when it is owned by an AI bot.**
+**Grants a condition to this actor when it is owned by an AI bot. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/Conditions/GrantConditionOnBotOwner.cs)**
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -2156,6 +2269,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | Bots | *(required)* | Collection of String | Bot types that trigger the condition. |
 
 ### GrantConditionOnClientDock
+** [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/Conditions/GrantConditionOnClientDock.cs)**
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -2164,14 +2278,14 @@ Related types with their possible values are listed [at the bottom](#related-val
 | DockHostNames |  | Set of String | Host actor type(s) leading to the condition being granted. Leave empty for allowing all hosts by default. |
 
 ### GrantConditionOnCombatantOwner
-**Grants a condition if the owner is a combatant.**
+**Grants a condition if the owner is a combatant. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/Conditions/GrantConditionOnCombatantOwner.cs)**
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
 | Condition | *(required)* | String | The condition to grant. |
 
 ### GrantConditionOnDamageState
-**Applies a condition to the actor at specified damage states.**
+**Applies a condition to the actor at specified damage states. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/Conditions/GrantConditionOnDamageState.cs)**
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -2182,7 +2296,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | GrantPermanently | False | Boolean | Is the condition irrevocable once it has been activated? |
 
 ### GrantConditionOnDeploy
-**Grants a condition when a deploy order is issued.Can be paused with the granted condition to disable undeploying.**
+**Grants a condition when a deploy order is issued.Can be paused with the granted condition to disable undeploying. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/Conditions/GrantConditionOnDeploy.cs)**
 
 > Inherits from: `PausableConditionalTrait`, `ConditionalTrait`.
 
@@ -2192,6 +2306,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | DeployedCondition | *(required)* | String | The condition to grant after deploying and revoke before undeploying. |
 | AllowedTerrainTypes |  | Set of String | The terrain types that this actor can deploy on. Leave empty to allow any. |
 | CanDeployOnRamps | False | Boolean | Can this actor deploy on slopes? |
+| SmartDeploy | False | Boolean | Does this actor need to synchronize its deployment with other actors? |
 | DeployCursor | deploy | String | Cursor to display when able to (un)deploy the actor. |
 | DeployBlockedCursor | deploy-blocked | String | Cursor to display when unable to (un)deploy the actor. |
 | Facing |  | 1D World Angle (optional) | Facing that the actor must face before deploying. Leave undefined to deploy regardless of facing. |
@@ -2206,7 +2321,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### GrantConditionOnFaction
-**Grants a condition while the trait is active.**
+**Grants a condition while the trait is active. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/Conditions/GrantConditionOnFaction.cs)**
 
 > Inherits from: `ConditionalTrait`.
 
@@ -2218,7 +2333,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### GrantConditionOnHealth
-**Applies a condition to the actor at when its health is between 2 specific values.**
+**Applies a condition to the actor at when its health is between 2 specific values. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/Conditions/GrantConditionOnHealth.cs)**
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -2230,6 +2345,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | GrantPermanently | False | Boolean | Is the condition irrevocable once it has been granted? |
 
 ### GrantConditionOnHostDock
+** [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/Conditions/GrantConditionOnHostDock.cs)**
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -2238,8 +2354,9 @@ Related types with their possible values are listed [at the bottom](#related-val
 | DockClientNames |  | Set of String | Client actor type(s) leading to the condition being granted. Leave empty for allowing all clients by default. |
 
 ### GrantConditionOnLineBuildDirection
+** [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/Conditions/GrantConditionOnLineBuildDirection.cs)**
 
-> Requires trait(s): [`LineBuild`](#linebuild).
+> Requires: [`LineBuild`](#linebuild).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -2247,10 +2364,11 @@ Related types with their possible values are listed [at the bottom](#related-val
 | Direction | X | [`LineBuildDirection`](#linebuilddirection) | Line build direction to trigger the condition. |
 
 ### GrantConditionOnMinelaying
+** [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/Conditions/GrantConditionOnMinelaying.cs)**
 
 > Inherits from: `ConditionalTrait`.
 
-> Requires trait(s): [`Minelayer`](#minelayer).
+> Requires: [`Minelayer`](#minelayer).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -2258,6 +2376,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### GrantConditionOnMovement
+** [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/Conditions/GrantConditionOnMovement.cs)**
 
 > Inherits from: `ConditionalTrait`.
 
@@ -2268,7 +2387,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### GrantConditionOnPlayerResources
-**Grants a condition to this actor when the player has stored resources.**
+**Grants a condition to this actor when the player has stored resources. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/Conditions/GrantConditionOnPlayerResources.cs)**
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -2276,7 +2395,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | Threshold | 0 | Integer | Enable condition when the amount of stored resources is greater than this. |
 
 ### GrantConditionOnPowerState
-**Grants condition as long as a valid power state is maintained.**
+**Grants condition as long as a valid power state is maintained. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/Conditions/GrantConditionOnPowerState.cs)**
 
 > Inherits from: `ConditionalTrait`.
 
@@ -2287,7 +2406,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### GrantConditionOnPrerequisite
-**Grants a condition to the actor this is attached to when prerequisites are available.**
+**Grants a condition to the actor this is attached to when prerequisites are available. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/Conditions/GrantConditionOnPrerequisite.cs)**
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -2295,12 +2414,12 @@ Related types with their possible values are listed [at the bottom](#related-val
 | Prerequisites | *(required)* | Collection of String | List of required prerequisites. |
 
 ### GrantConditionOnPrerequisiteManager
-**Attach this to the player actor.**
+**Attach this to the player actor. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/Player/GrantConditionOnPrerequisiteManager.cs)**
 
-> Requires trait(s): [`TechTree`](#techtree).
+> Requires: [`TechTree`](#techtree).
 
 ### GrantConditionOnProduction
-**Grants a condition when this actor produces a specific actor.**
+**Grants a condition when this actor produces a specific actor. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/Conditions/GrantConditionOnProduction.cs)**
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -2311,7 +2430,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | SelectionBarColor | FF00FF | Color (RRGGBB[AA] notation) |  |
 
 ### GrantConditionOnSubterraneanLayer
-**Grants Condition on subterranean layer. Also plays transition audio-visuals.**
+**Grants Condition on subterranean layer. Also plays transition audio-visuals. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/Conditions/GrantConditionOnSubterraneanLayer.cs)**
 
 > Inherits from: `GrantConditionOnLayer`, `ConditionalTrait`.
 
@@ -2325,6 +2444,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### GrantConditionOnTerrain
+** [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/Conditions/GrantConditionOnTerrain.cs)**
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -2332,6 +2452,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | TerrainTypes | *(required)* | Collection of String | Terrain names to trigger the condition. |
 
 ### GrantConditionOnTileSet
+** [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/Conditions/GrantConditionOnTileSet.cs)**
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -2339,6 +2460,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | TileSets | *(required)* | Collection of String | Tile set IDs to trigger the condition. |
 
 ### GrantConditionOnTunnelLayer
+** [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/Conditions/GrantConditionOnTunnelLayer.cs)**
 
 > Inherits from: `GrantConditionOnLayer`, `ConditionalTrait`.
 
@@ -2348,13 +2470,14 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### GrantConditionWhileAiming
+** [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/Conditions/GrantConditionWhileAiming.cs)**
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
 | Condition | *(required)* | String | The condition to grant while aiming. |
 
 ### GrantExternalConditionCrateAction
-**Grants a condition to the collector and nearby units.**
+**Grants a condition to the collector and nearby units. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/Crates/GrantExternalConditionCrateAction.cs)**
 
 > Inherits from: [`CrateAction`](#crateaction), `ConditionalTrait`.
 
@@ -2378,6 +2501,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### GrantExternalConditionPower
+** [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/SupportPowers/GrantExternalConditionPower.cs)**
 
 > Inherits from: `SupportPower`, `PausableConditionalTrait`, `ConditionalTrait`.
 
@@ -2445,7 +2569,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### GrantExternalConditionToCrusher
-**Grant a condition to the crushing actor.**
+**Grant a condition to the crushing actor. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/Conditions/GrantExternalConditionToCrusher.cs)**
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -2455,7 +2579,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | OnCrushDuration | 0 | Integer | Duration of the condition applied on a successful crush (in ticks). Set to 0 for a permanent condition. |
 
 ### GrantExternalConditionToProduced
-**Grants a condition to actors produced by this actor.**
+**Grants a condition to actors produced by this actor. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/Conditions/GrantExternalConditionToProduced.cs)**
 
 > Inherits from: `ConditionalTrait`.
 
@@ -2466,9 +2590,9 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### GroundLevelBridge
-**Bridge actor that can't be passed underneath.**
+**Bridge actor that can't be passed underneath. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/Buildings/GroundLevelBridge.cs)**
 
-> Requires trait(s): [`Building`](#building).
+> Requires: [`Building`](#building).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -2479,14 +2603,14 @@ Related types with their possible values are listed [at the bottom](#related-val
 | DamageTypes |  | Collection of DamageType | Types of damage that this bridge causes to units over/in path of it while being destroyed/repaired. Leave empty for no damage types. |
 
 ### Guardable
-**This unit can be guarded (followed and protected) by a Guard unit.**
+**This unit can be guarded (followed and protected) by a Guard unit. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/Guardable.cs)**
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
 | Range | 2c0 | 1D World Distance | Maximum range that guarding actors will maintain. |
 
 ### Guard
-**The player can give this unit the order to follow and protect friendly units with the Guardable trait.**
+**The player can give this unit the order to follow and protect friendly units with the Guardable trait. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/Guard.cs)**
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -2494,16 +2618,16 @@ Related types with their possible values are listed [at the bottom](#related-val
 | TargetLineColor | FF4500 | Color (RRGGBB[AA] notation) | Color to use for the target line. |
 
 ### HandicapDamageMultiplier
-**Modifies the damage applied to this actor based on the owner's handicap.**
+**Modifies the damage applied to this actor based on the owner's handicap. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/Multipliers/HandicapDamageMultiplier.cs)**
 
 ### HandicapFirepowerMultiplier
-**Modifies the damage applied by this actor based on the owner's handicap.**
+**Modifies the damage applied by this actor based on the owner's handicap. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/Multipliers/HandicapFirepowerMultiplier.cs)**
 
 ### HandicapProductionTimeMultiplier
-**Modifies the production time of this actor based on the producer's handicap.**
+**Modifies the production time of this actor based on the producer's handicap. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/Multipliers/HandicapProductionTimeMultiplier.cs)**
 
 ### HarvesterAttackNotifier
-**Plays an audio notification and shows a radar ping when a harvester is attacked. Attach this to the player actor.**
+**Plays an audio notification and shows a radar ping when a harvester is attacked. Attach this to the player actor. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/Player/HarvesterAttackNotifier.cs)**
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -2515,7 +2639,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | TextNotification |  | String | Text notification to display. |
 
 ### HarvesterBotModule
-**Put this on the Player actor. Manages bot harvesters to ensure they always continue harvesting as long as there are resources on the map.**
+**Put this on the Player actor. Manages bot harvesters to ensure they always continue harvesting as long as there are resources on the map. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/BotModules/HarvesterBotModule.cs)**
 
 > Inherits from: `ConditionalTrait`.
 
@@ -2524,12 +2648,16 @@ Related types with their possible values are listed [at the bottom](#related-val
 | HarvesterTypes |  | Set of String | Actor types that are considered harvesters. If harvester count drops below RefineryTypes count, a new harvester is built. Leave empty to disable harvester replacement. Currently only needed by harvester replacement system. |
 | RefineryTypes |  | Set of String | Actor types that are counted as refineries. Currently only needed by harvester replacement system. |
 | ScanForIdleHarvestersInterval | 50 | Integer | Interval (in ticks) between giving out orders to idle harvesters. |
+| ScanForLowEffectHarvestersInterval | 433 | Integer | Interval (in ticks) between giving out orders to idle harvesters. |
 | ScanIntervalMultiplerWhenNoResources | 5 | Integer | When an idle harvester cannot find resources, increase the wait to this many scan intervals. |
 | HarvesterEnemyAvoidanceRadius | 10c0 | 1D World Distance | Avoid enemy actors nearby when searching for a new resource patch. Should be somewhere near the max weapon range. |
 | HarvesterEnemyAvoidanceCostMultipler | 20 | Integer | For each enemy within the threat radius, apply the following cost multiplier for every cell that needs to be moved through. |
+| ResourceCellsPerHarvester | 4 | Integer | How many resource cells should a harvester response for. |
+| InitialHarvesters | 4 | Integer | How many harvester should player owned at least. |
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### Harvester
+** [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/Harvester.cs)**
 
 > Inherits from: `DockClientBase`, `ConditionalTrait`.
 
@@ -2556,7 +2684,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### HealActorsCrateAction
-**Heals all actors that belong to the owner of the collector.**
+**Heals all actors that belong to the owner of the collector. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/Crates/HealActorsCrateAction.cs)**
 
 > Inherits from: [`CrateAction`](#crateaction), `ConditionalTrait`.
 
@@ -2576,6 +2704,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### Health
+** [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/Health.cs)**
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -2584,7 +2713,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | EditorHealthDisplayOrder | 2 | Integer | Display order for the health slider in the map editor |
 
 ### HiddenUnderFog
-**The actor stays invisible under fog of war.**
+**The actor stays invisible under fog of war. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/Modifiers/HiddenUnderFog.cs)**
 
 > Inherits from: [`HiddenUnderShroud`](#hiddenundershroud).
 
@@ -2594,7 +2723,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | Type | Footprint | [`VisibilityType`](#visibilitytype) | Possible values are CenterPosition (reveal when the center is visible) and  Footprint (reveal when any footprint cell is visible). |
 
 ### HiddenUnderShroud
-**The actor stays invisible under the shroud.**
+**The actor stays invisible under the shroud. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/Modifiers/HiddenUnderShroud.cs)**
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -2602,7 +2731,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | Type | Footprint | [`VisibilityType`](#visibilitytype) | Possible values are CenterPosition (reveal when the center is visible) and  Footprint (reveal when any footprint cell is visible). |
 
 ### HideMapCrateAction
-**Hides the entire map in shroud.**
+**Hides the entire map in shroud. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/Crates/HideMapCrateAction.cs)**
 
 > Inherits from: [`CrateAction`](#crateaction), `ConditionalTrait`.
 
@@ -2622,9 +2751,9 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### HierarchicalPathFinderOverlay
-**Renders a debug overlay showing the abstract graph of the hierarchical pathfinder. Attach this to the world actor.**
+**Renders a debug overlay showing the abstract graph of the hierarchical pathfinder. Attach this to the world actor. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/World/HierarchicalPathFinderOverlay.cs)**
 
-> Requires trait(s): [`PathFinder`](#pathfinder).
+> Requires: [`PathFinder`](#pathfinder).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -2635,11 +2764,11 @@ Related types with their possible values are listed [at the bottom](#related-val
 | AbstractNodeColor | FF0000 | Color (RRGGBB[AA] notation) |  |
 
 ### HitShape
-**Shape of actor for targeting and damage calculations.**
+**Shape of actor for targeting and damage calculations. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/HitShape.cs)**
 
 > Inherits from: `ConditionalTrait`.
 
-> Requires trait(s): [`BodyOrientation`](#bodyorientation).
+> Requires: [`BodyOrientation`](#bodyorientation).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -2651,10 +2780,10 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### Huntable
-**This actor can be targeted by the Hunt activity.**
+**This actor can be targeted by the Hunt activity. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/Huntable.cs)**
 
 ### Husk
-**Spawns remains of a husk actor with the correct facing.**
+**Spawns remains of a husk actor with the correct facing. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/Husk.cs)**
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -2663,19 +2792,20 @@ Related types with their possible values are listed [at the bottom](#related-val
 | Locomotor |  | String | Used to define crushes. Locomotor must be defined on the World actor. |
 
 ### IgnoresCloak
-**This actor does not care about any type of cloak its targets might have, regardless of distance.**
+**This actor does not care about any type of cloak its targets might have, regardless of distance. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/IgnoresCloak.cs)**
 
 ### IgnoresDisguise
-**Allows automatic targeting of disguised actors.**
+**Allows automatic targeting of disguised actors. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/IgnoresDisguise.cs)**
 
 ### Immobile
+** [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/Immobile.cs)**
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
 | OccupiesSpace | True | Boolean |  |
 
 ### InaccuracyMultiplier
-**Modifies the inaccuracy of weapons fired by this actor.**
+**Modifies the inaccuracy of weapons fired by this actor. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/Multipliers/InaccuracyMultiplier.cs)**
 
 > Inherits from: `ConditionalTrait`.
 
@@ -2685,7 +2815,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### IndexedPalette
-**Define a palette by swapping palette indices.**
+**Define a palette by swapping palette indices. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/Palettes/IndexedPalette.cs)**
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -2696,7 +2826,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | AllowModifiers | True | Boolean | Allow palette modifiers to change the palette. |
 
 ### IndexedPlayerPalette
-**Define a player palette by swapping palette indices.**
+**Define a player palette by swapping palette indices. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/Palettes/IndexedPlayerPalette.cs)**
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -2707,7 +2837,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | PlayerIndex |  | Dictionary with Key: String, Value: Collection of Integer |  |
 
 ### InstantlyRepairable
-**Eligible for instant repair.**
+**Eligible for instant repair. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/InstantlyRepairable.cs)**
 
 > Inherits from: `ConditionalTrait`.
 
@@ -2717,7 +2847,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### InstantlyRepairs
-**Can instantly repair other actors, but gets consumed afterwards.**
+**Can instantly repair other actors, but gets consumed afterwards. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/InstantlyRepairs.cs)**
 
 > Inherits from: `ConditionalTrait`.
 
@@ -2734,7 +2864,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### Interactable
-**Used to enable mouse interaction on actors that are not Selectable.**
+**Used to enable mouse interaction on actors that are not Selectable. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/Interactable.cs)**
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -2743,9 +2873,9 @@ Related types with their possible values are listed [at the bottom](#related-val
 | Polygon |  | Collection of 2D Integer | Defines a custom 2D polygon for mouse interaction with the actor. If null, Bounds will be used instead Each vertex has two components (so two numbers), which define an x and y offset from the actor center. |
 
 ### IsometricSelectable
-**This actor is selectable. Defines bounds of selectable area, selection class, selection priority and selection priority modifiers.**
+**This actor is selectable. Defines bounds of selectable area, selection class, selection priority and selection priority modifiers. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/IsometricSelectable.cs)**
 
-> Requires trait(s): [`Building`](#building).
+> Requires: [`Building`](#building).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -2759,7 +2889,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | Voice | Select | String |  |
 
 ### JamsMissiles
-**This actor deflects missiles.**
+**This actor deflects missiles. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/JamsMissiles.cs)**
 
 > Inherits from: `ConditionalTrait`.
 
@@ -2771,6 +2901,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### KillsSelf
+** [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/KillsSelf.cs)**
 
 > Inherits from: `ConditionalTrait`.
 
@@ -2783,16 +2914,17 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### LegacyBridgeHut
-**Allows bridges to be targeted for demolition and repair.**
+**Allows bridges to be targeted for demolition and repair. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/Buildings/LegacyBridgeHut.cs)**
 
 ### LegacyBridgeLayer
+** [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/World/LegacyBridgeLayer.cs)**
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
 | Bridges | bridge1, bridge2 | Collection of String |  |
 
 ### LevelUpCrateAction
-**Gives experience levels to the collector.**
+**Gives experience levels to the collector. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/Crates/LevelUpCrateAction.cs)**
 
 > Inherits from: [`CrateAction`](#crateaction), `ConditionalTrait`.
 
@@ -2814,7 +2946,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### LineBuild
-**Place the second actor in line to build more of the same at once (used for walls).**
+**Place the second actor in line to build more of the same at once (used for walls). [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/Buildings/LineBuild.cs)**
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -2824,7 +2956,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | SegmentsRequireNode | False | Boolean | Delete generated segments when destroyed or sold. |
 
 ### LineBuildNode
-**LineBuild actors attach to LineBuildNodes.**
+**LineBuild actors attach to LineBuildNodes. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/Buildings/LineBuildNode.cs)**
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -2832,11 +2964,11 @@ Related types with their possible values are listed [at the bottom](#related-val
 | Connections | 1,0, 0,1, -1,0, 0,-1 | Collection of 2D Cell Vector | Cells (outside the footprint) that contain cells that can connect to this actor. |
 
 ### LineBuildSegmentExternalCondition
-**Applies a condition to connected line build segments.**
+**Applies a condition to connected line build segments. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/Conditions/LineBuildSegmentExternalCondition.cs)**
 
 > Inherits from: `ConditionalTrait`.
 
-> Requires trait(s): [`LineBuild`](#linebuild).
+> Requires: [`LineBuild`](#linebuild).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -2844,6 +2976,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### LoadWidgetAtGameStart
+** [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/World/LoadWidgetAtGameStart.cs)**
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -2854,7 +2987,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | ClearRoot | True | Boolean | Remove any existing UI when a map is loaded. |
 
 ### LobbyPrerequisiteCheckbox
-**Enables defined prerequisites at game start for all players if the checkbox is enabled.**
+**Enables defined prerequisites at game start for all players if the checkbox is enabled. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/Player/LobbyPrerequisiteCheckbox.cs)**
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -2868,7 +3001,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | Prerequisites | *(required)* | Set of String | Prerequisites to grant when this checkbox is enabled. |
 
 ### Locomotor
-**Used by Mobile. Attach these to the world actor. You can have multiple variants by adding @suffixes.**
+**Used by Mobile. Attach these to the world actor. You can have multiple variants by adding @suffixes. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/World/Locomotor.cs)**
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -2882,7 +3015,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | TerrainSpeeds |  | Dictionary with Key: String, Value: TerrainInfo | Lower the value on rough terrain. Leave out entries for impassable terrain. |
 
 ### MapBuildRadius
-**Controls the build radius checkboxes in the lobby options.**
+**Controls the build radius checkboxes in the lobby options. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/World/MapBuildRadius.cs)**
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -2900,7 +3033,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | BuildRadiusCheckboxDisplayOrder | 0 | Integer | Display order for the build radius checkbox in the lobby. |
 
 ### MapCreeps
-**Controls the 'Creeps' checkbox in the lobby options.**
+**Controls the 'Creeps' checkbox in the lobby options. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/World/MapCreeps.cs)**
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -2912,6 +3045,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | CheckboxDisplayOrder | 0 | Integer | Display order for the creeps checkbox in the lobby. |
 
 ### MapEditorData
+** [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/MapEditorData.cs)**
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -2920,7 +3054,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | Categories |  | Collection of String |  |
 
 ### MapOptions
-**Controls the game speed, tech level, and short game lobby options.**
+**Controls the game speed, tech level, and short game lobby options. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/World/MapOptions.cs)**
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -2942,9 +3076,10 @@ Related types with their possible values are listed [at the bottom](#related-val
 | GameSpeedDropdownLocked | False | Boolean | Prevent the game speed from being changed in the lobby. |
 | GameSpeedDropdownVisible | True | Boolean | Display the game speed option in the lobby. |
 | GameSpeedDropdownDisplayOrder | 0 | Integer | Display order for the game speed option in the lobby. |
+| ViewportHeight |  | 1D World Distance (optional) | If defined, overrides the viewport height for all players to this many world units. |
 
 ### MapStartingLocations
-**Allows the map to have working spawnpoints. Also controls the 'Separate Team Spawns' checkbox in the lobby options.**
+**Allows the map to have working spawnpoints. Also controls the 'Separate Team Spawns' checkbox in the lobby options. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/World/MapStartingLocations.cs)**
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -2957,15 +3092,56 @@ Related types with their possible values are listed [at the bottom](#related-val
 | SeparateTeamSpawnsCheckboxDisplayOrder | 0 | Integer | Display order for the spawn positions checkbox in the lobby. |
 
 ### MarkerLayerOverlay
+** [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/World/MarkerLayerOverlay.cs)**
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
-| Colors | FF0000, FF7F00, FFEE46, 00FF21, 00FFFF, 002AFF, A500FF, FF00DC | Collection of Color (RRGGBB[AA] notation) | A list of colors to be used for drawing. |
+| Label | label-tool-marker-tiles | String | The label to show in the tools menu. |
+| PanelWidget | MARKER_TOOL_PANEL | String | The widget tree to open when the tool is selected. |
+| Colors | notification-added-marker-tiles-markers.red: FF0000
+notification-added-marker-tiles-markers.orange: FF7F00
+notification-added-marker-tiles-markers.yellow: FFEE46
+notification-added-marker-tiles-markers.green: 00FF21
+notification-added-marker-tiles-markers.cyan: 00FFFF
+notification-added-marker-tiles-markers.blue: 002AFF
+notification-added-marker-tiles-markers.purple: A500FF
+notification-added-marker-tiles-markers.magenta: FF00DC
+ | Dictionary with Key: String, Value: Color (RRGGBB[AA] notation) | A list of colors to be used for drawing. |
 | Alpha | 85 | Integer | Default alpha blend. |
 | AxisAngleColor | DC143C | Color (RRGGBB[AA] notation) | Color of the axis angle display. |
 
+### McvExpansionManagerBotModule
+**Manages AI MCVs and expansion. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/BotModules/McvExpansionManagerBotModule.cs)**
+
+> Inherits from: `ConditionalTrait`.
+
+> Requires: [`ResourceMapBotModule`](#resourcemapbotmodule).
+
+| Property | Default Value | Type | Description |
+| -------- | ------------- | ---- | ----------- |
+| McvTypes |  | Set of String | Actor types that are considered MCVs (deploy into base builders). |
+| ConstructionYardTypes |  | Set of String | Actor types that are considered construction yards (base builders). |
+| McvFactoryTypes |  | Set of String | Actor types that are able to produce MCVs. |
+| MinimumConstructionYardCount | 1 | Integer | Try to maintain at least this many ConstructionYardTypes, build an MCV if number is below this. |
+| AdditionalConstructionYardCount | 0 | Integer | Try to maintain at additional this many ConstructionYardTypes. |
+| BuildAdditionalMCVCashAmount | 5000 | Integer | Build additional MCV if cash is above this. |
+| ScanForNewMcvInterval | 20 | Integer | Delay (in ticks) for giving orders to idle MCVs. |
+| BuildMcvInterval | 101 | Integer | Delay (in ticks) for checking and building a MCV. |
+| MoveConyardTick | 5700 | Integer | Delay (in ticks) for moving a conyard to better expansion. Only work with more than 1 conyard. |
+| MoveOldConyardFirst |  | Boolean (optional) | Should moving the oldest or newest conyard be preferred? Random ordering if unset. |
+| InitialExpansionMode | CheckResource | [`BotMcvExpansionMode`](#botmcvexpansionmode) | Initial expansion mode chosen by AI. |
+| ExpansionModeAutoSwitch | True | Boolean | Allow the bot to switch expansion mode automatically on enough failure or successful attempts. |
+| CRmodeMinDeployRadius | 2 | Integer | Minimum distance (in cells) from the found resource creator location when checking for MCV deployment location. |
+| CRmodeMaxDeployRadius | 20 | Integer | Maximum distance (in cells) the found resource creator location when checking for MCV deployment location. |
+| CRmodeTryMaintainRange | 8 | Integer | When moving to a resource, what distance (in cells) to resource should we attempt to maintain? |
+| CRmodeFriendlyConyardDislikeRange | 14 | Integer | Distance (in cells) to avoid a friendly conyard when choosing an expansion location. Recommended to set it equal or larger than ResourceMapStrideRadius. |
+| CRmodeFriendlyRefineryDislikeRange | 14 | Integer | Distance (in cells) to avoid a friendly refinery when choosing an expansion location. Recommended to set it equal or larger than ResourceMapStrideRadius. |
+| CBmodeMinDeployRadius | 2 | Integer | Minimum distance (in cells) from center of the base expansion when checking for MCV deployment location. |
+| CBmodeMaxDeployRadius | 20 | Integer | Maximum distance (in cells) from center of the base expansion when checking for MCV deployment location. |
+| RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
+
 ### McvManagerBotModule
-**Manages AI MCVs.**
+**Manages AI MCVs. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/BotModules/McvManagerBotModule.cs)**
 
 > Inherits from: `ConditionalTrait`.
 
@@ -2982,18 +3158,22 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### MenuPostProcessEffect
-**Fades the world from/to black at the start/end of the game, and can (optionally) desaturate the world**
+**Fades the world from/to black at the start/end of the game, and can (optionally) desaturate the world [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/PaletteEffects/MenuPostProcessEffect.cs)**
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
+| FadeInLength | 10 | Integer |  |
 | FadeLength | 10 | Integer | Time (in ticks) to fade between states |
 | Effect | None | [`EffectType`](#effecttype) | Effect style to fade to during gameplay. Accepts values of None or Desaturated. |
+| GameStartEffect | Black | [`EffectType`](#effecttype) | Effect style to fade from when starting the game. Accepts values of None, Black or Desaturated. |
+| GameExitEffect | Black | [`EffectType`](#effecttype) | Effect style to fade to when exiting the game. Accepts values of None, Black or Desaturated. |
 | MenuEffect | None | [`EffectType`](#effecttype) | Effect style to fade to when opening the in-game menu. Accepts values of None, Black or Desaturated. |
 
 ### MineImmune
-**Tag trait for stuff that should not trigger mines.**
+**Tag trait for stuff that should not trigger mines. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/Mine.cs)**
 
 ### Mine
+** [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/Mine.cs)**
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -3003,7 +3183,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | DetonateClasses |  | Collection of CrushClass |  |
 
 ### MinelayerBotModule
-**Manages AI minelayer unit related with Minelayer traits. When enemy damage AI's actors, the location of conflict will be recorded, If a location is a valid spot, it will add/merge to favorite location for usage later**
+**Manages AI minelayer unit related with Minelayer traits. When enemy damage AI's actors, the location of conflict will be recorded, If a location is a valid spot, it will add/merge to favorite location for usage later [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/BotModules/BotModuleLogic/MinelayerBotModule.cs)**
 
 > Inherits from: `ConditionalTrait`.
 
@@ -3017,11 +3197,12 @@ Related types with their possible values are listed [at the bottom](#related-val
 | MineFieldRadius | 1 | Integer | Radius per mine laying order. |
 | AwayFromAlliedTargetTypes |  | Collection of TargetableType | Minefield location is cancelled if those whose target type belong to allied nearby. |
 | AwayFromEnemyTargetTypes |  | Collection of TargetableType | Minefield location is cancelled if those whose target type belong to enemy nearby. |
-| AwayFromCellDistance | 9 | Integer | Minefield location check distance to AwayFromAlliedTargettype and AwayFromEnemyTargettype. In addition, if any emeny actor within this range and minefield location is not cancelled, minelayer will try lay mines at the 3/4 path to minefield location |
+| AwayFromCellDistance | 9 | Integer | Minefield location check distance to AwayFromAlliedTargettype and AwayFromEnemyTargettype. In addition, if any enemy actor within this range and minefield location is not cancelled, minelayer will try lay mines at the 3/4 path to minefield location |
 | FavoritePositionDistance | 6 | Integer | Merge conflict point minefield position to a favorite minefield position if within this range and closest. If favorite minefield positions is at the max of 5, we always merge it to closest regardless of this |
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### Minelayer
+** [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/Minelayer.cs)**
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -3042,7 +3223,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | AfterLayingDelay | 20 | Integer | Number of ticks for the minelayer to wait after laying a mine. The wait can be interrupted by a player order. |
 
 ### MissionData
-**Defines the FMVs that can be played by missions.**
+**Defines the FMVs that can be played by missions. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/World/MissionData.cs)**
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -3054,6 +3235,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | LossVideo |  | String | Automatically played when the player loses the mission. |
 
 ### MissionObjectives
+** [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/Player/MissionObjectives.cs)**
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -3068,7 +3250,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | LeaveTextNotification |  | String |  |
 
 ### Mobile
-**Unit is able to move.**
+**Unit is able to move. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/Mobile.cs)**
 
 > Inherits from: `PausableConditionalTrait`, `ConditionalTrait`.
 
@@ -3097,7 +3279,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### ModularBot
-**Bot that uses BotModules.**
+**Bot that uses BotModules. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/Player/ModularBot.cs)**
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -3106,7 +3288,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | MinOrderQuotientPerTick | 5 | Integer | Minimum portion of pending orders to issue each tick (e.g. 5 issues at least 1/5th of all pending orders). Excess orders remain queued for subsequent ticks. |
 
 ### MusicPlaylist
-**Trait for music handling. Attach this to the world actor.**
+**Trait for music handling. Attach this to the world actor. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/World/MusicPlaylist.cs)**
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -3118,13 +3300,14 @@ Related types with their possible values are listed [at the bottom](#related-val
 | DisableWorldSounds | False | Boolean | Disable all world sounds (combat etc). |
 
 ### MustBeDestroyed
-**Actors with this trait must be destroyed for a game to end.**
+**Actors with this trait must be destroyed for a game to end. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/MustBeDestroyed.cs)**
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
 | RequiredForShortGame | False | Boolean | In a short game only actors that have this value set to true need to be destroyed. |
 
 ### NukePower
+** [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/SupportPowers/NukePower.cs)**
 
 > Inherits from: `SupportPower`, `PausableConditionalTrait`, `ConditionalTrait`.
 
@@ -3213,7 +3396,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### ObjectivesPanel
-**Provides game mode progress information for players. Goes on WorldActor - observers don't have a player it can live on. Current options for PanelName are 'SKIRMISH_STATS' and 'MISSION_OBJECTIVES'.**
+**Provides game mode progress information for players. Goes on WorldActor - observers don't have a player it can live on. Current options for PanelName are 'SKIRMISH_STATS' and 'MISSION_OBJECTIVES'. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/Player/MissionObjectives.cs)**
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -3221,7 +3404,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | ExitDelay | 1400 | Integer | in ms |
 
 ### OrderEffects
-**Renders an effect at the order target locations.**
+**Renders an effect at the order target locations. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/World/OrderEffects.cs)**
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -3231,12 +3414,12 @@ Related types with their possible values are listed [at the bottom](#related-val
 | ActorFlashType | Overlay | [`ActorFlashType`](#actorflashtype) | The type of effect to apply to targeted (frozen) actors. Accepts values Overlay and Tint. |
 | ActorFlashOverlayColor | FFFFFF | Color (RRGGBB[AA] notation) | The overlay color to display when ActorFlashType is Overlay. |
 | ActorFlashOverlayAlpha | 0.5 | Real Number | The overlay transparency to display when ActorFlashType is Overlay. |
-| ActorFlashTint | 1.4,1.4,1.4 | float3 | The tint to apply when ActorFlashType is Tint. |
+| ActorFlashTint | 1.4,1.4,1.4 | 3D Real Number | The tint to apply when ActorFlashType is Tint. |
 | ActorFlashCount | 2 | Integer | Number of times to flash (frozen) actors. |
 | ActorFlashInterval | 2 | Integer | Number of ticks between (frozen) actor flashes. |
 
 ### OwnerLostAction
-**Perform an action when the actor's owner is defeated.**
+**Perform an action when the actor's owner is defeated. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/OwnerLostAction.cs)**
 
 > Inherits from: `ConditionalTrait`.
 
@@ -3248,6 +3431,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### PaletteFromEmbeddedSpritePalette
+** [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/Palettes/PaletteFromEmbeddedSpritePalette.cs)**
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -3258,7 +3442,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | CursorPalette | False | Boolean | Whether this palette is available for cursors. |
 
 ### PaletteFromFile
-**Load VGA palette (.pal) registers.**
+**Load VGA palette (.pal) registers. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/Palettes/PaletteFromFile.cs)**
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -3271,7 +3455,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | CursorPalette | False | Boolean | Whether this palette is available for cursors. |
 
 ### PaletteFromGimpOrJascFile
-**Load a GIMP .gpl or JASC .pal palette file. Supports per-color alpha.**
+**Load a GIMP .gpl or JASC .pal palette file. Supports per-color alpha. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/Palettes/PaletteFromGimpOrJascFile.cs)**
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -3285,7 +3469,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | CursorPalette | False | Boolean | Whether this palette is available for cursors. |
 
 ### PaletteFromGrayscale
-**Creates a greyscale palette without any base palette file.**
+**Creates a greyscale palette without any base palette file. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/Palettes/PaletteFromGrayscale.cs)**
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -3295,7 +3479,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | TransparentIndex | 0 | Integer | Index set to be fully transparent/invisible. |
 
 ### PaletteFromPaletteWithAlpha
-**Create a palette by applying alpha transparency to another palette.**
+**Create a palette by applying alpha transparency to another palette. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/Palettes/PaletteFromPaletteWithAlpha.cs)**
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -3306,7 +3490,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | Premultiply | True | Boolean | Premultiply color by the alpha component. |
 
 ### PaletteFromPlayerPaletteWithAlpha
-**Create player palettes by applying alpha transparency to another player palette.**
+**Create player palettes by applying alpha transparency to another player palette. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/Palettes/PaletteFromPlayerPaletteWithAlpha.cs)**
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -3317,7 +3501,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | Premultiply | True | Boolean | Premultiply color by the alpha component. |
 
 ### PaletteFromPng
-**Load a PNG and use its embedded palette.**
+**Load a PNG and use its embedded palette. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/Palettes/PaletteFromPng.cs)**
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -3329,7 +3513,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | CursorPalette | False | Boolean | Whether this palette is available for cursors. |
 
 ### PaletteFromRGBA
-**Creates a single color palette without any base palette file.**
+**Creates a single color palette without any base palette file. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/Palettes/PaletteFromRGBA.cs)**
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -3343,7 +3527,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | TransparentIndex | 0 | Integer | Index set to be fully transparent/invisible. |
 
 ### Parachutable
-**Can be paradropped by a ParaDrop actor.**
+**Can be paradropped by a ParaDrop actor. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/Parachutable.cs)**
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -3361,9 +3545,9 @@ Related types with their possible values are listed [at the bottom](#related-val
 | ParachutingCondition |  | String | The condition to grant to self while parachuting. |
 
 ### ParaDrop
-**This unit can spawn and eject other actors while flying.**
+**This unit can spawn and eject other actors while flying. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/ParaDrop.cs)**
 
-> Requires trait(s): [`Cargo`](#cargo).
+> Requires: [`Cargo`](#cargo).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -3372,6 +3556,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | ChuteSound |  | String | Sound to play when dropping. |
 
 ### ParallelProductionQueue
+** [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/Player/ParallelProductionQueue.cs)**
 
 > Inherits from: [`ProductionQueue`](#productionqueue).
 
@@ -3404,7 +3589,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | CancelledTextNotification |  | String | Notification displayed when player right-clicks on a build palette icon that is already on hold. |
 
 ### ParatroopersPower
-**Support power that spawns and delivers units to the desired location via aircraft.**
+**Support power that spawns and delivers units to the desired location via aircraft. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/SupportPowers/ParatroopersPower.cs)**
 
 > Inherits from: `DirectionalSupportPower`, `SupportPower`, `PausableConditionalTrait`, `ConditionalTrait`.
 
@@ -3479,7 +3664,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### Passenger
-**This actor can enter Cargo actors.**
+**This actor can enter Cargo actors. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/Passenger.cs)**
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -3495,14 +3680,14 @@ Related types with their possible values are listed [at the bottom](#related-val
 | EnterBlockedCursor | enter-blocked | String | Cursor to display when unable to enter target actor. |
 
 ### PathFinder
-**Calculates routes for mobile actors with locomotors based on the A* search algorithm.  Attach this to the world actor.**
+**Calculates routes for mobile actors with locomotors based on the A* search algorithm.  Attach this to the world actor. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/World/PathFinder.cs)**
 
-> Requires trait(s): [`ActorMap`](#actormap), [`Locomotor`](#locomotor).
+> Requires: [`ActorMap`](#actormap), [`Locomotor`](#locomotor).
 
 ### PathFinderOverlay
-**Renders a visualization overlay showing how the pathfinder searches for paths. Attach this to the world actor.**
+**Renders a visualization overlay showing how the pathfinder searches for paths. Attach this to the world actor. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/World/PathFinderOverlay.cs)**
 
-> Requires trait(s): [`PathFinder`](#pathfinder).
+> Requires: [`PathFinder`](#pathfinder).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -3515,7 +3700,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | ShowCosts | True | Boolean |  |
 
 ### PlaceBeacon
-**A beacon that is constructed from a circle sprite that is animated once and a moving arrow sprite.**
+**A beacon that is constructed from a circle sprite that is animated once and a moving arrow sprite. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/Player/PlaceBeacon.cs)**
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -3530,7 +3715,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | CircleSequence | circles | String |  |
 
 ### PlaceBuilding
-**Allows the player to execute build orders.  Attach this to the player actor.**
+**Allows the player to execute build orders.  Attach this to the player actor. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/Player/PlaceBuilding.cs)**
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -3542,9 +3727,9 @@ Related types with their possible values are listed [at the bottom](#related-val
 | ToggleVariantKey | OpenRA.HotkeyReference | HotkeyReference | Hotkey to toggle between PlaceBuildingVariants when placing a structure. |
 
 ### PlaceBuildingVariants
-**Place a different building when PlaceBuilding's ToggleVariantKey hotkey is pressed while the PlaceBuildingOrderGenerator is active.**
+**Place a different building when PlaceBuilding's ToggleVariantKey hotkey is pressed while the PlaceBuildingOrderGenerator is active. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/Buildings/PlaceBuildingVariants.cs)**
 
-> Requires trait(s): [`Buildable`](#buildable), [`Building`](#building).
+> Requires: [`Buildable`](#buildable), [`Building`](#building).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -3552,7 +3737,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | Facings |  | Collection of 1D World Angle | Facing of the non-variant actor, followed by facings for each variant actor. The length equals the length of Actors + 1. |
 
 ### PlayerColorPalette
-**Add this to the World actor definition.**
+**Add this to the World actor definition. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/Palettes/PlayerColorPalette.cs)**
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -3562,7 +3747,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | AllowModifiers | True | Boolean | Allow palette modifiers to change the palette. |
 
 ### PlayerColorShift
-**Add color shifts to player palettes. Use to add RGBA compatibility to PlayerColorPalette.**
+**Add color shifts to player palettes. Use to add RGBA compatibility to PlayerColorPalette. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/Palettes/PlayerColorShift.cs)**
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -3574,19 +3759,21 @@ Related types with their possible values are listed [at the bottom](#related-val
 | ReferenceValue | 0.95 | Real Number | Value reference for the color shift. |
 
 ### PlayerExperience
-**This trait can be used to track player experience based on units killed with the `GivesExperience` trait. It can also be used as a point score system in scripted maps, for example. Attach this to the player actor.**
+**This trait can be used to track player experience based on units killed with the `GivesExperience` trait. It can also be used as a point score system in scripted maps, for example. Attach this to the player actor. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/Player/PlayerExperience.cs)**
 
 ### PlayerRadarTerrain
+** [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/Player/PlayerRadarTerrain.cs)**
 
-> Requires trait(s): [`Shroud`](#shroud).
+> Requires: [`Shroud`](#shroud).
 
 ### PlayerResources
+** [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/Player/PlayerResources.cs)**
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
 | DefaultCashDropdownLabel | Starting Cash | String | Descriptive label for the starting cash option in the lobby. |
 | DefaultCashDropdownDescription | The amount of cash that players start with | String | Tooltip description for the starting cash option in the lobby. |
-| SelectableCash | 2500, 5000, 10000, 20000 | Collection of Integer | Starting cash options that are available in the lobby options. |
+| SelectableCash | 2500, 5000, 10000, 20000 | Collection of Integer | Starting cash options that are available in the lobby options. DefaultCash will be included if not specified. |
 | DefaultCash | 5000 | Integer | Default starting cash option: should be one of the SelectableCash options. |
 | DefaultCashDropdownLocked | False | Boolean | Force the DefaultCash option by disabling changes in the lobby. |
 | DefaultCashDropdownVisible | True | Boolean | Whether to display the DefaultCash option in the lobby. |
@@ -3599,9 +3786,10 @@ Related types with their possible values are listed [at the bottom](#related-val
 | ResourceValues |  | Dictionary with Key: String, Value: Integer | Monetary value of each resource type. Dictionary of [resource type]: [value per unit]. |
 
 ### PlayerStatistics
-**Attach this to the player actor to collect observer stats.**
+**Attach this to the player actor to collect observer stats. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/Player/PlayerStatistics.cs)**
 
 ### Pluggable
+** [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/Pluggable.cs)**
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -3613,12 +3801,26 @@ Related types with their possible values are listed [at the bottom](#related-val
 | EditorDisplayOrder | 5 | Integer | Display order for the dropdown in the map editor |
 
 ### Plug
+** [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/Plug.cs)**
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
 | Type | *(required)* | String | Plug type (matched against Conditions in Pluggable) |
 
+### PowerDownBotModule
+**Manages AI powerdown. You need to use PowerMultiplier on toggle control only on related buildings, for calculation of this bot module [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/BotModules/PowerDownBotManager.cs)**
+
+> Inherits from: `ConditionalTrait`.
+
+| Property | Default Value | Type | Description |
+| -------- | ------------- | ---- | ----------- |
+| Interval | 150 | Integer | Delay (in ticks) between two action on toggling powerdown. |
+| PowerDownTypes |  | Set of String | Actors that allow this module to toggle |
+| PowerDownOrder | PowerDown | String | Order used by ToggleConditionOnOrderInfo for powerdown on toggled actor. |
+| RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
+
 ### Power
+** [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/Power/Power.cs)**
 
 > Inherits from: `ConditionalTrait`.
 
@@ -3628,9 +3830,9 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### PowerManager
-**Attach this to the player actor.**
+**Attach this to the player actor. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/Power/Player/PowerManager.cs)**
 
-> Requires trait(s): [`DeveloperMode`](#developermode).
+> Requires: [`DeveloperMode`](#developermode).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -3639,7 +3841,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | TextNotification |  | String | The text notification to display when the player is low power. |
 
 ### PowerMultiplier
-**Modifies the power usage/output of this actor.**
+**Modifies the power usage/output of this actor. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/Multipliers/PowerMultiplier.cs)**
 
 > Inherits from: `ConditionalTrait`.
 
@@ -3649,10 +3851,10 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### PowerTooltip
-**Shown power info on the build palette widget.**
+**Shown power info on the build palette widget. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/PowerTooltip.cs)**
 
 ### PrimaryBuilding
-**Used together with ClassicProductionQueue.**
+**Used together with ClassicProductionQueue. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/Buildings/PrimaryBuilding.cs)**
 
 > Inherits from: `ConditionalTrait`.
 
@@ -3666,7 +3868,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### ProduceActorPower
-**Produces an actor without using the standard production queue.**
+**Produces an actor without using the standard production queue. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/SupportPowers/ProduceActorPower.cs)**
 
 > Inherits from: `SupportPower`, `PausableConditionalTrait`, `ConditionalTrait`.
 
@@ -3731,9 +3933,9 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### ProducibleWithLevel
-**Actors possessing this trait should define the GainsExperience trait. When the prerequisites are fulfilled,  this trait grants a level-up to newly spawned actors.**
+**Actors possessing this trait should define the GainsExperience trait. When the prerequisites are fulfilled,  this trait grants a level-up to newly spawned actors. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/ProducibleWithLevel.cs)**
 
-> Requires trait(s): [`GainsExperience`](#gainsexperience).
+> Requires: [`GainsExperience`](#gainsexperience).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -3742,7 +3944,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | SuppressLevelupAnimation | True | Boolean | Should the level-up animation be suppressed when actor is created? |
 
 ### ProductionAirdrop
-**Deliver the unit in production via skylift.**
+**Deliver the unit in production via skylift. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/Buildings/ProductionAirdrop.cs)**
 
 > Inherits from: [`Production`](#production), `PausableConditionalTrait`, `ConditionalTrait`.
 
@@ -3761,8 +3963,25 @@ Related types with their possible values are listed [at the bottom](#related-val
 | PauseOnCondition |  | BooleanExpression | Boolean expression defining the condition to pause this trait. |
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
+### ProductionBulkAirdrop
+**Deliver multiple units via skylift. Works with BulkProductionQueue [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/ProductionBulkAirDrop.cs)**
+
+> Inherits from: [`Production`](#production), `PausableConditionalTrait`, `ConditionalTrait`.
+
+| Property | Default Value | Type | Description |
+| -------- | ------------- | ---- | ----------- |
+| ReadyNotification | Reinforce | String | Speech notification to play when a unit is delivered. |
+| ReadyTextNotification |  | String | Text notification to display when a unit is delivered. |
+| ActorType | *(required)* | String | Cargo aircraft used for delivery. Must have the `Aircraft` trait. |
+| Facing | 256 | 1D World Angle | Direction the aircraft should face to land. |
+| LandOffset | 0,0,0 | 3D World Vector | Offset the aircraft used for landing. |
+| Produces | *(required)* | Collection of String | e.g. Infantry, Vehicles, Aircraft, Buildings |
+| UpdateFactionOnOwnerChange | False | Boolean | When owner is changed, should the Faction be updated to the new owner's faction? |
+| PauseOnCondition |  | BooleanExpression | Boolean expression defining the condition to pause this trait. |
+| RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
+
 ### ProductionCostMultiplier
-**Modifies the production cost of this actor for a specific queue or when a prerequisite is granted.**
+**Modifies the production cost of this actor for a specific queue or when a prerequisite is granted. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/Multipliers/ProductionCostMultiplier.cs)**
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -3771,7 +3990,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | Queue |  | Set of String | Queues that this cost will apply. |
 
 ### ProductionFromMapEdge
-**Produce a unit on the closest map edge cell and move into the world.**
+**Produce a unit on the closest map edge cell and move into the world. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/ProductionFromMapEdge.cs)**
 
 > Inherits from: [`Production`](#production), `PausableConditionalTrait`, `ConditionalTrait`.
 
@@ -3783,7 +4002,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### Production
-**This unit has access to build queues.**
+**This unit has access to build queues. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/Production.cs)**
 
 > Inherits from: `PausableConditionalTrait`, `ConditionalTrait`.
 
@@ -3795,11 +4014,11 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### ProductionParadrop
-**Deliver the unit in production via paradrop.**
+**Deliver the unit in production via paradrop. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/ProductionParadrop.cs)**
 
 > Inherits from: [`Production`](#production), `PausableConditionalTrait`, `ConditionalTrait`.
 
-> Requires trait(s): [`Exit`](#exit).
+> Requires: [`Exit`](#exit).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -3813,6 +4032,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### ProductionQueueFromSelection
+** [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/ProductionQueueFromSelection.cs)**
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -3820,7 +4040,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | ProductionPaletteWidget |  | String |  |
 
 ### ProductionQueue
-**Attach this to an actor (usually a building) to let it produce units or construct buildings. If one builds another actor of this type, he will get a separate queue to create two actors at the same time. Will only work together with the Production: trait.**
+**Attach this to an actor (usually a building) to let it produce units or construct buildings. If one builds another actor of this type, he will get a separate queue to create two actors at the same time. Will only work together with the Production: trait. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/Player/ProductionQueue.cs)**
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -3851,7 +4071,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | CancelledTextNotification |  | String | Notification displayed when player right-clicks on a build palette icon that is already on hold. |
 
 ### ProductionTimeMultiplier
-**Modifies the production time of this actor for a specific queue or when a prerequisite is granted.**
+**Modifies the production time of this actor for a specific queue or when a prerequisite is granted. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/Multipliers/ProductionTimeMultiplier.cs)**
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -3860,6 +4080,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | Queue |  | Set of String | Queues that this time will apply. |
 
 ### ProvidesPrerequisite
+** [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/Player/ProvidesPrerequisite.cs)**
 
 > Inherits from: `ConditionalTrait`.
 
@@ -3872,6 +4093,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### ProvidesTechPrerequisite
+** [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/Player/ProvidesTechPrerequisite.cs)**
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -3880,14 +4102,14 @@ Related types with their possible values are listed [at the bottom](#related-val
 | Prerequisites |  | Collection of String | Prerequisites to grant when this tech level is active. |
 
 ### ProximityCaptor
-**Actor can capture ProximityCapturable actors.**
+**Actor can capture ProximityCapturable actors. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/ProximityCaptor.cs)**
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
 | Types | *(required)* | Collection of CaptureType |  |
 
 ### ProximityCapturable
-**Actor can be captured by units within a certain range.**
+**Actor can be captured by units within a certain range. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/ProximityCapturable.cs)**
 
 > Inherits from: `ProximityCapturableBase`.
 
@@ -3901,7 +4123,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | DrawDecoration | True | Boolean | If set, will draw a border in the owner's color around the capturable area. |
 
 ### ProximityExternalCondition
-**Applies a condition to actors within a specified range.**
+**Applies a condition to actors within a specified range. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/Conditions/ProximityExternalCondition.cs)**
 
 > Inherits from: `ConditionalTrait`.
 
@@ -3917,11 +4139,11 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### QuantizeFacingsFromSequence
-**Derive facings from sprite body sequence.**
+**Derive facings from sprite body sequence. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/QuantizeFacingsFromSequence.cs)**
 
 > Inherits from: `ConditionalTrait`.
 
-> Requires trait(s): [`RenderSprites`](#rendersprites).
+> Requires: [`RenderSprites`](#rendersprites).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -3929,6 +4151,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### RadarPings
+** [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/World/RadarPings.cs)**
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -3938,7 +4161,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RotationSpeed | 0.12 | Real Number |  |
 
 ### RallyPoint
-**Used to waypoint units after production or repair is finished.**
+**Used to waypoint units after production or repair is finished. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/Buildings/RallyPoint.cs)**
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -3955,7 +4178,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | ForceSetType |  | String | Used to group equivalent actors to allow force-setting a rallypoint (e.g. for Primary production). |
 
 ### RangeMultiplier
-**Modifies the range of weapons fired by this actor.**
+**Modifies the range of weapons fired by this actor. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/Multipliers/RangeMultiplier.cs)**
 
 > Inherits from: `ConditionalTrait`.
 
@@ -3965,6 +4188,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### Rearmable
+** [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/Rearmable.cs)**
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -3972,8 +4196,9 @@ Related types with their possible values are listed [at the bottom](#related-val
 | AmmoPools | primary | Set of String | Name(s) of AmmoPool(s) that use this trait to rearm. |
 
 ### Refinery
+** [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/Buildings/Refinery.cs)**
 
-> Requires trait(s): [`WithSpriteBody`](#withspritebody).
+> Requires: [`WithSpriteBody`](#withspritebody).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -3983,7 +4208,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | TickRate | 10 | Integer |  |
 
 ### RegionProximityCapturable
-**Actor can be captured by units entering a certain set of cells.**
+**Actor can be captured by units entering a certain set of cells. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/RegionProximityCapturable.cs)**
 
 > Inherits from: `ProximityCapturableBase`.
 
@@ -3997,7 +4222,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | DrawDecoration | True | Boolean | If set, will draw a border in the owner's color around the capturable area. |
 
 ### RejectsOrders
-**Can be used to make a unit partly uncontrollable by the player.**
+**Can be used to make a unit partly uncontrollable by the player. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/RejectsOrders.cs)**
 
 > Inherits from: `ConditionalTrait`.
 
@@ -4009,7 +4234,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### ReloadAmmoDelayMultiplier
-**Modifies the reload time of ammo pools on this actor.**
+**Modifies the reload time of ammo pools on this actor. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/Multipliers/ReloadAmmoDelayMultiplier.cs)**
 
 > Inherits from: `ConditionalTrait`.
 
@@ -4019,7 +4244,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### ReloadAmmoPool
-**Reloads an ammo pool.**
+**Reloads an ammo pool. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/ReloadAmmoPool.cs)**
 
 > Inherits from: `PausableConditionalTrait`, `ConditionalTrait`.
 
@@ -4034,7 +4259,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### ReloadDelayMultiplier
-**Modifies the reload time of weapons fired by this actor.**
+**Modifies the reload time of weapons fired by this actor. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/Multipliers/ReloadDelayMultiplier.cs)**
 
 > Inherits from: `ConditionalTrait`.
 
@@ -4044,6 +4269,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### RenderJammerCircle
+** [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/Render/RenderJammerCircle.cs)**
 
 > Inherits from: `ConditionalTrait`.
 
@@ -4056,6 +4282,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### RenderShroudCircle
+** [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/Render/RenderShroudCircle.cs)**
 
 > Inherits from: `ConditionalTrait`.
 
@@ -4068,7 +4295,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### RepairableBuilding
-**Building can be repaired by the repair button.**
+**Building can be repaired by the repair button. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/Buildings/RepairableBuilding.cs)**
 
 > Inherits from: `ConditionalTrait`.
 
@@ -4089,7 +4316,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### Repairable
-**This actor can be sent to a structure for repairs.**
+**This actor can be sent to a structure for repairs. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/Repairable.cs)**
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -4101,6 +4328,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | EnterBlockedCursor | enter-blocked | String | Cursor to display when unable to be repaired at target actor. |
 
 ### RepairableNear
+** [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/RepairableNear.cs)**
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -4112,7 +4340,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | EnterBlockedCursor | enter-blocked | String | Cursor to display when unable to be repaired near target actor. |
 
 ### RepairsBridges
-**Can enter a BridgeHut or LegacyBridgeHut to trigger a repair.**
+**Can enter a BridgeHut or LegacyBridgeHut to trigger a repair. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/RepairsBridges.cs)**
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -4125,6 +4353,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RepairTextNotification |  | String | Text notification to display when a bridge is repaired. |
 
 ### RepairsUnits
+** [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/RepairsUnits.cs)**
 
 > Inherits from: `PausableConditionalTrait`, `ConditionalTrait`.
 
@@ -4143,6 +4372,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### Replaceable
+** [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/Replaceable.cs)**
 
 > Inherits from: `ConditionalTrait`.
 
@@ -4152,15 +4382,16 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### Replacement
+** [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/Replacement.cs)**
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
 | ReplaceableTypes | *(required)* | Set of String | Replacement type (matched against Types in Replaceable). |
 
 ### RequiresBuildableArea
-**This actor requires another actor with 'GivesBuildableArea' trait around to be placed.**
+**This actor requires another actor with 'GivesBuildableArea' trait around to be placed. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/Buildings/RequiresBuildableArea.cs)**
 
-> Requires trait(s): [`Building`](#building).
+> Requires: [`Building`](#building).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -4168,39 +4399,55 @@ Related types with their possible values are listed [at the bottom](#related-val
 | Adjacent | 2 | Integer | Maximum range from the actor with 'GivesBuildableArea' this can be placed at. |
 
 ### RequiresSpecificOwners
-**Can be used to enforce specific owners (like 'Neutral' or 'Creeps') for this actor.**
+**Can be used to enforce specific owners (like 'Neutral' or 'Creeps') for this actor. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/RequiresSpecificOwners.cs)**
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
 | ValidOwnerNames | *(required)* | Set of String | Only allow players listed here as owners. |
 
 ### Reservable
-**Reserve landing places for aircraft.**
+**Reserve landing places for aircraft. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/Buildings/Reservable.cs)**
 
 ### ResourceClaimLayer
-**Allows harvesters to coordinate their operations. Attach this to the world actor.**
+**Allows harvesters to coordinate their operations. Attach this to the world actor. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/World/ResourceClaimLayer.cs)**
 
 ### ResourceLayer
-**Attach this to the world actor.**
+**Attach this to the world actor. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/World/ResourceLayer.cs)**
 
-> Requires trait(s): [`BuildingInfluence`](#buildinginfluence).
+> Requires: [`BuildingInfluence`](#buildinginfluence).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
 | ResourceTypes |  | Dictionary with Key: String, Value: ResourceTypeInfo |  |
 | RecalculateResourceDensity | False | Boolean | Override the density saved in maps with values calculated based on the number of neighbouring resource cells. |
 
+### ResourceMapBotModule
+** [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/BotModules/ResourceMapBotModule.cs)**
+
+> Inherits from: `ConditionalTrait`.
+
+| Property | Default Value | Type | Description |
+| -------- | ------------- | ---- | ----------- |
+| ValuableResourceTypes |  | Set of String | Harvestable and valuable resource types. |
+| ResourceCreatorTypes |  | Set of String | Tells the AI what types are considered resource creator. |
+| RefineryTypes |  | Set of String | Actor types that are considered refineries for HarvesterTypes. |
+| HarvesterTypes |  | Set of String | Actor types that are considered harvesters for ValuableResourceTypes. |
+| EnemyBaseBuildingTypes |  | Set of String | Actor types that are considered to be the base building for expansion. Other enemy units will also be recorded Defence and production building is suggested |
+| UpdateResourceMapInverval | 67 | Integer | Delay (in ticks) for updating the indicies. |
+| ResourceMapStrideRadius | 12 | Integer | The size (in cells) of half of the side length of the indice (in square). |
+| RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
+
 ### ResourceRenderer
-**Visualizes the state of the `ResourceLayer`.  Attach this to the world actor.**
+**Visualizes the state of the `ResourceLayer`.  Attach this to the world actor. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/World/ResourceRenderer.cs)**
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
 | ResourceTypes |  | Dictionary with Key: String, Value: ResourceTypeInfo |  |
 
 ### ResourceStorageWarning
-**Provides the player with an audible warning when their storage is nearing full.**
+**Provides the player with an audible warning when their storage is nearing full. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/Player/ResourceStorageWarning.cs)**
 
-> Requires trait(s): [`PlayerResources`](#playerresources).
+> Requires: [`PlayerResources`](#playerresources).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -4210,7 +4457,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | TextNotification |  | String | Text to display for the warning. |
 
 ### ResourceValueMultiplier
-**Modifies the value of resources delivered to this actor.**
+**Modifies the value of resources delivered to this actor. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/Multipliers/ResourceValueMultiplier.cs)**
 
 > Inherits from: `ConditionalTrait`.
 
@@ -4220,7 +4467,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### RevealMapCrateAction
-**Reveals the entire map.**
+**Reveals the entire map. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/Crates/RevealMapCrateAction.cs)**
 
 > Inherits from: [`CrateAction`](#crateaction), `ConditionalTrait`.
 
@@ -4240,7 +4487,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### RevealOnDeath
-**Reveal this actor's last position when killed.**
+**Reveal this actor's last position when killed. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/RevealOnDeath.cs)**
 
 > Inherits from: `ConditionalTrait`.
 
@@ -4254,7 +4501,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### RevealOnFire
-**Reveal this actor to the target's owner when attacking.**
+**Reveal this actor to the target's owner when attacking. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/RevealOnFire.cs)**
 
 > Inherits from: `ConditionalTrait`.
 
@@ -4268,7 +4515,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### RevealsMap
-**Reveals shroud and fog across the whole map while active.**
+**Reveals shroud and fog across the whole map while active. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/RevealsMap.cs)**
 
 > Inherits from: `ConditionalTrait`.
 
@@ -4279,6 +4526,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### RevealsShroud
+** [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/RevealsShroud.cs)**
 
 > Inherits from: `AffectsShroud`, `ConditionalTrait`.
 
@@ -4294,7 +4542,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### RevealsShroudMultiplier
-**Modifies the shroud range revealed by this actor.**
+**Modifies the shroud range revealed by this actor. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/Multipliers/RevealsShroudMultiplier.cs)**
 
 > Inherits from: `ConditionalTrait`.
 
@@ -4304,7 +4552,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### RotationPaletteEffect
-**Palette effect used for sprinkle "animations".**
+**Palette effect used for sprinkle "animations". [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/PaletteEffects/RotationPaletteEffect.cs)**
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -4317,14 +4565,14 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RotationStep | 0.25 | Real Number | Step towards next color index per tick. |
 
 ### ScalePowerWithHealth
-**Scale power amount with the current health.**
+**Scale power amount with the current health. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/Power/ScalePowerWithHealth.cs)**
 
-> Requires trait(s): [`Power`](#power).
+> Requires: [`Power`](#power).
 
 ### ScaredyCat
-**Makes the unit automatically run around when taking damage.**
+**Makes the unit automatically run around when taking damage. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/Infantry/ScaredyCat.cs)**
 
-> Requires trait(s): [`Mobile`](#mobile).
+> Requires: [`Mobile`](#mobile).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -4336,7 +4584,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | PanicSequencePrefix | panic- | String |  |
 
 ### ScriptLobbyDropdown
-**Controls the map difficulty, tech level, and short game lobby options.**
+**Controls the map difficulty, tech level, and short game lobby options. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/World/ScriptLobbyDropdown.cs)**
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -4350,10 +4598,14 @@ Related types with their possible values are listed [at the bottom](#related-val
 | DisplayOrder | 0 | Integer | Display order for the option in the lobby. |
 
 ### ScriptTags
-**Allows this actor to be 'tagged' with arbitrary strings. Tags must be unique or they will be rejected.**
+**Allows this actor to be 'tagged' with arbitrary strings. Tags must be unique or they will be rejected. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/ScriptTags.cs)**
+
+| Property | Default Value | Type | Description |
+| -------- | ------------- | ---- | ----------- |
+| EditorScriptTagsDisplayOrder | 5 | Integer | Display order for the script tags text field in the map editor |
 
 ### SeedsResource
-**Lets the actor spread resources around it in a circle.**
+**Lets the actor spread resources around it in a circle. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/SeedsResource.cs)**
 
 > Inherits from: `ConditionalTrait`.
 
@@ -4365,7 +4617,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### Selectable
-**This actor is selectable. Defines bounds of selectable area, selection class, selection priority and selection priority modifiers.**
+**This actor is selectable. Defines bounds of selectable area, selection class, selection priority and selection priority modifiers. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/Selectable.cs)**
 
 > Inherits from: [`Interactable`](#interactable).
 
@@ -4380,9 +4632,10 @@ Related types with their possible values are listed [at the bottom](#related-val
 | Polygon |  | Collection of 2D Integer | Defines a custom 2D polygon for mouse interaction with the actor. If null, Bounds will be used instead Each vertex has two components (so two numbers), which define an x and y offset from the actor center. |
 
 ### Selection
+** [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/World/Selection.cs)**
 
 ### Sellable
-**Actor can be sold**
+**Actor can be sold [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/Sellable.cs)**
 
 > Inherits from: `ConditionalTrait`.
 
@@ -4399,11 +4652,11 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### SequencePlaceBuildingPreview
-**Creates a building placement preview based on a defined sequence.**
+**Creates a building placement preview based on a defined sequence. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/Buildings/SequencePlaceBuildingPreview.cs)**
 
 > Inherits from: [`FootprintPlaceBuildingPreview`](#footprintplacebuildingpreview).
 
-> Requires trait(s): [`RenderSprites`](#rendersprites).
+> Requires: [`RenderSprites`](#rendersprites).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -4416,6 +4669,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | LineBuildFootprintAlpha | 1 | Real Number | Custom opacity to apply to the line-build placement sprite. |
 
 ### ShakeOnDeath
+** [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/ShakeOnDeath.cs)**
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -4424,6 +4678,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | Intensity | 1 | Integer |  |
 
 ### ShroudRenderer
+** [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/World/ShroudRenderer.cs)**
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -4441,7 +4696,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | ShroudBlend | Alpha | [`BlendMode`](#blendmode) |  |
 
 ### SmudgeLayer
-**Attach this to the world actor. Order of the layers defines the Z sorting.**
+**Attach this to the world actor. Order of the layers defines the Z sorting. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/World/SmudgeLayer.cs)**
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -4456,7 +4711,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | InitialSmudges |  | Dictionary with Key: 2D Cell Position, Value: MapSmudge |  |
 
 ### SpawnActorOnDeath
-**Spawn another actor immediately upon death.**
+**Spawn another actor immediately upon death. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/SpawnActorOnDeath.cs)**
 
 > Inherits from: `ConditionalTrait`.
 
@@ -4475,7 +4730,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### SpawnActorPower
-**Spawns an actor that stays for a limited amount of time.**
+**Spawns an actor that stays for a limited amount of time. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/SupportPowers/SpawnActorPower.cs)**
 
 > Inherits from: `SupportPower`, `PausableConditionalTrait`, `ConditionalTrait`.
 
@@ -4543,7 +4798,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### SpawnActorsOnSell
-**Spawn new actors when sold.**
+**Spawn new actors when sold. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/SpawnActorsOnSell.cs)**
 
 > Inherits from: `ConditionalTrait`.
 
@@ -4557,12 +4812,12 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### SpawnMapActors
-**Spawns the initial units for each player upon game start.**
+**Spawns the initial units for each player upon game start. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/World/SpawnMapActors.cs)**
 
 ### SpawnStartingUnits
-**Spawn base actor at the spawnpoint and support units in an annulus around the base actor. Both are defined at MPStartUnits. Attach this to the world actor.**
+**Spawn base actor at the spawnpoint and support units in an annulus around the base actor. Both are defined at `StartingUnits`. Attach this to the world actor. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/World/SpawnStartingUnits.cs)**
 
-> Requires trait(s): [`StartingUnits`](#startingunits).
+> Requires: [`StartingUnits`](#startingunits).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -4574,7 +4829,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | DropdownDisplayOrder | 0 | Integer | Display order for the starting units option in the lobby. |
 
 ### SpeedMultiplier
-**Modifies the movement speed of this actor.**
+**Modifies the movement speed of this actor. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/Multipliers/SpeedMultiplier.cs)**
 
 > Inherits from: `ConditionalTrait`.
 
@@ -4584,7 +4839,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### SpreadsCondition
-**Any actor with this trait enabled has a chance to affect others with this trait.**
+**Any actor with this trait enabled has a chance to affect others with this trait. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/Conditions/SpreadsCondition.cs)**
 
 > Inherits from: `ConditionalTrait`.
 
@@ -4597,7 +4852,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### SquadManagerBotModule
-**Manages AI squads.**
+**Manages AI squads. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/BotModules/SquadManagerBotModule.cs)**
 
 > Inherits from: `ConditionalTrait`.
 
@@ -4627,6 +4882,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### StartGameNotification
+** [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/World/StartGameNotification.cs)**
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -4638,7 +4894,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | SavedTextNotification |  | String |  |
 
 ### StartingUnits
-**Used by SpawnStartingUnits. Attach these to the world actor. You can have multiple variants by adding @suffixes.**
+**Used by SpawnStartingUnits. Attach these to the world actor. You can have multiple variants by adding @suffixes. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/World/MapStartingUnits.cs)**
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -4654,14 +4910,14 @@ Related types with their possible values are listed [at the bottom](#related-val
 | SupportActorsFacing |  | 1D World Angle (optional) | Initial facing of SupportActors. Leave undefined for random facings. |
 
 ### StoresPlayerResources
-**Adds capacity to a player's harvested resource limit.**
+**Adds capacity to a player's harvested resource limit. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/StoresPlayerResources.cs)**
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
 | Capacity | 0 | Integer |  |
 
 ### StoresResources
-**Allows the storage of resources.**
+**Allows the storage of resources. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/StoresResources.cs)**
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -4669,12 +4925,12 @@ Related types with their possible values are listed [at the bottom](#related-val
 | Resources |  | Collection of String | Which resources can be stored. |
 
 ### StrategicPoint
-**Used to mark a place that needs to be in possession for StrategicVictoryConditions.**
+**Used to mark a place that needs to be in possession for StrategicVictoryConditions. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/Player/StrategicVictoryConditions.cs)**
 
 ### StrategicVictoryConditions
-**Allows King of the Hill (KotH) style gameplay.**
+**Allows King of the Hill (KotH) style gameplay. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/Player/StrategicVictoryConditions.cs)**
 
-> Requires trait(s): [`MissionObjectives`](#missionobjectives).
+> Requires: [`MissionObjectives`](#missionobjectives).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -4686,6 +4942,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | SuppressNotifications | False | Boolean | Disable the win/loss messages and audio notifications? |
 
 ### SubterraneanActorLayer
+** [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/World/SubterraneanActorLayer.cs)**
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -4694,7 +4951,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | SmoothingRadius | 2 | Integer | Cell radius for smoothing adjacent cell heights. |
 
 ### SubterraneanLocomotor
-**Used by Mobile. Required for subterranean actors. Attach these to the world actor. You can have multiple variants by adding @suffixes.**
+**Used by Mobile. Required for subterranean actors. Attach these to the world actor. You can have multiple variants by adding @suffixes. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/World/SubterraneanLocomotor.cs)**
 
 > Inherits from: [`Locomotor`](#locomotor).
 
@@ -4714,11 +4971,11 @@ Related types with their possible values are listed [at the bottom](#related-val
 | TerrainSpeeds |  | Dictionary with Key: String, Value: TerrainInfo | Lower the value on rough terrain. Leave out entries for impassable terrain. |
 
 ### SupportPowerBotModule
-**Manages bot support power handling.**
+**Manages bot support power handling. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/BotModules/SupportPowerBotModule.cs)**
 
 > Inherits from: `ConditionalTrait`.
 
-> Requires trait(s): [`SupportPowerManager`](#supportpowermanager).
+> Requires: [`SupportPowerManager`](#supportpowermanager).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -4726,7 +4983,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### SupportPowerCrateAction
-**Gives a supportpower to the collector.**
+**Gives a supportpower to the collector. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/Crates/SupportPowerCrateAction.cs)**
 
 > Inherits from: [`CrateAction`](#crateaction), `ConditionalTrait`.
 
@@ -4746,16 +5003,16 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### SupportPowerManager
-**Attach this to the player actor.**
+**Attach this to the player actor. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/SupportPowers/SupportPowerManager.cs)**
 
-> Requires trait(s): [`DeveloperMode`](#developermode), [`TechTree`](#techtree).
+> Requires: [`DeveloperMode`](#developermode), [`TechTree`](#techtree).
 
 ### TakeCover
-**Make the unit go prone when under attack, in an attempt to reduce damage.**
+**Make the unit go prone when under attack, in an attempt to reduce damage. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/Infantry/TakeCover.cs)**
 
 > Inherits from: [`Turreted`](#turreted), `PausableConditionalTrait`, `ConditionalTrait`.
 
-> Requires trait(s): [`BodyOrientation`](#bodyorientation).
+> Requires: [`BodyOrientation`](#bodyorientation).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -4775,7 +5032,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### Targetable
-**Actor can be targeted.**
+**Actor can be targeted. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/Targetable.cs)**
 
 > Inherits from: `ConditionalTrait`.
 
@@ -4786,20 +5043,20 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### TechTree
-**Manages build limits and pre-requisites.  Attach this to the player actor.**
+**Manages build limits and pre-requisites.  Attach this to the player actor. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/Player/TechTree.cs)**
 
 ### TemporaryOwnerManager
-**Interacts with the ChangeOwner warhead. Displays a bar how long this actor is affected and reverts back to the old owner on temporary changes.**
+**Interacts with the ChangeOwner warhead. Displays a bar how long this actor is affected and reverts back to the old owner on temporary changes. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/TemporaryOwnerManager.cs)**
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
 | BarColor | FFA500 | Color (RRGGBB[AA] notation) |  |
 
 ### TerrainGeometryOverlay
-**Renders a debug overlay showing the terrain cells. Attach this to the world actor.**
+**Renders a debug overlay showing the terrain cells. Attach this to the world actor. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/World/TerrainGeometryOverlay.cs)**
 
 ### TerrainLighting
-**Add to the world actor to apply a global lighting tint and allow actors using the TerrainLightSource to add localised lighting.**
+**Add to the world actor to apply a global lighting tint and allow actors using the TerrainLightSource to add localised lighting. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/World/TerrainLighting.cs)**
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -4811,7 +5068,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | BinSize | 10 | Integer | Size of light source partition bins (cells) |
 
 ### TerrainLightSource
-**Adds a localized circular light centered on the actor to the world's TerrainLightSource trait.**
+**Adds a localized circular light centered on the actor to the world's TerrainLightSource trait. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/TerrainLightSource.cs)**
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -4822,6 +5079,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | BlueTint | 0 | Real Number |  |
 
 ### TerrainModifiesDamage
+** [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/Infantry/TerrainModifiesDamage.cs)**
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -4829,10 +5087,12 @@ Related types with their possible values are listed [at the bottom](#related-val
 | ModifyHealing | False | Boolean | Modify healing damage? For example: A friendly medic. |
 
 ### TerrainRenderer
+** [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/World/TerrainRenderer.cs)**
 
 ### TerrainTunnel
+** [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/World/TerrainTunnel.cs)**
 
-> Requires trait(s): [`TerrainTunnelLayer`](#terraintunnellayer).
+> Requires: [`TerrainTunnelLayer`](#terraintunnellayer).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -4843,14 +5103,16 @@ Related types with their possible values are listed [at the bottom](#related-val
 | TerrainType | *(required)* | String | Terrain type of the tunnel floor. |
 
 ### TerrainTunnelLayer
+** [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/World/TerrainTunnelLayer.cs)**
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
 | ImpassableTerrainType | Impassable | String | Terrain type used by cells outside any tunnel footprint. |
 
 ### ThrowsParticle
+** [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/ThrowsParticle.cs)**
 
-> Requires trait(s): [`BodyOrientation`](#bodyorientation), [`WithSpriteBody`](#withspritebody).
+> Requires: [`BodyOrientation`](#bodyorientation), [`WithSpriteBody`](#withspritebody).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -4863,8 +5125,17 @@ Related types with their possible values are listed [at the bottom](#related-val
 | Velocity | 75 | Integer | Speed to throw the particle (horizontal WPos/tick) |
 | TurnSpeed | 60 | 1D World Angle | Speed at which the particle turns. |
 
+### TilingPathTool
+** [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/World/TilingPathTool.cs)**
+
+| Property | Default Value | Type | Description |
+| -------- | ------------- | ---- | ----------- |
+| DefaultStart |  | Collection of String | The preferred defaults for the start type. |
+| DefaultInner |  | Collection of String | The preferred defaults for the inner type. |
+| DefaultEnd |  | Collection of String | The preferred defaults for the end type. |
+
 ### TimeLimitManager
-**This trait allows setting a time limit on matches. Attach this to the World actor.**
+**This trait allows setting a time limit on matches. Attach this to the World actor. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/World/TimeLimitManager.cs)**
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -4889,7 +5160,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | SkipTimerExpiredNotification | False | Boolean | Will prevent showing/playing the built-in timer expired notification when set to true. |
 
 ### TintPostProcessEffect
-**Used for day/night effects.**
+**Used for day/night effects. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/PaletteEffects/TintPostProcessEffect.cs)**
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -4899,7 +5170,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | Ambient | 1 | Real Number |  |
 
 ### ToggleConditionOnOrder
-**Toggles a condition on and off when a specified order type is received.**
+**Toggles a condition on and off when a specified order type is received. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/Conditions/ToggleConditionOnOrder.cs)**
 
 > Inherits from: `PausableConditionalTrait`, `ConditionalTrait`.
 
@@ -4917,7 +5188,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### TooltipDescription
-**Additional info shown in the battlefield tooltip.**
+**Additional info shown in the battlefield tooltip. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/TooltipDescription.cs)**
 
 > Inherits from: `ConditionalTrait`.
 
@@ -4928,7 +5199,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### Tooltip
-**Shown in the build palette widget.**
+**Shown in the build palette widget. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/Tooltip.cs)**
 
 > Inherits from: `TooltipInfoBase`, `ConditionalTrait`.
 
@@ -4945,7 +5216,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### TransformCrusherOnCrush
-**Put this on the actor that gets crushed to replace the crusher with a new actor.**
+**Put this on the actor that gets crushed to replace the crusher with a new actor. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/TransformCrusherOnCrush.cs)**
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -4954,7 +5225,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | CrushClasses |  | Collection of CrushClass |  |
 
 ### TransformOnCapture
-**Replaces the captured actor with a new one.**
+**Replaces the captured actor with a new one. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/TransformOnCapture.cs)**
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -4964,7 +5235,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | CaptureTypes |  | Collection of CaptureType | Transform only if the capturer's CaptureTypes overlap with these types. Leave empty to allow all types. |
 
 ### Transforms
-**Actor becomes a specified actor type when this trait is triggered.**
+**Actor becomes a specified actor type when this trait is triggered. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/Transforms.cs)**
 
 > Inherits from: `PausableConditionalTrait`, `ConditionalTrait`.
 
@@ -4986,11 +5257,11 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### TransformsIntoAircraft
-**Add to a building to expose a move cursor that triggers Transforms and issues a move order to the transformed actor.**
+**Add to a building to expose a move cursor that triggers Transforms and issues a move order to the transformed actor. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/Buildings/TransformsIntoAircraft.cs)**
 
 > Inherits from: `ConditionalTrait`.
 
-> Requires trait(s): [`Transforms`](#transforms).
+> Requires: [`Transforms`](#transforms).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -5006,11 +5277,11 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### TransformsIntoDockClient
-**Add to a building to expose a move cursor that triggers Transforms and issues a dock order to the transformed actor.**
+**Add to a building to expose a move cursor that triggers Transforms and issues a dock order to the transformed actor. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/Buildings/TransformsIntoDockClientManager.cs)**
 
 > Inherits from: `ConditionalTrait`.
 
-> Requires trait(s): [`Transforms`](#transforms).
+> Requires: [`Transforms`](#transforms).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -5022,11 +5293,11 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### TransformsIntoEntersTunnels
-**Add to a building to expose a move cursor that triggers Transforms and issues an enter tunnel order to the transformed actor.**
+**Add to a building to expose a move cursor that triggers Transforms and issues an enter tunnel order to the transformed actor. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/Buildings/TransformsIntoEntersTunnels.cs)**
 
 > Inherits from: `ConditionalTrait`.
 
-> Requires trait(s): [`Transforms`](#transforms).
+> Requires: [`Transforms`](#transforms).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -5038,11 +5309,11 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### TransformsIntoMobile
-**Add to a building to expose a move cursor that triggers Transforms and issues a move order to the transformed actor.**
+**Add to a building to expose a move cursor that triggers Transforms and issues a move order to the transformed actor. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/Buildings/TransformsIntoMobile.cs)**
 
 > Inherits from: `ConditionalTrait`.
 
-> Requires trait(s): [`Transforms`](#transforms).
+> Requires: [`Transforms`](#transforms).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -5056,11 +5327,11 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### TransformsIntoPassenger
-**Add to a building to expose a move cursor that triggers Transforms and issues an EnterTransport order to the transformed actor.**
+**Add to a building to expose a move cursor that triggers Transforms and issues an EnterTransport order to the transformed actor. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/Buildings/TransformsIntoPassenger.cs)**
 
 > Inherits from: `ConditionalTrait`.
 
-> Requires trait(s): [`Transforms`](#transforms).
+> Requires: [`Transforms`](#transforms).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -5074,11 +5345,11 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### TransformsIntoRepairable
-**Add to a building to expose a move cursor that triggers Transforms and issues a repair order to the transformed actor.**
+**Add to a building to expose a move cursor that triggers Transforms and issues a repair order to the transformed actor. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/Buildings/TransformsIntoRepairable.cs)**
 
 > Inherits from: `ConditionalTrait`.
 
-> Requires trait(s): [`Transforms`](#transforms).
+> Requires: [`Transforms`](#transforms).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -5091,11 +5362,11 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### TransformsIntoTransforms
-**Add to a building to allow queued transform orders while undeploying.**
+**Add to a building to allow queued transform orders while undeploying. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/Buildings/TransformsIntoTransforms.cs)**
 
 > Inherits from: `ConditionalTrait`.
 
-> Requires trait(s): [`Transforms`](#transforms).
+> Requires: [`Transforms`](#transforms).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -5103,7 +5374,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### TunnelEntrance
-**Provides a target for players to issue orders for units to move through a TerrainTunnel. The host actor should be placed so that the Sensor position overlaps one of the TerrainTunnel portal cells.**
+**Provides a target for players to issue orders for units to move through a TerrainTunnel. The host actor should be placed so that the Sensor position overlaps one of the TerrainTunnel portal cells. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/TunnelEntrance.cs)**
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -5112,11 +5383,11 @@ Related types with their possible values are listed [at the bottom](#related-val
 | Sensor | 0,0 | 2D Cell Vector | Offset to check for the corresponding TerrainTunnel portal cell(s). |
 
 ### TurnOnIdle
-**Turns actor randomly when idle.**
+**Turns actor randomly when idle. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/TurnOnIdle.cs)**
 
 > Inherits from: `ConditionalTrait`.
 
-> Requires trait(s): [`Mobile`](#mobile).
+> Requires: [`Mobile`](#mobile).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -5125,10 +5396,11 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### Turreted
+** [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/Turreted.cs)**
 
 > Inherits from: `PausableConditionalTrait`, `ConditionalTrait`.
 
-> Requires trait(s): [`BodyOrientation`](#bodyorientation).
+> Requires: [`BodyOrientation`](#bodyorientation).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -5142,7 +5414,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### UnitBuilderBotModule
-**Controls AI unit production.**
+**Controls AI unit production. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/BotModules/UnitBuilderBotModule.cs)**
 
 > Inherits from: `ConditionalTrait`.
 
@@ -5157,10 +5429,10 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### UpdatesDerrickCount
-**Tag trait for updating the 'Oil Derrick' count economy statistic.**
+**Tag trait for updating the 'Oil Derrick' count economy statistic. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/UpdatesDerrickCount.cs)**
 
 ### UpdatesPlayerStatistics
-**Attach this to a unit to update observer stats.**
+**Attach this to a unit to update observer stats. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/Player/PlayerStatistics.cs)**
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -5169,17 +5441,17 @@ Related types with their possible values are listed [at the bottom](#related-val
 | OverrideActor |  | String | Count this actor as a different type in the spectator army display. |
 
 ### ValidateOrder
-**Used to detect exploits. Attach this to the world actor.**
+**Used to detect exploits. Attach this to the world actor. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/World/ValidateOrder.cs)**
 
 ### Valued
-**How much the unit is worth.**
+**How much the unit is worth. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/Valued.cs)**
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
 | Cost | 0 | Integer | Used in production, but also for bounties so remember to set it > 0 even for NPCs. |
 
 ### Voiced
-**This actor has a voice.**
+**This actor has a voice. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/Voiced.cs)**
 
 > Inherits from: `ConditionalTrait`.
 
@@ -5190,7 +5462,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### Wanders
-**Wanders around aimlessly while idle.**
+**Wanders around aimlessly while idle. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/Wanders.cs)**
 
 > Inherits from: `ConditionalTrait`.
 
@@ -5204,14 +5476,14 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### WarheadDebugOverlay
-**Part of the combat overlay from `DeveloperMode`. Attach this to the world actor.**
+**Part of the combat overlay from `DeveloperMode`. Attach this to the world actor. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/World/WarheadDebugOverlay.cs)**
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
 | DisplayDuration | 25 | Integer |  |
 
 ### WeatherOverlay
-**Adds a particle-based overlay.**
+**Adds a particle-based overlay. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/World/WeatherOverlay.cs)**
 
 > Inherits from: `ConditionalTrait`.
 
@@ -5237,7 +5509,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### WithColoredOverlay
-**Display a colored overlay when a timed condition is active.**
+**Display a colored overlay when a timed condition is active. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/Modifiers/WithColoredOverlay.cs)**
 
 > Inherits from: `ConditionalTrait`.
 
@@ -5248,7 +5520,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 
 ### GrantRandomCondition
-**Grants a random condition from a predefined list to the actor when created.**
+**Grants a random condition from a predefined list to the actor when created. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/Conditions/GrantRandomCondition.cs)**
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -5256,7 +5528,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 
 ### AppearsOnRadar
-**Provides a signature on the minimap.**
+**Provides a signature on the minimap. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/Radar/AppearsOnRadar.cs)**
 
 > Inherits from: `ConditionalTrait`.
 
@@ -5267,7 +5539,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### ProvidesRadar
-**This actor enables the radar minimap.**
+**This actor enables the radar minimap. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/Radar/ProvidesRadar.cs)**
 
 > Inherits from: `ConditionalTrait`.
 
@@ -5276,6 +5548,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### RadarColorFromTerrain
+** [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/Radar/RadarColorFromTerrain.cs)**
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -5283,9 +5556,9 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 
 ### CashTricklerBar
-**Display the time remaining until the next cash is given by actor's CashTrickler trait.**
+**Display the time remaining until the next cash is given by actor's CashTrickler trait. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/Render/CashTricklerBar.cs)**
 
-> Requires trait(s): [`CashTrickler`](#cashtrickler).
+> Requires: [`CashTrickler`](#cashtrickler).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -5293,7 +5566,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | Color | FF00FF | Color (RRGGBB[AA] notation) |  |
 
 ### Hovers
-**Changes the visual Z position periodically.**
+**Changes the visual Z position periodically. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/Render/Hovers.cs)**
 
 > Inherits from: `ConditionalTrait`.
 
@@ -5308,17 +5581,18 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### IsometricSelectionDecorations
+** [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/Render/IsometricSelectionDecorations.cs)**
 
 > Inherits from: `SelectionDecorationsBase`.
 
-> Requires trait(s): [`IsometricSelectable`](#isometricselectable).
+> Requires: [`IsometricSelectable`](#isometricselectable).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
 | SelectionBoxColor | FFFFFF | Color (RRGGBB[AA] notation) |  |
 
 ### LeavesTrails
-**Renders a sprite effect when leaving a cell.**
+**Renders a sprite effect when leaving a cell. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/Render/LeavesTrails.cs)**
 
 > Inherits from: `ConditionalTrait`.
 
@@ -5340,11 +5614,11 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### ProductionBar
-**Visualizes the remaining build time of actor produced here.**
+**Visualizes the remaining build time of actor produced here. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/Render/ProductionBar.cs)**
 
 > Inherits from: `ConditionalTrait`.
 
-> Requires trait(s): [`Production`](#production).
+> Requires: [`Production`](#production).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -5353,9 +5627,9 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### ProductionIconOverlayManager
-**Attach this to the player actor. Required for WithProductionIconOverlay trait on actors to work.**
+**Attach this to the player actor. Required for WithProductionIconOverlay trait on actors to work. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/Render/ProductionIconOverlayManager.cs)**
 
-> Requires trait(s): [`TechTree`](#techtree).
+> Requires: [`TechTree`](#techtree).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -5365,7 +5639,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | Palette | chrome | String | Palette to render the sprite in. Reference the world actor's PaletteFrom* traits. |
 
 ### ReloadArmamentsBar
-**Visualizes the minimum remaining time for reloading the armaments.**
+**Visualizes the minimum remaining time for reloading the armaments. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/Render/ReloadArmamentsBar.cs)**
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -5373,15 +5647,16 @@ Related types with their possible values are listed [at the bottom](#related-val
 | Color | FF0000 | Color (RRGGBB[AA] notation) |  |
 
 ### RenderDebugState
-**Displays the actor's type and ID above the actor.**
+**Displays the actor's type and ID above the actor. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/Render/RenderDebugState.cs)**
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
 | Font | TinyBold | String |  |
 
 ### RenderDetectionCircle
+** [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/Render/RenderDetectionCircle.cs)**
 
-> Requires trait(s): [`DetectCloaked`](#detectcloaked).
+> Requires: [`DetectCloaked`](#detectcloaked).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -5394,18 +5669,18 @@ Related types with their possible values are listed [at the bottom](#related-val
 | Visible | WhenSelected | [`DetectionCircleVisibility`](#detectioncirclevisibility) | When to show the detection circle. Valid values are `Always`, and `WhenSelected` |
 
 ### RenderMouseBounds
-**Renders polygon for mouse bounds (usually defined by Interactable or Selectable). Put on actor for which the polygon should be rendered.**
+**Renders polygon for mouse bounds (usually defined by Interactable or Selectable). Put on actor for which the polygon should be rendered. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/Render/RenderMouseBounds.cs)**
 
-> Requires trait(s): [`Interactable`](#interactable).
+> Requires: [`Interactable`](#interactable).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
 | PolygonLineColor | 008000 | Color (RRGGBB[AA] notation) | Color to use for the polygon lines. |
 
 ### RenderRangeCircle
-**Draw a circle indicating my weapon's range.**
+**Draw a circle indicating my weapon's range. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/Render/RenderRangeCircle.cs)**
 
-> Requires trait(s): `AttackBase`.
+> Requires: `AttackBase`.
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -5418,7 +5693,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | BorderWidth | 3 | Real Number | Range circle border width. |
 
 ### RenderSpritesEditorOnly
-**Invisible during games.**
+**Invisible during games. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/Render/RenderSpritesEditorOnly.cs)**
 
 > Inherits from: [`RenderSprites`](#rendersprites).
 
@@ -5430,7 +5705,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | PlayerPalette | player | String | Custom PlayerColorPalette: BaseName |
 
 ### RenderSprites
-**Render trait fundament that won't work without additional With* render traits.**
+**Render trait fundament that won't work without additional With* render traits. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/Render/RenderSprites.cs)**
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -5440,17 +5715,18 @@ Related types with their possible values are listed [at the bottom](#related-val
 | PlayerPalette | player | String | Custom PlayerColorPalette: BaseName |
 
 ### SelectionDecorations
+** [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/Render/SelectionDecorations.cs)**
 
 > Inherits from: `SelectionDecorationsBase`.
 
-> Requires trait(s): [`Interactable`](#interactable).
+> Requires: [`Interactable`](#interactable).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
 | SelectionBoxColor | FFFFFF | Color (RRGGBB[AA] notation) |  |
 
 ### SupportPowerChargeBar
-**Display the time remaining until the super weapon attached to the actor is ready.**
+**Display the time remaining until the super weapon attached to the actor is ready. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/Render/SupportPowerChargeBar.cs)**
 
 > Inherits from: `ConditionalTrait`.
 
@@ -5461,7 +5737,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### TimedConditionBar
-**Visualizes the remaining time for a condition.**
+**Visualizes the remaining time for a condition. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/Render/TimedConditionBar.cs)**
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -5469,11 +5745,11 @@ Related types with their possible values are listed [at the bottom](#related-val
 | Color | FF0000 | Color (RRGGBB[AA] notation) |  |
 
 ### WithAcceptDeliveredCashAnimation
-**Replaces the building animation when it accepts a cash delivery unit.**
+**Replaces the building animation when it accepts a cash delivery unit. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/Render/WithAcceptDeliveredCashAnimation.cs)**
 
 > Inherits from: `ConditionalTrait`.
 
-> Requires trait(s): [`WithSpriteBody`](#withspritebody).
+> Requires: [`WithSpriteBody`](#withspritebody).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -5482,10 +5758,11 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### WithAimAnimation
+** [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/Render/WithAimAnimation.cs)**
 
 > Inherits from: `ConditionalTrait`.
 
-> Requires trait(s): [`WithSpriteBody`](#withspritebody), `AttackBase`.
+> Requires: [`WithSpriteBody`](#withspritebody), `AttackBase`.
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -5495,7 +5772,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### WithAircraftLandingEffect
-**Plays an animation on the ground position when the actor lands.**
+**Plays an animation on the ground position when the actor lands. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/Render/WithAircraftLandingEffect.cs)**
 
 > Inherits from: `ConditionalTrait`.
 
@@ -5510,10 +5787,11 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### WithAmmoPipsDecoration
+** [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/Render/WithAmmoPipsDecoration.cs)**
 
 > Inherits from: `WithDecorationBase`, `ConditionalTrait`.
 
-> Requires trait(s): [`AmmoPool`](#ammopool).
+> Requires: [`AmmoPool`](#ammopool).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -5535,10 +5813,11 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### WithAttackAnimation
+** [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/Render/WithAttackAnimation.cs)**
 
 > Inherits from: `ConditionalTrait`.
 
-> Requires trait(s): [`Armament`](#armament), [`WithSpriteBody`](#withspritebody), `AttackBase`.
+> Requires: [`Armament`](#armament), [`WithSpriteBody`](#withspritebody), `AttackBase`.
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -5550,9 +5829,9 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### WithAttackOverlay
-**Rendered together with an attack.**
+**Rendered together with an attack. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/Render/WithAttackOverlay.cs)**
 
-> Requires trait(s): [`RenderSprites`](#rendersprites).
+> Requires: [`RenderSprites`](#rendersprites).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -5565,10 +5844,11 @@ Related types with their possible values are listed [at the bottom](#related-val
 | DelayRelativeTo | Preparation | [`AttackDelayType`](#attackdelaytype) | Should the overlay be delayed relative to preparation or actual attack? |
 
 ### WithBridgeSpriteBody
+** [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/Render/WithBridgeSpriteBody.cs)**
 
 > Inherits from: [`WithSpriteBody`](#withspritebody), `PausableConditionalTrait`, `ConditionalTrait`.
 
-> Requires trait(s): [`RenderSprites`](#rendersprites).
+> Requires: [`RenderSprites`](#rendersprites).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -5589,11 +5869,11 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### WithBuildingPlacedAnimation
-**Changes the animation when the actor constructed a building.**
+**Changes the animation when the actor constructed a building. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/Render/WithBuildingPlacedAnimation.cs)**
 
 > Inherits from: `ConditionalTrait`.
 
-> Requires trait(s): [`WithSpriteBody`](#withspritebody).
+> Requires: [`WithSpriteBody`](#withspritebody).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -5602,11 +5882,11 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### WithBuildingPlacedOverlay
-**Rendered when the actor constructed a building.**
+**Rendered when the actor constructed a building. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/Render/WithBuildingPlacedOverlay.cs)**
 
 > Inherits from: `ConditionalTrait`.
 
-> Requires trait(s): [`BodyOrientation`](#bodyorientation), [`RenderSprites`](#rendersprites).
+> Requires: [`BodyOrientation`](#bodyorientation), [`RenderSprites`](#rendersprites).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -5617,11 +5897,11 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### WithBuildingRepairDecoration
-**Displays a custom UI overlay relative to the actor's mouseover bounds.**
+**Displays a custom UI overlay relative to the actor's mouseover bounds. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/Render/WithBuildingRepairDecoration.cs)**
 
 > Inherits from: [`WithDecoration`](#withdecoration), `WithDecorationBase`, `ConditionalTrait`.
 
-> Requires trait(s): [`RepairableBuilding`](#repairablebuilding).
+> Requires: [`RepairableBuilding`](#repairablebuilding).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -5640,10 +5920,11 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### WithCargoPipsDecoration
+** [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/Render/WithCargoPipsDecoration.cs)**
 
 > Inherits from: `WithDecorationBase`, `ConditionalTrait`.
 
-> Requires trait(s): [`Cargo`](#cargo).
+> Requires: [`Cargo`](#cargo).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -5665,11 +5946,11 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### WithChargeOverlay
-**Render overlay that varies the animation frame based on the AttackCharges trait's charge level.**
+**Render overlay that varies the animation frame based on the AttackCharges trait's charge level. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/Render/WithChargeOverlay.cs)**
 
 > Inherits from: `PausableConditionalTrait`, `ConditionalTrait`.
 
-> Requires trait(s): [`RenderSprites`](#rendersprites), [`WithSpriteBody`](#withspritebody).
+> Requires: [`RenderSprites`](#rendersprites), [`WithSpriteBody`](#withspritebody).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -5680,11 +5961,11 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### WithChargeSpriteBody
-**Render trait that varies the sprite body frame based on the AttackCharges trait's charge level.**
+**Render trait that varies the sprite body frame based on the AttackCharges trait's charge level. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/Render/WithChargeSpriteBody.cs)**
 
 > Inherits from: [`WithSpriteBody`](#withspritebody), `PausableConditionalTrait`, `ConditionalTrait`.
 
-> Requires trait(s): [`AttackCharges`](#attackcharges), [`RenderSprites`](#rendersprites).
+> Requires: [`AttackCharges`](#attackcharges), [`RenderSprites`](#rendersprites).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -5698,9 +5979,9 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### WithCrateBody
-**Renders crates with both water and land variants.**
+**Renders crates with both water and land variants. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/Render/WithCrateBody.cs)**
 
-> Requires trait(s): [`RenderSprites`](#rendersprites).
+> Requires: [`RenderSprites`](#rendersprites).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -5711,28 +5992,34 @@ Related types with their possible values are listed [at the bottom](#related-val
 | LandSequence |  | String |  |
 
 ### WithDamageOverlay
-**Renders an overlay when the actor is taking heavy damage.**
+**Renders an overlay when the actor is taking heavy damage. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/Render/WithDamageOverlay.cs)**
 
-> Requires trait(s): [`RenderSprites`](#rendersprites).
+> Inherits from: `ConditionalTrait`.
+
+> Requires: [`RenderSprites`](#rendersprites).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
 | Image | smoke_m | String |  |
-| IdleSequence | idle | String |  |
+| StartSequence |  | String |  |
 | LoopSequence | loop | String |  |
-| EndSequence | end | String |  |
+| EndSequence |  | String |  |
 | Offset | 0,0,0 | 3D World Vector | Position relative to the body orientation. |
+| LoopCount | 1, 3 | Collection of Integer | How many times should LoopSequence  be played? A range can be provided to be randomly chosen from. |
+| InitialDelay | 0 | Collection of Integer | Initial delay before animation is enabled Two values indicate a random delay range. |
 | Palette |  | String | Custom palette name. |
 | IsPlayerPalette | False | Boolean | Custom palette is a player palette BaseName. |
 | DamageTypes |  | Collection of DamageType | Damage types that this should be used for (defined on the warheads). Leave empty to disable all filtering. |
 | MinimumDamageState | Heavy | [`DamageState`](#damagestate) | Trigger when Undamaged, Light, Medium, Heavy, Critical or Dead. |
-| MaximumDamageState | Dead | [`DamageState`](#damagestate) |  |
+| MaximumDamageState | Dead | [`DamageState`](#damagestate) | Trigger when Undamaged, Light, Medium, Heavy, Critical or Dead. |
+| RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### WithDeadBridgeSpriteBody
+** [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/Render/WithDeadBridgeSpriteBody.cs)**
 
 > Inherits from: [`WithSpriteBody`](#withspritebody), `PausableConditionalTrait`, `ConditionalTrait`.
 
-> Requires trait(s): [`RenderSprites`](#rendersprites).
+> Requires: [`RenderSprites`](#rendersprites).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -5754,11 +6041,11 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### WithDeathAnimation
-**This actor has a death animation.**
+**This actor has a death animation. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/Render/WithDeathAnimation.cs)**
 
 > Inherits from: `ConditionalTrait`.
 
-> Requires trait(s): [`RenderSprites`](#rendersprites).
+> Requires: [`RenderSprites`](#rendersprites).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -5775,7 +6062,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### WithDecoration
-**Displays a custom UI overlay relative to the actor's mouseover bounds.**
+**Displays a custom UI overlay relative to the actor's mouseover bounds. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/Render/WithDecoration.cs)**
 
 > Inherits from: `WithDecorationBase`, `ConditionalTrait`.
 
@@ -5796,11 +6083,11 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### WithDeliveryAnimation
-**Building animation to play when ProductionAirdrop is used to deliver units.**
+**Building animation to play when ProductionAirdrop is used to deliver units. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/Render/WithDeliveryAnimation.cs)**
 
 > Inherits from: `ConditionalTrait`.
 
-> Requires trait(s): [`WithSpriteBody`](#withspritebody).
+> Requires: [`WithSpriteBody`](#withspritebody).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -5809,11 +6096,11 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### WithDockedOverlay
-**Rendered when a harvester is docked.**
+**Rendered when a harvester is docked. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/Render/WithDockedOverlay.cs)**
 
 > Inherits from: `PausableConditionalTrait`, `ConditionalTrait`.
 
-> Requires trait(s): [`BodyOrientation`](#bodyorientation), [`RenderSprites`](#rendersprites).
+> Requires: [`BodyOrientation`](#bodyorientation), [`RenderSprites`](#rendersprites).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -5825,8 +6112,9 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### WithDockingAnimation
+** [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/Render/WithDockingAnimation.cs)**
 
-> Requires trait(s): [`WithSpriteBody`](#withspritebody).
+> Requires: [`WithSpriteBody`](#withspritebody).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -5834,11 +6122,11 @@ Related types with their possible values are listed [at the bottom](#related-val
 | DockLoopSequence | dock-loop | String | Looped while unloading at refinery. |
 
 ### WithDockingOverlay
-**Rendered on the refinery when a voxel harvester is docking and undocking.**
+**Rendered on the refinery when a voxel harvester is docking and undocking. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/Render/WithDockingOverlay.cs)**
 
 > Inherits from: `PausableConditionalTrait`, `ConditionalTrait`.
 
-> Requires trait(s): [`BodyOrientation`](#bodyorientation), [`RenderSprites`](#rendersprites).
+> Requires: [`BodyOrientation`](#bodyorientation), [`RenderSprites`](#rendersprites).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -5850,10 +6138,11 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### WithFacingSpriteBody
+** [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/Render/WithFacingSpriteBody.cs)**
 
 > Inherits from: [`WithSpriteBody`](#withspritebody), `PausableConditionalTrait`, `ConditionalTrait`.
 
-> Requires trait(s): [`BodyOrientation`](#bodyorientation), [`RenderSprites`](#rendersprites).
+> Requires: [`BodyOrientation`](#bodyorientation), [`RenderSprites`](#rendersprites).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -5867,11 +6156,11 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### WithGateSpriteBody
-**This actor visually connects to walls and changes appearance when actors walk through it.**
+**This actor visually connects to walls and changes appearance when actors walk through it. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/Render/WithGateSpriteBody.cs)**
 
 > Inherits from: [`WithSpriteBody`](#withspritebody), `PausableConditionalTrait`, `ConditionalTrait`.
 
-> Requires trait(s): [`Gate`](#gate), [`RenderSprites`](#rendersprites).
+> Requires: [`Gate`](#gate), [`RenderSprites`](#rendersprites).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -5888,8 +6177,9 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### WithHarvestAnimation
+** [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/Render/WithHarvestAnimation.cs)**
 
-> Requires trait(s): [`Harvester`](#harvester), [`WithSpriteBody`](#withspritebody).
+> Requires: [`Harvester`](#harvester), [`WithSpriteBody`](#withspritebody).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -5897,9 +6187,9 @@ Related types with their possible values are listed [at the bottom](#related-val
 | Body | body | String | Which sprite body to play the animation on. |
 
 ### WithHarvestOverlay
-**Displays an overlay whenever resources are harvested by the actor.**
+**Displays an overlay whenever resources are harvested by the actor. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/Render/WithHarvestOverlay.cs)**
 
-> Requires trait(s): [`BodyOrientation`](#bodyorientation), [`RenderSprites`](#rendersprites).
+> Requires: [`BodyOrientation`](#bodyorientation), [`RenderSprites`](#rendersprites).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -5908,11 +6198,11 @@ Related types with their possible values are listed [at the bottom](#related-val
 | Palette | effect | String |  |
 
 ### WithIdleAnimation
-**Periodically plays an idle animation, replacing the default body animation.**
+**Periodically plays an idle animation, replacing the default body animation. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/Render/WithIdleAnimation.cs)**
 
 > Inherits from: `ConditionalTrait`.
 
-> Requires trait(s): [`WithSpriteBody`](#withspritebody).
+> Requires: [`WithSpriteBody`](#withspritebody).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -5922,11 +6212,11 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### WithIdleOverlay
-**Renders a decorative animation on units and buildings.**
+**Renders a decorative animation on units and buildings. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/Render/WithIdleOverlay.cs)**
 
 > Inherits from: `PausableConditionalTrait`, `ConditionalTrait`.
 
-> Requires trait(s): [`BodyOrientation`](#bodyorientation), [`RenderSprites`](#rendersprites).
+> Requires: [`BodyOrientation`](#bodyorientation), [`RenderSprites`](#rendersprites).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -5941,10 +6231,11 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### WithInfantryBody
+** [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/Render/WithInfantryBody.cs)**
 
 > Inherits from: `ConditionalTrait`.
 
-> Requires trait(s): [`RenderSprites`](#rendersprites).
+> Requires: [`RenderSprites`](#rendersprites).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -5960,9 +6251,9 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### WithMakeAnimation
-**Replaces the sprite during construction/deploy/undeploy.**
+**Replaces the sprite during construction/deploy/undeploy. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/Render/WithMakeAnimation.cs)**
 
-> Requires trait(s): [`WithSpriteBody`](#withspritebody).
+> Requires: [`WithSpriteBody`](#withspritebody).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -5971,7 +6262,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | BodyNames | body | Collection of String | Apply to sprite bodies with these names. |
 
 ### WithMakeOverlay
-**Draws an overlay on top of a make animation.**
+**Draws an overlay on top of a make animation. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/Render/WithMakeOverlay.cs)**
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -5980,10 +6271,11 @@ Related types with their possible values are listed [at the bottom](#related-val
 | IsPlayerPalette | False | Boolean | Custom palette is a player palette BaseName. |
 
 ### WithMoveAnimation
+** [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/Render/WithMoveAnimation.cs)**
 
 > Inherits from: `ConditionalTrait`.
 
-> Requires trait(s): [`WithSpriteBody`](#withspritebody).
+> Requires: [`WithSpriteBody`](#withspritebody).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -5993,11 +6285,11 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### WithMuzzleOverlay
-**Renders the MuzzleSequence from the Armament trait.**
+**Renders the MuzzleSequence from the Armament trait. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/Render/WithMuzzleOverlay.cs)**
 
 > Inherits from: `ConditionalTrait`.
 
-> Requires trait(s): [`Armament`](#armament), [`RenderSprites`](#rendersprites), `AttackBase`.
+> Requires: [`Armament`](#armament), [`RenderSprites`](#rendersprites), `AttackBase`.
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -6005,7 +6297,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### WithNameTagDecoration
-**Displays the player name above the unit**
+**Displays the player name above the unit [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/Render/WithNameTagDecoration.cs)**
 
 > Inherits from: `WithDecorationBase`, `ConditionalTrait`.
 
@@ -6026,11 +6318,11 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### WithParachute
-**Renders a parachute on units.**
+**Renders a parachute on units. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/Render/WithParachute.cs)**
 
 > Inherits from: `ConditionalTrait`.
 
-> Requires trait(s): [`BodyOrientation`](#bodyorientation), [`RenderSprites`](#rendersprites).
+> Requires: [`BodyOrientation`](#bodyorientation), [`RenderSprites`](#rendersprites).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -6049,11 +6341,11 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### WithProductionDoorOverlay
-**Play an animation when a unit exits or blocks the exit after production finished.**
+**Play an animation when a unit exits or blocks the exit after production finished. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/Render/WithProductionDoorOverlay.cs)**
 
 > Inherits from: `ConditionalTrait`.
 
-> Requires trait(s): [`BodyOrientation`](#bodyorientation), [`Building`](#building), [`RenderSprites`](#rendersprites).
+> Requires: [`BodyOrientation`](#bodyorientation), [`Building`](#building), [`RenderSprites`](#rendersprites).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -6061,7 +6353,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### WithProductionIconOverlay
-**Displays overlays from `ProductionIconOverlayManager` with matching types when defined prerequisites are granted.**
+**Displays overlays from `ProductionIconOverlayManager` with matching types when defined prerequisites are granted. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/Render/WithProductionIconOverlay.cs)**
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -6069,11 +6361,11 @@ Related types with their possible values are listed [at the bottom](#related-val
 | Prerequisites |  | Collection of String |  |
 
 ### WithProductionOverlay
-**Renders an animation when the Production trait of the actor is activated. Works both with per player ClassicProductionQueue and per building ProductionQueue, but needs any of these.**
+**Renders an animation when the Production trait of the actor is activated. Works both with per player ClassicProductionQueue and per building ProductionQueue, but needs any of these. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/Render/WithProductionOverlay.cs)**
 
 > Inherits from: `PausableConditionalTrait`, `ConditionalTrait`.
 
-> Requires trait(s): [`BodyOrientation`](#bodyorientation), [`Production`](#production), [`RenderSprites`](#rendersprites).
+> Requires: [`BodyOrientation`](#bodyorientation), [`Production`](#production), [`RenderSprites`](#rendersprites).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -6086,7 +6378,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### WithRangeCircle
-**Renders an arbitrary circle when selected or placing a structure**
+**Renders an arbitrary circle when selected or placing a structure [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/Render/WithRangeCircle.cs)**
 
 > Inherits from: `ConditionalTrait`.
 
@@ -6104,11 +6396,11 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### WithRepairOverlay
-**Displays an overlay when the building is being repaired by the player.**
+**Displays an overlay when the building is being repaired by the player. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/Render/WithRepairOverlay.cs)**
 
 > Inherits from: `PausableConditionalTrait`, `ConditionalTrait`.
 
-> Requires trait(s): [`BodyOrientation`](#bodyorientation), [`RenderSprites`](#rendersprites).
+> Requires: [`BodyOrientation`](#bodyorientation), [`RenderSprites`](#rendersprites).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -6122,11 +6414,11 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### WithResourceLevelOverlay
-**Displays the fill status of PlayerResources with an extra sprite overlay on the actor.**
+**Displays the fill status of PlayerResources with an extra sprite overlay on the actor. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/Render/WithResourceLevelOverlay.cs)**
 
 > Inherits from: `ConditionalTrait`.
 
-> Requires trait(s): [`RenderSprites`](#rendersprites), [`WithSpriteBody`](#withspritebody).
+> Requires: [`RenderSprites`](#rendersprites), [`WithSpriteBody`](#withspritebody).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -6136,11 +6428,11 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### WithResourceLevelSpriteBody
-**Render trait for buildings that change the sprite according to the remaining resource storage capacity across all depots.**
+**Render trait for buildings that change the sprite according to the remaining resource storage capacity across all depots. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/Render/WithResourceLevelSpriteBody.cs)**
 
 > Inherits from: [`WithSpriteBody`](#withspritebody), `PausableConditionalTrait`, `ConditionalTrait`.
 
-> Requires trait(s): [`RenderSprites`](#rendersprites).
+> Requires: [`RenderSprites`](#rendersprites).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -6155,6 +6447,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### WithResourceStoragePipsDecoration
+** [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/Render/WithResourceStoragePipsDecoration.cs)**
 
 > Inherits from: `WithDecorationBase`, `ConditionalTrait`.
 
@@ -6177,11 +6470,11 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### WithResupplyAnimation
-**Replaces the default animation when actor resupplies a unit.**
+**Replaces the default animation when actor resupplies a unit. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/Render/WithResupplyAnimation.cs)**
 
 > Inherits from: `ConditionalTrait`.
 
-> Requires trait(s): [`WithSpriteBody`](#withspritebody).
+> Requires: [`WithSpriteBody`](#withspritebody).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -6191,7 +6484,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### WithShadow
-**Clones the actor sprite with another palette below it.**
+**Clones the actor sprite with another palette below it. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/Render/WithShadow.cs)**
 
 > Inherits from: `ConditionalTrait`.
 
@@ -6203,11 +6496,11 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### WithSpriteBarrel
-**Renders barrels for units with the Turreted trait.**
+**Renders barrels for units with the Turreted trait. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/Render/WithSpriteBarrel.cs)**
 
 > Inherits from: `ConditionalTrait`.
 
-> Requires trait(s): [`Armament`](#armament), [`BodyOrientation`](#bodyorientation), [`RenderSprites`](#rendersprites), [`Turreted`](#turreted).
+> Requires: [`Armament`](#armament), [`BodyOrientation`](#bodyorientation), [`RenderSprites`](#rendersprites), [`Turreted`](#turreted).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -6217,11 +6510,11 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### WithSpriteBody
-**Default trait for rendering sprite-based actors.**
+**Default trait for rendering sprite-based actors. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/Render/WithSpriteBody.cs)**
 
 > Inherits from: `PausableConditionalTrait`, `ConditionalTrait`.
 
-> Requires trait(s): [`RenderSprites`](#rendersprites).
+> Requires: [`RenderSprites`](#rendersprites).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -6235,7 +6528,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### WithSpriteControlGroupDecoration
-**Renders Ctrl groups using pixel art.**
+**Renders Ctrl groups using pixel art. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/Render/WithSpriteControlGroupDecoration.cs)**
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -6246,11 +6539,11 @@ Related types with their possible values are listed [at the bottom](#related-val
 | Margin | 0,0 | 2D Integer | Offset sprite center position from the selection box edge. |
 
 ### WithSpriteTurret
-**Renders turrets for units with the Turreted trait.**
+**Renders turrets for units with the Turreted trait. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/Render/WithSpriteTurret.cs)**
 
 > Inherits from: `ConditionalTrait`.
 
-> Requires trait(s): [`Armament`](#armament), [`BodyOrientation`](#bodyorientation), [`RenderSprites`](#rendersprites), [`Turreted`](#turreted).
+> Requires: [`Armament`](#armament), [`BodyOrientation`](#bodyorientation), [`RenderSprites`](#rendersprites), [`Turreted`](#turreted).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -6262,6 +6555,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### WithStoresResourcesPipsDecoration
+** [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/Render/WithStoresResourcesPipsDecoration.cs)**
 
 > Inherits from: `WithDecorationBase`, `ConditionalTrait`.
 
@@ -6285,11 +6579,11 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### WithSupportPowerActivationAnimation
-**Replaces the building animation when a support power is triggered.**
+**Replaces the building animation when a support power is triggered. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/Render/WithSupportPowerActivationAnimation.cs)**
 
 > Inherits from: `ConditionalTrait`.
 
-> Requires trait(s): [`WithSpriteBody`](#withspritebody).
+> Requires: [`WithSpriteBody`](#withspritebody).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -6298,11 +6592,11 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### WithSupportPowerActivationOverlay
-**Displays an overlay when a support power is triggered.**
+**Displays an overlay when a support power is triggered. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/Render/WithSupportPowerActivationOverlay.cs)**
 
 > Inherits from: `ConditionalTrait`.
 
-> Requires trait(s): [`BodyOrientation`](#bodyorientation), [`RenderSprites`](#rendersprites).
+> Requires: [`BodyOrientation`](#bodyorientation), [`RenderSprites`](#rendersprites).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -6313,11 +6607,11 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### WithSwitchableOverlay
-**Renders a decorative animation on units and buildings. Overlay switching controlled by PauseOnCondition.**
+**Renders a decorative animation on units and buildings. Overlay switching controlled by PauseOnCondition. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/Render/WithSwitchableOverlay.cs)**
 
 > Inherits from: `PausableConditionalTrait`, `ConditionalTrait`.
 
-> Requires trait(s): [`BodyOrientation`](#bodyorientation), [`RenderSprites`](#rendersprites).
+> Requires: [`BodyOrientation`](#bodyorientation), [`RenderSprites`](#rendersprites).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -6335,7 +6629,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### WithTextControlGroupDecoration
-**Renders Ctrl groups using typeface.**
+**Renders Ctrl groups using typeface. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/Render/WithTextControlGroupDecoration.cs)**
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -6346,7 +6640,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | Margin | 0,0 | 2D Integer | Offset text center position from the selection box edge. |
 
 ### WithTextDecoration
-**Displays a text overlay relative to the selection box.**
+**Displays a text overlay relative to the selection box. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/Render/WithTextDecoration.cs)**
 
 > Inherits from: `WithDecorationBase`, `ConditionalTrait`.
 
@@ -6367,10 +6661,11 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### WithTurretAimAnimation
+** [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/Render/WithTurretAimAnimation.cs)**
 
 > Inherits from: `ConditionalTrait`.
 
-> Requires trait(s): [`WithSpriteTurret`](#withspriteturret), `AttackBase`.
+> Requires: [`WithSpriteTurret`](#withspriteturret), `AttackBase`.
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -6380,10 +6675,11 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### WithTurretAttackAnimation
+** [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/Render/WithTurretAttackAnimation.cs)**
 
 > Inherits from: `ConditionalTrait`.
 
-> Requires trait(s): [`Armament`](#armament), [`WithSpriteTurret`](#withspriteturret).
+> Requires: [`Armament`](#armament), [`WithSpriteTurret`](#withspriteturret).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -6395,11 +6691,11 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### WithWallSpriteBody
-**Render trait for actors that change sprites if neighbors with the same trait are present.**
+**Render trait for actors that change sprites if neighbors with the same trait are present. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/Render/WithWallSpriteBody.cs)**
 
 > Inherits from: [`WithSpriteBody`](#withspritebody), `PausableConditionalTrait`, `ConditionalTrait`.
 
-> Requires trait(s): [`Building`](#building), [`RenderSprites`](#rendersprites).
+> Requires: [`Building`](#building), [`RenderSprites`](#rendersprites).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -6415,6 +6711,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 
 ### ActorLostNotification
+** [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/Sound/ActorLostNotification.cs)**
 
 > Inherits from: `ConditionalTrait`.
 
@@ -6426,7 +6723,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### AmbientSound
-**Plays a looping audio file at the actor position. Attach this to the `World` actor to cover the whole map.**
+**Plays a looping audio file at the actor position. Attach this to the `World` actor to cover the whole map. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/Sound/AmbientSound.cs)**
 
 > Inherits from: `ConditionalTrait`.
 
@@ -6438,7 +6735,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### AnnounceOnKill
-**Play the Kill voice of this actor when eliminating enemies.**
+**Play the Kill voice of this actor when eliminating enemies. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/Sound/AnnounceOnKill.cs)**
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -6446,7 +6743,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | Voice | Kill | String | Voice to use when killing something. |
 
 ### AnnounceOnSeen
-**Players will be notified when this actor becomes visible to them. Requires the 'EnemyWatcher' trait on the player actor.**
+**Players will be notified when this actor becomes visible to them. Requires the 'EnemyWatcher' trait on the player actor. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/Sound/AnnounceOnSeen.cs)**
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -6456,7 +6753,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | AnnounceNeutrals | False | Boolean |  |
 
 ### AttackSounds
-**Played when preparing for an attack or attacking.**
+**Played when preparing for an attack or attacking. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/Sound/AttackSounds.cs)**
 
 > Inherits from: `ConditionalTrait`.
 
@@ -6468,6 +6765,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### CaptureNotification
+** [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/Sound/CaptureNotification.cs)**
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -6479,7 +6777,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | LoseNewOwnerVoice | False | Boolean | Specifies if LoseNotification is played with the voice of the new owners faction. |
 
 ### DeathSounds
-**Sounds to play when killed.**
+**Sounds to play when killed. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/Sound/DeathSounds.cs)**
 
 > Inherits from: `ConditionalTrait`.
 
@@ -6491,6 +6789,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### SoundOnDamageTransition
+** [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/Sound/SoundOnDamageTransition.cs)**
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -6499,7 +6798,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | DamageTypes |  | Collection of DamageType | DamageType(s) that trigger the sounds. Leave empty to always trigger a sound. |
 
 ### VoiceAnnouncement
-**Plays a voice clip when the trait is enabled.**
+**Plays a voice clip when the trait is enabled. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/Sound/VoiceAnnouncement.cs)**
 
 > Inherits from: `ConditionalTrait`.
 
@@ -6513,17 +6812,18 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 
 ### CustomTerrainRenderer
+** [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.HV/Traits/World/CustomTerrainRenderer.cs)**
 
 
 ### AcceptsDeliveredResources
-**Dropoff point that spawns an unloaded tanker.**
+**Dropoff point that spawns an unloaded tanker. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.HV/Traits/AcceptsDeliveredResources.cs)**
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
 | DeliveryVehicleType |  | Collection of String |  |
 
 ### AttackOpenTopped
-**Passenger can do drive by shootings with separate firing offsets ignoring facing.**
+**Passenger can do drive by shootings with separate firing offsets ignoring facing. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.HV/Traits/AttackOpenTopped.cs)**
 
 > Inherits from: [`AttackFollow`](#attackfollow), `AttackBase`, `PausableConditionalTrait`, `ConditionalTrait`.
 
@@ -6549,11 +6849,11 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### AttackOrderPower
-**Launches an attack with the actors weapons.**
+**Launches an attack with the actors weapons. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.HV/Traits/SupportPowers/AttackOrderPower.cs)**
 
 > Inherits from: `SupportPower`, `PausableConditionalTrait`, `ConditionalTrait`.
 
-> Requires trait(s): `AttackBase`.
+> Requires: `AttackBase`.
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -6615,7 +6915,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### BallisticMissile
-**This unit, when ordered to move, will fly in ballistic path then will detonate itself upon reaching target.**
+**This unit, when ordered to move, will fly in ballistic path then will detonate itself upon reaching target. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.HV/Traits/BallisticMissile.cs)**
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -6636,7 +6936,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | TargetLineColor | FF0000 | Color (RRGGBB[AA] notation) | Color to use for the target line . |
 
 ### BaseBotModule
-**Manages the initial base.**
+**Manages the initial base. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.HV/Traits/BotModules/BaseBotModule.cs)**
 
 > Inherits from: `ConditionalTrait`.
 
@@ -6645,7 +6945,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### BaseSpawnerChild
-**Can be bound to a SpawnerParent.**
+**Can be bound to a `BaseSpawnerParent`. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.HV/Traits/BaseSpawnerChild.cs)**
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -6654,7 +6954,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | DamageTypes |  | Collection of DamageType | Types of damage this actor explodes with due to an unallowed child action. Leave empty for no damage types. |
 
 ### BaseSpawnerParent
-**This actor can spawn actors.**
+**This actor can spawn actors. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.HV/Traits/BaseSpawnerParent.cs)**
 
 > Inherits from: `ConditionalTrait`.
 
@@ -6671,10 +6971,27 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### BotRepairOrSellCaptures
-**Helper trait to set up AI to sell heavily damaged newly controlled actors and repairing them otherwise.**
+**Helper trait to set up AI to sell heavily damaged newly controlled actors and repairing them otherwise. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.HV/Traits/BotRepairOrSellCaptures.cs)**
+
+### BridgeShadowLayer
+**Allows shadows below actors. Attach this to the world actor. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.HV/Traits/World/BridgeShadowLayer.cs)**
+
+| Property | Default Value | Type | Description |
+| -------- | ------------- | ---- | ----------- |
+| TerrainType | *(required)* | String | Terrain type used to determine unit movement and minimap colors. |
+| BridgeShadowTypes |  | Dictionary with Key: String, Value: BridgeShadowTypeInfo |  |
+
+### BridgeShadowRenderer
+**Used to render decorational shadows that can be manually placed without tooltips. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.HV/Traits/World/BridgeShadowRenderer.cs)**
+
+> Requires: [`BridgeShadowLayer`](#bridgeshadowlayer).
+
+| Property | Default Value | Type | Description |
+| -------- | ------------- | ---- | ----------- |
+| BridgeShadowTypes |  | Dictionary with Key: String, Value: BridgeShadowTypeInfo |  |
 
 ### BuilderBotModule
-**Manages AI builders.**
+**Manages AI builders. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.HV/Traits/BotModules/BuilderBotModule.cs)**
 
 > Inherits from: `ConditionalTrait`.
 
@@ -6687,7 +7004,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### BuildingAttackNotifier
-**Plays an audio notification and shows a radar ping when a building (except resource towers) is attacked. Attach this to the player actor.**
+**Plays an audio notification and shows a radar ping when a building (except resource towers) is attacked. Attach this to the player actor. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.HV/Traits/Player/BuildingAttackNotifier.cs)**
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -6696,11 +7013,11 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RadarPingDuration | 250 | Integer | Length of time (in ticks) to display a location ping in the minimap. |
 
 ### CapturableProgressBeep
-**Plays a sound at actor location when it is being captured.**
+**Plays a sound at actor location when it is being captured. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.HV/Traits/CapturableProgressBeep.cs)**
 
 > Inherits from: `ConditionalTrait`.
 
-> Requires trait(s): [`Capturable`](#capturable).
+> Requires: [`Capturable`](#capturable).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -6709,14 +7026,14 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### CargoBotModule
-**Manages AI load unit related with Cargo and Passenger traits.**
+**Manages AI load unit related with `Cargo` and `Passenger` traits. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.HV/Traits/BotModules/CargoBotModule.cs)**
 
 > Inherits from: `ConditionalTrait`.
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
-| TransportTypes |  | Set of String | Actor types that can be targeted for load, must have Cargo. |
-| PassengerTypes |  | Set of String | Actor types that used for loading, must have Passenger. |
+| TransportTypes |  | Set of String | Actor types that can be targeted for load, must have `Cargo`. |
+| PassengerTypes |  | Set of String | Actor types that used for loading, must have `Passenger`. |
 | OnlyEnterOwnerPlayer | True | Boolean | Allow enter allied transport. |
 | ScanTick | 317 | Integer | Scan suitable actors and target in this interval. |
 | ValidDamageState | Heavy | [`DamageState`](#damagestate) | Don't load passengers to this actor if damage state is worse than this. |
@@ -6725,7 +7042,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### CarrierChild
-**Can be bound to a spawner.**
+**Can be bound to a spawner. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.HV/Traits/CarrierChild.cs)**
 
 > Inherits from: [`BaseSpawnerChild`](#basespawnerchild).
 
@@ -6737,7 +7054,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | DamageTypes |  | Collection of DamageType | Types of damage this actor explodes with due to an unallowed child action. Leave empty for no damage types. |
 
 ### CarrierParent
-**This actor can spawn actors.**
+**This actor can spawn actors. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.HV/Traits/CarrierParent.cs)**
 
 > Inherits from: [`BaseSpawnerParent`](#basespawnerparent), `ConditionalTrait`.
 
@@ -6759,7 +7076,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### ChangesOwner
-**Change the owner on condition and revert back when it isn't met anymore.**
+**Change the owner on condition and revert back when it isn't met anymore. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.HV/Traits/ChangesOwner.cs)**
 
 > Inherits from: `ConditionalTrait`.
 
@@ -6769,6 +7086,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### CloudSpawner
+** [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.HV/Traits/World/CloudSpawner.cs)**
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -6785,21 +7103,22 @@ Related types with their possible values are listed [at the bottom](#related-val
 | ShouldPrespawn | True | Boolean | Should we pre-spawn clouds covers the map? |
 
 ### Collectible
+** [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.HV/Traits/Collectible.cs)**
 
-> Requires trait(s): [`RenderSprites`](#rendersprites).
+> Requires: [`RenderSprites`](#rendersprites).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
 | Duration | 0 | Integer | Length of time (in ticks) until the crate gets removed automatically. A value of zero disables auto-removal. |
 | TerrainTypes |  | Set of String | Allowed to emerge on. |
-| CrushClass | crate | String | Define actors that can collect crates by setting this into the Crushes field from the Mobile trait. |
+| CrushClass | crate | String | Define actors that can collect crates by setting this into the Crushes field from the Locomotor trait. |
 
 ### CollectScrapCrateAction
-**Gives cash to the collector.**
+**Gives cash to the collector. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.HV/Traits/Cubes/CollectScrapCrateAction.cs)**
 
 > Inherits from: [`CrateAction`](#crateaction), `ConditionalTrait`.
 
-> Requires trait(s): [`ScrapValue`](#scrapvalue).
+> Requires: [`ScrapValue`](#scrapvalue).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -6816,7 +7135,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### CubePickupBotModule
-**Put this on the Player actor. Manages cube collection.**
+**Put this on the Player actor. Manages cube collection. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.HV/Traits/BotModules/CubePickupBotModule.cs)**
 
 > Inherits from: `ConditionalTrait`.
 
@@ -6831,6 +7150,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### CubeSpawner
+** [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.HV/Traits/World/CubeSpawner.cs)**
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -6849,11 +7169,11 @@ Related types with their possible values are listed [at the bottom](#related-val
 | CubeActorShares | 10 | Collection of Integer | Chance of each cube actor spawning. |
 
 ### CustomEditorResourceLayer
-**AllowedTerrainTypes is optional: use * as placeholder**
+**AllowedTerrainTypes is optional: use * as placeholder [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.HV/Traits/World/CustomEditorResourceLayer.cs)**
 
 > Inherits from: [`EditorResourceLayer`](#editorresourcelayer).
 
-> Requires trait(s): [`EditorActorLayer`](#editoractorlayer).
+> Requires: [`EditorActorLayer`](#editoractorlayer).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -6861,19 +7181,20 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RecalculateResourceDensity | False | Boolean | Override the density saved in maps with values calculated based on the number of neighbouring resource cells. |
 
 ### CustomTerrainLayer
-**Attach this to the world actor. Required for LaysTerrain to work.**
+**Attach this to the world actor. Required for `LaysTerrain` to work. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.HV/Traits/World/CustomTerrainLayer.cs)**
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
 | Palette | terrain | String | Palette to render the layer sprites in. |
 
 ### DebugOffsetOverlay
-**Displays a developer offset point, controllable via chat commands. Select the unit first. Rendering is enabled automatically with the first valid command. Available commands: `/offset body`: Sets the reference point to the actor's center position. `/offset turret X`: where X is the turret index whose center the reference point should be set. Falls back to actor center position on wrong index. `/offset set X,Y,Z`: Sets the offset. No spaces are supported between the values. `/offset add X,Y,Z`: Adds the value to the current offset. Negative values function to subtract. No spaces are supported between the values. `/offset query`: Returns the current offset value in the chat. `/offset disable`: Disables rendering of the offset.**
+**Displays a developer offset point, controllable via chat commands. Select the unit first. Rendering is enabled automatically with the first valid command. Available commands: `/offset body`: Sets the reference point to the actor's center position. `/offset turret X`: where X is the turret index whose center the reference point should be set. Falls back to actor center position on wrong index. `/offset set X,Y,Z`: Sets the offset. No spaces are supported between the values. `/offset add X,Y,Z`: Adds the value to the current offset. Negative values function to subtract. No spaces are supported between the values. `/offset query`: Returns the current offset value in the chat. `/offset disable`: Disables rendering of the offset. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.HV/Traits/DebugOffsetOverlay.cs)**
 
 ### DebugOffsetOverlayManager
+** [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.HV/Traits/World/DebugOffsetOverlayManager.cs)**
 
 ### DeployActorBotModule
-**Deploys units when idle.**
+**Deploys units when idle. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.HV/Traits/BotModules/DeployActorBotModule.cs)**
 
 > Inherits from: `ConditionalTrait`.
 
@@ -6884,14 +7205,14 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### DesaturationPaletteEffect
-**Apply palette full screen rotations during teleports. Add this to the world actor.**
+**Apply palette full screen rotations during teleports. Add this to the world actor. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.HV/Traits/Render/DesaturationPaletteEffect.cs)**
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
 | EffectLength | 60 | Integer | Measured in ticks. |
 
 ### DetonateWeaponPower
-**Detonates a weapon at the target position.**
+**Detonates a weapon at the target position. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.HV/Traits/SupportPowers/DetonateWeaponPower.cs)**
 
 > Inherits from: `SupportPower`, `PausableConditionalTrait`, `ConditionalTrait`.
 
@@ -6901,7 +7222,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | ActivationDelay | 0 | Integer | Delay between activation and explosion |
 | BeaconRemoveAdvance | 5 | Integer | Amount of time before detonation to remove the beacon |
 | CameraRange | 0c0 | 1D World Distance | Range of cells the camera should reveal around target cell. |
-| RevealGeneratedShroud | True | Boolean | Can the camera reveal shroud generated by the GeneratesShroud trait? |
+| RevealGeneratedShroud | True | Boolean | Can the camera reveal shroud generated by the `CreatesShroud` trait? |
 | CameraPlayerRelationships | Ally | [`PlayerRelationship`](#playerrelationship) | Reveal cells to players with these stances only. |
 | CameraSpawnAdvance | 5 | Integer | Amount of time before detonation to spawn the camera |
 | CameraRemoveDelay | 5 | Integer | Amount of time after detonation to remove the camera |
@@ -6964,7 +7285,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### DropPodsPower
-**Spawns aerial units at the target location.**
+**Spawns aerial units at the target location. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.HV/Traits/SupportPowers/DropPodsPower.cs)**
 
 > Inherits from: `SupportPower`, `PausableConditionalTrait`, `ConditionalTrait`.
 
@@ -7030,13 +7351,14 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### EditorAutoTiler
+** [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.HV/Traits/World/EditorAutoTiler.cs)**
 
 ### ExternalConditionPowerBotModule
-**Manages bot defensive support power handling.**
+**Manages bot defensive support power handling. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.HV/Traits/BotModules/ExternalConditionPowerBotModule.cs)**
 
 > Inherits from: `ConditionalTrait`.
 
-> Requires trait(s): [`SupportPowerManager`](#supportpowermanager).
+> Requires: [`SupportPowerManager`](#supportpowermanager).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -7045,7 +7367,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### FlashPaletteEffect
-**Used for bursted one-colored whole screen effects. Add this to the world actor.**
+**Used for bursted one-colored whole screen effects. Add this to the world actor. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.HV/Traits/Render/FlashPaletteEffect.cs)**
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -7055,7 +7377,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | Type |  | String | Set this when using multiple independent flash effects. |
 
 ### Floods
-**Lets the actor spread liquid tiles around it in straight lines.**
+**Lets the actor spread liquid tiles around it in straight lines. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.HV/Traits/Floods.cs)**
 
 > Inherits from: `ConditionalTrait`.
 
@@ -7069,7 +7391,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### ForestLayer
-**Attach this to the world actor.**
+**Attach this to the world actor. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.HV/Traits/World/ForestLayer.cs)**
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -7087,7 +7409,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | BurnedTiles | *(required)* | Dictionary with Key: UInt16, Value: UInt16 | Which tile ID to replace with which scorched variant |
 
 ### FreeActorWithEffect
-**Player receives a unit for free once the building is placed with a sprite effect. If you want more than one unit to be spawned, copy this section and assign IDs like FreeActorWithDelay@2, ...**
+**Player receives a unit for free once the building is placed with a sprite effect. If you want more than one unit to be spawned, copy this section and assign IDs like FreeActorWithDelay@2, ... [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.HV/Traits/FreeActorWithEffect.cs)**
 
 > Inherits from: [`FreeActor`](#freeactor), `ConditionalTrait`.
 
@@ -7105,7 +7427,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### GlobalLightingPaletteEffect
-**Used for day/night effects.**
+**Used for day/night effects. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.HV/Traits/Render/GlobalLightingPaletteEffect.cs)**
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -7117,7 +7439,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | Ambient | 1 | Real Number |  |
 
 ### GrantConditionInsideEnemyBuildRadius
-**Grants a condition when the actor enters an enemy build radius.**
+**Grants a condition when the actor enters an enemy build radius. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.HV/Traits/Conditions/GrantConditionInsideEnemyBuildRadius.cs)**
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -7125,7 +7447,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | ScanDelay | 25 | Integer | Time in ticks. |
 
 ### GrantConditionOnBurstComplete
-**Grants a condition when this actor finishes a burst.**
+**Grants a condition when this actor finishes a burst. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.HV/Traits/Conditions/GrantConditionOnBurstComplete.cs)**
 
 > Inherits from: `PausableConditionalTrait`, `ConditionalTrait`.
 
@@ -7138,9 +7460,9 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### GrantConditionOnLineBuildConnection
-**Grants a condition when this actor is next to two walls.**
+**Grants a condition when this actor is next to two walls. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.HV/Traits/Conditions/GrantConditionOnLineBuildConnection.cs)**
 
-> Requires trait(s): [`Building`](#building).
+> Requires: [`Building`](#building).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -7149,14 +7471,14 @@ Related types with their possible values are listed [at the bottom](#related-val
 | Edges |  | Collection of 2D Cell Vector | Possible connections left/right or top/bottom from top left origin. |
 
 ### GrantConditionOnNeutralOwner
-**Grants a condition if the owner is the Neutral player.**
+**Grants a condition if the owner is the Neutral player. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.HV/Traits/Conditions/GrantConditionOnNeutralOwner.cs)**
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
 | Condition |  | String | The condition to grant. |
 
 ### GrantConditionOnProximity
-**Grants a condition by units in a specified proximity.**
+**Grants a condition by units in a specified proximity. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.HV/Traits/Conditions/GrantConditionOnProximity.cs)**
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -7164,14 +7486,14 @@ Related types with their possible values are listed [at the bottom](#related-val
 | Condition |  | String | The condition to grant. |
 
 ### GrantConditionOnSell
-**Grants a condition when the actor is being sold.**
+**Grants a condition when the actor is being sold. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.HV/Traits/Conditions/GrantConditionOnSell.cs)**
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
 | Condition |  | String | The condition to grant. |
 
 ### GrantExternalConditionToOwner
-**Grants an external condition to the owner player's actor.**
+**Grants an external condition to the owner player's actor. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.HV/Traits/Conditions/GrantExternalConditionToOwner.cs)**
 
 > Inherits from: `ConditionalTrait`.
 
@@ -7181,7 +7503,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### GrantPeriodicCondition
-**Periodically grants and revokes a condition.**
+**Periodically grants and revokes a condition. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.HV/Traits/Conditions/GrantPeriodicCondition.cs)**
 
 > Inherits from: `PausableConditionalTrait`, `ConditionalTrait`.
 
@@ -7198,7 +7520,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### Hackable
-**This actor can be compromised by other actors.**
+**This actor can be compromised by other actors. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.HV/Traits/Hackable.cs)**
 
 > Inherits from: `PausableConditionalTrait`, `ConditionalTrait`.
 
@@ -7211,11 +7533,11 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### Hacker
-**This actor can subvert other actors.**
+**This actor can subvert other actors. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.HV/Traits/Hacker.cs)**
 
 > Inherits from: `PausableConditionalTrait`, `ConditionalTrait`.
 
-> Requires trait(s): [`Armament`](#armament), [`Health`](#health).
+> Requires: [`Armament`](#armament), [`Health`](#health).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -7228,8 +7550,9 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### LaysTerrain
+** [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.HV/Traits/LaysTerrain.cs)**
 
-> Requires trait(s): [`Building`](#building).
+> Requires: [`Building`](#building).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -7238,9 +7561,9 @@ Related types with their possible values are listed [at the bottom](#related-val
 | Offset | 0,0 | 2D Cell Vector | Offset relative to the actor TopLeft. Not used if the template is PickAny. Tiles being offset out of the actor's footprint will not be placed. |
 
 ### LiquidEdgeRenderer
-**Used to render the border of liquids. Attach this to the world actor**
+**Used to render the border of liquids. Attach this to the world actor [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.HV/Traits/World/LiquidEdgeRenderer.cs)**
 
-> Requires trait(s): [`LiquidTerrainLayer`](#liquidterrainlayer).
+> Requires: [`LiquidTerrainLayer`](#liquidterrainlayer).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -7251,14 +7574,14 @@ Related types with their possible values are listed [at the bottom](#related-val
 | CoveredTerrainTypes |  | Collection of String |  |
 
 ### LiquidTerrainLayer
-**Attach this to the world actor.**
+**Attach this to the world actor. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.HV/Traits/World/LiquidTerrainLayer.cs)**
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
 | Palette | terrain | String | Palette to render the layer sprites in. |
 
 ### MinerAttackNotifier
-**Plays an audio notification and shows a radar ping when a miner is attacked. Attach this to the player actor.**
+**Plays an audio notification and shows a radar ping when a miner is attacked. Attach this to the player actor. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.HV/Traits/Player/MinerAttackNotifier.cs)**
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -7267,7 +7590,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RadarPingDuration | 250 | Integer | Length of time (in ticks) to display a location ping in the minimap. |
 
 ### MinerBotModule
-**Manages AI miner deployment logic.**
+**Manages AI miner deployment logic. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.HV/Traits/BotModules/MinerBotModule.cs)**
 
 > Inherits from: `ConditionalTrait`.
 
@@ -7284,17 +7607,18 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### Miner
-**Allows the miner to deploy at a target location with a single order.**
+**Allows the miner to deploy at a target location with a single order. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.HV/Traits/Miner.cs)**
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
-| DeployCursor | deploy | String | Cursor to display when able to lay a mine. |
+| DeployCursor | deploy | String | Cursor to display when able to deploy a tower. |
 | TerrainTypes | *(required)* | Set of String | Terrain types that can be targeted for deployment. |
-| Voice | Action | String | Voice to use when ordered to lay a minefield. |
+| Voice | Action | String | Voice to use when deploying into a tower. |
 | Colors |  | Dictionary with Key: String, Value: Color (RRGGBB[AA] notation) | Defines to which players the target lines are shown. |
+| DeployOnRallyPoint | True | Boolean | Automatically deploy when the rally point of the producing building is on suitable terrain. |
 
 ### MissileSpawnerChild
-**This unit is launched by a missile spawner parent.**
+**This unit is launched by a missile spawner parent. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.HV/Traits/MissileSpawnerChild.cs)**
 
 > Inherits from: [`BaseSpawnerChild`](#basespawnerchild).
 
@@ -7305,7 +7629,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | DamageTypes |  | Collection of DamageType | Types of damage this actor explodes with due to an unallowed child action. Leave empty for no damage types. |
 
 ### MissileSpawnerParent
-**This actor can spawn missile actors.**
+**This actor can spawn missile actors. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.HV/Traits/MissileSpawnerParent.cs)**
 
 > Inherits from: [`BaseSpawnerParent`](#basespawnerparent), `ConditionalTrait`.
 
@@ -7326,7 +7650,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### NoBuildZone
-**Ensures a miner can always be placed around resource spots.**
+**Ensures a miner can always be placed around resource spots. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.HV/Traits/World/NoBuildZoneLayer.cs)**
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -7335,7 +7659,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | ResourceTypes |  | Set of String | Apply only around these or all if not set. |
 
 ### PeriodicDischarge
-**Dispenses a weapon at the actor's position when enabled.Reload/BurstDelays are used as release intervals.**
+**Dispenses a weapon at the actor's position when enabled.Reload/BurstDelays are used as release intervals. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.HV/Traits/PeriodicDischarge.cs)**
 
 > Inherits from: `ConditionalTrait`.
 
@@ -7348,7 +7672,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### PeriodicProducer
-**Produces an actor without using the standard production queue.**
+**Produces an actor without using the standard production queue. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.HV/Traits/PeriodicProducer.cs)**
 
 > Inherits from: `PausableConditionalTrait`, `ConditionalTrait`.
 
@@ -7366,18 +7690,8 @@ Related types with their possible values are listed [at the bottom](#related-val
 | PauseOnCondition |  | BooleanExpression | Boolean expression defining the condition to pause this trait. |
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
-### PowerDownBotModule
-**Manages AI temporary power shutdowns.**
-
-> Inherits from: `ConditionalTrait`.
-
-| Property | Default Value | Type | Description |
-| -------- | ------------- | ---- | ----------- |
-| Interval | 150 | Integer | Delay (in ticks) between toggling powerdown. |
-| RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
-
 ### PriorityCaptureManagerBotModule
-**Manages AI capturing logic.**
+**Manages AI capturing logic. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.HV/Traits/BotModules/PriorityCaptureManagerBotModule.cs)**
 
 > Inherits from: `ConditionalTrait`.
 
@@ -7395,22 +7709,38 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### ProductionSound
+** [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.HV/Traits/ProductionSound.cs)**
 
 > Inherits from: `ConditionalTrait`.
 
-> Requires trait(s): [`RenderSprites`](#rendersprites).
+> Requires: [`RenderSprites`](#rendersprites).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
 | Files | *(required)* | Collection of String |  |
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
+### RandomMapGenerator
+** [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.HV/Traits/World/RandomMapGenerator.cs)**
+
+> Inherits from: `MapGeneratorBase`.
+
+| Property | Default Value | Type | Description |
+| -------- | ------------- | ---- | ----------- |
+| Type | *(required)* | String |  |
+| Name | *(required)* | String |  |
+| Tilesets | *(required)* | Collection of String | Tilesets that are compatible with this map generator. |
+| MapTitle | label-random-map | String | The title to use for generated maps. |
+| PanelWidget | MAP_GENERATOR_TOOL_PANEL | String | The widget tree to open when the tool is selected. |
+| FluentReferences |  | Collection of String |  |
+| Options |  | Collection of MapGeneratorOption |  |
+
 ### ResourceCollector
-**Lets the actor generate resources in a set periodic time.**
+**Lets the actor generate resources in a set periodic time. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.HV/Traits/ResourceCollector.cs)**
 
 > Inherits from: `PausableConditionalTrait`, `ConditionalTrait`.
 
-> Requires trait(s): [`Building`](#building).
+> Requires: [`Building`](#building).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -7429,15 +7759,36 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### ResourceDensityOverlay
-**Displays resource density colored by type.**
+**Displays resource density colored by type. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.HV/Traits/Render/ResourceDensityOverlay.cs)**
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
 | Font | TinyBold | String |  |
 
-### ResourceTransporter
+### ResourceRallyPoint
+**Rally point that colors the line by the resource at the final waypoint. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.HV/Traits/ResourceRallyPoint.cs)**
 
-> Requires trait(s): [`Mobile`](#mobile).
+> Inherits from: [`RallyPoint`](#rallypoint).
+
+| Property | Default Value | Type | Description |
+| -------- | ------------- | ---- | ----------- |
+| Colors |  | Dictionary with Key: String, Value: Color (RRGGBB[AA] notation) | Line color per resource type at the final waypoint. Falls back to the owner color. |
+| Image | rallypoint | String |  |
+| LineWidth | 1 | Integer | Width (in pixels) of the rallypoint line. |
+| FlagSequence | flag | String |  |
+| CirclesSequence | circles | String |  |
+| Cursor | ability | String | Cursor to display when rally point can be set. |
+| Palette | player | String | Custom indicator palette name |
+| IsPlayerPalette | True | Boolean | Custom palette is a player palette BaseName |
+| Path |  | Collection of 2D Cell Vector | A list of 0 or more offsets defining the initial rally point path. |
+| Notification |  | String | Speech notification to play when setting a new rallypoint. |
+| TextNotification |  | String | Text notification to display when setting a new rallypoint. |
+| ForceSetType |  | String | Used to group equivalent actors to allow force-setting a rallypoint (e.g. for Primary production). |
+
+### ResourceTransporter
+** [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.HV/Traits/ResourceTransporter.cs)**
+
+> Requires: [`Mobile`](#mobile).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -7450,7 +7801,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | IdleScanDelay | 20 | Integer | Minimum delay (in ticks) between searching for destinations. |
 
 ### ResourceYieldMultiplier
-**Grant cash bonus when resources are delivered.**
+**Grant cash bonus when resources are delivered. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.HV/Traits/ResourceYieldMultiplier.cs)**
 
 > Inherits from: `ConditionalTrait`.
 
@@ -7463,7 +7814,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### ScoutBotModule
-**Manages AI random scouting. Exclude from `SquadManagerBotModule`.**
+**Manages AI random scouting. Exclude from `SquadManagerBotModule`. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.HV/Traits/BotModules/ScoutBotModule.cs)**
 
 > Inherits from: `ConditionalTrait`.
 
@@ -7475,7 +7826,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### ScrapOptions
-**Controls the 'Scrap' checkbox in the lobby options.**
+**Controls the 'Scrap' checkbox in the lobby options. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.HV/Traits/Scrap.cs)**
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -7487,7 +7838,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | CheckboxDisplayOrder | 0 | Integer | Display order for the scrap checkbox in the lobby. |
 
 ### ScrapValue
-**How much the unit leftovers are worth.**
+**How much the unit leftovers are worth. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.HV/Traits/ScrapValue.cs)**
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -7496,7 +7847,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | MaximumFallbackAmount | 200 | Integer |  |
 
 ### SendUnitToAttackBotModule
-**Bot logic for units that should not be sent with a regular squad, like suicide or subterranean units.**
+**Bot logic for units that should not be sent with a regular squad, like suicide or subterranean units. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.HV/Traits/BotModules/SendUnitToAttackBotModule.cs)**
 
 > Inherits from: `ConditionalTrait`.
 
@@ -7512,7 +7863,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### SpawnedFireWarheadsOnDeath
-**This actor explodes when killed and the experience goes to the spawner.**
+**This actor explodes when killed and the experience goes to the spawner. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.HV/Traits/SpawnedExplodes.cs)**
 
 > Inherits from: [`FireWarheadsOnDeath`](#firewarheadsondeath), `ConditionalTrait`.
 
@@ -7524,13 +7875,13 @@ Related types with their possible values are listed [at the bottom](#related-val
 | Chance | 100 | Integer | Chance that this actor will explode at all. |
 | DamageThreshold | 0 | Integer | Health level at which actor will explode. |
 | DeathTypes |  | Collection of DamageType | DeathType(s) that trigger the explosion. Leave empty to always trigger an explosion. |
-| DamageSource | Self | [`DamageSource`](#damagesource) | Who is counted as source of damage for explosion. Possible values are Self and Killer. |
+| DamageSource | Self | [`DamageSource`](#damagesource) | Who is counted as source of damage for explosion. Possible values are Self, Parent and Killer. |
 | Type | CenterPosition | [`ExplosionType`](#explosiontype) | Possible values are CenterPosition (explosion at the actors' center) and  Footprint (explosion on each occupied cell). |
 | Offset | 0,0,0 | 3D World Vector | Offset of the explosion from the center of the exploding actor (or cell). |
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### SpawnScrapOnDeath
-**Spawn an actor of the same value immediately upon death when the 'Scrap' trait is enabled.**
+**Spawn an actor of the same value immediately upon death when the 'Scrap' trait is enabled. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.HV/Traits/SpawnScrapOnDeath.cs)**
 
 > Inherits from: `ConditionalTrait`.
 
@@ -7545,7 +7896,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### SpawnsShrapnel
-**Spawns shrapnel weapons after a periodic interval.**
+**Spawns shrapnel weapons after a periodic interval. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.HV/Traits/SpawnsShrapnel.cs)**
 
 > Inherits from: `PausableConditionalTrait`, `ConditionalTrait`.
 
@@ -7563,7 +7914,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### SpawnUnitCrateAction
-**Spawns units when collected and optionally plays an effect overlay.**
+**Spawns units when collected and optionally plays an effect overlay. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.HV/Traits/Cubes/SpawnUnitCrateAction.cs)**
 
 > Inherits from: [`CrateAction`](#crateaction), `ConditionalTrait`.
 
@@ -7587,14 +7938,14 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### TechPrerequisiteWithBots
-**Grants a prerequisite for human only games.**
+**Grants a prerequisite for human only games. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.HV/Traits/TechPrerequisiteWithBots.cs)**
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
 | Prerequisite | *(required)* | String | The prerequisite type that this provides. |
 
 ### Teleportable
-**Can be teleported via TeleportPower**
+**Can be teleported via `TeleportPower`. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.HV/Traits/Teleportable.cs)**
 
 > Inherits from: `ConditionalTrait`.
 
@@ -7604,7 +7955,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### TeleportNetwork
-**This actor can teleport actors to another actor with the same trait.**
+**This actor can teleport actors to another actor with the same trait. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.HV/Traits/TeleportNetwork.cs)**
 
 > Inherits from: `ConditionalTrait`.
 
@@ -7613,12 +7964,12 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### TeleportNetworkManager
-**This must be attached to player in order for TeleportNetwork to work.**
+**This must be attached to player in order for TeleportNetwork to work. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.HV/Traits/Player/TeleportNetworkManager.cs)**
 
 ### TeleportNetworkPrimaryExit
-**Used with TeleportNetwork trait for primary exit designation.**
+**Used with TeleportNetwork trait for primary exit designation. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.HV/Traits/TeleportNetworkPrimaryExit.cs)**
 
-> Requires trait(s): [`TeleportNetwork`](#teleportnetwork).
+> Requires: [`TeleportNetwork`](#teleportnetwork).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -7627,16 +7978,17 @@ Related types with their possible values are listed [at the bottom](#related-val
 | Cursor | deploy | String | Cursor to display when setting the primary building. |
 
 ### TeleportNetworkTransportable
-**Can move actors instantly to primary designated teleport network actor.**
+**Can move actors instantly to primary designated teleport network actor. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.HV/Traits/TeleportNetworkTransportable.cs)**
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
 | Voice | Action | String |  |
 | EnterCursor | enter | String |  |
 | EnterBlockedCursor | enter-blocked | String |  |
+| EnterOnRallyPoint | True | Boolean | Automatically enter the teleport network when the rally point of the producing building is on an entrance. |
 
 ### TeleportPower
-**Changes the location of a group of units.**
+**Changes the location of a group of units. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.HV/Traits/SupportPowers/TeleportPower.cs)**
 
 > Inherits from: `SupportPower`, `PausableConditionalTrait`, `ConditionalTrait`.
 
@@ -7652,6 +8004,11 @@ Related types with their possible values are listed [at the bottom](#related-val
 | SelectionCursor | select | String | Cursor to display when selecting targets for the teleport. |
 | TargetCursor | move | String | Cursor to display when targeting an area for the teleport. |
 | TargetBlockedCursor | move-blocked | String | Cursor to display when the targeted area is blocked. |
+| RangeFromTelevators | 10c0 | 1D World Distance | Maximum range from televator to be able to teleport. |
+| CircleColor | 7B68EE80 | Color (RRGGBB[AA] notation) | Range circle color. |
+| CircleWidth | 1 | Real Number | Range circle width in pixel. |
+| CircleBorderColor | 7B68EE40 | Color (RRGGBB[AA] notation) | Range circle border color. |
+| CircleBorderWidth | 3 | Real Number | Range circle border width in pixel. |
 | ChargeInterval | 0 | Integer | Measured in ticks. |
 | IconImage | icon | String |  |
 | Icon |  | String | Icon sprite displayed in the support power palette. |
@@ -7705,32 +8062,35 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### TerrainTileAnimation
+** [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.HV/Traits/World/TerrainTileAnimations.cs)**
+
+> Requires: [`BridgeShadowLayer`](#bridgeshadowlayer).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
 | Tiles | *(required)* | Collection of UInt16 |  |
-| Interval | 175, 325 | Collection of Integer | Average time (ticks) between animations. |
+| Interval | 175, 325 | Collection of Integer | Average time (ticks) between animations per 1000 tiles. |
 | InitialDelay | 0 | Integer | Delay (in ticks) before the first animation happens. |
 | Image | *(required)* | String | Which image to use. |
 | Sequence | *(required)* | String | Which sequence to use. |
 | Palette | *(required)* | String | Which palette to use. |
 
 ### TerrainTypeOverlay
-**Displays terrain tile IDs colored by terrain type.**
+**Displays terrain tile IDs colored by terrain type. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.HV/Traits/Render/TerrainTypeOverlay.cs)**
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
 | Font | TinyBold | String |  |
 
 ### UndergroundResourceLayer
-**Allows resources below actors. Attach this to the world actor.**
+**Allows resources below actors. Attach this to the world actor. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.HV/Traits/World/UndergroundResourceLayer.cs)**
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
 | ResourceTypes |  | Dictionary with Key: String, Value: ResourceTypeInfo |  |
 
 ### VariedCostManager
-**Keeps cost variations in sync. Attach this to the world actor.**
+**Keeps cost variations in sync. Attach this to the world actor. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.HV/Traits/World/VariedCostManager.cs)**
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -7738,7 +8098,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | Multiplier | 100,125 | 2D Integer | Range of percentage modifiers to apply. |
 
 ### VariedCostMultiplier
-**Modifies the production cost of this actor for a specific queue or when a prerequisite is granted. Requires VariedCostManager on the World actor.**
+**Modifies the production cost of this actor for a specific queue or when a prerequisite is granted.  Requires VariedCostManager on the World actor. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.HV/Traits/VariedCostMultiplier.cs)**
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -7747,10 +8107,11 @@ Related types with their possible values are listed [at the bottom](#related-val
 | Group |  | String | Set this if items should get the same random pricing. |
 
 ### WithCarrierParentPipsDecoration
+** [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.HV/Traits/Render/WithCarrierParentPipsDecoration.cs)**
 
 > Inherits from: `WithDecorationBase`, `ConditionalTrait`.
 
-> Requires trait(s): [`CarrierParent`](#carrierparent).
+> Requires: [`CarrierParent`](#carrierparent).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -7771,7 +8132,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### WithHackedConnectionArc
-**Draws an arc between a Hacker and all its victims or an actively exploited actor and it's controller.**
+**Draws an arc between a `Hacker` and all its victims or an actively exploited actor and it's controller. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.HV/Traits/Render/WithHackedConnectionArc.cs)**
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -7785,14 +8146,15 @@ Related types with their possible values are listed [at the bottom](#related-val
 | ZOffset | 0 | Integer | Equivalent to sequence ZOffset. Controls Z sorting. |
 
 ### WithHackerPipsDecoration
+** [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.HV/Traits/Render/WithHackerPipsDecoration.cs)**
 
 > Inherits from: `WithDecorationBase`, `ConditionalTrait`.
 
-> Requires trait(s): [`Hacker`](#hacker).
+> Requires: [`Hacker`](#hacker).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
-| PipCount | 0 | Integer | Number of pips to display. Defaults to Capacity |
+| PipCount | 0 | Integer | Number of pips to display. Defaults to `Capacity` |
 | PipStride | 0,0 | 2D Integer | If non-zero, override the spacing between adjacent pips. |
 | Image | pips | String | Image that defines the pip sequences. |
 | EmptySequence | pip-empty | String | Sequence used for indicating unused hack slots. |
@@ -7809,10 +8171,11 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### WithMissileSpawnerParentPipsDecoration
+** [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.HV/Traits/Render/WithMissileSpawnerParentPipsDecoration.cs)**
 
 > Inherits from: `WithDecorationBase`, `ConditionalTrait`.
 
-> Requires trait(s): [`MissileSpawnerParent`](#missilespawnerparent).
+> Requires: [`MissileSpawnerParent`](#missilespawnerparent).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -7833,7 +8196,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### WithResourceAnimation
-**Allows to play animations on resources. Attach this to the world actor.**
+**Allows to play animations on resources. Attach this to the world actor. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.HV/Traits/World/WithResourceAnimation.cs)**
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -7845,7 +8208,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | Palette |  | String | Animation palette. |
 
 ### WithTeleportGroupOverlay
-**Renders the bubble effects.**
+**Renders the bubble effects. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.HV/Traits/Render/WithTeleportGroupOverlay.cs)**
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -7856,29 +8219,31 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 
 ### CustomSelectionDecorations
+** [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.HV/Traits/Render/CustomSelectionDecorations.cs)**
 
 > Inherits from: `SelectionDecorationsBase`.
 
-> Requires trait(s): [`Interactable`](#interactable).
+> Requires: [`Interactable`](#interactable).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
 | SelectionBoxColor | FFFFFF | Color (RRGGBB[AA] notation) |  |
 
 ### EmptySelectionDecorations
+** [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.HV/Traits/Render/EmptySelectionDecorations.cs)**
 
 > Inherits from: `SelectionDecorationsBase`.
 
-> Requires trait(s): [`Interactable`](#interactable).
+> Requires: [`Interactable`](#interactable).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
 | SelectionBoxColor | FFFFFF | Color (RRGGBB[AA] notation) |  |
 
 ### WithCarrierHatchAnimation
-**This actor displays an open/close animation when child actors leave/enter.**
+**This actor displays an open/close animation when child actors leave/enter. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.HV/Traits/Render/WithCarrierHatchAnimation.cs)**
 
-> Requires trait(s): [`CarrierParent`](#carrierparent), [`RenderSprites`](#rendersprites), [`WithSpriteBody`](#withspritebody).
+> Requires: [`CarrierParent`](#carrierparent), [`RenderSprites`](#rendersprites), [`WithSpriteBody`](#withspritebody).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -7886,11 +8251,11 @@ Related types with their possible values are listed [at the bottom](#related-val
 | Body | body | String | Which sprite body to play the animation on. |
 
 ### WithConstructionBeamOverlay
-**Rendered after the "make" animation.**
+**Rendered after the "make" animation. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.HV/Traits/Render/WithConstructionBeamOverlay.cs)**
 
 > Inherits from: `ConditionalTrait`.
 
-> Requires trait(s): [`RenderSprites`](#rendersprites).
+> Requires: [`RenderSprites`](#rendersprites).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -7901,11 +8266,11 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### WithConstructionOverlay
-**Rendered together with the "make" animation.**
+**Rendered together with the "make" animation. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.HV/Traits/Render/WithConstructionOverlay.cs)**
 
 > Inherits from: `ConditionalTrait`.
 
-> Requires trait(s): [`BodyOrientation`](#bodyorientation), [`RenderSprites`](#rendersprites).
+> Requires: [`BodyOrientation`](#bodyorientation), [`RenderSprites`](#rendersprites).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -7915,9 +8280,9 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### WithDamagedOverlay
-**Renders an overlay when the actor is taking heavy damage.**
+**Renders an overlay when the actor is taking heavy damage. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.HV/Traits/Render/WithDamagedOverlay.cs)**
 
-> Requires trait(s): [`RenderSprites`](#rendersprites).
+> Requires: [`RenderSprites`](#rendersprites).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -7930,10 +8295,11 @@ Related types with their possible values are listed [at the bottom](#related-val
 | MaximumDamageState | Dead | [`DamageState`](#damagestate) |  |
 
 ### WithDeployMineAnimation
+** [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.HV/Traits/Render/WithDeployMineAnimation.cs)**
 
 > Inherits from: `ConditionalTrait`.
 
-> Requires trait(s): [`Minelayer`](#minelayer), [`WithSpriteBody`](#withspritebody).
+> Requires: [`Minelayer`](#minelayer), [`WithSpriteBody`](#withspritebody).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -7942,11 +8308,11 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### WithIdleOverlayOnGround
-**Renders a sprite on the ground position under the actor (regardless of it's actual height).**
+**Renders a sprite on the ground position under the actor (regardless of it's actual height). [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.HV/Traits/Render/WithIdleOverlayOnGround.cs)**
 
 > Inherits from: `PausableConditionalTrait`, `ConditionalTrait`.
 
-> Requires trait(s): [`BodyOrientation`](#bodyorientation), [`RenderSprites`](#rendersprites).
+> Requires: [`BodyOrientation`](#bodyorientation), [`RenderSprites`](#rendersprites).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -7960,8 +8326,9 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### WithLandingAnimation
+** [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.HV/Traits/Render/WithLandingAnimation.cs)**
 
-> Requires trait(s): [`WithSpriteBody`](#withspritebody).
+> Requires: [`WithSpriteBody`](#withspritebody).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -7972,8 +8339,9 @@ Related types with their possible values are listed [at the bottom](#related-val
 | Body | body | String | Which sprite body to play the animation on. |
 
 ### WithLandingCraftAnimation
+** [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.HV/Traits/Render/WithLandingCraftAnimation.cs)**
 
-> Requires trait(s): [`Cargo`](#cargo), [`WithSpriteBody`](#withspritebody).
+> Requires: [`Cargo`](#cargo), [`WithSpriteBody`](#withspritebody).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -7984,8 +8352,9 @@ Related types with their possible values are listed [at the bottom](#related-val
 | Body | body | String | Which sprite body to play the animation on. |
 
 ### WithLandingUnloadAnimation
+** [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.HV/Traits/Render/WithLandingUnloadAnimation.cs)**
 
-> Requires trait(s): [`Aircraft`](#aircraft), [`WithSpriteBody`](#withspritebody).
+> Requires: [`Aircraft`](#aircraft), [`WithSpriteBody`](#withspritebody).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -7995,9 +8364,9 @@ Related types with their possible values are listed [at the bottom](#related-val
 | Body | body | String | Which sprite body to play the animation on. |
 
 ### WithMissileLaunchAnimation
-**This actor displays a sprite sequence when spawning a missile.**
+**This actor displays a sprite sequence when spawning a missile. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.HV/Traits/Render/WithMissileLaunchAnimation.cs)**
 
-> Requires trait(s): [`BodyOrientation`](#bodyorientation), [`RenderSprites`](#rendersprites).
+> Requires: [`BodyOrientation`](#bodyorientation), [`RenderSprites`](#rendersprites).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -8005,10 +8374,11 @@ Related types with their possible values are listed [at the bottom](#related-val
 | Body | body | String | Which sprite body to play the animation on. |
 
 ### WithMissileSpriteBody
+** [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.HV/Traits/Render/WithMissileSpriteBody.cs)**
 
 > Inherits from: [`WithSpriteBody`](#withspritebody), `PausableConditionalTrait`, `ConditionalTrait`.
 
-> Requires trait(s): [`BallisticMissile`](#ballisticmissile), [`BodyOrientation`](#bodyorientation), [`RenderSprites`](#rendersprites).
+> Requires: [`BallisticMissile`](#ballisticmissile), [`BodyOrientation`](#bodyorientation), [`RenderSprites`](#rendersprites).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -8022,11 +8392,11 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### WithProductionDoorAnimation
-**Play an animation when a unit exits after production finished.**
+**Play an animation when a unit exits after production finished. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.HV/Traits/Render/WithProductionDoorAnimation.cs)**
 
 > Inherits from: `ConditionalTrait`.
 
-> Requires trait(s): [`WithSpriteBody`](#withspritebody).
+> Requires: [`WithSpriteBody`](#withspritebody).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -8037,11 +8407,11 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### WithProductionExitOverlay
-**Rendered when an actor finishes production on the used exit cell.**
+**Rendered when an actor finishes production on the used exit cell. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.HV/Traits/Render/WithProductionExitOverlay.cs)**
 
 > Inherits from: `ConditionalTrait`.
 
-> Requires trait(s): [`RenderSprites`](#rendersprites).
+> Requires: [`RenderSprites`](#rendersprites).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -8052,11 +8422,11 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### WithRandomFacingSpriteBody
-**Picks sprites from a random actor.**
+**Picks sprites from a random actor. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.HV/Traits/Render/WithRandomFacingSpriteBody.cs)**
 
 > Inherits from: [`WithFacingSpriteBody`](#withfacingspritebody), [`WithSpriteBody`](#withspritebody), `PausableConditionalTrait`, `ConditionalTrait`.
 
-> Requires trait(s): [`BodyOrientation`](#bodyorientation), [`RenderSprites`](#rendersprites).
+> Requires: [`BodyOrientation`](#bodyorientation), [`RenderSprites`](#rendersprites).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -8071,11 +8441,11 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### WithRandomSpriteBody
-**Picks sprites from a random actor.**
+**Picks sprites from a random actor. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.HV/Traits/Render/WithRandomSpriteBody.cs)**
 
 > Inherits from: [`WithSpriteBody`](#withspritebody), `PausableConditionalTrait`, `ConditionalTrait`.
 
-> Requires trait(s): [`RenderSprites`](#rendersprites).
+> Requires: [`RenderSprites`](#rendersprites).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -8090,11 +8460,11 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### WithResourceCollectorOverlay
-**Renders the fillness state.**
+**Renders the fillness state. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.HV/Traits/Render/WithResourceCollectorOverlay.cs)**
 
 > Inherits from: `PausableConditionalTrait`, `ConditionalTrait`.
 
-> Requires trait(s): [`RenderSprites`](#rendersprites), [`ResourceCollector`](#resourcecollector).
+> Requires: [`RenderSprites`](#rendersprites), [`ResourceCollector`](#resourcecollector).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -8106,11 +8476,11 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### WithSupportPowerChargedAnimation
-**Displays an overlay when `SupportPower` is fully charged.**
+**Displays an overlay when `SupportPower` is fully charged. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.HV/Traits/Render/WithSupportPowerChargedAnimation.cs)**
 
 > Inherits from: `ConditionalTrait`.
 
-> Requires trait(s): [`BodyOrientation`](#bodyorientation), [`RenderSprites`](#rendersprites).
+> Requires: [`BodyOrientation`](#bodyorientation), [`RenderSprites`](#rendersprites).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -8121,9 +8491,9 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### WithTeleportChargeAnimation
-**This actor displays a charge-up animation when it receives a teleported unit.**
+**This actor displays a charge-up animation when it receives a teleported unit. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.HV/Traits/Render/WithTeleportChargeAnimation.cs)**
 
-> Requires trait(s): [`RenderSprites`](#rendersprites), [`WithSpriteBody`](#withspritebody).
+> Requires: [`RenderSprites`](#rendersprites), [`WithSpriteBody`](#withspritebody).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -8131,9 +8501,9 @@ Related types with their possible values are listed [at the bottom](#related-val
 | Body | body | String | Which sprite body to play the animation on. |
 
 ### WithTeleportEnergyOverlay
-**This actor display an overlay upon arrival.**
+**This actor display an overlay upon arrival. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.HV/Traits/Render/WithTeleportEnergyOverlay.cs)**
 
-> Requires trait(s): [`BodyOrientation`](#bodyorientation), [`RenderSprites`](#rendersprites).
+> Requires: [`BodyOrientation`](#bodyorientation), [`RenderSprites`](#rendersprites).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -8145,7 +8515,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 
 ### FixedColorShift
-**Apply a fixed color shift to a palette. Use this to add RGBA compatibility to FixedColorPalette.**
+**Apply a fixed color shift to a palette. Use this to add RGBA compatibility to FixedColorPalette. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Mods.Common/Traits/Palettes/FixedColorShift.cs)**
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -8159,13 +8529,13 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 
 ### DebugPauseState
-**Checks for pause related desyncs. Attach this to the world actor.**
+**Checks for pause related desyncs. Attach this to the world actor. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Game/Traits/DebugPauseState.cs)**
 
 ### DebugVisualizations
-**Enables visualization commands. Attach this to the world actor.**
+**Enables visualization commands. Attach this to the world actor. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Game/Traits/World/DebugVisualizations.cs)**
 
 ### Faction
-**Attach this to the `World` actor.**
+**Attach this to the `World` actor. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Game/Traits/World/Faction.cs)**
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -8177,21 +8547,23 @@ Related types with their possible values are listed [at the bottom](#related-val
 | Selectable | True | Boolean |  |
 
 ### FrozenActorLayer
-**Required for FrozenUnderFog to work. Attach this to the player actor.**
+**Required for FrozenUnderFog to work. Attach this to the player actor. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Game/Traits/Player/FrozenActorLayer.cs)**
 
-> Requires trait(s): [`Shroud`](#shroud).
+> Requires: [`Shroud`](#shroud).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
 | BinSize | 10 | Integer | Size of partition bins (cells) |
 
 ### ScreenMap
+** [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Game/Traits/World/ScreenMap.cs)**
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
 | BinSize | 250 | Integer | Size of partition bins (world pixels) |
 
 ### ScreenShaker
+** [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Game/Traits/World/ScreenShaker.cs)**
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -8199,7 +8571,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | MaxMultiplier | 3,3 | 2D Real Number |  |
 
 ### Shroud
-**Required for shroud and fog visibility checks. Add this to the player actor.**
+**Required for shroud and fog visibility checks. Add this to the player actor. [GitHub](https://github.com/OpenRA/OpenRA/blob/20261108/OpenRA.Game/Traits/Player/Shroud.cs)**
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -8243,13 +8615,18 @@ Possible values: `None`, `Alpha`, `Additive`, `Subtractive`, `Multiply`, `Multip
 
 Referenced by: [`ShroudRenderer`](#shroudrenderer)
 
+### BotMcvExpansionMode
+Possible values: `CheckResource`, `CheckBase`, `CheckCurrentLocation`
+
+Referenced by: [`McvExpansionManagerBotModule`](#mcvexpansionmanagerbotmodule)
+
 ### CloakStyle
 Possible values: `None`, `Alpha`, `Color`, `Palette`
 
 Referenced by: [`Cloak`](#cloak)
 
 ### DamageSource
-Possible values: `Self`, `Killer`
+Possible values: `Self`, `Parent`, `Killer`
 
 Referenced by: [`FireWarheadsOnDeath`](#firewarheadsondeath), [`SpawnedFireWarheadsOnDeath`](#spawnedfirewarheadsondeath)
 
